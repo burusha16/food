@@ -1,0 +1,171 @@
+$breakpoints: (sm: 260px, md: 768px, lg: 1200px, elg: 1439px);
+$container-sizes: (sm: 100%, md: 744px, lg: 1168px, elg: 1408px);
+$container-items: (sm: 12, md: 12, lg: 12, elg: 20);
+$container-indent: (sm: 8px, md: 12px, lg: 16px, elg: 16px);
+
+%col-properties {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  box-sizing: inherit;
+
+  &.__align-start {
+    align-items: start;
+  }
+
+  &.__align-center {
+    align-items: center;
+  }
+
+  &.__align-end {
+    align-items: flex-end;
+  }
+
+  &.__justify-center {
+    justify-content: center;
+  }
+
+  &.__justify-end {
+    justify-content: flex-end;
+  }
+
+  &.__justify-beetwen {
+    justify-content: space-between;
+  }
+
+  &.__column {
+    flex-direction: column;
+  }
+}
+
+%container {
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.container {
+  @extend %container;
+
+  &-fluid {
+    @extend %container;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.row {
+  display: flex;
+  flex-flow: wrap;
+  box-sizing: inherit;
+
+  &.__relative {
+    position: relative;
+  }
+
+  &.__no-wrap {
+    flex-wrap: nowrap;
+  }
+
+  &.__aline-center {
+    align-items: center;
+  }
+}
+
+@mixin break($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+@each $key, $value in $container-sizes {
+  .container {
+    @include break($key) {
+      width: $value;
+    }
+  }
+}
+
+@each $key, $value in $container-indent {
+  .container {
+    @include break($key) {
+      padding-right: $value;
+      padding-left: $value;
+    }
+  }
+
+  .row {
+    @include break($key) {
+      margin-right: -$value;
+      margin-left: -$value;
+    }
+  }
+}
+
+@each $key, $items in $container-items {
+  @for $i from 1 through $items {
+    .col-#{$key}-#{$i} {
+      @extend %col-properties;
+    }
+  }
+
+  @each $key-indent, $indent-value in $container-indent {
+    @include break($key) {
+      @if $key == $key-indent {
+        @for $i from 1 through $items {
+          .col-#{$key}-#{$i} {
+            flex-basis: $i/$items * 100%;
+            padding-right: $indent-value;
+            padding-left: $indent-value;
+          }
+        }
+
+        @for $i from 0 through $items {
+          .col-#{$key}-offset-#{$i} {
+            margin-left: $i/$items * 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .visible-md,
+  .visible-lg,
+  .visible-elg,
+  .hidden-sm {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .visible-sm,
+  .visible-lg,
+  .visible-elg,
+  .hidden-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .visible-sm,
+  .visible-md,
+  .visible-elg,
+  .hidden-lg {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .visible-sm,
+  .visible-md,
+  .visible-elg,
+  .hidden-lg {
+    display: none !important;
+  }
+}

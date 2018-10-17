@@ -1,0 +1,31 @@
+* {
+  // min-width: 0; // if need truncate with flexbox
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  vertical-align: baseline;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+button {
+  background: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+ul {
+  list-style-type: none;
+}

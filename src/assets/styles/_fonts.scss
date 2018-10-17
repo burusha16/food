@@ -1,0 +1,13 @@
+@mixin add-font($name, $filename) {
+  @font-face {
+    font-family: $name;
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/#{$filename}.woff2") format("woff2"),
+         url("../fonts/#{$filename}.woff") format("woff"),
+         url("../fonts/#{$filename}.ttf") format("truetype");
+  }
+}
+
+// add fonts
+// @include add-font("Roboto", "roboto-regular");
