@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.36 20.05">
+  <defs>
+    <style>
+    .cls-logo1{fill:#00796b;}
+    .cls-logo2{fill:#009688;}
+    .cls-logo3{fill:#00796b;}
+    .cls-logo4{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:0.1px;}
+    </style>
+  </defs>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Слой_1-2" data-name="Слой 1">
+      <polygon class="cls-logo1" points="4.96 11.46 14.88 17.18 9.92 20.05 0 14.32 0 2.87 4.96 0 4.96 11.46"/>
+      <polygon class="cls-logo2" points="14.88 11.46 14.88 17.19 9.92 20.05 4.96 17.18 14.88 11.46"/>
+      <polygon class="cls-logo2" points="14.88 0 4.96 5.72 4.96 17.18 0 14.32 0 2.86 4.95 0 14.88 0"/>
+      <polygon class="cls-logo2" points="14.88 4.96 14.88 9.92 9.96 9.92 12.83 4.96 14.88 4.96"/>
+      <rect class="cls-logo1" x="14.88" y="4.96" width="4.96" height="4.96"/>
+      <path class="cls-logo3" d="M27.46.15v1L22.46,4V.15a.09.09,0,0,1,.09-.09h4.83A.09.09,0,0,1,27.46.15Z"/>
+      <path class="cls-logo3" d="M27.46,5.08V19.76a.09.09,0,0,1-.08.08H22.55a.09.09,0,0,1-.09-.08V8Z"/>
+      <polygon class="cls-logo2" points="41.63 9.92 47.36 19.84 41.63 19.84 35.9 9.92 41.63 0 47.36 0 41.63 9.92"/>
+      <polygon class="cls-logo1" points="41.62 9.92 35.89 19.84 30.17 19.84 35.89 9.92 30.17 0 35.89 0 41.62 9.92"/>
+      <polygon class="cls-logo2" points="27.46 5.08 27.46 10.93 22.46 13.74 22.46 7.99 27.46 5.08"/>
+      <line class="cls-logo4" x1="27.46" y1="4.07" x2="27.44" y2="4.08"/>
+      <line class="cls-logo4" x1="27.46" y1="9.92" x2="27.44" y2="9.93"/>
+      <polygon class="cls-logo1" points="19.88 14.3 19.88 20.05 14.88 17.24 14.88 4.96 19.84 4.96 19.84 14.28 19.88 14.3"/>
+    </g>
+  </g>
+</svg>

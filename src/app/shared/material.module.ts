@@ -39,10 +39,18 @@ import {
   MatTableModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule
+  MatTreeModule,
+  MatIconRegistry
 } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MaterialIconsList } from './material-icons-list';
+import { IMatIcon } from './interfaces/MatIcon.interface';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
+  imports: [
+    HttpClientModule
+  ],
   exports: [
     // MatAutocompleteModule,
     // MatBadgeModule,
@@ -86,4 +94,13 @@ import {
     // MatTreeModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule {
+  constructor(sanitizer: DomSanitizer,
+              matIconRegistry: MatIconRegistry) {
+    const extention = '.svg';
+    MaterialIconsList.forEach((icon: IMatIcon) => {
+      const url = sanitizer.bypassSecurityTrustResourceUrl(icon.src + icon.name + extention);
+      matIconRegistry.addSvgIcon(icon.name, url);
+    });
+  }
+}
