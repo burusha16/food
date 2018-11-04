@@ -1,6 +1,6 @@
 export interface IResponsiveComponent {
   isDesktopLG: boolean;
   isDesktop: boolean;
-  isTablet: boolean;
+  isSmall: boolean;
   isMobile: boolean;
 }

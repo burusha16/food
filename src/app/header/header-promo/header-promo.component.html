@@ -1,0 +1,17 @@
+<div class="header-promo container-fluid">
+  <div class="row">
+    <div class="col-sm-12 __justify-beetwen">
+      <div class="header-promo__prefix"></div>
+      <div class="header-promo__infix">
+        <span>Новогоднее меню</span>
+        <button [ngClass]="{'button-inline': isSmall,
+                            'button-default __h36 __ml20 __bg-white15 __br6': !isSmall}"
+                (click)="navigateToMenu()">
+          {{isSmall ? 'Смотреть' : 'Смотреть блюда'}}
+          <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml16 __white"></mat-icon>
+        </button>
+      </div>
+      <div class="header-promo__suffix"></div>
+    </div>
+  </div>
+</div>

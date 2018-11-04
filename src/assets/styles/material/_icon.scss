@@ -1,0 +1,25 @@
+$icon-sizes: 16;
+$icon-colors: ("white": $white, "baltic-sea": $baltic-sea);
+$icon-margin-left: 16;
+$icon-margin-right: 16;
+
+
+@each $size in $icon-sizes {
+  &.__s#{$size} {
+    width: #{$size}px !important;
+    height: #{$size}px !important;
+    line-height: #{$size}px;
+  }
+}
+
+@each $name, $color in $icon-colors {
+  &.__#{$name} {
+    color: #{$color};
+  }
+}
+
+@each $indent in $icon-margin-left {
+  &.__ml#{$indent} {
+    margin-left: #{$indent}px;
+  }
+}

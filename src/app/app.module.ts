@@ -7,6 +7,7 @@ import { MaterialModule } from './shared/material.module';
 import { DeviceWindowService } from './shared/device-window.service';
 
 import { AppComponent } from './app.component';
+import { HeaderModule } from './header/header.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HeaderModule
   ],
   providers: [DeviceWindowService],
   bootstrap: [AppComponent]

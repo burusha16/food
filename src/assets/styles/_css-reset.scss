@@ -3,9 +3,6 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: inherit;
-  font-size: 100%;
-  font-style: inherit;
   vertical-align: baseline;
 }
 
@@ -28,4 +25,9 @@ button {
 
 ul {
   list-style-type: none;
+}
+
+body {
+  font-family: $ffreg;
+  font-size: 14px;
 }

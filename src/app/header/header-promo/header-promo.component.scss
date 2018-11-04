@@ -1,0 +1,71 @@
+@import "../../../assets/styles/variables";
+
+$promo-height: 58px;
+$promo-height-mob: 42px;
+$promo-bgc: $black;
+
+:host {
+  display: flex;
+}
+
+.header-promo {
+  position: relative;
+  height: $promo-height;
+  background-color: $promo-bgc;
+  color: $white;
+  font-size: 24px;
+
+  @media screen and (max-width: $bp-md) {
+    height: $promo-height-mob;
+  }
+
+  &__prefix {
+    display: flex;
+    flex-grow: 1;
+    max-width: 480px;
+    height: $promo-height;
+    background-image: url("../../../assets/img/NY2019/panel_left.gif");
+
+    @media screen and (max-width: $bp-md) {
+      flex-shrink: 0;
+      align-self: center;
+      max-width: 24px;
+      height: 24px;
+      background-image: url("../../../assets/img/NY2019/ball.gif");
+      background-size: 24px;
+    }
+  }
+
+  &__infix {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    align-items: center;
+    height: $promo-height;
+    transform: translateX(-50%);
+
+    @media screen and (max-width: $bp-md) {
+      position: relative;
+      left: auto;
+      flex-grow: 1;
+      justify-content: space-between;
+      height: $promo-height-mob;
+      padding-left: 16px;
+      transform: translateX(0);
+      font-size: 18px;
+    }
+
+  }
+
+  &__suffix {
+    display: flex;
+    flex-grow: 1;
+    max-width: 480px;
+    height: $promo-height;
+    background-image: url("../../../assets/img/NY2019/panel_right.gif");
+
+    @media screen and (max-width: $bp-md) {
+      display: none;
+    }
+  }
+}

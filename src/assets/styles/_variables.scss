@@ -1,16 +1,19 @@
 // breakpoints
 $bp-sm: 767px;
-$bp-md: 1199px;
-$bp-lg: 1439px;
+$bp-md: 960px;
+$bp-lg: 1199px;
+$bp-elg: 1439px;
 
 // fonts
-// $ffreg: "Roboto";
+$ffreg: "Circe";
 // $ffmd: "Roboto Medium";
 // $ffbold: "Roboto Bold";
 
 // colors
 $black: #000;
+$baltic-sea: #1a171b;
 $white: #fff;
+$cerulean-blue: #2557a7;
 
 // transition duration
 $duration-fast: .2s;
