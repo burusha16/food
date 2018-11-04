@@ -1,5 +1,5 @@
-import { DeviceWindowService, WindowDetect } from "./services/device-window.service";
-import { ServiceLocator } from "./services/locator.service";
+import { DeviceWindowService, WindowDetect } from "../services/device-window.service";
+import { ServiceLocator } from "../services/locator.service";
 
 export function Responsive(): ClassDecorator {
   return function (constructor: any) {

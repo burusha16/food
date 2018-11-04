@@ -43,8 +43,8 @@ import {
   MatIconRegistry
 } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MaterialIconsList } from './material-icons-list';
-import { IMatIcon } from './interfaces/MatIcon.interface';
+import { MaterialIconsList } from '../other/material-icons-list';
+import { IMatIcon } from '../interfaces/MatIcon.interface';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { IMatIcon } from "./interfaces/MatIcon.interface";
+import { IMatIcon } from "../interfaces/MatIcon.interface";
 
 const defaultPath = '../assets/img/icons/';
 

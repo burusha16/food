@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { EventManager } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 
-import { DeviceMediaMap } from './enums/device-media.map';
-import { IResponsiveComponent } from './interfaces/ResponsiveComponent.interface';
+import { DeviceMediaMap } from '../enums/device-media.map';
+import { IResponsiveComponent } from '../interfaces/ResponsiveComponent.interface';
 
 @Injectable({
   providedIn: 'root'
