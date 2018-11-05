@@ -1,6 +1,7 @@
 
 import { InjectFlags, InjectionToken, Injector, Type } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 export class ServiceLocator {
   static injector: Injector;
@@ -11,5 +12,9 @@ export class ServiceLocator {
     } catch (e) {
       return null;
     }
+  }
+
+  static get translate(): TranslateService {
+    return ServiceLocator.get(TranslateService);
   }
 }

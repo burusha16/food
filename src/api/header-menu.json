@@ -1,0 +1,28 @@
+[
+  {
+    "name": "phone-number",
+    "url": "tel:88007778337",
+    "theme": "no-hover"
+  },
+  {
+    "name": "menu",
+    "routerLink": "/menu"
+  },
+  {
+    "name": "how-it-works",
+    "routerLink": "/how"
+  },
+  {
+    "name": "about-company",
+    "routerLink": "/about"
+  },
+  {
+    "name": "blog",
+    "routerLink": "/blog"
+  },
+  {
+    "name": "login",
+    "routerLink": "/login",
+    "icon": "default-avatar"
+  }
+]

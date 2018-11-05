@@ -1,0 +1,20 @@
+@import "../../assets/styles/variables";
+
+$header-height: 60px;
+$header-height-mob: 45px;
+$header-bgc: $white; 
+
+.header {
+  height: $header-height;
+  background-color: $header-bgc;
+  box-shadow: 0 2px 3px 0 rgba($black, .08);
+  
+  @media screen and (max-width: $bp-md) {
+    height: $header-height-mob;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: flex-end;
+  }
+}
