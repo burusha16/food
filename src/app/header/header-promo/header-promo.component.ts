@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
 import { DeviceWindowService } from 'src/app/shared/services/device-window.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'
@@ -11,7 +11,7 @@ import { Responsive } from 'src/app/shared/decorators/responsive.decorator';
   templateUrl: './header-promo.component.html',
   styleUrls: ['./header-promo.component.scss']
 })
-export class HeaderPromoComponent implements OnDestroy, IResponsiveComponent {
+export class HeaderPromoComponent implements OnDestroy, OnInit, IResponsiveComponent {
   isDesktopLG: boolean;
   isDesktop: boolean;
   isSmall: boolean;
@@ -25,6 +25,9 @@ export class HeaderPromoComponent implements OnDestroy, IResponsiveComponent {
       .subscribe(() => {
         this.cdRef.markForCheck();
       })
+  }
+
+  ngOnInit() {
   }
 
   ngOnDestroy() {

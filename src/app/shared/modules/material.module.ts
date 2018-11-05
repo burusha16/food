@@ -40,7 +40,8 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
-  MatIconRegistry
+  MatIconRegistry,
+  MAT_DIALOG_DEFAULT_OPTIONS
 } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MaterialIconsList } from '../other/material-icons-list';
@@ -62,7 +63,7 @@ import { HttpClientModule } from '@angular/common/http';
     // MatChipsModule,
     MatCommonModule,
     // MatDatepickerModule,
-    // MatDialogModule,
+    MatDialogModule,
     // MatDividerModule,
     // MatExpansionModule,
     MatFormFieldModule,
@@ -92,6 +93,9 @@ import { HttpClientModule } from '@angular/common/http';
     // MatToolbarModule,
     MatTooltipModule,
     // MatTreeModule
+  ],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ]
 })
 export class MaterialModule {

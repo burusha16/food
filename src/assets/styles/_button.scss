@@ -23,8 +23,20 @@
       border-radius: 6px;
     }
 
-    &.__bg-white15 {
+    &.__bg-white15-28-40 {
       background-color: rgba($white, .15);
+
+      &:hover {
+        background-color: rgba($white, .28);
+      }
+
+      &:active {
+        background-color: rgba($white, .4);
+      }
+    }
+
+    &.__dur-fast {
+      transition-duration: $duration-fast;
     }
   }
 

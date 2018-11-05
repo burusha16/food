@@ -4,8 +4,11 @@
     <div class="row __full-h">
       <div class="col-sm-12 col-lg-12 __full-h __justify-beetwen __align-center">
         <a class="header__logo" routerLink="/">
-          <mat-icon svgIcon="logo" class="__w188 __h20 __mt2 __baltic-sea"></mat-icon>
-          <!-- <mat-icon svgIcon="logo-yandex-project" class="__w93 __h16 __ml10 __baltic-sea"></mat-icon> -->
+          <mat-icon svgIcon="logo"
+                    class="__h20 __mt2 __baltic-sea"
+                    [ngClass]="{'__w145': isSmall,
+                                '__w188': !isSmall }">
+          </mat-icon>
         </a>
 
         <app-header-menu></app-header-menu>
