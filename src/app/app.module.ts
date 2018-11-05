@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {MissingTranslationHandler} from '@ngx-translate/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderModule } from './header/header.module';
 
 import { DeviceWindowService } from './shared/services/device-window.service';
+import { BaseApiService } from './shared/services/base-api.service';
 
 import { AppComponent } from './app.component';
-import { HeaderModule } from './header/header.module';
-import { MyMissingTranslationHandler } from './shared/other/translate-handler';
+import { MyMissingTranslationHandler } from './shared/other/translate.handler';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { MyMissingTranslationHandler } from './shared/other/translate-handler';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
@@ -27,11 +28,14 @@ import { MyMissingTranslationHandler } from './shared/other/translate-handler';
         deps: [HttpClient]
       },
       missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler},
-      useDefaultLang: false
+      // useDefaultLang: false
     }),
     HeaderModule
   ],
-  providers: [DeviceWindowService],
+  providers: [
+    DeviceWindowService,
+    BaseApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

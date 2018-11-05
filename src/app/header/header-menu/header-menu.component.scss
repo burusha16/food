@@ -1,0 +1,32 @@
+@import "../../../assets//styles/variables";
+
+:host {
+  display: flex;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0 -16px;
+  font-size: 18px;
+
+  &__item {
+    margin: 0 16px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    transition-duration: $duration-fast;
+    color: $baltic-sea;
+
+    &:hover {
+      color: $boulder;
+    }
+
+    &.__no-hover:hover {
+      color: $baltic-sea;
+    }
+  }
+}

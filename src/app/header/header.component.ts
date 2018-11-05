@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { BaseApiService } from '../shared/services/base-api.service';
+import { IHeaderMenuItem } from '../shared/interfaces/HeaderMenuItem.interface';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  menuItems: IHeaderMenuItem[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
 }

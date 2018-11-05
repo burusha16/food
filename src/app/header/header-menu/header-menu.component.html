@@ -1,0 +1,30 @@
+<ul class="header-menu" *ngIf="!isSmall">
+  <li class="header-menu__item" *ngFor="let item of menuItems">
+    <a [href]="item.url" 
+        *ngIf="item.url"
+        class="header-menu__link"
+        [ngClass]="{'__no-hover': item.theme === 'no-hover'}">
+      {{item.name}}
+    </a>
+
+    <a [routerLink]="item.routerLink"
+        *ngIf="item.routerLink"
+        class="header-menu__link"
+       [ngClass]="{'__no-hover': item.theme === 'no-hover'}">
+      {{item.name}}
+
+      <mat-icon [svgIcon]="item.icon" *ngIf="item.icon" class="__s36 __ml16"></mat-icon>
+    </a>
+  </li>
+</ul>
+
+<ng-template [ngIf]="isSmall">
+  <button class="hamburger-icon"
+          [ngClass]="{'__expanded': isMenuExpanded}"
+          (click)="toggleMenu()">
+    <span class="hamburger-icon__line"></span>
+    <span class="hamburger-icon__line"></span>
+    <span class="hamburger-icon__line"></span>
+  </button>
+</ng-template>
+

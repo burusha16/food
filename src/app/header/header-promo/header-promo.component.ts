@@ -1,9 +1,9 @@
 import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { DeviceWindowService } from 'src/app/shared/device-window.service';
+import { DeviceWindowService } from 'src/app/shared/services/device-window.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'
 import { IResponsiveComponent } from 'src/app/shared/interfaces/ResponsiveComponent.interface';
-import { Responsive } from 'src/app/shared/responsive.decorator';
+import { Responsive } from 'src/app/shared/decorators/responsive.decorator';
 
 @Responsive()
 @Component({
@@ -31,7 +31,7 @@ export class HeaderPromoComponent implements OnDestroy, IResponsiveComponent {
     this.onDestroy$.next();
   }
 
-  navigateToMenu() {
+  navigateToPromo() {
     console.log('navigate!');
   }
 }

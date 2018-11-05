@@ -1,25 +1,47 @@
-$icon-sizes: 16;
+$icon-sizes: 16, 36;
+$icon-widths: 188, 145, 93, 83;
+$icon-heights: 16, 20;
 $icon-colors: ("white": $white, "baltic-sea": $baltic-sea);
-$icon-margin-left: 16;
+$icon-margin-left: 10, 16;
 $icon-margin-right: 16;
+$icon-margin-top: 2;
 
-
-@each $size in $icon-sizes {
-  &.__s#{$size} {
-    width: #{$size}px !important;
-    height: #{$size}px !important;
-    line-height: #{$size}px;
+.mat-icon {
+  @each $size in $icon-sizes {
+    &.__s#{$size} {
+      width: #{$size}px !important;
+      height: #{$size}px !important;
+      line-height: #{$size}px;
+    }
   }
-}
-
-@each $name, $color in $icon-colors {
-  &.__#{$name} {
-    color: #{$color};
+  
+  @each $width in $icon-widths {
+    &.__w#{$width} {
+      width: #{$width}px !important;
+    }
   }
-}
+ 
+  @each $height in $icon-heights {
+    &.__h#{$height} {
+      height: #{$height}px !important;
+    }
+  }
 
-@each $indent in $icon-margin-left {
-  &.__ml#{$indent} {
-    margin-left: #{$indent}px;
+  @each $name, $color in $icon-colors {
+    &.__#{$name} {
+      color: #{$color};
+    }
+  }
+  
+  @each $indent in $icon-margin-left {
+    &.__ml#{$indent} {
+      margin-left: #{$indent}px;
+    }
+  }
+
+  @each $indent in $icon-margin-top {
+    &.__mt#{$indent} {
+      margin-top: #{$indent}px;
+    }
   }
 }
