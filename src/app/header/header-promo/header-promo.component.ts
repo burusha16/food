@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
 import { DeviceWindowService } from 'src/app/shared/services/device-window.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'
-import { IResponsiveComponent } from 'src/app/shared/interfaces/ResponsiveComponent.interface';
+import { IResponsiveComponent } from 'src/app/shared/interfaces/responsive-component.interface';
 import { Responsive } from 'src/app/shared/decorators/responsive.decorator';
 
 @Responsive()

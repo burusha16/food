@@ -1,10 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BaseApiService } from 'src/app/shared/services/base-api.service';
-import { IHeaderMenuItem } from 'src/app/shared/interfaces/HeaderMenuItem.interface';
+import { IHeaderMenuItem } from 'src/app/shared/interfaces/header-menu-item.interface';
 import { Responsive } from 'src/app/shared/responsive.decorator';
-import { IResponsiveComponent } from 'src/app/shared/interfaces/ResponsiveComponent.interface';
+import { IResponsiveComponent } from 'src/app/shared/interfaces/responsive-component.interface';
 import { HeaderService } from '../header.service';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { HeaderMenuResponseTypes } from 'src/app/shared/enums/header-menu-response-types.enum';
+import { HeaderMenuItem } from 'src/app/shared/models/header-menu-item.model';
 
 @Responsive()
 @Component({
@@ -17,9 +19,10 @@ export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
   isDesktop: boolean;
   isSmall: boolean;
   isMobile: boolean;
-  menuItems: IHeaderMenuItem[];
   isMenuExpanded: boolean = false;
   isMenuExpanded$: Subject<boolean> = this.headerService.headerMenuExpanded$;
+  headerMenuTypes = HeaderMenuResponseTypes;
+  menuItems$: Observable<HeaderMenuItem[]> = this.apiService.getHeaderMenu();
 
   constructor(private apiService: BaseApiService,
               private headerService: HeaderService,
@@ -28,17 +31,12 @@ export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
       this.isMenuExpanded = status;
       this.cdRef.markForCheck();
     });
-    this.apiService.getHeaderMenu().subscribe( (data: IHeaderMenuItem[]) => {
-      this.menuItems = data;
-      this.cdRef.markForCheck();
-    });
   }
 
   ngOnInit() {
   }
 
   toggleMenu(): void {
-    console.log('yap');
     this.isMenuExpanded ? this.headerService.hideHeaderMenuDialog() : this.headerService.showHeaderMenuDialog();
   }
 }

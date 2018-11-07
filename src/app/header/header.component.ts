@@ -1,8 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BaseApiService } from '../shared/services/base-api.service';
-import { IHeaderMenuItem } from '../shared/interfaces/HeaderMenuItem.interface';
+import { IHeaderMenuItem } from '../shared/interfaces/header-menu-item.interface';
 import { Responsive } from '../shared/responsive.decorator';
-import { IResponsiveComponent } from '../shared/interfaces/ResponsiveComponent.interface';
+import { IResponsiveComponent } from '../shared/interfaces/responsive-component.interface';
+import { WindowScrollService } from '../shared/services/window-scroll.service';
+import { Subject } from 'rxjs';
 
 @Responsive()
 @Component({
@@ -16,10 +18,13 @@ export class HeaderComponent implements OnInit, IResponsiveComponent {
   isSmall: boolean;
   isMobile: boolean;
   menuItems: IHeaderMenuItem[];
+  scrollStatus$: Subject<boolean> = new Subject();
 
-  constructor() {
+  constructor(private scrollService: WindowScrollService) {
+    this.scrollStatus$.subscribe(() => console.log('yap!'));
   }
 
   ngOnInit() {
+    this.scrollService.breakpointPassed(45, this.scrollStatus$);
   }
 }

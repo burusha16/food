@@ -12,6 +12,7 @@ import { BaseApiService } from './shared/services/base-api.service';
 
 import { AppComponent } from './app.component';
 import { MyMissingTranslationHandler } from './shared/other/translate.handler';
+import { WindowScrollService } from './shared/services/window-scroll.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MyMissingTranslationHandler } from './shared/other/translate.handler';
   ],
   providers: [
     DeviceWindowService,
-    BaseApiService
+    BaseApiService,
+    WindowScrollService
   ],
   bootstrap: [AppComponent]
 })

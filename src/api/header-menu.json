@@ -1,28 +1,89 @@
 [
   {
-    "name": "phone-number",
+    "name": "header.phone-number",
     "url": "tel:88007778337",
-    "theme": "no-hover"
+    "theme": "no-hover",
+    "type": "desktop"
   },
   {
-    "name": "menu",
-    "routerLink": "/menu"
+    "name": "header.menu",
+    "routerLink": "/menu",
+    "type": "desktop"
+
   },
   {
-    "name": "how-it-works",
-    "routerLink": "/how"
+    "name": "header.how-it-works",
+    "routerLink": "/how",
+    "type": "desktop"
+
   },
   {
-    "name": "about-company",
-    "routerLink": "/about"
+    "name": "header.about-company",
+    "routerLink": "/about",
+    "type": "desktop"
+
   },
   {
-    "name": "blog",
-    "routerLink": "/blog"
+    "name": "header.blog",
+    "routerLink": "/blog",
+    "type": "desktop"
+
   },
   {
-    "name": "login",
+    "name": "header.login",
     "routerLink": "/login",
-    "icon": "default-avatar"
+    "icon": "default-avatar",
+    "type": "desktop"
+  },
+  {
+    "name": "header.login",
+    "routerLink": "/login",
+    "type": "mobile-header"
+  },
+  {
+    "name": "menu.classic",
+    "routerLink": "/menu#classic",
+    "type": "mobile-menu"
+  },
+  {
+    "name": "menu.premium",
+    "routerLink": "/menu#premium",
+    "type": "mobile-menu"
+  },
+  {
+    "name": "menu.family",
+    "routerLink": "/menu#family",
+    "type": "mobile-menu"
+  },
+  {
+    "name": "menu.10minutes",
+    "routerLink": "/menu#10minutes",
+    "type": "mobile-menu"
+  },
+  {
+    "name": "menu.fitness",
+    "routerLink": "/menu#fitness",
+    "type": "mobile-menu"
+  },
+  {
+    "name": "menu.vegetarian",
+    "routerLink": "/menu#vegetarian",
+    "type": "mobile-menu"
+  },
+  {
+    "name": "header.about-company",
+    "routerLink": "/about",
+    "type": "mobile-footer"
+  },
+  {
+    "name": "header.how-it-works",
+    "routerLink": "/how",
+    "type": "mobile-footer"
+  },
+  {
+    "name": "header.phone-number",
+    "url": "tel:88007778337",
+    "type": "mobile-footer",
+    "icon": "old-phone"
   }
 ]

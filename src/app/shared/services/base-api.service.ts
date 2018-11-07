@@ -1,14 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpParams, HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { IHeaderMenuItem } from "../interfaces/HeaderMenuItem.interface";
-import { map } from "rxjs/operators";
-import { HeaderMenuItem } from "../models/HeaderMenuItem.model";
+import { IHeaderMenuItem } from "../interfaces/header-menu-item.interface";
+import { map, publishReplay, refCount } from "rxjs/operators";
+import { HeaderMenuItem } from "../models/header-menu-item.model";
 
 @Injectable() 
 export class BaseApiService {
   private BASE_URL = 'api/';
   protected URL: string;
+  private CACHE_SIZE = 1;
 
   static serialize(object: any): HttpParams {
     return new HttpParams({ fromObject: object });
@@ -28,8 +29,12 @@ export class BaseApiService {
 
   getHeaderMenu(): Observable<HeaderMenuItem[]> {
     return this.get('header-menu')
-      .pipe(map((menu: IHeaderMenuItem[]) => 
-      menu.map((menuItem: IHeaderMenuItem) => new HeaderMenuItem(menuItem))
-      ));
+      .pipe(
+        map((response: IHeaderMenuItem[]) => 
+        response.map((menuItem: IHeaderMenuItem) => new HeaderMenuItem(menuItem))
+        ), 
+        publishReplay(this.CACHE_SIZE),
+        refCount()
+      );
   }
 }
