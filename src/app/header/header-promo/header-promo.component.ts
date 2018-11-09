@@ -12,10 +12,7 @@ import { Responsive } from 'src/app/shared/decorators/responsive.decorator';
   styleUrls: ['./header-promo.component.scss']
 })
 export class HeaderPromoComponent implements OnDestroy, OnInit, IResponsiveComponent {
-  isDesktopLG: boolean;
-  isDesktop: boolean;
   isSmall: boolean;
-  isMobile: boolean;
   onDestroy$: Subject<void> = new Subject();
 
   constructor(private deviceService: DeviceWindowService,

@@ -15,10 +15,7 @@ import { HeaderMenuItem } from 'src/app/shared/models/header-menu-item.model';
   styleUrls: ['./header-menu.component.scss']
 })
 export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
-  isDesktopLG: boolean;
-  isDesktop: boolean;
   isSmall: boolean;
-  isMobile: boolean;
   isMenuExpanded: boolean = false;
   isMenuExpanded$: Subject<boolean> = this.headerService.showHeaderDialog$;
   headerMenuTypes = HeaderMenuResponseTypes;
