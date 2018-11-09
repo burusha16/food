@@ -1,0 +1,43 @@
+<div class="header-dialog">
+    <div class="header-dialog__header">
+      <ng-template ngFor [ngForOf]="menuItems$ | async" let-item>
+        <a [routerLink]="item.routerLink"
+           class="header-dialog__link __black __fz14"
+           *ngIf="item.routerLink && item.type === mobileHeader">
+          {{item.name}}
+        </a>
+      </ng-template>
+    </div>
+
+    <div class="header-dialog__body">
+      <ng-template ngFor [ngForOf]="menuItems$ | async" let-item>
+        <a [href]="item.url"
+          class="header-dialog__link __ptb10"
+          *ngIf="item.url && item.type === mobileMenu">
+          {{item.name}}
+        </a>
+
+        <a [routerLink]="item.routerLink"
+          class="header-dialog__link __ptb10"
+          *ngIf="item.routerLink && item.type === mobileMenu">
+          {{item.name}}
+        </a>
+      </ng-template>
+    </div>
+
+    <div class="header-dialog__footer">
+      <ng-template ngFor [ngForOf]="menuItems$ | async" let-item>
+        <a [href]="item.url" 
+           class="header-dialog__link __mtb8 __mine-shaft __fz14"
+           *ngIf="item.url && item.type === mobileFooter">
+          {{item.name}}
+        </a>
+
+        <a [routerLink]="item.routerLink"
+           class="header-dialog__link __mtb8 __mine-shaft __fz14"
+           *ngIf="item.routerLink && item.type === mobileFooter">
+          {{item.name}}
+        </a>
+      </ng-template>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+@import "../../../../assets/styles/variables";
+
+:host {
+  display: flex;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-dialog {
+  width: 100vw;
+  margin: -24px;
+  box-sizing: border-box;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    height: 45px;
+  }
+
+  &__body {
+    @extend %flex-column;
+    justify-content: center;
+    height: calc(100vh - 194px);
+    padding-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  &__footer {
+    @extend %flex-column;
+    padding-top: 12px;
+    padding-bottom: 28px;
+    border-top: 1px solid $alto;
+  }
+
+  &__link {
+    padding: 0 12px;
+    color: $cerulean-blue;
+    font-size: 18px;
+
+    &.__mtb8 {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    &.__ptb10 {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    &.__black {
+      color: $black;
+    }
+
+    &.__mine-shaft {
+      color: $mine-shaft;
+    }
+
+    &.__fz14 {
+      font-size: 14px;
+    }
+  }
+}

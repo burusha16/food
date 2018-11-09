@@ -5,6 +5,14 @@
     "how-it-works":"Как это работает",
     "about-company":"О компании",
     "blog":"Блог",
-    "login":"Логин"
+    "login":"Войти"
+  },
+  "menu": {
+    "classic": "Классическое",
+    "premium": "Премиум",
+    "family": "Семейное",
+    "10minutes": "10 минут",
+    "fitness": "Фитнес",
+    "vegetarian": "Вегетарианское"
   }
 }

@@ -1,7 +1,7 @@
 $breakpoints: (sm: 0, md: 768px, lg: 1024px, elg: 1439px);
 $container-sizes: (sm: 100%, md: 744px, lg: 984px, elg: 1408px);
 $container-items: (sm: 12, md: 12, lg: 12, elg: 12);
-$container-indent: (sm: 8px, md: 12px, lg: 20px, elg: 20px);
+$container-indent: (sm: 12px, md: 12px, lg: 20px, elg: 20px);
 
 %col-properties {
   display: flex;

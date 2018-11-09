@@ -1,8 +1,12 @@
-import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BaseApiService } from 'src/app/shared/services/base-api.service';
-import { IHeaderMenuItem } from 'src/app/shared/interfaces/HeaderMenuItem.interface';
+import { IHeaderMenuItem } from 'src/app/shared/interfaces/header-menu-item.interface';
 import { Responsive } from 'src/app/shared/responsive.decorator';
-import { IResponsiveComponent } from 'src/app/shared/interfaces/ResponsiveComponent.interface';
+import { IResponsiveComponent } from 'src/app/shared/interfaces/responsive-component.interface';
+import { HeaderService } from '../header.service';
+import { Subject, Observable } from 'rxjs';
+import { HeaderMenuResponseTypes } from 'src/app/shared/enums/header-menu-response-types.enum';
+import { HeaderMenuItem } from 'src/app/shared/models/header-menu-item.model';
 
 @Responsive()
 @Component({
@@ -10,24 +14,26 @@ import { IResponsiveComponent } from 'src/app/shared/interfaces/ResponsiveCompon
   templateUrl: './header-menu.component.html',
   styleUrls: ['./header-menu.component.scss']
 })
-export class HeaderMenuComponent implements IResponsiveComponent {
-  isDesktopLG: boolean;
-  isDesktop: boolean;
+export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
   isSmall: boolean;
-  isMobile: boolean;
-  menuItems: IHeaderMenuItem[];
-  isMenuExpanded: boolean;
+  isMenuExpanded: boolean = false;
+  isMenuExpanded$: Subject<boolean> = this.headerService.showHeaderDialog$;
+  headerMenuTypes = HeaderMenuResponseTypes;
+  menuItems$: Observable<HeaderMenuItem[]> = this.apiService.getHeaderMenu();
 
   constructor(private apiService: BaseApiService,
+              private headerService: HeaderService,
               private cdRef: ChangeDetectorRef) {
-    this.isMenuExpanded = false;
-    this.apiService.getHeaderMenu().subscribe( (data: IHeaderMenuItem[]) => {
-      this.menuItems = data;
+    this.isMenuExpanded$.subscribe( (status: boolean) => {
+      this.isMenuExpanded = status;
       this.cdRef.markForCheck();
     });
   }
 
-  toggleMenu() {
-    this.isMenuExpanded = !this.isMenuExpanded;
+  ngOnInit() {
+  }
+
+  toggleMenu(): void {
+    this.isMenuExpanded ? this.headerService.hideHeaderMenuDialog() : this.headerService.showHeaderMenuDialog();
   }
 }

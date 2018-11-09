@@ -3,7 +3,7 @@ import { EventManager } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 
 import { DeviceMediaMap } from '../enums/device-media.map';
-import { IResponsiveComponent } from '../interfaces/ResponsiveComponent.interface';
+import { IResponsiveComponent } from '../interfaces/responsive-component.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -22,16 +22,13 @@ export class DeviceWindowService {
     });
   }
 
-  get onResize(): BehaviorSubject<WindowDetect> {
+  get onResize$(): BehaviorSubject<WindowDetect> {
     return this.windowSubject;
   }
 }
 
 export class WindowDetect implements IResponsiveComponent {
   deviceChanged: boolean;
-  isDesktop: boolean;
-  isDesktopLG: boolean;
-  isMobile: boolean;
   isSmall: boolean;
   
   constructor() {
