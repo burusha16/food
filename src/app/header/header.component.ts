@@ -14,6 +14,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
+  @ViewChild('header') headerNode: ElementRef;
   isSmall: boolean;
   isHeaderFixed$: Subject<boolean> = new Subject();
 
