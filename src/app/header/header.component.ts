@@ -15,8 +15,9 @@ import { filter } from 'rxjs/operators';
 })
 export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
   @ViewChild('header') headerNode: ElementRef;
-  isSmall: boolean;
   isHeaderFixed$: Subject<boolean> = new Subject();
+  isMobile: boolean;
+  isSmall: boolean;
 
   constructor(private scrollService: WindowScrollService,
               private deviceService: DeviceWindowService,

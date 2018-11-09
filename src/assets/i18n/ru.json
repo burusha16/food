@@ -14,5 +14,10 @@
     "10minutes": "10 минут",
     "fitness": "Фитнес",
     "vegetarian": "Вегетарианское"
+  },
+  "promo": {
+    "new-yaer-menu": "Новогоднее меню",
+    "watch-dishes": "Смотреть блюда",
+    "watch": "Смотреть"
   }
 }
