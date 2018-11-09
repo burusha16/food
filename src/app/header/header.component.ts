@@ -1,10 +1,11 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { BaseApiService } from '../shared/services/base-api.service';
-import { IHeaderMenuItem } from '../shared/interfaces/header-menu-item.interface';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Responsive } from '../shared/responsive.decorator';
 import { IResponsiveComponent } from '../shared/interfaces/responsive-component.interface';
 import { WindowScrollService } from '../shared/services/window-scroll.service';
 import { Subject } from 'rxjs';
+import { DeviceWindowService } from '../shared/services/device-window.service';
+import { Router, NavigationEnd, RouterEvent } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Responsive()
 @Component({
@@ -12,19 +13,33 @@ import { Subject } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, IResponsiveComponent {
+export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
+  @ViewChild('header') headerNode: ElementRef;
   isDesktopLG: boolean;
   isDesktop: boolean;
   isSmall: boolean;
   isMobile: boolean;
-  menuItems: IHeaderMenuItem[];
-  scrollStatus$: Subject<boolean> = new Subject();
+  isHeaderFixed$: Subject<boolean> = new Subject();
 
-  constructor(private scrollService: WindowScrollService) {
-    this.scrollStatus$.subscribe(() => console.log('yap!'));
-  }
+  constructor(private scrollService: WindowScrollService,
+              private deviceService: DeviceWindowService,
+              private router: Router) {
+    this.router.events
+      .pipe(filter((event: RouterEvent) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        if (this.headerNode) {
+          const breakpoint = this.headerNode.nativeElement.offsetTop;
+          this.scrollService.breakpointPassed(breakpoint, this.isHeaderFixed$);
+        }
+      });
+    }
 
-  ngOnInit() {
-    this.scrollService.breakpointPassed(45, this.scrollStatus$);
-  }
+  ngAfterViewInit() {
+    this.deviceService.onResize$.subscribe(() => {
+      const breakpoint = this.headerNode.nativeElement.offsetTop;
+      if (breakpoint) {
+        this.scrollService.breakpointPassed(breakpoint, this.isHeaderFixed$);      
+      }
+    });
+  }           
 }

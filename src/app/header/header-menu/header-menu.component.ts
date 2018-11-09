@@ -20,7 +20,7 @@ export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
   isSmall: boolean;
   isMobile: boolean;
   isMenuExpanded: boolean = false;
-  isMenuExpanded$: Subject<boolean> = this.headerService.headerMenuExpanded$;
+  isMenuExpanded$: Subject<boolean> = this.headerService.showHeaderDialog$;
   headerMenuTypes = HeaderMenuResponseTypes;
   menuItems$: Observable<HeaderMenuItem[]> = this.apiService.getHeaderMenu();
 

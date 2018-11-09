@@ -20,7 +20,7 @@ export class HeaderPromoComponent implements OnDestroy, OnInit, IResponsiveCompo
 
   constructor(private deviceService: DeviceWindowService,
               private cdRef: ChangeDetectorRef) {
-    this.deviceService.onResize
+    this.deviceService.onResize$
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() => {
         this.cdRef.markForCheck();

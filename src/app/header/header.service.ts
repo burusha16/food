@@ -6,7 +6,7 @@ import { BaseApiService } from '../shared/services/base-api.service';
 
 @Injectable()
 export class HeaderService {
-  headerMenuExpanded$: Subject<boolean> = new Subject();
+  showHeaderDialog$: Subject<boolean> = new Subject();
 
   constructor(public dialog: MatDialog,
               private apiService: BaseApiService) {
@@ -15,12 +15,12 @@ export class HeaderService {
   showHeaderMenuDialog() {
     this.dialog.open(HeaderMenuDialogComponent, {
       panelClass: 'header-menu__dialog',
-      data: {menuItems: this.apiService.getHeaderMenu, status$: this.headerMenuExpanded$}
+      data: {showDialog$: this.showHeaderDialog$}
     });
-    this.headerMenuExpanded$.next(true);
+    this.showHeaderDialog$.next(true);
   }
 
   hideHeaderMenuDialog() {
-    this.headerMenuExpanded$.next(false);
+    this.showHeaderDialog$.next(false);
   }
 }

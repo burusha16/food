@@ -1,6 +1,6 @@
 <router-outlet name="promo"></router-outlet>
-<header class="header__wrapper">
-  <div class="header container-fluid">
+<header class="header__wrapper" #header>
+  <div class="header container-fluid" [ngClass]="{'__fixed': isHeaderFixed$ | async}">
     <div class="row __full-h">
       <div class="col-sm-12 col-lg-12 __full-h __justify-beetwen __align-center">
         <a class="header__logo" routerLink="/">

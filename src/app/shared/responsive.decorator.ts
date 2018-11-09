@@ -8,7 +8,7 @@ export function Responsive(): ClassDecorator {
     constructor.prototype.ngOnInit = function (...args) {
       const windowService: DeviceWindowService = ServiceLocator.get<DeviceWindowService>(DeviceWindowService);
       if (windowService) {
-        windowService.onResize.subscribe((windowDetect: WindowDetect) => windowDetect.apply(this));
+        windowService.onResize$.subscribe((windowDetect: WindowDetect) => windowDetect.apply(this));
         if (originalHookInit) {
           originalHookInit.apply(this, args);
         }

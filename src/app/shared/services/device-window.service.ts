@@ -22,7 +22,7 @@ export class DeviceWindowService {
     });
   }
 
-  get onResize(): BehaviorSubject<WindowDetect> {
+  get onResize$(): BehaviorSubject<WindowDetect> {
     return this.windowSubject;
   }
 }
