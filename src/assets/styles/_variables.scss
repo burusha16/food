@@ -1,18 +1,20 @@
 // breakpoints
-$bp-sm: 767px;
+$bp-sm: 600px;
 $bp-md: 960px;
 $bp-lg: 1199px;
 $bp-elg: 1439px;
 
 // fonts
 $ffreg: "Circe";
-// $ffmd: "Roboto Medium";
-// $ffbold: "Roboto Bold";
+$ffnf: "Noto Serif", sans-serif;
+
 
 // colors
 $alto: #dadada;
+$alabaster: #f9f9f9;
 $black: #000;
 $baltic-sea: #1a171b;
+$biscay: #193a70;
 $boulder: #7c7b7b;
 $cerulean-blue: #2557a7;
 $mine-shaft: #303030;

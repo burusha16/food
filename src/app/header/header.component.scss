@@ -12,10 +12,19 @@ $header-bgc: $white;
   &.__fixed {
     position: fixed;
     top: 0;
+    z-index: 100;
   }
 
   @media screen and (max-width: $bp-md) {
     height: $header-height-mob;
+  }
+
+  &__wrapper {
+    height: $header-height;
+
+    @media screen and (max-width: $bp-md) {
+      height: $header-height-mob;
+    }
   }
 
   &__logo {

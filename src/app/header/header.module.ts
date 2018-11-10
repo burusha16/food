@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderService } from './header.service';
 import { RouterModule } from '@angular/router';
-import { routes as Routes} from './header.routing';
+import { HeaderRoutes } from './header.routing';
 import { HeaderPromoComponent } from './header-promo/header-promo.component';
 import { HeaderComponent } from './header.component';
 import { SharedModule } from '../shared/modules/shared.module';
@@ -18,7 +18,7 @@ import { WindowScrollService } from '../shared/services/window-scroll.service';
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(Routes),
+    RouterModule.forChild(HeaderRoutes),
     SharedModule
   ],
   exports: [

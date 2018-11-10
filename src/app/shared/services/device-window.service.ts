@@ -29,6 +29,7 @@ export class DeviceWindowService {
 
 export class WindowDetect implements IResponsiveComponent {
   deviceChanged: boolean;
+  isMobile: boolean;
   isSmall: boolean;
   
   constructor() {

@@ -14,5 +14,19 @@
     "10minutes": "10 минут",
     "fitness": "Фитнес",
     "vegetarian": "Вегетарианское"
+  },
+  "promo": {
+    "new-yaer-menu": "Новогоднее меню",
+    "watch-dishes": "Смотреть блюда",
+    "watch": "Смотреть"
+  },
+  "main-page": {
+    "presentation": {
+      "subscription-dinners": "Ужины по подписке",
+      "subscription-dinners-mob": "Ужины <br /> по подписке",
+      "dinners-price-count": "от {{price}} руб. за {{counts}} ужинов",
+      "for-two": "на двоих",
+      "for-three": "на троих"
+    }
   }
 }

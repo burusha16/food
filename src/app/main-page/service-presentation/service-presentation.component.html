@@ -1,0 +1,32 @@
+<div class="presentation container-fluid"
+     [ngClass]="{'__no-bgi': isVideoVisible$ | async}">
+  <div class="row">
+    <div class="col-sm-12 __column __align-center">
+      <ng-template [ngIf]="!(isVideoVisible$ | async)">
+          <h1 class="presentation__title" 
+              [innerHTML]="('main-page.presentation.' + (isMobile ? 'subscription-dinners-mob' : 'subscription-dinners')) | translate">
+          </h1>
+
+          <p class="presentation__descr">
+            {{'main-page.presentation.dinners-price-count' | translate:"{price: '2 796', counts: '5'}" }}
+            {{'main-page.presentation.for-two' | translate }}
+          </p>
+    
+          <div class="presentation__play" (click)="showVideo()">
+            <mat-icon svgIcon="triangle" class="__s36 __ml10 __white"></mat-icon>
+          </div>
+      </ng-template>
+
+      <div class="presentation__video-wrapper" *ngIf="isVideoVisible$ | async">
+        <video class="presentation__video" controls preload autoplay>
+          <source src="/assets/video/presentation-video.mp4" type="video/mp4">
+        </video>
+        <div class="presentation__video-close">
+          <button mat-icon-button class="__s34 __bg-white30" (click)="hideVideo()">
+            <mat-icon svgIcon="cross" class="__s18 __boulder"></mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

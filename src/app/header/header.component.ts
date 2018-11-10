@@ -15,8 +15,9 @@ import { filter } from 'rxjs/operators';
 })
 export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
   @ViewChild('header') headerNode: ElementRef;
-  isSmall: boolean;
   isHeaderFixed$: Subject<boolean> = new Subject();
+  isMobile: boolean;
+  isSmall: boolean;
 
   constructor(private scrollService: WindowScrollService,
               private deviceService: DeviceWindowService,
@@ -26,7 +27,8 @@ export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
       .subscribe(() => {
         if (this.headerNode) {
           const breakpoint = this.headerNode.nativeElement.offsetTop;
-          this.scrollService.breakpointPassed(breakpoint, this.isHeaderFixed$);
+          this.scrollService.removeListeners(this.constructor.name);
+          this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.isHeaderFixed$);
         }
       });
     }
@@ -35,7 +37,8 @@ export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
     this.deviceService.onResize$.subscribe(() => {
       const breakpoint = this.headerNode.nativeElement.offsetTop;
       if (breakpoint) {
-        this.scrollService.breakpointPassed(breakpoint, this.isHeaderFixed$);      
+        this.scrollService.removeListeners(this.constructor.name);
+        this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.isHeaderFixed$);
       }
     });
   }           
