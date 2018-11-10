@@ -47,6 +47,12 @@
     font-size: 18px;
     font-style: italic;
     line-height: 24px;
+    text-align: center;
+  
+    @media screen and (max-width: $bp-sm) {
+      padding: 0 24px;
+      text-align: center;
+    }
   }
 
   &__play {
@@ -81,8 +87,7 @@
     height: 568px;
 
     @media screen and (max-width: 1010px) {
-      width: 100%;
-      height: 55.3vw;
+      height: 57vw;
     }
 
     &-wrapper {
@@ -90,9 +95,9 @@
       justify-content: center;
       margin: 0 -20px;
       padding-top: 16px;
+      overflow-x: hidden;
 
       @media screen and (max-width: $bp-md) {
-        // width: 100%;
         margin: 0 -12px;
         padding-top: 0;
       }
