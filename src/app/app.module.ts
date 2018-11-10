@@ -13,15 +13,19 @@ import { BaseApiService } from './shared/services/base-api.service';
 import { AppComponent } from './app.component';
 import { MyMissingTranslationHandler } from './shared/other/translate.handler';
 import { WindowScrollService } from './shared/services/window-scroll.service';
+import { MainPageModule } from './main-page/main-page.module';
+import { RouterModule } from '@angular/router';
+import { AppRoutes } from './app.routing';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(AppRoutes),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -29,9 +33,10 @@ import { WindowScrollService } from './shared/services/window-scroll.service';
         deps: [HttpClient]
       },
       missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler},
-      // useDefaultLang: false
+      useDefaultLang: false
     }),
-    HeaderModule
+    HeaderModule,
+    MainPageModule
   ],
   providers: [
     DeviceWindowService,

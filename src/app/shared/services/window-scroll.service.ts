@@ -22,4 +22,13 @@ export class WindowScrollService {
       }
     });
   }
+
+  enableWindowScroll() {
+    document.body.removeAttribute('style');
+  }
+
+  disableWindowScroll() {
+    document.body.style.height = '100vh';
+    document.body.style.overflowY = 'hidden';
+  }
 }
