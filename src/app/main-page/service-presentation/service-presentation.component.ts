@@ -4,6 +4,7 @@ import { Responsive } from 'src/app/shared/decorators/responsive.decorator';
 import { IResponsiveComponent } from 'src/app/shared/interfaces/responsive-component.interface';
 import { DeviceWindowService } from 'src/app/shared/services/device-window.service';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Responsive()
 @Component({
@@ -19,7 +20,8 @@ export class ServicePresentationComponent implements AfterViewChecked, IResponsi
   videoRef: HTMLElement;
 
   constructor(private cdRef: ChangeDetectorRef,
-              private elemRef: ElementRef) {
+              private elemRef: ElementRef,
+              private translate: TranslateService) {
   }
 
   ngAfterViewChecked() {
@@ -28,6 +30,11 @@ export class ServicePresentationComponent implements AfterViewChecked, IResponsi
       this.videoRef = videoRef;
       this.videoRef.addEventListener('ended', this.videoEndedHandler);
     }
+  }
+
+  get title(): string {
+    const suffix = this.isMobile ? '-mob' : '';
+    return this.translate.instant(`main-page.presentation.subscription-dinners${suffix}`)
   }
 
   showVideo() {

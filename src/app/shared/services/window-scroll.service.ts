@@ -21,6 +21,7 @@ export class WindowScrollService {
   }
 
   addScrollListener(breakpoint: number, name: string,  subject$: Subject<boolean>): void {
+    this.removeListener(name);
     this.listeners.push({
       breakpoint: breakpoint,
       name: name,
@@ -28,7 +29,7 @@ export class WindowScrollService {
     });
   }
 
-  removeListeners(name: string): void {
+  removeListener(name: string): void {
     this.listeners = this.listeners.filter((listener: IScrollListener) => listener.name !== name);
   }
 

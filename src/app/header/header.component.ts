@@ -27,7 +27,6 @@ export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
       .subscribe(() => {
         if (this.headerNode) {
           const breakpoint = this.headerNode.nativeElement.offsetTop;
-          this.scrollService.removeListeners(this.constructor.name);
           this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.isHeaderFixed$);
         }
       });
@@ -37,7 +36,6 @@ export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
     this.deviceService.onResize$.subscribe(() => {
       const breakpoint = this.headerNode.nativeElement.offsetTop;
       if (breakpoint) {
-        this.scrollService.removeListeners(this.constructor.name);
         this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.isHeaderFixed$);
       }
     });

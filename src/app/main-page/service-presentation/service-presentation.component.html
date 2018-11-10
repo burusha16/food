@@ -3,9 +3,7 @@
   <div class="row">
     <div class="col-sm-12 __column __align-center">
       <ng-template [ngIf]="!(isVideoVisible$ | async)">
-          <h1 class="presentation__title" 
-              [innerHTML]="('main-page.presentation.' + (isMobile ? 'subscription-dinners-mob' : 'subscription-dinners')) | translate">
-          </h1>
+          <h1 class="presentation__title" [innerHTML]="title | safeHtml"></h1>
 
           <p class="presentation__descr">
             {{'main-page.presentation.dinners-price-count' | translate:"{price: '2 796', counts: '5'}" }}

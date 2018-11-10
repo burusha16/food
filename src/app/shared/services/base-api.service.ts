@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { IHeaderMenuItem } from "../interfaces/header-menu-item.interface";
 import { map, publishReplay, refCount } from "rxjs/operators";
 import { HeaderMenuItem } from "../models/header-menu-item.model";
+import { IBaseDataResponse } from "../interfaces/base-data-respone.interface";
 
 @Injectable() 
 export class BaseApiService {
