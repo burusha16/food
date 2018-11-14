@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HeaderService } from './header.service';
 import { RouterModule } from '@angular/router';
 import { HeaderRoutes } from './header.routing';
@@ -17,7 +16,6 @@ import { WindowScrollService } from '../shared/services/window-scroll.service';
     HeaderMenuDialogComponent,
   ],
   imports: [
-    CommonModule,
     RouterModule.forChild(HeaderRoutes),
     SharedModule
   ],

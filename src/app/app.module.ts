@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -16,6 +16,11 @@ import { WindowScrollService } from './shared/services/window-scroll.service';
 import { MainPageModule } from './main-page/main-page.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
+import { CachingInterceptor, RequestCacheService } from './shared/services/request-cache.service';
+
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
+];
 
 @NgModule({
   declarations: [
@@ -39,8 +44,10 @@ import { AppRoutes } from './app.routing';
     MainPageModule
   ],
   providers: [
-    DeviceWindowService,
+    httpInterceptorProviders,
+    RequestCacheService,
     BaseApiService,
+    DeviceWindowService,
     WindowScrollService
   ],
   bootstrap: [AppComponent]

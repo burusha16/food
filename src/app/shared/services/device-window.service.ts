@@ -5,9 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { DeviceMediaMap } from '../enums/device-media.map';
 import { IResponsiveComponent } from '../interfaces/responsive-component.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DeviceWindowService {
   private windowDetect: WindowDetect = new WindowDetect();
   private windowSubject: BehaviorSubject<WindowDetect> = new BehaviorSubject<WindowDetect>(this.windowDetect);
