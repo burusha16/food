@@ -17,6 +17,7 @@ import { MainPageModule } from './main-page/main-page.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { CachingInterceptor, RequestCacheService } from './shared/services/request-cache.service';
+import { SwiperSliderModule } from './shared/modules/swiper-slider.module';
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },

@@ -1,5 +1,5 @@
 {
-  "name": "FoodParty",
+  "name": "food-party",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
@@ -24,8 +24,11 @@
     "@angular/router": "7.0.2",
     "@ngx-translate/core": "^11.0.0",
     "@ngx-translate/http-loader": "^4.0.0",
+    "@types/swiper": "^4.2.4",
     "core-js": "*",
+    "ngx-swiper-wrapper": "^7.0.0",
     "rxjs": "^6.3.3",
+    "swiper": "^4.4.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

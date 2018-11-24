@@ -1,4 +1,4 @@
-import { Component, Injector, ChangeDetectionStrategy, HostListener } from '@angular/core';
+import { Component, Injector, ChangeDetectionStrategy } from '@angular/core';
 import { Responsive } from './shared/decorators/responsive.decorator';
 import { ServiceLocator } from './shared/services/locator.service';
 import { TranslateService } from '@ngx-translate/core';

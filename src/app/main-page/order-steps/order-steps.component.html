@@ -1,3 +1,18 @@
-<p>
-  order-steps works!
-</p>
+<div class="order-steps container">
+  <div class="row">
+    <div class="col-sm-12 __column">
+      <h2 class="order-steps__title">{{'main-page.order-steps.title' | translate}}</h2>
+
+      <div class="order-steps__slider swiper-container" [swiper]="swiperConfig" #swiper>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let slide of slides">
+            <div class="order-steps__slider-item">
+              <div class="order-steps__slider-image" *ngIf="slide.showImg"></div>
+              <p class="order-steps__slider-text" [innerHTML]="slide.descriptionKey | translate | safeHtml"></p>
+            </div>
+          </div>
+        </div>
+        <div class="order-steps__slider-pagination"></div>
+    </div>
+  </div>
+</div>

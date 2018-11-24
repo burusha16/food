@@ -1,0 +1,119 @@
+@import "../../../assets/styles/variables";
+
+
+.order-steps {
+  margin: 0;
+  overflow: hidden;
+
+  &__title {
+    max-width: 580px;
+    margin: auto;
+    margin-top: 72px;
+    text-align: center;
+
+    @media screen and (max-width: $bp-sm) {
+      margin-top: 48px;
+    }
+  }
+
+  &__slider {
+    max-width: 920px;
+    margin: auto;
+    margin-top: 64px;
+
+    .swiper {
+      &-container,
+      &-slide {
+        overflow: visible !important;
+      }
+
+      &-wrapper {
+        display: flex;
+      }
+    }
+
+    @media screen and (max-width: $bp-sm) {
+      width: 250px;
+      margin: auto;
+      margin-top: 28px;
+    }
+
+    &-item {
+      display: flex;
+      position: relative;
+      width: 306.6px;
+
+      @media screen and (max-width: $bp-md) {
+        width: 248px;
+      }
+
+      @media screen and (max-width: $bp-sm) {
+        width: 250px;
+      }
+    }
+
+    &-text {
+      width: 230px;
+      margin: auto;
+      margin-top: 342px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 200;
+      text-align: center;
+
+      @media screen and (max-width: $bp-sm) {
+        margin-top: 278px;
+      }
+    }
+
+    &-image {
+      position: absolute;
+      top: 0;
+      width: 920px;
+      height: 333px;
+      background-image: url("../../../assets/img/main-page/how-it-works.png");
+      background-position: center;
+      background-size: 920px 333px;
+
+      @media screen and (max-width: $bp-md) {
+        width: 744px;
+        height: 268px;
+        background-size: 744px 268px;
+      }
+
+      @media screen and (max-width: $bp-sm) {
+        width: 750px;
+        height: 270px;
+        background-size: 750px 270px;
+      }
+    }
+
+    &-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -10px;
+    }
+
+    &-bullet {
+      display: block;
+      width: 4px;
+      height: 4px;
+      margin: 0 4px;
+      transition-duration: $duration-fast;
+      border-radius: 50%;
+      background-color: $cerulean-blue;
+
+      &-active {
+        display: block;
+        width: 8px;
+        height: 8px;
+        margin: 0 2px;
+        transition-duration: $duration-fast;
+        border: 1px solid $cerulean-blue;
+        background-color: $white;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

@@ -53,5 +53,6 @@ export class WindowScrollService {
   disableWindowScroll(): void {
     document.body.style.height = '100vh';
     document.body.style.overflowY = 'hidden';
+    window.scrollTo(0, 0);
   }
 }
