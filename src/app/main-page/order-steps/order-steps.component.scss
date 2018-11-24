@@ -2,21 +2,21 @@
 
 
 .order-steps {
+  margin-top: 72px;
   overflow: hidden;
+
+  @media screen and (max-width: $bp-sm) {
+    margin-top: 48px;
+  }
 
   &__title {
     max-width: 580px;
     margin: auto;
-    margin-top: 72px;
     text-align: center;
-
-    @media screen and (max-width: $bp-sm) {
-      margin-top: 48px;
-    }
   }
 
   &__slider {
-    max-width: 920px;
+    width: 920px;
     margin: auto;
     margin-top: 64px;
 
@@ -29,6 +29,10 @@
       &-wrapper {
         display: flex;
       }
+    }
+
+    @media screen and (max-width: $bp-md) {
+      width: 744px;
     }
 
     @media screen and (max-width: $bp-sm) {
@@ -60,8 +64,8 @@
       font-weight: 200;
       text-align: center;
 
-      @media screen and (max-width: $bp-sm) {
-        margin-top: 278px;
+      @media screen and (max-width: $bp-md) {
+        margin-top: 276px;
       }
     }
 

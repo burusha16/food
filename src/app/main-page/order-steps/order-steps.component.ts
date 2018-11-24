@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewEncapsulation, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { SwiperConfigInterface, SwiperPaginationInterface, SwiperDirective, SwiperComponent } from 'ngx-swiper-wrapper';
+import { Component, ViewEncapsulation, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
+import { SwiperConfigInterface, SwiperPaginationInterface, SwiperDirective } from 'ngx-swiper-wrapper';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { DeviceWindowService } from 'src/app/shared/services/device-window.service';
 
-export interface IOrderStepSlide {
+interface IOrderStepSlide {
   descriptionKey: string;
   showImg: boolean;
 }
@@ -13,9 +15,10 @@ export interface IOrderStepSlide {
   styleUrls: ['./order-steps.component.scss'],
   encapsulation : ViewEncapsulation.None,
 })
-export class OrderStepsComponent {
-  @ViewChild(SwiperDirective) swiper?: SwiperDirective;
+export class OrderStepsComponent implements AfterViewInit, OnDestroy {
+  @ViewChild(SwiperDirective) swiper: SwiperDirective;
 
+  onDestroy$: Subject<void> = new Subject();
   slides: IOrderStepSlide[] = [];
   swiperPagination: SwiperPaginationInterface = {
     el: '.order-steps__slider-pagination',
@@ -40,7 +43,7 @@ export class OrderStepsComponent {
     }
   };
 
-  constructor() {
+  constructor(private deviceService: DeviceWindowService) {
     for (let index = 0; index < 3; index++) {
       const slide: IOrderStepSlide = {
         descriptionKey: `main-page.order-steps.step${index + 1}`,
@@ -50,6 +53,15 @@ export class OrderStepsComponent {
     }
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    this.deviceService.onResize$
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(() => {
+        this.swiper.update();
+      });
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
   }
 }
