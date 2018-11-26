@@ -1,14 +1,15 @@
-@mixin add-font($name, $filename) {
+@mixin add-font($name, $filename, $style: normal, $weight: normal) {
   @font-face {
     font-family: $name;
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/#{$filename}.woff2") format("woff2"),
+    font-style: $style;
+    font-weight: $weight;
+    src: local($name),
+         url("../fonts/#{$filename}.woff2") format("woff2"),
          url("../fonts/#{$filename}.woff") format("woff"),
          url("../fonts/#{$filename}.ttf") format("truetype");
   }
 }
 
-
 @include add-font("Circe", "circe-regular");
-@include add-font("Noto Serif", "noto-serif");
+@include add-font("Noto Serif", "noto-serif", "italic", "400");
+@include add-font("Noto Serif", "noto-serif-cyr", "italic", "400");
