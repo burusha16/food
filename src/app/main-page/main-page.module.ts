@@ -4,12 +4,14 @@ import { MainPageComponent } from './main-page.component';
 import { ServicePresentationComponent } from './service-presentation/service-presentation.component';
 import { OrderStepsComponent } from './order-steps/order-steps.component';
 import { SwiperSliderModule } from '../shared/modules/swiper-slider.module';
+import { MenuExamplesComponent } from './menu-examples/menu-examples.component';
 
 @NgModule({
   declarations: [
     MainPageComponent,
     ServicePresentationComponent,
     OrderStepsComponent,
+    MenuExamplesComponent
   ],
   imports: [
     SharedModule,

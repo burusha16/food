@@ -1,5 +1,5 @@
 @import "../../../assets/styles/variables";
-
+@import "../../../assets/styles/swiper";
 
 .order-steps {
   margin-top: 72px;
@@ -19,17 +19,6 @@
     width: 920px;
     margin: auto;
     margin-top: 64px;
-
-    .swiper {
-      &-container,
-      &-slide {
-        overflow: visible !important;
-      }
-
-      &-wrapper {
-        display: flex;
-      }
-    }
 
     @media screen and (max-width: $bp-md) {
       width: 744px;
@@ -92,30 +81,14 @@
     }
 
     &-pagination {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: -10px;
+      @extend %swiper-pagination;
     }
 
     &-bullet {
-      display: block;
-      width: 4px;
-      height: 4px;
-      margin: 0 4px;
-      transition-duration: $duration-fast;
-      border-radius: 50%;
-      background-color: $cerulean-blue;
+      @extend %swiper-bullet;
 
       &-active {
-        display: block;
-        width: 8px;
-        height: 8px;
-        margin: 0 2px;
-        transition-duration: $duration-fast;
-        border: 1px solid $cerulean-blue;
-        background-color: $white;
-        box-sizing: border-box;
+        @extend %swiper-bullet-active;
       }
     }
   }

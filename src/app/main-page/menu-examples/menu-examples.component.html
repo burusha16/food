@@ -1,0 +1,64 @@
+<div class="menu-examples container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12 __column __align-center">
+      <h2>{{'main-page.menu-examples.title' | translate}}:</h2>
+
+      <p class="menu-examples__delivery-info">{{'main-page.menu-examples.delivery' | translate:{date: '2-3 декабя'} }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="menu-examples __slider">
+  <mat-tab-group class="__default"
+                 disableRipple="true"
+                 animationDuration="400ms"
+                 (animationDone)="removeSliderAnimation()"
+                 (selectedTabChange)="updateSliderData($event.index)">
+    <mat-tab [label]="menu.title" *ngFor="let menu of data">
+    </mat-tab>
+    <mat-tab disabled *ngIf="!isSmall">
+      <ng-template mat-tab-label>
+        <a href="#" class="menu-examples__slider-link">
+          Новогоднее
+          <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml8 __mercury"></mat-icon>
+        </a>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="menu-examples__slider-wrapper" #swiperWrapper>
+    <div class="menu-examples__slider swiper-container" [swiper]="swiperConfig">
+      <div class="swiper-wrapper">
+        <div class="menu-examples__slider-slide swiper-slide __menu-expample" *ngFor="let slide of [1,2,3]" (click)="changeSlide($event)">
+          <div class="menu-examples__slider-item">
+            <img [src]="currentMenu.imgUrl" width="100%" height="auto">
+            <h5 class="menu-examples__slider-title">День третий: Шпинатные тальятелле с миксом овощей в соусе из кокосового молока</h5>
+            <p class="menu-examples__slider-descr">
+              <span><mat-icon svgIcon="clock" class="__s12 __mr4"></mat-icon> 35 мин.</span>
+              <span>Белки -4г</span>
+              <span>Жиры -7г</span>
+              <span>Углеводы -18г</span>
+              <span>Калории -145ккал</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-examples__slider-pagination"></div>
+
+      <div class="menu-examples__slider-nav">
+        <button class="menu-examples__slider-nav-prev">
+          <mat-icon svgIcon="arrow-right" class="__s16 __rotate180"></mat-icon>
+        </button>
+    
+        <button class="menu-examples__slider-nav-next">
+          <mat-icon svgIcon="arrow-right" class="__s16"></mat-icon>
+        </button>
+      </div>
+
+      <div class="menu-examples__slider-select">
+        <button class="button-default __w240 __h40">{{'main-page.menu-examples.btn-text' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>

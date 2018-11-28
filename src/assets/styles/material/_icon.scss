@@ -1,9 +1,9 @@
-$icon-sizes: 16, 18, 36;
+$icon-sizes: 12, 16, 18, 36;
 $icon-widths: 188, 145, 93, 83;
 $icon-heights: 16, 20;
-$icon-colors: ("white": $white, "baltic-sea": $baltic-sea, "boulder": $boulder);
-$icon-margin-left: 10, 16;
-$icon-margin-right: 16;
+$icon-colors: ("white": $white, "baltic-sea": $baltic-sea, "boulder": $boulder, "mercury": $mercury);
+$icon-margin-left: 8, 10, 16;
+$icon-margin-right: 4, 16;
 $icon-margin-top: 2;
 
 .mat-icon {
@@ -43,5 +43,9 @@ $icon-margin-top: 2;
     &.__mt#{$indent} {
       margin-top: #{$indent}px;
     }
+  }
+
+  &.__rotate180 {
+    transform: rotate(180deg);
   }
 }

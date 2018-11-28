@@ -1,0 +1,57 @@
+.mat-tab-group {
+  &.__default {
+    .mat-ink-bar {
+      background-color: $cerulean-blue;
+    }
+
+    .mat-tab {
+      &-header {
+        width: 950px;
+        margin: auto;
+  
+        @media screen and (max-width: $bp-md) {
+          width: 100%;
+        }
+
+        &-pagination {
+          display: none;
+        }
+      }
+
+      &-label {
+        min-width: auto;
+        height: 42px;
+        margin: 0 16px;
+        padding: 0 4px;
+        transition-duration: $duration-fast;
+        color: $mine-shaft;
+        font-family: $ffreg;
+        font-size: 18px;
+        line-height: 24px;
+        opacity: 1;
+
+        &:hover {
+          color: $boulder;
+        }
+
+        &-active {
+          color: $cerulean-blue;
+
+          &:hover {
+            color: $cerulean-blue;
+          }
+        }
+      }
+
+      &-labels {
+        justify-content: space-between;
+        height: 42px;
+      }
+
+      &-list {
+        transform: translateX(0) !important;
+        transition: $duration-default ease;
+      }
+    }
+  }
+}

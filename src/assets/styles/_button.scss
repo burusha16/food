@@ -8,17 +8,36 @@
   &-default {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-right: 12px;
     padding-left: 12px;
+    transition-duration: $duration-fast;
     border-radius: 4px;
     background-color: $cerulean-blue;
     color: $white;
     font-family: $ffreg;
     font-size: 18px;
     cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      background-color: $biscay;
+    }
+
+    &:active {
+      background-color: $cerulean-blue;
+    }
+
+    &.__w240 {
+      width: 240px;
+    }
 
     &.__h36 {
       height: 36px;
+    }
+
+    &.__h40 {
+      height: 40px;
     }
 
     &.__ml20 {

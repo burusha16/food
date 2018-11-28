@@ -2,7 +2,6 @@ files:
   include: 'src/**/*.scss'
   ignore:
     - 'node_modules/**/*.*'
-
 options:
   formatter: stylish
   merge-default-rules: false

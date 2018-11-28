@@ -88,7 +88,7 @@ import { HttpClientModule } from '@angular/common/http';
     // MatSnackBarModule,
     // MatSortModule,
     // MatStepperModule,
-    // MatTabsModule,
+    MatTabsModule,
     // MatTableModule,
     // MatToolbarModule,
     MatTooltipModule,
