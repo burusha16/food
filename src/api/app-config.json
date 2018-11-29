@@ -1,0 +1,14 @@
+{
+  "sliderMenuExamplesConfig": {
+    "personsAmount": 2,
+    "defaultGoodsLength": 5,
+    "tabsSortRule": [
+      "Classic",
+      "Premium",
+      "Family",
+      "Express",
+      "Fitness",
+      "Vegetarian"
+    ]
+  }
+}

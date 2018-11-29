@@ -67,6 +67,7 @@ app-menu-examples {
 
     &-title {
       margin-top: 16px;
+      padding: 0 16px;
       color: $mine-shaft;
       font-size: 18px;
       font-weight: 400;
@@ -80,6 +81,14 @@ app-menu-examples {
       font-size: 14px;
       line-height: 22px;
 
+      @media screen and (max-width: $bp-md) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 320px;
+        margin-top: 8px;
+      }
+
       span {
         margin: 0 8px;
       }
@@ -90,6 +99,10 @@ app-menu-examples {
       justify-content: center;
       width: 100%;
       margin-top: 44px;
+
+      @media screen and (max-width: $bp-md) {
+        margin-top: 0;
+      }
     }
 
     &-slide {
@@ -118,7 +131,7 @@ app-menu-examples {
             opacity: .5;
 
             .menu-examples__slider-item {
-              margin-right: 40px;
+              margin-left: -40px;
             }
           }
         }
@@ -180,6 +193,10 @@ app-menu-examples {
     &-pagination {
       @extend %swiper-pagination;
       margin: 20px 0;
+
+      @media screen  and (min-width: $bp-md) {
+        display: none;
+      }
     }
 
     &-bullet {

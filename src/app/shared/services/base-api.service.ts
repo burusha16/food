@@ -1,11 +1,15 @@
-import { Injectable } from "@angular/core";
-import { HttpParams, HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError, of } from "rxjs";
-import { IHeaderMenuItem } from "../interfaces/header-menu-item.interface";
-import { map, publishReplay, refCount, catchError, retry } from "rxjs/operators";
-import { HeaderMenuItem } from "../models/header-menu-item.model";
-
-@Injectable() 
+import { Injectable } from '@angular/core';
+import { HttpParams, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, of } from 'rxjs';
+import { IHeaderMenuItem } from '../interfaces/header-menu-item.interface';
+import { map, publishReplay, refCount, catchError, retry } from 'rxjs/operators';
+import { HeaderMenuItem } from '../models/header-menu-item.model';
+import { IOffer } from '../interfaces/offers.interface';
+import { IOffersResponse } from '../interfaces/offers-response.interface';
+import { Offer } from '../models/offer.model';
+import { AppService } from './base-app.service';
+import {IAppConfig} from '../interfaces/app-config-response.interface';
+@Injectable()
 export class BaseApiService {
   private BASE_URL = 'api/';
   private CACHE_SIZE = 1;
@@ -15,7 +19,8 @@ export class BaseApiService {
     return new HttpParams({ fromObject: object });
   }
 
-  constructor(protected http: HttpClient) {
+  constructor(protected http: HttpClient,
+              private appService: AppService) {
   }
 
   private get<R>(endPointName: string, params?: HttpParams): Observable<R> {
@@ -33,6 +38,27 @@ export class BaseApiService {
         map((response: IHeaderMenuItem[]) =>
           response.map((menuItem: IHeaderMenuItem) => new HeaderMenuItem(menuItem))
         ),
+        publishReplay(this.CACHE_SIZE),
+        refCount()
+      );
+  }
+
+  getOffers(): Observable<IOffer[]> {
+    return this.get('actual')
+      .pipe(
+        map((response: IOffersResponse) => {
+          this.appService.actualWeekKey = response.defaultWeekKey;
+          return response.goods.map((offer: IOffer) => new Offer(offer));
+        }),
+        publishReplay(this.CACHE_SIZE),
+        refCount()
+      );
+  }
+
+  getAppConfig(): Observable<IAppConfig> {
+    return this.get('app-config')
+      .pipe(
+        map((response: IAppConfig) => response),
         publishReplay(this.CACHE_SIZE),
         refCount()
       );

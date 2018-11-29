@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-lg-12 __column __align-center">
       <h2>{{'main-page.menu-examples.title' | translate}}:</h2>
 
-      <p class="menu-examples__delivery-info">{{'main-page.menu-examples.delivery' | translate:{date: '2-3 декабя'} }}</p>
+      <p class="menu-examples__delivery-info">{{'main-page.menu-examples.delivery' | translate:{date: deliveryDates} }}</p>
     </div>
   </div>
 </div>
@@ -14,9 +14,9 @@
                  animationDuration="400ms"
                  (animationDone)="removeSliderAnimation()"
                  (selectedTabChange)="updateSliderData($event.index)">
-    <mat-tab [label]="menu.title" *ngFor="let menu of data">
+    <mat-tab [label]="('product.class.' + product.class) | translate" *ngFor="let product of products">
     </mat-tab>
-    <mat-tab disabled *ngIf="!isSmall">
+    <mat-tab disabled *ngIf="!isSmall && products">
       <ng-template mat-tab-label>
         <a href="#" class="menu-examples__slider-link">
           Новогоднее
@@ -29,16 +29,35 @@
   <div class="menu-examples__slider-wrapper" #swiperWrapper>
     <div class="menu-examples__slider swiper-container" [swiper]="swiperConfig">
       <div class="swiper-wrapper">
-        <div class="menu-examples__slider-slide swiper-slide __menu-expample" *ngFor="let slide of [1,2,3]" (click)="changeSlide($event)">
+        <div class="menu-examples__slider-slide swiper-slide __menu-expample" *ngFor="let good of currentProduct.defaultGoodsModels" (click)="changeSlide($event)">
           <div class="menu-examples__slider-item">
-            <img [src]="currentMenu.imgUrl" width="100%" height="auto">
-            <h5 class="menu-examples__slider-title">День третий: Шпинатные тальятелле с миксом овощей в соусе из кокосового молока</h5>
+            <img [src]="good.images.rectangular.s840x454 | safeUrl" width="100%" height="auto">
+            <h5 class="menu-examples__slider-title">{{('common.days.number' + good.dayNumber) | translate}}: {{good.name}}</h5>
             <p class="menu-examples__slider-descr">
-              <span><mat-icon svgIcon="clock" class="__s12 __mr4"></mat-icon> 35 мин.</span>
-              <span>Белки -4г</span>
-              <span>Жиры -7г</span>
-              <span>Углеводы -18г</span>
-              <span>Калории -145ккал</span>
+              <span>
+                <mat-icon svgIcon="clock" class="__s12 __mr4"></mat-icon>
+                {{good.cookingTime}} {{'common.dimensions.min' | translate}}
+              </span>
+
+              <span>
+                {{'product.nutritional-value.proteins' | translate}} -
+                {{good.nutritionalValue.proteins}}{{'common.dimensions.gram' | translate}}
+              </span>
+
+              <span>
+                {{'product.nutritional-value.fats' | translate}} -
+                {{good.nutritionalValue.fats}}{{'common.dimensions.gram' | translate}}
+              </span>
+
+              <span>
+                {{'product.nutritional-value.carbohydrates' | translate}} -
+                {{good.nutritionalValue.carbohydrates}}{{'common.dimensions.gram' | translate}}
+              </span>
+
+              <span>
+                {{'product.nutritional-value.calories' | translate}} -
+                {{good.nutritionalValue.calories}}{{'common.dimensions.kcal' | translate}}
+              </span>
             </p>
           </div>
         </div>

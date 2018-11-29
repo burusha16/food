@@ -41,32 +41,32 @@
     "type": "mobile-header"
   },
   {
-    "name": "menu.classic",
+    "name": "product.class.Classic",
     "routerLink": "/menu#classic",
     "type": "mobile-menu"
   },
   {
-    "name": "menu.premium",
+    "name": "product.class.Premium",
     "routerLink": "/menu#premium",
     "type": "mobile-menu"
   },
   {
-    "name": "menu.family",
+    "name": "product.class.Family",
     "routerLink": "/menu#family",
     "type": "mobile-menu"
   },
   {
-    "name": "menu.10minutes",
+    "name": "product.class.Express",
     "routerLink": "/menu#10minutes",
     "type": "mobile-menu"
   },
   {
-    "name": "menu.fitness",
+    "name": "product.class.Fitness",
     "routerLink": "/menu#fitness",
     "type": "mobile-menu"
   },
   {
-    "name": "menu.vegetarian",
+    "name": "product.class.Vegetarian",
     "routerLink": "/menu#vegetarian",
     "type": "mobile-menu"
   },

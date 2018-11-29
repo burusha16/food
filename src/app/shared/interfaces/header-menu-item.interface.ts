@@ -1,4 +1,4 @@
-import { HeaderMenuResponseTypes } from "../enums/header-menu-response-types.enum";
+import { HeaderMenuResponseTypes } from '../enums/header-menu-response-types.enum';
 
 export interface IHeaderMenuItem {
   icon?: string;

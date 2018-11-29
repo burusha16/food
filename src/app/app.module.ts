@@ -18,6 +18,8 @@ import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 import { CachingInterceptor, RequestCacheService } from './shared/services/request-cache.service';
 import { SwiperSliderModule } from './shared/modules/swiper-slider.module';
+import { AppService } from './shared/services/base-app.service';
+import {ImagePreloadService} from './shared/services/image-preload.service';
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
@@ -48,14 +50,14 @@ export const httpInterceptorProviders = [
     httpInterceptorProviders,
     RequestCacheService,
     BaseApiService,
+    AppService,
     DeviceWindowService,
-    WindowScrollService
+    WindowScrollService,
+    ImagePreloadService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  contsructor() {
-  }
 }
 
 // AoT requires an exported function for factories

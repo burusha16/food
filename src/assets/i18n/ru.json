@@ -39,5 +39,37 @@
       "delivery": "Доставка в воскресенье или понедельник, {{date}}",
       "btn-text": "Хочу это меню"
     }
+  },
+  "product": {
+    "class": {
+      "Classic": "Классическое",
+      "Vegetarian": "Вегетарианское",
+      "Premium": "Премиум",
+      "Express": "10 минут",
+      "Fitness": "Фитнес",
+      "Family": "Семейное"
+    },
+    "nutritional-value": {
+      "fats": "Жиры",
+      "proteins": "Белки",
+      "carbohydrates": "Углеводы",
+      "calories": "Калории"
+    }
+  },
+  "common": {
+    "days": {
+      "number1": "День первый",
+      "number2": "Деннь второй",
+      "number3": "День третий",
+      "number4": "День четвертый",
+      "number5": "День пятый",
+      "number6": "День шестой",
+      "number7": "День седьмой"
+    },
+    "dimensions": {
+      "gram": "г",
+      "kcal": "ккал",
+      "min": "мин."
+    }
   }
 }
