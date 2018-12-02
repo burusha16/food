@@ -1,7 +1,7 @@
 <ul class="header-menu" *ngIf="!isSmall">
   <ng-template ngFor [ngForOf]="menuItems$ | async" let-item>
-    <li class="header-menu__item" *ngIf="item.type === headerMenuTypes.Desktop">
-      <a [href]="item.url" 
+    <li class="header-menu__item">
+      <a [href]="item.url"
           *ngIf="item.url"
           class="header-menu__link"
           [ngClass]="{'__no-hover': item.theme === 'no-hover'}">
@@ -11,9 +11,8 @@
       <a [routerLink]="item.routerLink"
           *ngIf="item.routerLink"
           class="header-menu__link"
-        [ngClass]="{'__no-hover': item.theme === 'no-hover'}">
+          [ngClass]="{'__no-hover': item.theme === 'no-hover'}">
         {{item.name}}
-
         <mat-icon [svgIcon]="item.icon" *ngIf="item.icon" class="__s36 __ml16"></mat-icon>
       </a>
     </li>
@@ -29,4 +28,3 @@
     <span class="hamburger-icon__line"></span>
   </button>
 </ng-template>
-
