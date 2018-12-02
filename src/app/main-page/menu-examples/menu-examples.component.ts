@@ -1,16 +1,13 @@
 import _ from 'lodash/core';
 import * as moment from 'moment';
-import {Component, ViewChild, ChangeDetectorRef, ElementRef, ViewEncapsulation, AfterViewInit} from '@angular/core';
+import {Component, ViewChild, ChangeDetectorRef, ElementRef, ViewEncapsulation, AfterViewInit, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {SwiperPaginationInterface, SwiperConfigInterface, SwiperNavigationInterface, SwiperDirective } from 'ngx-swiper-wrapper';
-import {Responsive} from 'src/app/shared/decorators/responsive.decorator';
-import {IResponsiveComponent} from 'src/app/shared/interfaces/responsive-component.interface';
-import {IOffer} from 'src/app/shared/interfaces/offers.interface';
-import {BaseApiService} from 'src/app/shared/services/base-api.service';
-import {AppService} from 'src/app/shared/services/base-app.service';
-import {IProduct} from 'src/app/shared/interfaces/product.interface';
-import {ISliderMenuExamplesConfig} from '../../shared/interfaces/app-config-response.interface';
-import {ImagePreloadService} from '../../shared/services/image-preload.service';
+import {IResponsiveComponent} from '../../shared/interfaces/responsive-component.interface';
+import {IProduct} from '../../shared/interfaces/product.interface';
+import {ContentPreloadService} from '../../shared/services/content-preload.service';
 import {IGood} from '../../shared/interfaces/good.interface';
+import {Responsive} from '../../shared/decorators/responsive.decorator';
 
 @Responsive()
 @Component({
@@ -19,7 +16,7 @@ import {IGood} from '../../shared/interfaces/good.interface';
   styleUrls: ['./menu-examples.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class MenuExamplesComponent implements AfterViewInit, IResponsiveComponent {
+export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsiveComponent {
   @ViewChild(SwiperDirective) swiper: SwiperDirective;
   @ViewChild('swiperWrapper') swiperWrapper: ElementRef;
 
@@ -27,7 +24,7 @@ export class MenuExamplesComponent implements AfterViewInit, IResponsiveComponen
   currentMenuIndex = 0;
   isMobile: boolean;
   isSmall: boolean;
-  products: IProduct[] = [];
+  products: IProduct[];
   swiperPagination: SwiperPaginationInterface = {
     el: '.menu-examples__slider-pagination',
     bulletClass: 'menu-examples__slider-bullet',
@@ -54,41 +51,24 @@ export class MenuExamplesComponent implements AfterViewInit, IResponsiveComponen
 
   constructor(private cdRef: ChangeDetectorRef,
               private elRef: ElementRef,
-              private apiService: BaseApiService,
-              private appService: AppService,
-              private imagePreloadService: ImagePreloadService)  {
-    this.apiService.getOffers()
-      .subscribe((offers: IOffer[]) => {
-        let products: IProduct[];
-        offers.forEach((offer: IOffer) => {
-          if (offer.weekKey === this.activeWeekKey) {
-            products = _.filter(offer.products, ((product: IProduct) => {
-              const personsAmountValid = product.personsAmount === this.componentConfig.personsAmount;
-              const defaultGoodsLengthValid = product.defaultGoodsModels.length === this.componentConfig.defaultGoodsLength;
-              const isProductFromList = this.componentConfig.tabsSortRule.includes(product.class);
-              return personsAmountValid && defaultGoodsLengthValid && isProductFromList;
-            }));
-          }
-        });
-        _.each(this.appService.sliderMenuExamplesConfig.tabsSortRule, (className: string) => {
-          const sortedByOrderProduct = _.filter(products, (product: IProduct) => product.class === className)[0];
-          this.products.push(sortedByOrderProduct);
-        })
-        this.cdRef.markForCheck();
-        _.each(this.products, (product: IProduct) => {
-          _.each(product.defaultGoodsModels, (good: IGood) => {
-            this.imagePreloadService.preload(good.images.rectangular.s840x454);
-          });
-        });
-      });
+              private route: ActivatedRoute,
+              private ContentPreloadService: ContentPreloadService)  {
+    this.products = this.route.snapshot.data.menuExamples;
   }
 
+  ngOnInit() {}
+
   ngAfterViewInit() {
+    _.each(this.products, (product: IProduct) => {
+      _.each(product.defaultGoodsModels, (good: IGood) => {
+        this.ContentPreloadService.preload(good.images.rectangular.s840x454);
+      });
+    });
     this.swiper.update();
     if (this.isMobile) {
       const element = this.elRef.nativeElement.querySelector('mat-ink-bar');
       this.tabsMutationObserver = new MutationObserver((mutations: MutationRecord[]) => {
-            mutations.forEach((mutation: MutationRecord) => this.translateActiveTabLabelToCenter());
+            mutations.forEach(() => this.translateActiveTabLabelToCenter());
           }
       );
       this.tabsMutationObserver.observe(element, {
@@ -97,16 +77,8 @@ export class MenuExamplesComponent implements AfterViewInit, IResponsiveComponen
     }
   }
 
-  get activeWeekKey(): string {
-    return this.appService.actualWeekKey;
-  }
-
-  get componentConfig(): ISliderMenuExamplesConfig {
-    return this.appService.sliderMenuExamplesConfig;
-  }
-
   get currentProduct(): IProduct {
-    return this.products ? this.products[this.currentMenuIndex] : undefined;
+    return this.products[this.currentMenuIndex];
   }
 
   get deliveryDates(): string {

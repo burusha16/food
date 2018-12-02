@@ -1,9 +1,9 @@
-import { Component, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
-import { DeviceWindowService } from 'src/app/shared/services/device-window.service';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators'
-import { IResponsiveComponent } from 'src/app/shared/interfaces/responsive-component.interface';
-import { Responsive } from 'src/app/shared/decorators/responsive.decorator';
+import { takeUntil } from 'rxjs/operators';
+import { Component, ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
+import { Responsive } from '../../shared/decorators/responsive.decorator';
+import { DeviceWindowService } from '../../shared/services/device-window.service';
+import { IResponsiveComponent } from '../../shared/interfaces/responsive-component.interface';
 
 @Responsive()
 @Component({
@@ -22,7 +22,7 @@ export class HeaderPromoComponent implements OnDestroy, OnInit, IResponsiveCompo
       .pipe(takeUntil(this.onDestroy$))
       .subscribe(() => {
         this.cdRef.markForCheck();
-      })
+      });
   }
 
   ngOnInit() {

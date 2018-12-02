@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ImagePreloadService {
+export class ContentPreloadService {
   images = [];
-  constructor() { }
+  constructor() {}
 
   preload(imgUrl: string) {
     const image = new Image();

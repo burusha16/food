@@ -1,14 +1,14 @@
-import { Inject, Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
-import { Subject, Observable } from "rxjs";
-import { HeaderMenuResponseTypes } from "src/app/shared/enums/header-menu-response-types.enum";
-import { HeaderMenuItem } from "src/app/shared/models/header-menu-item.model";
-import { BaseApiService } from "src/app/shared/services/base-api.service";
-import { takeUntil } from "rxjs/operators";
-import { AppComponent } from "src/app/app.component";
-import { WindowScrollService } from "src/app/shared/services/window-scroll.service";
+import { Subject, Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Inject, Component, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { HeaderMenuResponseTypes } from '../../../shared/enums/header-menu-response-types.enum';
+import { HeaderMenuItem } from '../../../shared/models/header-menu-item.model';
+import { BaseApiService } from '../../../shared/services/base-api.service';
+import { AppComponent } from '../../../app.component';
+import { WindowScrollService } from '../../../shared/services/window-scroll.service';
 @Component({
-  selector: 'header-menu-mobile-dialog',
+  selector: 'app-header-menu-mobile-dialog',
   templateUrl: './mobile-dialog.component.html',
   styleUrls: ['./mobile-dialog.component.scss']
 })

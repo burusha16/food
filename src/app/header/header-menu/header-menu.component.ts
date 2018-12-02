@@ -1,12 +1,11 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { BaseApiService } from 'src/app/shared/services/base-api.service';
-import { IHeaderMenuItem } from 'src/app/shared/interfaces/header-menu-item.interface';
-import { Responsive } from 'src/app/shared/responsive.decorator';
-import { IResponsiveComponent } from 'src/app/shared/interfaces/responsive-component.interface';
-import { HeaderService } from '../header.service';
 import { Subject, Observable } from 'rxjs';
-import { HeaderMenuResponseTypes } from 'src/app/shared/enums/header-menu-response-types.enum';
-import { HeaderMenuItem } from 'src/app/shared/models/header-menu-item.model';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Responsive } from '../../shared/decorators/responsive.decorator';
+import { BaseApiService } from '../../shared/services/base-api.service';
+import { HeaderMenuItem } from '../../shared/models/header-menu-item.model';
+import { HeaderService } from '../header.service';
+import { IResponsiveComponent } from '../../shared/interfaces/responsive-component.interface';
+import { HeaderMenuResponseTypes } from '../../shared/enums/header-menu-response-types.enum';
 
 @Responsive()
 @Component({
@@ -17,7 +16,7 @@ import { HeaderMenuItem } from 'src/app/shared/models/header-menu-item.model';
 export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
   isMobile: boolean;
   isSmall: boolean;
-  isMenuExpanded: boolean = false;
+  isMenuExpanded = false;
   isMenuExpanded$: Subject<boolean> = this.headerService.showHeaderDialog$;
   headerMenuTypes = HeaderMenuResponseTypes;
   menuItems$: Observable<HeaderMenuItem[]> = this.apiService.getHeaderMenu();

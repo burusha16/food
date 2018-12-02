@@ -9,7 +9,6 @@ import { IResponsiveComponent } from '../interfaces/responsive-component.interfa
 export class DeviceWindowService {
   private windowDetect: WindowDetect = new WindowDetect();
   private windowSubject: BehaviorSubject<WindowDetect> = new BehaviorSubject<WindowDetect>(this.windowDetect);
-  previousStatre: string;
 
   constructor(private eventManager: EventManager) {
     this.eventManager.addGlobalEventListener('window', 'resize', e => {
@@ -29,7 +28,7 @@ export class WindowDetect implements IResponsiveComponent {
   deviceChanged: boolean;
   isMobile: boolean;
   isSmall: boolean;
-  
+
   constructor() {
     this.detectDevice();
   }

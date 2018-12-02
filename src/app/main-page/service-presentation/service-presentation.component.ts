@@ -1,9 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Component, OnInit, ChangeDetectorRef, ElementRef, AfterViewChecked } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Responsive } from 'src/app/shared/decorators/responsive.decorator';
 import { IResponsiveComponent } from 'src/app/shared/interfaces/responsive-component.interface';
-import { DeviceWindowService } from 'src/app/shared/services/device-window.service';
-import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 
 @Responsive()
@@ -12,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './service-presentation.component.html',
   styleUrls: ['./service-presentation.component.scss']
 })
-export class ServicePresentationComponent implements AfterViewChecked, IResponsiveComponent {
+export class ServicePresentationComponent implements OnInit, AfterViewChecked, IResponsiveComponent {
   isMobile: boolean;
   isSmall: boolean;
   isVideoVisible$: BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -24,6 +22,8 @@ export class ServicePresentationComponent implements AfterViewChecked, IResponsi
               private translate: TranslateService) {
   }
 
+  ngOnInit() {}
+
   ngAfterViewChecked() {
     const videoRef = this.elemRef.nativeElement.querySelector('.presentation__video');
     if (videoRef) {
@@ -34,7 +34,7 @@ export class ServicePresentationComponent implements AfterViewChecked, IResponsi
 
   get title(): string {
     const suffix = this.isMobile ? '-mob' : '';
-    return this.translate.instant(`main-page.presentation.subscription-dinners${suffix}`)
+    return this.translate.instant(`main-page.presentation.subscription-dinners${suffix}`);
   }
 
   showVideo() {

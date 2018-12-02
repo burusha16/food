@@ -5,6 +5,7 @@ import { ServicePresentationComponent } from './service-presentation/service-pre
 import { OrderStepsComponent } from './order-steps/order-steps.component';
 import { SwiperSliderModule } from '../shared/modules/swiper-slider.module';
 import { MenuExamplesComponent } from './menu-examples/menu-examples.component';
+import {MainPageResolver} from './main-page.resolver';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,9 @@ import { MenuExamplesComponent } from './menu-examples/menu-examples.component';
     SharedModule,
     SwiperSliderModule
   ],
+  providers: [
+    MainPageResolver
+  ]
 })
 export class MainPageModule {
 }

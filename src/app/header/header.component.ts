@@ -1,5 +1,5 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { Responsive } from '../shared/responsive.decorator';
+import {Component, ViewChild, ElementRef, AfterViewInit, OnInit} from '@angular/core';
+import { Responsive } from '../shared/decorators/responsive.decorator';
 import { IResponsiveComponent } from '../shared/interfaces/responsive-component.interface';
 import { WindowScrollService } from '../shared/services/window-scroll.service';
 import { Subject } from 'rxjs';
@@ -13,7 +13,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
+export class HeaderComponent implements OnInit, AfterViewInit, IResponsiveComponent {
   @ViewChild('header') headerNode: ElementRef;
   isHeaderFixed$: Subject<boolean> = new Subject();
   isMobile: boolean;
@@ -32,6 +32,8 @@ export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
       });
     }
 
+  ngOnInit() {}
+
   ngAfterViewInit() {
     this.deviceService.onResize$.subscribe(() => {
       const breakpoint = this.headerNode.nativeElement.offsetTop;
@@ -39,5 +41,5 @@ export class HeaderComponent implements AfterViewInit, IResponsiveComponent {
         this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.isHeaderFixed$);
       }
     });
-  }           
+  }
 }

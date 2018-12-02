@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {IAppConfig} from './shared/interfaces/app-config-response.interface';
 import {BaseApiService} from './shared/services/base-api.service';
 import {AppService} from './shared/services/base-app.service';
-@Responsive()
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
