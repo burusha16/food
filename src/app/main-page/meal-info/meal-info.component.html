@@ -1,0 +1,36 @@
+<div class="meal-info container">
+  <div class="row">
+    <div class="col-sm-12 __justify-center">
+      <ul class="meal-info__advantages">
+        <li class="meal-info__advantages-item" *ngFor="let index of [1,2,3]">
+          <h3 class="meal-info__advantages-title">{{'main-page.meal-info.advantages.title' + index | translate}}</h3>
+          <p class="meal-info__advantages-text">{{'main-page.meal-info.advantages.text' + index | translate}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 __justify-center">
+      <div class="meal-info__video">
+        <video src="../../../assets/video/box.mp4" muted autoplay loop controls></video>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 __align-center __column">
+      <h2 class="meal-info__quote">{{'main-page.meal-info.quote' | translate}}</h2>
+      <p class="meal-info__quote-author">
+        <img src="../../../assets/img/main-page/meal-info-quote-author.png" class="meal-info__quote-avatar">
+        {{'main-page.meal-info.quote-author' | translate}}
+      </p>
+      <ul class="meal-info__reasons">
+        <li class="meal-info__reasons-item" *ngFor="let index of [1,2,3,4]">
+          <span class="meal-info__reasons-counter">{{index}}</span>
+          <p class="meal-info__reasons-text" [innerHTML]="('main-page.meal-info.reason' + index) | translate"></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

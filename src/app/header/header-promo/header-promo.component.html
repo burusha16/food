@@ -3,11 +3,11 @@
     <div class="col-sm-12 __justify-beetwen">
       <div class="header-promo__prefix"></div>
       <div class="header-promo__infix">
-        <span>{{'promo.new-yaer-menu' | translate}}</span>
+        <span>{{'header.promo.new-yaer-menu' | translate}}</span>
         <button [ngClass]="{'button-inline': isSmall,
                             'button-default __h36 __ml20 __bg-white15-28-40 __dur-fast __br6': !isSmall}"
                 (click)="navigateToPromo()">
-          {{(isSmall ? 'promo.watch' : 'promo.watch-dishes') | translate}}
+          {{(isSmall ? 'header.promo.watch' : 'header.promo.watch-dishes') | translate}}
           <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml16 __white"></mat-icon>
         </button>
       </div>

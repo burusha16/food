@@ -1,0 +1,197 @@
+@import "../../../assets/styles/variables";
+
+.meal-info {
+  margin-top: 72px;
+
+  @media screen and (max-width: $bp-tablet) {
+    margin-top: 0;
+  }
+
+  &__advantages {
+    display: flex;
+    max-width: 800px;
+    color: $trinidad;
+
+    @media screen and (max-width: $bp-tablet) {
+      flex-direction: column;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 33.33%;
+      height: 255px;
+      padding: 0 32px;
+      border-right: 1px solid $cinderella;
+      box-sizing: border-box;
+
+      @media screen and (min-width: $bp-tablet) {
+        &:first-child {
+          padding: 0 36px;
+        }
+
+        &:nth-child(2) {
+          padding: 0 16px;
+        }
+      }
+
+      @media screen and (max-width: $bp-tablet) {
+        width: 270px;
+        height: auto;
+        margin: auto;
+        padding-top: 8px;
+        padding: 0;
+        padding-bottom: 44px;
+        border-right: 0;
+        border-bottom: 1px solid $cinderella;
+      }
+
+      &:last-child {
+        border: 0;
+        @media screen and (max-width: $bp-tablet) {
+          padding-bottom: 8px;
+        }
+      }
+    }
+
+    &-title {
+      width: 180px;
+      margin: 52px auto 0;
+      font-family: $ffns;
+
+      @media screen and (max-width: $bp-tablet) {
+        width: auto;
+        margin-top: 36px;
+      }
+    }
+
+    &-text {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+
+      @media screen and (max-width: $bp-tablet) {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &__video {
+    max-width: 800px;
+    margin-top: 72px;
+
+    @media screen and (max-width: $bp-tablet) {
+      margin: 40px -12px 0;
+    }
+
+    video {
+      width: 100%;
+    }
+  }
+
+  &__quote {
+    margin-top: 60px;
+
+    @media screen and (max-width: $bp-tablet) {
+      margin-top: 24px;
+    }
+
+    &-author {
+      display: flex;
+      align-items: center;
+      margin-top: 12px;
+      color: $boulder;
+      font-family: $ffns;
+      line-height: 20px;
+
+      @media screen and (max-width: $bp-tablet) {
+        flex-direction: column;
+        max-width: 200px;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+      }
+    }
+
+    &-avatar {
+      width: 36px;
+      height: 36px;
+      margin-right: 12px;
+      border-radius: 50%;
+
+      @media screen and (max-width: $bp-tablet) {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &__reasons {
+    max-width: 800px;
+    margin-top: 48px;
+
+    @media screen and (max-width: $bp-tablet) {
+      margin-top: 28px;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      height: 108px;
+      border-top: 1px solid $gallery;
+
+      &:last-child {
+        border-bottom: 1px solid $gallery;
+      }
+
+      @media screen and (max-width: $bp-tablet) {
+        align-items: flex-start;
+        height: auto;
+        padding: 20px 0;
+      }
+    }
+
+    &-counter {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin-right: 32px;
+      margin-left: 16px;
+      border-radius: 50%;
+      background-color: $mine-shaft;
+      color: $white;
+      font-weight: 700;
+
+      @media screen and (max-width: $bp-tablet) {
+        margin-top: 8px;
+        margin-right: 16px;
+        margin-left: 0;
+      }
+    }
+
+    &-text {
+      padding-right: 32px;
+      color: $mine-shaft;
+      font-size: 18px;
+      line-height: 24px;
+
+      @media screen and (max-width: $bp-tablet) {
+        padding-right: 0;
+      }
+
+        a {
+        transition-duration: $duration-fast;
+        border-bottom: 1px solid rgba($cerulean-blue, .36);
+        color: $cerulean-blue;
+
+        &:hover {
+          border-bottom: 1px solid $cerulean-blue;
+        }
+      }
+    }
+  }
+}
