@@ -3,10 +3,12 @@
 
 .feedback {
   margin-top: 84px;
+  padding-bottom: 96px;
   overflow: hidden;
 
   @media screen and(max-width: $bp-tablet) {
     margin-top: 64px;
+    padding-bottom: 48px;
   }
 
   &__pagination {
@@ -130,6 +132,10 @@
     &-pagination {
       margin-top: 20px;
       @extend %swiper-pagination;
+
+      @media screen and(min-width: $bp-tablet) {
+        display: none;
+      }
     }
 
     &-bullet {

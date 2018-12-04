@@ -28,7 +28,7 @@ export class MainPageResolver implements Resolve<Observable<IProduct[]>> {
         map((offers: IOffer[]) => {
           let products: IProduct[];
           const sortedProducts: IProduct[] = [];
-          offers.forEach((offer: IOffer) => {
+          _.each(offers, (offer: IOffer) => {
             if (offer.weekKey === this.activeWeekKey) {
               products = _.filter(offer.products, ((product: IProduct) => {
                 const personsAmountValid = product.personsAmount === this.menuExamplesSliderConfig.personsAmount;
@@ -42,7 +42,7 @@ export class MainPageResolver implements Resolve<Observable<IProduct[]>> {
           _.each(this.menuExamplesSliderConfig.tabsSortRule, (className: string) => {
             const sortedByOrderProduct = _.filter(products, (product: IProduct) => product.class === className)[0];
             sortedProducts.push(sortedByOrderProduct);
-          })
+          });
           return sortedProducts;
         })
       );

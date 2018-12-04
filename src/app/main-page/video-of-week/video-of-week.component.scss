@@ -1,0 +1,53 @@
+@import "../../../assets/styles/variables";
+
+.video-of-week {
+  padding-top: 68px;
+  padding-bottom: 84px;
+  background-color: $cerulean-blue;
+  color: $white;
+
+  @media screen and (max-width: $bp-tablet) {
+    padding-top: 44px;
+    padding-bottom: 24px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+  }
+
+  &__video {
+    width: 660px;
+    height: 372px;
+    margin-top: 56px;
+    box-shadow: 1px 20px 50px 0 rgba($black, .63);
+
+    @media screen and (max-width: $bp-tablet) {
+      width: 100vw;
+      height: 56vw;
+      margin: 36px -12px 0;
+      box-shadow: none;
+    }
+  }
+
+  &__text {
+    max-width: 655px;
+    margin-top: 48px;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+
+    @media screen and (max-width: $bp-tablet) {
+      margin: 32px -12px 0;
+      padding: 0 24px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+      a {
+      border-bottom: 1px solid $white;
+      color: $white;
+      line-height: 18px;
+    }
+  }
+}

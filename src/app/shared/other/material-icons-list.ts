@@ -1,4 +1,4 @@
-import { IMatIcon } from "../interfaces/mat-icon.interface";
+import {IMatIcon} from '../interfaces/mat-icon.interface';
 
 const defaultPath = '../assets/img/icons/';
 
@@ -11,5 +11,6 @@ export const MaterialIconsList: IMatIcon[] = [
   { name: 'logo', src: defaultPath },
   { name: 'logo-yandex-project', src: defaultPath },
   { name: 'old-phone', src: defaultPath },
-  { name: 'triangle', src: defaultPath }
+  { name: 'triangle', src: defaultPath },
+  {name: 'videocam', src: defaultPath }
 ];

@@ -8,6 +8,7 @@ import { MenuExamplesComponent } from './menu-examples/menu-examples.component';
 import {MainPageResolver} from './main-page.resolver';
 import { MealInfoComponent } from './meal-info/meal-info.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { VideoOfWeekComponent } from './video-of-week/video-of-week.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     OrderStepsComponent,
     MenuExamplesComponent,
     MealInfoComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    VideoOfWeekComponent
   ],
   imports: [
     SharedModule,

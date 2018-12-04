@@ -1,0 +1,21 @@
+<div class="video-of-week">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 __column __align-center">
+        <h2 class="video-of-week__title">
+            <mat-icon svgIcon="videocam" class="__s16 __mr16"></mat-icon>
+            {{'main-page.video-of-week.title' | translate}}
+        </h2>
+
+        <iframe class="video-of-week__video"
+                src="https://www.youtube.com/embed/CF38tgE6udg"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        <!--<iframe width="100vw" class="video-of-week__video" [src]="videoUrl"></iframe>-->
+
+        <p class="video-of-week__text" [innerHTML]="'main-page.video-of-week.text' | translate | safeHtml"></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ $icon-margin-top: 2;
     &.__s#{$size} {
       width: #{$size}px !important;
       height: #{$size}px !important;
+      font-size: #{$size}px;
       line-height: #{$size}px;
     }
   }
@@ -36,6 +37,12 @@ $icon-margin-top: 2;
   @each $indent in $icon-margin-left {
     &.__ml#{$indent} {
       margin-left: #{$indent}px;
+    }
+  }
+
+  @each $indent in $icon-margin-right {
+    &.__mr#{$indent} {
+      margin-right: #{$indent}px;
     }
   }
 
