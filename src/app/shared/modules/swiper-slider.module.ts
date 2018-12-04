@@ -9,7 +9,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   slidesPerView: 1,
   centeredSlides: true
 };
- 
+
 @NgModule({
   imports: [
     SwiperModule

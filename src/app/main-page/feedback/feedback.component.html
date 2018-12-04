@@ -1,0 +1,54 @@
+<div class="feedback container">
+
+  <div class="row">
+    <div class="col-sm-12 __justify-center">
+      <h2 class="feedback__title">{{'main-page.feedback.title' | translate}}</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 __justify-center">
+      <div class="feedback__pagination">
+        <div class="feedback__user __mrl"
+             *ngFor="let feedback of feedbacks$ | async, let $index = index"
+             [ngClass]="{'__active': $index === (activeSlideIndex$ | async)}"
+             (click)="navigateToSlide($index)">
+          <img [src]="feedback.authorAvatarUrl" class="feedback__user-img">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row __relative">
+    <div class="col-sm-12 __justify-center">
+      <div class="feedback__slider swiper-container" [swiper]="swiperConfig">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let feedback of feedbacks$ | async">
+            <div class="feedback__slider-item">
+              <img [src]="feedback.photoUrl | safeUrl" class="feedback__slider-photo">
+              <div class="feedback__slider-text">
+                <div class="feedback__slider-header">
+                  <div class="feedback__user">
+                    <img [src]="feedback.authorAvatarUrl" class="feedback__user-img">
+                  </div>
+                  <p class="feedback__slider-author">{{feedback.authorName}}</p>
+                </div>
+                <p class="feedback__slider-message">{{feedback.message}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feedback__slider-pagination"></div>
+      </div>
+      <div class="feedback__slider-nav">
+        <button class="feedback__slider-nav-prev">
+          <mat-icon svgIcon="arrow-right" class="__s16 __rotate180"></mat-icon>
+        </button>
+
+        <button class="feedback__slider-nav-next">
+          <mat-icon svgIcon="arrow-right" class="__s16"></mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

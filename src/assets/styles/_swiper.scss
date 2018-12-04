@@ -28,6 +28,37 @@
   box-sizing: border-box;
 }
 
+%swiper-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  transition-duration: $duration-fast;
+  border: 1px solid $alto;
+  border-radius: 50%;
+  background-color: $white;
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover {
+    border-color: $boulder;
+  }
+
+  &:active {
+    border-color: $alto;
+  }
+
+  &.__disabled {
+    cursor: default;
+    opacity: .35;
+
+    &:hover {
+      border-color: $alto;
+    }
+  }
+}
+
 .swiper {
   &-container {
     overflow: visible !important;
@@ -51,5 +82,10 @@
     &-active {
       @extend %swiper-bullet-active;
     }
+  }
+
+  &-next,
+  &-prev {
+    @extend %swiper-nav-item;
   }
 }

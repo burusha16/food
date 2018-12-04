@@ -7,6 +7,7 @@ import { SwiperSliderModule } from '../shared/modules/swiper-slider.module';
 import { MenuExamplesComponent } from './menu-examples/menu-examples.component';
 import {MainPageResolver} from './main-page.resolver';
 import { MealInfoComponent } from './meal-info/meal-info.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MealInfoComponent } from './meal-info/meal-info.component';
     ServicePresentationComponent,
     OrderStepsComponent,
     MenuExamplesComponent,
-    MealInfoComponent
+    MealInfoComponent,
+    FeedbackComponent
   ],
   imports: [
     SharedModule,

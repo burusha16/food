@@ -9,6 +9,8 @@ import { IOffersResponse } from '../interfaces/offers-response.interface';
 import { Offer } from '../models/offer.model';
 import { AppService } from './base-app.service';
 import {IAppConfig} from '../interfaces/app-config-response.interface';
+import {IFeedback} from '../interfaces/feedback.interface';
+import {Feedback} from '../models/feedback.model';
 @Injectable()
 export class BaseApiService {
   private BASE_URL = 'api/';
@@ -37,6 +39,17 @@ export class BaseApiService {
       .pipe(
         map((response: IHeaderMenuItem[]) =>
           response.map((menuItem: IHeaderMenuItem) => new HeaderMenuItem(menuItem))
+        ),
+        publishReplay(this.CACHE_SIZE),
+        refCount()
+      );
+  }
+
+  getFeedbacks(): Observable<Feedback[]> {
+    return this.get('feedback')
+      .pipe(
+        map((response: IFeedback[]) =>
+          response.map((item: IFeedback) => new Feedback(item))
         ),
         publishReplay(this.CACHE_SIZE),
         refCount()

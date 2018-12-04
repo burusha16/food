@@ -31,7 +31,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
     bulletActiveClass: 'menu-examples__slider-bullet-active',
     clickable: true
   };
-  swiperNavifation: SwiperNavigationInterface = {
+  swiperNavigation: SwiperNavigationInterface = {
     prevEl: '.menu-examples__slider-nav-prev',
     nextEl: '.menu-examples__slider-nav-next',
     disabledClass: '__disabled'
@@ -40,7 +40,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
     spaceBetween: 0,
     width: 1000,
     speed: this.animationDuration / 2,
-    navigation: this.swiperNavifation
+    navigation: this.swiperNavigation
   };
   swiperConfigMobile: SwiperConfigInterface = {
     speed: this.animationDuration,
@@ -52,7 +52,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   constructor(private cdRef: ChangeDetectorRef,
               private elRef: ElementRef,
               private route: ActivatedRoute,
-              private ContentPreloadService: ContentPreloadService)  {
+              private contentPreloadService: ContentPreloadService)  {
     this.products = this.route.snapshot.data.menuExamples;
   }
 
@@ -61,7 +61,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   ngAfterViewInit() {
     _.each(this.products, (product: IProduct) => {
       _.each(product.defaultGoodsModels, (good: IGood) => {
-        this.ContentPreloadService.preload(good.images.rectangular.s840x454);
+        this.contentPreloadService.preload(good.images.rectangular.s840x454);
       });
     });
     this.swiper.update();
@@ -133,11 +133,11 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   updateSliderData(index: number) {
     setTimeout(() => {
         this.currentMenuIndex = index;
+        this.swiper.setIndex(0, 0, true);
         this.cdRef.markForCheck();
       },
       this.animationDuration / 2
     );
     this.addSliderAnimation();
-    this.swiper.setIndex(0);
   }
 }
