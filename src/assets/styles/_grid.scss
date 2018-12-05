@@ -51,6 +51,10 @@ $container-indent: (sm: 12px, md: 12px, lg: 20px, elg: 20px);
 .container {
   @extend %container;
 
+  &.__mw800 {
+    max-width: 800px;
+  }
+
   &-fluid {
     @extend %container;
     width: 100%;

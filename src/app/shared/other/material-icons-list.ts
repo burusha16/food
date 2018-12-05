@@ -5,6 +5,7 @@ const defaultPath = '../assets/img/icons/';
 export const MaterialIconsList: IMatIcon[] = [
   { name: 'arrow-in-rectangle', src: defaultPath },
   { name: 'arrow-right', src: defaultPath },
+  { name: 'checkmark-in-round', src: defaultPath },
   { name: 'clock', src: defaultPath },
   { name: 'cross', src: defaultPath },
   { name: 'default-avatar', src: defaultPath },

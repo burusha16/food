@@ -10,6 +10,7 @@ import { MealInfoComponent } from './meal-info/meal-info.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { VideoOfWeekComponent } from './video-of-week/video-of-week.component';
 import { SmiListComponent } from './smi-list/smi-list.component';
+import { MobileAppComponent } from './mobile-app/mobile-app.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SmiListComponent } from './smi-list/smi-list.component';
     MealInfoComponent,
     FeedbackComponent,
     VideoOfWeekComponent,
-    SmiListComponent
+    SmiListComponent,
+    MobileAppComponent
   ],
   imports: [
     SharedModule,
