@@ -10,7 +10,7 @@
   - Ветвь исправлений - hotfix  
 
 ## Правила использования коммитов:
-### <TYPE>(<COMPONENTS>):<DESCRIPTION>
+### < TYPE >(< COMPONENTS >):< DESCRIPTION >
 #### TYPE
   - feat - разработка нового функционала
   - fix - исправления багов

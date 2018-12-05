@@ -9,6 +9,7 @@ import {MainPageResolver} from './main-page.resolver';
 import { MealInfoComponent } from './meal-info/meal-info.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { VideoOfWeekComponent } from './video-of-week/video-of-week.component';
+import { SmiListComponent } from './smi-list/smi-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { VideoOfWeekComponent } from './video-of-week/video-of-week.component';
     MenuExamplesComponent,
     MealInfoComponent,
     FeedbackComponent,
-    VideoOfWeekComponent
+    VideoOfWeekComponent,
+    SmiListComponent
   ],
   imports: [
     SharedModule,

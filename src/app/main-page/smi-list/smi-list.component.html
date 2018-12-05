@@ -1,0 +1,11 @@
+<div class="smi-list container">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="smi-list__wrapper">
+        <li class="smi-list__item" *ngFor="let item of smiList">
+          <img [src]="item.url" [width]="item.width" [height]="item.height">
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

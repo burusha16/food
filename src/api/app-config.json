@@ -10,5 +10,37 @@
       "Fitness",
       "Vegetarian"
     ]
-  }
+  },
+  "smiList": [
+    {
+      "width": "88",
+      "height": "32",
+      "url": "/assets/img/main-page/smi-list/village.jpg"
+    },
+    {
+      "width": "104",
+      "height": "27",
+      "url": "/assets/img/main-page/smi-list/ved.jpg"
+    },
+    {
+      "width": "90",
+      "height": "22",
+      "url": "/assets/img/main-page/smi-list/vc.jpg"
+    },
+    {
+      "width": "99",
+      "height": "27",
+      "url": "/assets/img/main-page/smi-list/expert.jpg"
+    },
+    {
+      "width": "110",
+      "height": "34",
+      "url": "/assets/img/main-page/smi-list/interfax.jpg"
+    },
+    {
+      "width": "84",
+      "height": "28",
+      "url": "/assets/img/main-page/smi-list/rbc.jpg"
+    }
+  ]
 }

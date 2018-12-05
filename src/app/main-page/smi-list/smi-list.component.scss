@@ -1,0 +1,31 @@
+@import "../../../assets/styles/variables";
+
+.smi-list {
+  margin-top: 64px;
+  padding-bottom: 56px;
+
+  @media screen and (max-width: $bp-tablet) {
+    margin-top: 16px;
+    padding-bottom: 16px;
+  }
+
+    &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    opacity: .26;
+  }
+
+  &__item {
+    @media screen and (max-width: $bp-tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      margin: 16px 0;
+    }
+  }
+}

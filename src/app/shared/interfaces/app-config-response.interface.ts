@@ -1,5 +1,8 @@
+import {ISmiItem} from './smi-list-item.iterface';
+
 export interface IAppConfig {
   sliderMenuExamplesConfig: ISliderMenuExamplesConfig;
+  smiList: ISmiItem[];
 }
 
 export interface ISliderMenuExamplesConfig {
