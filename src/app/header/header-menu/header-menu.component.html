@@ -5,14 +5,14 @@
           *ngIf="item.url"
           class="header-menu__link"
           [ngClass]="{'__no-hover': item.theme === 'no-hover'}">
-        {{item.name}}
+        {{item.key | translate}}
       </a>
 
       <a [routerLink]="item.routerLink"
           *ngIf="item.routerLink"
           class="header-menu__link"
           [ngClass]="{'__no-hover': item.theme === 'no-hover'}">
-        {{item.name}}
+        {{item.key | translate}}
         <mat-icon [svgIcon]="item.icon" *ngIf="item.icon" class="__s36 __ml16"></mat-icon>
       </a>
     </li>

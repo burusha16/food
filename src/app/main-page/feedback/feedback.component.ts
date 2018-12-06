@@ -43,7 +43,7 @@ export class FeedbackComponent implements AfterViewInit, AfterViewChecked, IResp
 
   constructor(private apiService: BaseApiService,
               private elRef: ElementRef) {
-    this.feedbacks$ = this.apiService.getFeedbacks();
+    this.feedbacks$ = this.apiService.feedbacks$;
   }
 
   ngAfterViewInit() {

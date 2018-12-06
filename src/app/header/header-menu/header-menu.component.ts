@@ -1,13 +1,10 @@
-import * as _ from 'lodash/core';
 import { Subject, Observable } from 'rxjs';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Responsive } from '../../shared/decorators/responsive.decorator';
 import { BaseApiService } from '../../shared/services/base-api.service';
-import { HeaderMenuItem } from '../../shared/models/header-menu-item.model';
 import { HeaderService } from '../header.service';
 import { IResponsiveComponent } from '../../shared/interfaces/responsive-component.interface';
-import { HeaderMenuResponseTypes } from '../../shared/enums/header-menu-response-types.enum';
-import {map} from 'rxjs/operators';
+import {IHeaderMenuItem} from '../../shared/interfaces/app-menu.interface';
 
 @Responsive()
 @Component({
@@ -20,8 +17,7 @@ export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
   isSmall: boolean;
   isMenuExpanded = false;
   isMenuExpanded$: Subject<boolean> = this.headerService.showHeaderDialog$;
-  headerMenuTypes = HeaderMenuResponseTypes;
-  menuItems$: Observable<HeaderMenuItem[]>;
+  menuItems$: Observable<IHeaderMenuItem[]> = this.apiService.headerDesktopMenu$;
 
   constructor(private apiService: BaseApiService,
               private headerService: HeaderService,
@@ -30,10 +26,6 @@ export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
       this.isMenuExpanded = status;
       this.cdRef.markForCheck();
     });
-    this.menuItems$ = this.apiService.getHeaderMenu().pipe(
-      map((items: HeaderMenuItem[]) =>
-        _.filter(items, (item: HeaderMenuItem) => item.type === HeaderMenuResponseTypes.Desktop)
-      ));
   }
 
   ngOnInit() {

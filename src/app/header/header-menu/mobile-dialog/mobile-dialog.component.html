@@ -1,21 +1,19 @@
 <div class="header-dialog">
     <div class="header-dialog__header">
-      <ng-template ngFor [ngForOf]="menuHeaderItems$ | async" let-item>
-        <a [routerLink]="item.routerLink" class="header-dialog__link __black __fz14" *ngIf="item.routerLink">{{item.name}}</a>
-      </ng-template>
+        <a routerLink="/login" class="header-dialog__link __black __fz14">{{'common.routes.login' | translate}}</a>
     </div>
 
     <div class="header-dialog__body">
       <ng-template ngFor [ngForOf]="menuMobileItems$ | async" let-item>
-        <a [href]="item.url" class="header-dialog__link __ptb10" *ngIf="item.url">{{item.name}}</a>
-        <a [routerLink]="item.routerLink" class="header-dialog__link __ptb10" *ngIf="item.routerLink">{{item.name}}</a>
+        <a [href]="item.url" class="header-dialog__link __ptb10" *ngIf="item.url">{{item.key | translate}}</a>
+        <a [routerLink]="item.routerLink" class="header-dialog__link __ptb10" *ngIf="item.routerLink">{{item.key | translate}}</a>
       </ng-template>
     </div>
 
     <div class="header-dialog__footer">
       <ng-template ngFor [ngForOf]="menuFooterItems$ | async" let-item>
-        <a [href]="item.url" class="header-dialog__link __mtb8 __mine-shaft __fz14" *ngIf="item.url">{{item.name}}</a>
-        <a [routerLink]="item.routerLink" class="header-dialog__link __mtb8 __mine-shaft __fz14" *ngIf="item.routerLink">{{item.name}}</a>
+        <a [href]="item.url" class="header-dialog__link __mtb8 __mine-shaft __fz14" *ngIf="item.url">{{item.key | translate}}</a>
+        <a [routerLink]="item.routerLink" class="header-dialog__link __mtb8 __mine-shaft __fz14" *ngIf="item.routerLink">{{item.key | translate}}</a>
       </ng-template>
     </div>
 </div>

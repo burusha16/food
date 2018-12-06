@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpParams, HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
+import { Observable, throwError} from 'rxjs';
 import {IAppMenu, IFooterMenuItem, IHeaderMenuItem} from '../interfaces/app-menu.interface';
-import {map, publishReplay, refCount, catchError, retry, filter} from 'rxjs/operators';
-import { HeaderMenuItem } from '../models/header-menu-item.model';
+import {map, publishReplay, refCount, catchError, retry} from 'rxjs/operators';
 import { IOffer } from '../interfaces/offers.interface';
 import { IOffersResponse } from '../interfaces/offers-response.interface';
 import { Offer } from '../models/offer.model';
@@ -34,21 +33,30 @@ export class BaseApiService {
       );
   }
 
-  getHeaderMenu(): Observable<HeaderMenuItem[]> {
-    return this.get('header-menu')
+  get allMenu$(): Observable<IAppMenu> {
+    return this.get('menu')
       .pipe(
-        map((response: IHeaderMenuItem[]) =>
-          response.map((menuItem: IHeaderMenuItem) => new HeaderMenuItem(menuItem))
-        ),
+        map((response: IAppMenu) => response),
         publishReplay(this.CACHE_SIZE),
         refCount()
       );
   }
 
-  get allMenu$(): Observable<IAppMenu> {
-    return this.get('menu')
+  get appConfig$(): Observable<IAppConfig> {
+    return this.get('app-config')
       .pipe(
-        map((response: IAppMenu) => response),
+        map((response: IAppConfig) => response),
+        publishReplay(this.CACHE_SIZE),
+        refCount()
+      );
+  }
+
+  get feedbacks$(): Observable<Feedback[]> {
+    return this.get('feedback')
+      .pipe(
+        map((response: IFeedback[]) =>
+          response.map((item: IFeedback) => new Feedback(item))
+        ),
         publishReplay(this.CACHE_SIZE),
         refCount()
       );
@@ -66,33 +74,31 @@ export class BaseApiService {
     );
   }
 
-  getFeedbacks(): Observable<Feedback[]> {
-    return this.get('feedback')
-      .pipe(
-        map((response: IFeedback[]) =>
-          response.map((item: IFeedback) => new Feedback(item))
-        ),
-        publishReplay(this.CACHE_SIZE),
-        refCount()
-      );
+  get headerDesktopMenu$(): Observable<IHeaderMenuItem[]> {
+    return this.allMenu$.pipe(
+      map((response: IAppMenu) => response.headerDesktop)
+    );
   }
 
-  getOffers(): Observable<IOffer[]> {
+  get headerMobileBody$(): Observable<IHeaderMenuItem[]> {
+    return this.allMenu$.pipe(
+      map((response: IAppMenu) => response.headerMobileBody)
+    );
+  }
+
+  get headerMobileFooter$(): Observable<IHeaderMenuItem[]> {
+    return this.allMenu$.pipe(
+      map((response: IAppMenu) => response.headerMobileFooter)
+    );
+  }
+
+  get offers$(): Observable<IOffer[]> {
     return this.get('actual')
       .pipe(
         map((response: IOffersResponse) => {
           this.appService.actualWeekKey = response.defaultWeekKey;
           return response.goods.map((offer: IOffer) => new Offer(offer));
         }),
-        publishReplay(this.CACHE_SIZE),
-        refCount()
-      );
-  }
-
-  getAppConfig(): Observable<IAppConfig> {
-    return this.get('app-config')
-      .pipe(
-        map((response: IAppConfig) => response),
         publishReplay(this.CACHE_SIZE),
         refCount()
       );

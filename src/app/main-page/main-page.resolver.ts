@@ -23,7 +23,7 @@ export class MainPageResolver implements Resolve<Observable<IProduct[]>> {
   }
 
   resolve(): Observable<IProduct[]> {
-    return this.apiService.getOffers()
+    return this.apiService.offers$
       .pipe(
         map((offers: IOffer[]) => {
           let products: IProduct[];

@@ -13,7 +13,7 @@ import {Observable} from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  appConfig$: Observable<IAppConfig> = this.apiService.getAppConfig();
+  appConfig$: Observable<IAppConfig> = this.apiService.appConfig$;
 
   constructor(private injector: Injector,
               private translate: TranslateService,
