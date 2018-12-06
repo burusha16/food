@@ -12,7 +12,6 @@ import { VideoOfWeekComponent } from './video-of-week/video-of-week.component';
 import { SmiListComponent } from './smi-list/smi-list.component';
 import { MobileAppComponent } from './mobile-app/mobile-app.component';
 import {RouterModule} from '@angular/router';
-import {MainPageRoutes} from './main-page.routing';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,7 @@ import {MainPageRoutes} from './main-page.routing';
   ],
   imports: [
     SharedModule,
-    RouterModule.forChild(MainPageRoutes),
+    RouterModule,
     SwiperSliderModule
   ],
   providers: [

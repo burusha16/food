@@ -6,8 +6,6 @@ import {RouterModule} from '@angular/router';
 import {FooterComponent} from './footer.component';
 import {FooterMenuComponent} from './footer-menu/footer-menu.component';
 
-import {FooterRoutes} from './footer.routing';
-
 @NgModule({
   declarations: [
     FooterComponent,
@@ -15,7 +13,7 @@ import {FooterRoutes} from './footer.routing';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(FooterRoutes),
+    RouterModule,
     SharedModule
   ],
   exports: [

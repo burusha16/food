@@ -1,14 +1,8 @@
 import {Routes} from '@angular/router';
-import {MainPageComponent} from './pages/main-page/main-page.component';
-
+import {MainPageRoute} from './pages/main-page/main-page.routing';
+import {MenuRoute} from './pages/menu/menu.routing';
 
 export const AppRoutes: Routes = [
-  {
-    path: '',
-    component: MainPageComponent
-  },
-  {
-    path: 'menu',
-    loadChildren: './pages/menu/menu.module#MenuModule'
-  }
+  MainPageRoute,
+  MenuRoute
 ];
