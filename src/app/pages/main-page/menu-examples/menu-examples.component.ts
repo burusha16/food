@@ -3,11 +3,11 @@ import * as moment from 'moment';
 import {Component, ViewChild, ChangeDetectorRef, ElementRef, ViewEncapsulation, AfterViewInit, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SwiperPaginationInterface, SwiperConfigInterface, SwiperNavigationInterface, SwiperDirective } from 'ngx-swiper-wrapper';
-import {IResponsiveComponent} from '../../shared/interfaces/responsive-component.interface';
-import {IProduct} from '../../shared/interfaces/product.interface';
-import {ContentPreloadService} from '../../shared/services/content-preload.service';
-import {IGood} from '../../shared/interfaces/good.interface';
-import {Responsive} from '../../shared/decorators/responsive.decorator';
+import {IResponsiveComponent} from '../../../shared/interfaces/responsive-component.interface';
+import {IProduct} from '../../../shared/interfaces/product.interface';
+import {ContentPreloadService} from '../../../shared/services/content-preload.service';
+import {IGood} from '../../../shared/interfaces/good.interface';
+import {Responsive} from '../../../shared/decorators/responsive.decorator';
 
 @Responsive()
 @Component({

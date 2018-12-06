@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {AppService} from '../../shared/services/base-app.service';
-import {ISmiItem} from '../../shared/interfaces/smi-list-item.iterface';
+import {AppService} from '../../../shared/services/base-app.service';
+import {ISmiItem} from '../../../shared/interfaces/smi-list-item.iterface';
 
 @Component({
   selector: 'app-smi-list',

@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation, AfterViewInit, ViewChild, OnDestroy } fro
 import { SwiperConfigInterface, SwiperPaginationInterface, SwiperDirective } from 'ngx-swiper-wrapper';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DeviceWindowService } from '../../shared/services/device-window.service';
+import { DeviceWindowService } from '../../../shared/services/device-window.service';
 
 interface IOrderStepSlide {
   descriptionKey: string;

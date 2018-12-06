@@ -1,4 +1,4 @@
-@import "../../../assets/styles/variables";
+@import "../../../../assets/styles/variables";
 
 .mobile-app {
   padding-top: 116px;
@@ -23,7 +23,7 @@
     flex-shrink: 0;
     width: 460px;
     height: 392px;
-    background-image: url("../../../assets/img/main-page/mobile-app/phone-desktop.png");
+    background-image: url("../../../../assets/img/main-page/mobile-app/phone-desktop.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
@@ -31,7 +31,7 @@
     @media screen and (max-width: $bp-tablet) {
       width: 100vw;
       height: 100vw;
-      background-image: url("../../../assets/img/main-page/mobile-app/phone-mobile.png");
+      background-image: url("../../../../assets/img/main-page/mobile-app/phone-mobile.png");
     }
   }
 
@@ -89,11 +89,11 @@
     }
 
     &.__apple {
-      background-image: url("../../../assets/img/icons/appstore-badge.svg");
+      background-image: url("../../../../assets/img/icons/appstore-badge.svg");
     }
 
     &.__google {
-      background-image: url("../../../assets/img/icons/google-play-badge.svg");
+      background-image: url("../../../../assets/img/icons/google-play-badge.svg");
     }
 
     &:last-child {

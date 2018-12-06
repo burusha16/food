@@ -1,13 +1,14 @@
-import { Routes } from '@angular/router';
-import { MainPageComponent } from './main-page/main-page.component';
-import {MainPageResolver} from './main-page/main-page.resolver';
+import {Routes} from '@angular/router';
+import {MainPageComponent} from './pages/main-page/main-page.component';
 
 
 export const AppRoutes: Routes = [
-  { path: '',
-    component: MainPageComponent,
-    resolve: {
-      menuExamples: MainPageResolver
-    }
+  {
+    path: '',
+    component: MainPageComponent
+  },
+  {
+    path: 'menu',
+    loadChildren: './pages/menu/menu.module#MenuModule'
   }
 ];

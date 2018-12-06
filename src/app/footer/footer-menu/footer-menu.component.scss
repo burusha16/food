@@ -16,6 +16,7 @@
 
   &__link {
     display: inline-block;
+    transition-duration: $duration-fast;
     border-bottom: 1px solid rgba($boulder, .3);
     color: $boulder;
     line-height: 16px;

@@ -3,11 +3,11 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {Resolve} from '@angular/router';
-import {IOffer} from '../shared/interfaces/offers.interface';
-import {IProduct} from '../shared/interfaces/product.interface';
-import {BaseApiService} from '../shared/services/base-api.service';
-import {AppService} from '../shared/services/base-app.service';
-import {ISliderMenuExamplesConfig} from '../shared/interfaces/app-config-response.interface';
+import {IOffer} from '../../shared/interfaces/offers.interface';
+import {IProduct} from '../../shared/interfaces/product.interface';
+import {BaseApiService} from '../../shared/services/base-api.service';
+import {AppService} from '../../shared/services/base-app.service';
+import {ISliderMenuExamplesConfig} from '../../shared/interfaces/app-config-response.interface';
 
 @Injectable()
 export class MainPageResolver implements Resolve<Observable<IProduct[]>> {

@@ -1,10 +1,10 @@
 import {concat, Observable, of} from 'rxjs';
 import {AfterViewChecked, AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
 import {SwiperConfigInterface, SwiperDirective, SwiperNavigationInterface, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
-import {BaseApiService} from '../../shared/services/base-api.service';
-import {IFeedback} from '../../shared/interfaces/feedback.interface';
-import {Responsive} from '../../shared/decorators/responsive.decorator';
-import {IResponsiveComponent} from '../../shared/interfaces/responsive-component.interface';
+import {BaseApiService} from '../../../shared/services/base-api.service';
+import {IFeedback} from '../../../shared/interfaces/feedback.interface';
+import {Responsive} from '../../../shared/decorators/responsive.decorator';
+import {IResponsiveComponent} from '../../../shared/interfaces/responsive-component.interface';
 
 @Responsive()
 @Component({

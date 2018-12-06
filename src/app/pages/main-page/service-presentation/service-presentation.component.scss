@@ -1,4 +1,4 @@
-@import "../../../assets//styles/variables";
+@import "../../../../assets/styles/variables";
 
 :host {
   display: flex;
@@ -7,7 +7,7 @@
 .presentation {
   position: relative;
   height: 600px;
-  background-image: url("../../../assets/img/main-page/bg-service-presentation.jpg");
+  background-image: url("../../../../assets/img/main-page/bg-service-presentation.jpg");
   background-position: bottom;
   background-size: cover;
   color: $mine-shaft;
@@ -18,7 +18,7 @@
 
   @media screen and (max-width: $bp-sm) {
     height: 460px;
-    background-image: url("../../../assets/img/main-page/bg-service-presentation-mobile.jpg");
+    background-image: url("../../../../assets/img/main-page/bg-service-presentation-mobile.jpg");
   }
 
   &.__no-bgi {
