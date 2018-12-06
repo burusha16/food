@@ -1,10 +1,11 @@
 $icon-sizes: 12, 16, 18, 36;
-$icon-widths: 188, 145, 93, 83;
-$icon-heights: 16, 20;
+$icon-widths: 188, 145, 93, 83, 72;
+$icon-heights: 16, 20, 28;
 $icon-colors: ("white": $white, "baltic-sea": $baltic-sea, "boulder": $boulder, "mercury": $mercury);
 $icon-margin-left: 8, 10, 16;
-$icon-margin-right: 4, 16;
+$icon-margin-right: 4, 8, 16;
 $icon-margin-top: 2, 4;
+$opacity-list: 30;
 
 .mat-icon {
   flex-shrink: 0;
@@ -51,6 +52,11 @@ $icon-margin-top: 2, 4;
   @each $indent in $icon-margin-top {
     &.__mt#{$indent} {
       margin-top: #{$indent}px;
+    }
+  }
+  @each $opacity in $opacity-list {
+    &.__op#{$opacity} {
+      opacity: $opacity / 100;
     }
   }
 

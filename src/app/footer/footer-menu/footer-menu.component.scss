@@ -1,0 +1,31 @@
+@import "../../../assets/styles/variables";
+
+.footer-menu {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+
+  @media screen and (max-width: $bp-tablet) {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 8px 0 16px;
+  }
+
+  &__link {
+    display: inline-block;
+    border-bottom: 1px solid rgba($boulder, .3);
+    color: $boulder;
+    line-height: 16px;
+
+    @media screen and (max-width: $bp-tablet) {
+      margin-top: 8px;
+    }
+
+      &:hover {
+      border-bottom: 1px solid $boulder;
+    }
+  }
+}

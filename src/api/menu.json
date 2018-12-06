@@ -1,0 +1,56 @@
+{
+  "headerDesktop": [],
+  "headerMobile": [],
+  "footer": [
+    {
+    "key": "common.routes.about-company",
+    "path": "/about"
+    },
+    {
+    "key": "common.routes.to-menu",
+    "path": "/menu"
+    },
+    {
+    "key": "common.routes.how-it-works",
+    "path": "/how"
+    },
+    {
+    "key": "common.routes.delivery-and-payment",
+    "path": "/delivery"
+    },
+    {
+    "key": "common.routes.user-agreement",
+    "path": "/agreement"
+    },
+    {
+    "key": "common.routes.for-providers",
+    "path": "/for-providers"
+    },
+    {
+    "key": "common.routes.blog",
+    "path": "/blog"
+    }
+  ],
+  "footerSocial": [
+    {
+    "key": "common.social.telegram",
+    "path": "tg://resolve?domain=PEchatbot",
+    "iconKey": "telegram"
+    },
+    {
+    "key": "common.social.messenger",
+    "path": "https://www.facebook.com/messages/t/partiyaedi",
+    "iconKey": "messenger"
+    },
+    {
+    "key": "common.social.vk",
+    "path": "https://vk.me/partiyaedi",
+    "iconKey": "vk"
+    },
+    {
+    "key": "common.routes.phone-number-format0",
+    "path": "tel:+78007778337",
+    "iconKey": "old-phone-in-round"
+    }
+  ]
+}

@@ -11,7 +11,12 @@ export const MaterialIconsList: IMatIcon[] = [
   { name: 'default-avatar', src: defaultPath },
   { name: 'logo', src: defaultPath },
   { name: 'logo-yandex-project', src: defaultPath },
+  { name: 'messenger', src: defaultPath },
   { name: 'old-phone', src: defaultPath },
+  { name: 'old-phone-in-round', src: defaultPath },
+  { name: 'telegram', src: defaultPath },
   { name: 'triangle', src: defaultPath },
-  {name: 'videocam', src: defaultPath }
+  { name: 'videocam', src: defaultPath },
+  { name: 'vk', src: defaultPath },
+  { name: 'yandex-logo', src: defaultPath }
 ];

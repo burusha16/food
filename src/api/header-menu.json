@@ -1,42 +1,42 @@
 [
   {
-    "name": "header.phone-number",
+    "name": "common.routes.phone-number-format1",
     "url": "tel:88007778337",
     "theme": "no-hover",
     "type": "desktop"
   },
   {
-    "name": "header.menu",
+    "name": "common.routes.menu",
     "routerLink": "/menu",
     "type": "desktop"
 
   },
   {
-    "name": "header.how-it-works",
+    "name": "common.routes.how-it-works",
     "routerLink": "/how",
     "type": "desktop"
 
   },
   {
-    "name": "header.about-company",
+    "name": "common.routes.about-company",
     "routerLink": "/about",
     "type": "desktop"
 
   },
   {
-    "name": "header.blog",
+    "name": "common.routes.blog",
     "routerLink": "/blog",
     "type": "desktop"
 
   },
   {
-    "name": "header.login",
+    "name": "common.routes.login",
     "routerLink": "/login",
     "icon": "default-avatar",
     "type": "desktop"
   },
   {
-    "name": "header.login",
+    "name": "common.routes.login",
     "routerLink": "/login",
     "type": "mobile-header"
   },
@@ -71,17 +71,17 @@
     "type": "mobile-menu"
   },
   {
-    "name": "header.about-company",
+    "name": "common.routes.about-company",
     "routerLink": "/about",
     "type": "mobile-footer"
   },
   {
-    "name": "header.how-it-works",
+    "name": "common.routes.how-it-works",
     "routerLink": "/how",
     "type": "mobile-footer"
   },
   {
-    "name": "header.phone-number",
+    "name": "common.routes.phone-number-format1",
     "url": "tel:88007778337",
     "type": "mobile-footer",
     "icon": "old-phone"

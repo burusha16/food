@@ -1,15 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { MatDialog } from '@angular/material';
-import { HeaderMenuDialogComponent } from './header-menu/mobile-dialog/mobile-dialog.component';
-import { BaseApiService } from '../shared/services/base-api.service';
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
+import {MatDialog} from '@angular/material';
+import {HeaderMenuDialogComponent} from './header-menu/mobile-dialog/mobile-dialog.component';
 
 @Injectable()
 export class HeaderService {
   showHeaderDialog$: Subject<boolean> = new Subject();
 
-  constructor(public dialog: MatDialog,
-              private apiService: BaseApiService) {
+  constructor(public dialog: MatDialog) {
   }
 
   showHeaderMenuDialog() {

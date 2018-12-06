@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpParams, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
-import { IHeaderMenuItem } from '../interfaces/header-menu-item.interface';
-import { map, publishReplay, refCount, catchError, retry } from 'rxjs/operators';
+import {IAppMenu, IFooterMenuItem, IHeaderMenuItem} from '../interfaces/app-menu.interface';
+import {map, publishReplay, refCount, catchError, retry, filter} from 'rxjs/operators';
 import { HeaderMenuItem } from '../models/header-menu-item.model';
 import { IOffer } from '../interfaces/offers.interface';
 import { IOffersResponse } from '../interfaces/offers-response.interface';
@@ -43,6 +43,27 @@ export class BaseApiService {
         publishReplay(this.CACHE_SIZE),
         refCount()
       );
+  }
+
+  get allMenu$(): Observable<IAppMenu> {
+    return this.get('menu')
+      .pipe(
+        map((response: IAppMenu) => response),
+        publishReplay(this.CACHE_SIZE),
+        refCount()
+      );
+  }
+
+  get footerSocial$(): Observable<IFooterMenuItem[]> {
+    return this.allMenu$.pipe(
+      map((response: IAppMenu) => response.footerSocial)
+    );
+  }
+
+  get footerMenu$(): Observable<IFooterMenuItem[]> {
+    return this.allMenu$.pipe(
+      map((response: IAppMenu) => response.footer)
+    );
   }
 
   getFeedbacks(): Observable<Feedback[]> {

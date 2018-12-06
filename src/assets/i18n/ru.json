@@ -1,11 +1,5 @@
 {
   "header": {
-    "menu": "Меню",
-    "phone-number": "8 (800) 777-83-37",
-    "how-it-works":"Как это работает",
-    "about-company":"О компании",
-    "blog":"Блог",
-    "login":"Войти",
     "promo": {
       "new-yaer-menu": "Новогоднее меню",
       "watch-dishes": "Смотреть блюда",
@@ -91,6 +85,27 @@
       "gram": "г",
       "kcal": "ккал",
       "min": "мин."
+    },
+    "routes": {
+      "about-company": "О компании",
+      "menu": "Меню",
+      "to-menu": "В меню",
+      "how-it-works": "Как это работает",
+      "delivery-and-payment": "Доставка и оплата",
+      "user-agreement": "Пользовательское соглашение",
+      "for-providers": "Для поставщиков",
+      "blog": "Блог",
+      "phone-number-format0": "8 800 777 8337",
+      "phone-number-format1": "8 (800) 777-83-37",
+      "login": "Войти"
+    },
+    "social": {
+      "vk": "Вконтакте",
+      "messenger": "Messenger",
+      "telegram": "Telegram"
     }
+  },
+  "footer": {
+    "ask-question": "Задайте вопрос:"
   }
 }

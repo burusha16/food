@@ -1,0 +1,22 @@
+<router-outlet name="menu"></router-outlet>
+
+<div class="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 __justify-beetwen"
+           [ngClass]="{'__column': isMobile,
+                       '__align-center': !isMobile}">
+        <p class="footer__social">
+          <span>{{'footer.ask-question' | translate}}</span>
+
+          <a [href]="item.path" class="footer__link" *ngFor="let item of socialItems$ | async">
+            <mat-icon [svgIcon]="item.iconKey" class="__h16 __mr8"></mat-icon>
+            {{item.key | translate}}
+          </a>
+        </p>
+
+        <mat-icon svgIcon="yandex-logo" class="__w72 __h28 __op30 __white"></mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

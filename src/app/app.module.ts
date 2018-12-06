@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from './header/header.module';
 import { MainPageModule } from './main-page/main-page.module';
 import { RouterModule } from '@angular/router';
+import {FooterModule} from './footer/footer.module';
 
 import { DeviceWindowService } from './shared/services/device-window.service';
 import { BaseApiService } from './shared/services/base-api.service';
@@ -18,6 +19,7 @@ import { AppService } from './shared/services/base-app.service';
 
 import { AppComponent } from './app.component';
 import { MyMissingTranslationHandler } from './shared/other/translate.handler';
+
 import { AppRoutes } from './app.routing';
 
 export const httpInterceptorProviders = [
@@ -43,7 +45,8 @@ export const httpInterceptorProviders = [
       useDefaultLang: false
     }),
     HeaderModule,
-    MainPageModule
+    MainPageModule,
+    FooterModule
   ],
   providers: [
     httpInterceptorProviders,

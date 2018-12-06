@@ -1,4 +1,4 @@
-import { IHeaderMenuItem } from "../interfaces/header-menu-item.interface";
+import { IHeaderMenuItem } from "../interfaces/app-menu.interface";
 import { ServiceLocator } from "../services/locator.service";
 import { HeaderMenuResponseTypes } from "../enums/header-menu-response-types.enum";
 
