@@ -1,7 +1,7 @@
 import * as moment from 'moment';
-import { Component, Injector, ChangeDetectionStrategy } from '@angular/core';
-import { ServiceLocator } from './shared/services/locator.service';
-import { TranslateService } from '@ngx-translate/core';
+import {ChangeDetectionStrategy, Component, Injector, ViewEncapsulation} from '@angular/core';
+import {ServiceLocator} from './shared/services/locator.service';
+import {TranslateService} from '@ngx-translate/core';
 import {BaseApiService} from './shared/services/base-api.service';
 import {AppService} from './shared/services/base-app.service';
 import {IAppConfig} from './shared/interfaces/app-config-response.interface';
