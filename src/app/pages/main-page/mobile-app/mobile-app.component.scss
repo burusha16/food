@@ -78,22 +78,10 @@
 
   &__link {
     display: inline-block;
-    width: 132px;
-    height: 40px;
     margin-right: 20px;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
 
     @media screen and (max-width: $bp-tablet) {
       margin-right: 8px;
-    }
-
-    &.__apple {
-      background-image: url("../../../../assets/img/icons/appstore-badge.svg");
-    }
-
-    &.__google {
-      background-image: url("../../../../assets/img/icons/google-play-badge.svg");
     }
 
     &:last-child {

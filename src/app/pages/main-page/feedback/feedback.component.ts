@@ -1,5 +1,5 @@
 import {concat, Observable, of} from 'rxjs';
-import {AfterViewChecked, AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {SwiperConfigInterface, SwiperDirective, SwiperNavigationInterface, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
 import {BaseApiService} from '../../../shared/services/base-api.service';
 import {IFeedback} from '../../../shared/interfaces/feedback.interface';
@@ -13,7 +13,7 @@ import {IResponsiveComponent} from '../../../shared/interfaces/responsive-compon
   styleUrls: ['./feedback.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class FeedbackComponent implements AfterViewInit, AfterViewChecked, IResponsiveComponent {
+export class FeedbackComponent implements OnInit, AfterViewInit, AfterViewChecked, IResponsiveComponent {
   @ViewChild(SwiperDirective) swiper: SwiperDirective;
   activeSlideIndex$: Observable<number>;
   isMobile: boolean;
@@ -44,6 +44,9 @@ export class FeedbackComponent implements AfterViewInit, AfterViewChecked, IResp
   constructor(private apiService: BaseApiService,
               private elRef: ElementRef) {
     this.feedbacks$ = this.apiService.feedbacks$;
+  }
+
+  ngOnInit() {
   }
 
   ngAfterViewInit() {
