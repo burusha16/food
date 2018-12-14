@@ -1,5 +1,6 @@
 import {ISmiItem} from '@shared/interfaces/smi-list-item.iterface';
 import {ISliderMenuExamplesConfig} from '@shared/interfaces/app-config-response.interface';
+import {IAppMenu} from '@shared/interfaces/app-menu.interface';
 
 export const SliderMenuExamplesConfig: ISliderMenuExamplesConfig = {
   'personsAmount': 2,
@@ -116,7 +117,7 @@ export const FeedbacksList = [
   }
 ];
 
-export const MenuList = {
+export const AppMenu: IAppMenu = {
   headerDesktop: [
     {
       'key': 'common.routes.phone-number-format1',
@@ -149,49 +150,40 @@ export const MenuList = {
     {
       'key': 'product.class.Classic',
       'routerLink': '/menu#classic',
-      'type': 'menu'
     },
     {
       'key': 'product.class.Premium',
       'routerLink': '/menu#premium',
-      'type': 'menu'
     },
     {
       'key': 'product.class.Family',
       'routerLink': '/menu#family',
-      'type': 'menu'
     },
     {
       'key': 'product.class.Express',
       'routerLink': '/menu#10minutes',
-      'type': 'menu'
     },
     {
       'key': 'product.class.Fitness',
       'routerLink': '/menu#fitness',
-      'type': 'menu'
     },
     {
       'key': 'product.class.Vegetarian',
       'routerLink': '/menu#vegetarian',
-      'type': 'menu'
     }
   ],
   headerMobileFooter: [
     {
       'key': 'common.routes.about-company',
       'routerLink': '/about',
-      'type': 'footer'
     },
     {
       'key': 'common.routes.how-it-works',
       'routerLink': '/how',
-      'type': 'footer'
     },
     {
       'key': 'common.routes.phone-number-format1',
       'url': 'tel:88007778337',
-      'type': 'footer',
       'icon': 'old-phone'
     }
   ],

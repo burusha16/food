@@ -26,6 +26,7 @@ global['window'] = win;
 global['document'] = win.document;
 global['Event'] = domino.impl.Event;
 global['ErrorEvent'] = domino.impl.Event;
+global['Image'] = domino.impl.Image;
 
 enableProdMode();
 app.use(compression());
@@ -72,6 +73,7 @@ app.engine(
 app.set('view engine', 'html');
 app.set('views', 'src');
 
+app.get('*.*', express.static(join(distFolder, 'browser')));
 app.use(express.static(join(distFolder,  'server/static')));
 app.get('/api/actual', (req, res) => {
   const response = JSON.parse(

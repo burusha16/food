@@ -8,5 +8,5 @@ export interface IOffer {
   deliveryDays: string[];
   constructorStopTime: string;
   products: IProduct[];
-  goods: IGood;
+  goods: IGood[];
 }

@@ -1,5 +1,3 @@
-import { HeaderMenuResponseTypes } from '../enums/header-menu-response-types.enum';
-
 export interface IAppMenu {
   headerDesktop: IHeaderMenuItem[];
   headerMobileFooter: IHeaderMenuItem[];
@@ -14,7 +12,6 @@ export interface IHeaderMenuItem {
   routerLink?: string;
   theme?: string;
   url?: string;
-  type: HeaderMenuResponseTypes;
 }
 
 export interface IFooterMenuItem {

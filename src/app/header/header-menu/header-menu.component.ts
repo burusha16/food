@@ -5,6 +5,7 @@ import { BaseApiService } from '../../shared/services/base-api.service';
 import { HeaderService } from '../header.service';
 import { IResponsiveComponent } from '../../shared/interfaces/responsive-component.interface';
 import {IHeaderMenuItem} from '../../shared/interfaces/app-menu.interface';
+import {AppService} from '@shared/services/base-app.service';
 
 @Responsive()
 @Component({
@@ -17,9 +18,9 @@ export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
   isSmall: boolean;
   isMenuExpanded = false;
   isMenuExpanded$: Subject<boolean> = this.headerService.showHeaderDialog$;
-  menuItems$: Observable<IHeaderMenuItem[]> = this.apiService.headerDesktopMenu$;
+  menuItems: IHeaderMenuItem[] = this.appService.headerMenu;
 
-  constructor(private apiService: BaseApiService,
+  constructor(private appService: AppService,
               private headerService: HeaderService,
               private cdRef: ChangeDetectorRef) {
     this.isMenuExpanded$.subscribe( (status: boolean) => {

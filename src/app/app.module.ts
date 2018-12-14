@@ -23,6 +23,7 @@ import {AppService} from '@shared/services/base-app.service';
 
 import {AppComponent} from './app.component';
 import {AppRoutes} from './app.routing';
+import {SharedMetaModule} from '@shared/modules/shared-meta';
 
 export const httpInterceptorProviders = [
   {provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true},
@@ -47,7 +48,8 @@ export function initLanguage(translateService: TranslatesService): Function {
     TranslateModule,
     HeaderModule,
     MainPageModule,
-    FooterModule
+    FooterModule,
+    SharedMetaModule,
   ],
   providers: [
     CookieService,

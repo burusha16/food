@@ -1,11 +1,11 @@
-import {Subject, Observable} from 'rxjs';
+import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import { Inject, Component, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { BaseApiService } from '../../../shared/services/base-api.service';
 import { AppComponent } from '../../../app.component';
 import { WindowScrollService } from '../../../shared/services/window-scroll.service';
 import {IHeaderMenuItem} from '../../../shared/interfaces/app-menu.interface';
+import {AppService} from '@shared/services/base-app.service';
 @Component({
   selector: 'app-header-menu-mobile-dialog',
   templateUrl: './mobile-dialog.component.html',
@@ -13,11 +13,11 @@ import {IHeaderMenuItem} from '../../../shared/interfaces/app-menu.interface';
 })
 export class HeaderMenuDialogComponent implements AfterViewInit, OnDestroy {
   @ViewChild(AppComponent) App: AppComponent;
-  menuMobileItems$: Observable<IHeaderMenuItem[]> = this.apiService.headerMobileBody$;
-  menuFooterItems$: Observable<IHeaderMenuItem[]> = this.apiService.headerMobileFooter$;
+  menuMobileItems: IHeaderMenuItem[] = this.appService.headerMenuMobBody;
+  menuFooterItems: IHeaderMenuItem[] = this.appService.headerMenuMobFooter;
   onDestroy$: Subject<void> = new Subject();
 
-  constructor(private apiService: BaseApiService,
+  constructor(private appService: AppService,
               private scrollService: WindowScrollService,
               private dialogRef: MatDialogRef<HeaderMenuDialogComponent>,
               @Inject(MAT_DIALOG_DATA) private data: {showDialog$: Subject<boolean>}) {

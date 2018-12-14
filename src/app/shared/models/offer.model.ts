@@ -1,4 +1,4 @@
-import _ from 'lodash/core';
+import * as _ from 'lodash/core';
 import {IOffer} from '../interfaces/offers.interface';
 import {IProduct} from '../interfaces/product.interface';
 import {IGood} from '../interfaces/good.interface';
@@ -11,7 +11,7 @@ export class Offer implements IOffer {
   deliveryDays: string[];
   constructorStopTime: string;
   products: IProduct[];
-  goods: IGood;
+  goods: IGood[];
 
   constructor(data) {
     this.weekKey = data.weekKey;
@@ -20,10 +20,19 @@ export class Offer implements IOffer {
     this.deliveryDays = data.deliveryDays;
     this.constructorStopTime = data.constructorStopTime;
     this.products = this.getProductsWithGoodsModels(data.products, data.goods);
-    this.goods = data.goods;
   }
 
   getProductsWithGoodsModels(products: IProduct[], goods: IGood[]): IProduct[] {
-    return _.map(products, (product: IProduct) => new Product(product, goods));
+    const fixedGoods = this.getGoodsWithFixedImagePath(goods);
+    return _.map(products, (product: IProduct) => new Product(product, fixedGoods));
+  }
+
+  getGoodsWithFixedImagePath(goods): IGood[] {
+    return _.map(goods, (good: IGood) => {
+      if (good.images.rectangular) {
+        good.images.rectangular.s840x454 = good.images.rectangular['840x454'];
+      }
+      return good;
+    });
   }
 }

@@ -1,10 +1,10 @@
 import {concat, Observable, of} from 'rxjs';
 import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {SwiperConfigInterface, SwiperDirective, SwiperNavigationInterface, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
-import {BaseApiService} from '../../../shared/services/base-api.service';
-import {IFeedback} from '../../../shared/interfaces/feedback.interface';
-import {Responsive} from '../../../shared/decorators/responsive.decorator';
-import {IResponsiveComponent} from '../../../shared/interfaces/responsive-component.interface';
+import {IFeedback} from '@shared/interfaces/feedback.interface';
+import {Responsive} from '@shared/decorators/responsive.decorator';
+import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
+import {AppService} from '@shared/services/base-app.service';
 
 @Responsive()
 @Component({
@@ -18,7 +18,7 @@ export class FeedbackComponent implements OnInit, AfterViewInit, AfterViewChecke
   activeSlideIndex$: Observable<number>;
   isMobile: boolean;
   isSmall: boolean;
-  feedbacks$: Observable<IFeedback[]>;
+  feedbacks: IFeedback[] = this.appService.feedbacksList;
   swiperNavigation: SwiperNavigationInterface = {
     prevEl: '.feedback__slider-nav-prev',
     nextEl: '.feedback__slider-nav-next',
@@ -41,9 +41,8 @@ export class FeedbackComponent implements OnInit, AfterViewInit, AfterViewChecke
     }
   };
 
-  constructor(private apiService: BaseApiService,
+  constructor(private appService: AppService,
               private elRef: ElementRef) {
-    this.feedbacks$ = this.apiService.feedbacks$;
   }
 
   ngOnInit() {

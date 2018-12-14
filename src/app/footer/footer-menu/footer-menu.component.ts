@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
-import {IFooterMenuItem} from '../../shared/interfaces/app-menu.interface';
-import {BaseApiService} from '../../shared/services/base-api.service';
-import {Observable} from 'rxjs';
+import {AppService} from '@shared/services/base-app.service';
+import {IFooterMenuItem} from '@shared/interfaces/app-menu.interface';
 
 @Component({
   selector: 'app-footer-menu',
@@ -9,9 +8,8 @@ import {Observable} from 'rxjs';
   styleUrls: ['./footer-menu.component.scss']
 })
 export class FooterMenuComponent {
-  menuItems$: Observable<IFooterMenuItem[]>;
+  menuItems: IFooterMenuItem[] = this.appService.footerMenu;
 
-  constructor(private apiService: BaseApiService) {
-    this.menuItems$ = apiService.footerMenu$;
+  constructor(private appService: AppService) {
   }
 }
