@@ -14,10 +14,11 @@ export class WindowScrollService {
   listeners: IScrollListener[] = [];
 
   constructor(private eventManager: EventManager) {
-    this.lastScrollPosition = window.scrollY;
-    this.eventManager.addGlobalEventListener('window', 'scroll', () => {
-      this.listeners.forEach((listener: IScrollListener) => this.detectScroll(listener));
-    });
+    // this.lastScrollPosition = window.scrollY;
+    this.lastScrollPosition = 0;
+    // this.eventManager.addGlobalEventListener('window', 'scroll', () => {
+    //   this.listeners.forEach((listener: IScrollListener) => this.detectScroll(listener));
+    // });
   }
 
   addScrollListener(breakpoint: number, name: string,  subject$: Subject<boolean>): void {
@@ -34,7 +35,8 @@ export class WindowScrollService {
   }
 
   detectScroll(listener: IScrollListener): void {
-    const scrollPosition = window.scrollY;
+    // const scrollPosition = window.scrollY;
+    const scrollPosition = 0;
     const passBreakpointDown = this.lastScrollPosition < listener.breakpoint && scrollPosition >= listener.breakpoint;
     const passBreakpointUp = this.lastScrollPosition > listener.breakpoint && scrollPosition <= listener.breakpoint;
 
@@ -47,12 +49,12 @@ export class WindowScrollService {
   }
 
   enableWindowScroll(): void {
-    document.body.removeAttribute('style');
+    // document.body.removeAttribute('style');
   }
 
   disableWindowScroll(): void {
-    document.body.style.height = '100vh';
-    document.body.style.overflowY = 'hidden';
-    window.scrollTo(0, 0);
+    // document.body.style.height = '100vh';
+    // document.body.style.overflowY = 'hidden';
+    // window.scrollTo(0, 0);
   }
 }

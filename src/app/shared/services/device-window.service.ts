@@ -42,7 +42,8 @@ export class WindowDetect implements IResponsiveComponent {
   detectDevice() {
     this.deviceChanged = false;
     DeviceMediaMap.forEach((value: string, key: string) => {
-      const newValue = window.matchMedia(`(${value})`).matches;
+      // const newValue = window.matchMedia(`(${value})`).matches;
+      const newValue = undefined;
       this.deviceChanged = (this[key] === newValue) ? this.deviceChanged : true;
       this[key] = newValue;
     });
