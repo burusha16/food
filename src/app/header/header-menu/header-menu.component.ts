@@ -1,7 +1,6 @@
-import { Subject, Observable } from 'rxjs';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { Responsive } from '../../shared/decorators/responsive.decorator';
-import { BaseApiService } from '../../shared/services/base-api.service';
 import { HeaderService } from '../header.service';
 import { IResponsiveComponent } from '../../shared/interfaces/responsive-component.interface';
 import {IHeaderMenuItem} from '../../shared/interfaces/app-menu.interface';
@@ -21,11 +20,9 @@ export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
   menuItems: IHeaderMenuItem[] = this.appService.headerMenu;
 
   constructor(private appService: AppService,
-              private headerService: HeaderService,
-              private cdRef: ChangeDetectorRef) {
+              private headerService: HeaderService) {
     this.isMenuExpanded$.subscribe( (status: boolean) => {
       this.isMenuExpanded = status;
-      this.cdRef.markForCheck();
     });
   }
 

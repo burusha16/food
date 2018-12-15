@@ -1,6 +1,6 @@
 import {IMatIcon} from '../interfaces/mat-icon.interface';
 
-const defaultPath = '../assets/img/icons/';
+const defaultPath = '/assets/img/icons/';
 
 export const MaterialIconsList: IMatIcon[] = [
   { name: 'appstore-badge', src: defaultPath },
@@ -20,5 +20,6 @@ export const MaterialIconsList: IMatIcon[] = [
   { name: 'triangle', src: defaultPath },
   { name: 'videocam', src: defaultPath },
   { name: 'vk', src: defaultPath },
-  { name: 'yandex-logo', src: defaultPath }
+  { name: 'yandex-logo', src: defaultPath },
+  { name: 'youtube', src: defaultPath }
 ];

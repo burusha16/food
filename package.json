@@ -14,7 +14,8 @@
     "build:prerender": "npm run build:universal && npm run generate:prerender",
     "generate:prerender": "node prerender.js",
     "build:server": "ng run foodparty:server:production && webpack --config webpack.config.js --progress --colors",
-    "ssr:debug": "ng build --aot=true --output-hashing=all --named-chunks=false --build-optimizer=true  && ng run foodparty:server:dev && webpack && node prerender.js && node server.js"
+    "build:server:serve": "ng run foodparty:server:production && webpack --config webpack.config.js --progress --colors && node prerender.js && node server.js",
+    "ssr:debug": "ng build --aot=true --output-hashing=all --named-chunks=false --build-optimizer=true  && ng run foodparty:server:production && webpack && node prerender.js && node server.js"
   },
   "private": true,
   "dependencies": {

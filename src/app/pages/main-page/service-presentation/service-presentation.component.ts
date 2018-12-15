@@ -1,14 +1,15 @@
-import { Component, OnInit, ChangeDetectorRef, ElementRef, AfterViewChecked } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Responsive } from 'src/app/shared/decorators/responsive.decorator';
-import { IResponsiveComponent } from 'src/app/shared/interfaces/responsive-component.interface';
-import { TranslateService } from '@ngx-translate/core';
+import {AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Responsive} from 'src/app/shared/decorators/responsive.decorator';
+import {IResponsiveComponent} from 'src/app/shared/interfaces/responsive-component.interface';
+import {TranslateService} from '@ngx-translate/core';
 
 @Responsive()
 @Component({
   selector: 'app-service-presentation',
   templateUrl: './service-presentation.component.html',
-  styleUrls: ['./service-presentation.component.scss']
+  styleUrls: ['./service-presentation.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServicePresentationComponent implements OnInit, AfterViewChecked, IResponsiveComponent {
   isMobile: boolean;
@@ -39,12 +40,10 @@ export class ServicePresentationComponent implements OnInit, AfterViewChecked, I
 
   showVideo() {
     this.isVideoVisible$.next(true);
-    this.cdRef.markForCheck();
   }
 
   hideVideo() {
     this.videoRef.removeEventListener('ended', this.videoEndedHandler);
     this.isVideoVisible$.next(false);
-    this.cdRef.markForCheck();
   }
 }
