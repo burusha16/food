@@ -1,9 +1,8 @@
-import {Observable} from 'rxjs';
 import {Component, OnInit} from '@angular/core';
-import {Responsive} from '../shared/decorators/responsive.decorator';
-import {IFooterMenuItem} from '../shared/interfaces/app-menu.interface';
-import {BaseApiService} from '../shared/services/base-api.service';
-import {IResponsiveComponent} from '../shared/interfaces/responsive-component.interface';
+import {Responsive} from '@shared/decorators/responsive.decorator';
+import {IFooterMenuItem} from '@shared/interfaces/app-menu.interface';
+import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
+import {AppService} from '@shared/services/base-app.service';
 
 @Responsive()
 @Component({
@@ -14,11 +13,9 @@ import {IResponsiveComponent} from '../shared/interfaces/responsive-component.in
 export class FooterComponent implements OnInit, IResponsiveComponent {
   isMobile: boolean;
   isSmall: boolean;
-  socialItems$: Observable<IFooterMenuItem[]>;
+  socialItems: IFooterMenuItem[] = this.appService.footerSocialList;
 
-  constructor(private apiService: BaseApiService) {
-    this.socialItems$ = apiService.footerSocial$;
-  }
+  constructor(private appService: AppService) {}
 
   ngOnInit() {
   }

@@ -1,11 +1,12 @@
 
 import { InjectFlags, InjectionToken, Injector, Type } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
+import {isPlatformBrowser, isPlatformServer} from '@angular/common';
 
 export class ServiceLocator {
   static injector: Injector;
-  static sanitizer: DomSanitizer;
+  static platformId: string;
+
   static get<T>(token: Type<T> | InjectionToken<T>, notFoundValue?: T, flags?: InjectFlags): T {
     try {
       return ServiceLocator.injector.get<T>(token, notFoundValue, flags);
@@ -16,5 +17,13 @@ export class ServiceLocator {
 
   static get translate(): TranslateService {
     return ServiceLocator.get(TranslateService);
+  }
+
+  static get isServer(): boolean {
+    return isPlatformServer(ServiceLocator.platformId);
+  }
+
+  static get isBrowser(): boolean {
+    return isPlatformBrowser(ServiceLocator.platformId);
   }
 }

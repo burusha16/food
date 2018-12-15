@@ -10,7 +10,7 @@
     <div class="col-sm-12 __justify-center">
       <div class="feedback__pagination">
         <div class="feedback__user __mrl"
-             *ngFor="let feedback of feedbacks$ | async, let $index = index"
+             *ngFor="let feedback of feedbacks, let $index = index"
              [ngClass]="{'__active': $index === (activeSlideIndex$ | async)}"
              (click)="navigateToSlide($index)">
           <img [src]="feedback.authorAvatarUrl" class="feedback__user-img">
@@ -23,7 +23,7 @@
     <div class="col-sm-12 __justify-center">
       <div class="feedback__slider swiper-container" [swiper]="swiperConfig">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" *ngFor="let feedback of feedbacks$ | async">
+          <div class="swiper-slide" *ngFor="let feedback of feedbacks">
             <div class="feedback__slider-item">
               <img [src]="feedback.photoUrl | safeUrl" class="feedback__slider-photo">
               <div class="feedback__slider-text">

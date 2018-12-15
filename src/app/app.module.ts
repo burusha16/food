@@ -1,55 +1,60 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {TranslateModule, TranslateLoader, MissingTranslationHandler} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TranslateModule} from '@ngx-translate/core';
+import { CookieService, CookieModule } from 'ngx-cookie';
+import {TransferHttpCacheModule} from '@nguniversal/common';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderModule} from './header/header.module';
 import {MainPageModule} from './pages/main-page/main-page.module';
+import {TranslatesService} from '@shared/modules/translates';
+import {UniversalStorage} from '@shared/other/universal.storage';
+import {SharedModule} from '@shared/modules/shared.module';
 import {RouterModule} from '@angular/router';
 import {FooterModule} from './footer/footer.module';
-import {MenuModule} from './pages/menu/menu.module';
 
-import {DeviceWindowService} from './shared/services/device-window.service';
-import {BaseApiService} from './shared/services/base-api.service';
-import {WindowScrollService} from './shared/services/window-scroll.service';
-import {CachingInterceptor, RequestCacheService} from './shared/services/request-cache.service';
-import {ContentPreloadService} from './shared/services/content-preload.service';
-import {AppService} from './shared/services/base-app.service';
+import {DeviceWindowService} from '@shared/services/device-window.service';
+import {BaseApiService} from '@shared/services/base-api.service';
+import {WindowScrollService} from '@shared/services/window-scroll.service';
+import {CachingInterceptor, RequestCacheService} from '@shared/services/request-cache.service';
+import {ContentPreloadService} from '@shared/services/content-preload.service';
+import {AppService} from '@shared/services/base-app.service';
 
 import {AppComponent} from './app.component';
-import {MyMissingTranslationHandler} from './shared/other/translate.handler';
-
 import {AppRoutes} from './app.routing';
+import {SharedMetaModule} from '@shared/modules/shared-meta';
 
 export const httpInterceptorProviders = [
   {provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true},
 ];
+
+export function initLanguage(translateService: TranslatesService): Function {
+  return (): Promise<any> => translateService.initLanguage();
+}
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'my-app' }),
+    TransferHttpCacheModule,
     HttpClientModule,
+    RouterModule.forRoot(AppRoutes, { initialNavigation: 'enabled' }),
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-     },
-      missingTranslationHandler: {provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler},
-      useDefaultLang: false
-   }),
+    CookieModule.forRoot(),
+    SharedModule.forRoot(),
+    TranslateModule,
     HeaderModule,
     MainPageModule,
-    FooterModule
+    FooterModule,
+    SharedMetaModule,
   ],
   providers: [
+    CookieService,
+    UniversalStorage,
+    { provide: APP_INITIALIZER, useFactory: initLanguage, multi: true, deps: [TranslatesService] },
     httpInterceptorProviders,
     RequestCacheService,
     BaseApiService,
@@ -61,9 +66,4 @@ export const httpInterceptorProviders = [
   bootstrap: [AppComponent]
 })
 export class AppModule {
-}
-
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
 }

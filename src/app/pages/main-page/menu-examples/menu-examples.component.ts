@@ -1,13 +1,22 @@
-import _ from 'lodash/core';
+import * as _ from 'lodash/core';
 import * as moment from 'moment';
-import {Component, ViewChild, ChangeDetectorRef, ElementRef, ViewEncapsulation, AfterViewInit, OnInit} from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ChangeDetectorRef,
+  ElementRef,
+  ViewEncapsulation,
+  AfterViewInit,
+  OnInit
+} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SwiperPaginationInterface, SwiperConfigInterface, SwiperNavigationInterface, SwiperDirective } from 'ngx-swiper-wrapper';
-import {IResponsiveComponent} from '../../../shared/interfaces/responsive-component.interface';
-import {IProduct} from '../../../shared/interfaces/product.interface';
-import {ContentPreloadService} from '../../../shared/services/content-preload.service';
-import {IGood} from '../../../shared/interfaces/good.interface';
-import {Responsive} from '../../../shared/decorators/responsive.decorator';
+import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
+import {IProduct} from '@shared/interfaces/product.interface';
+import {ContentPreloadService} from '@shared/services/content-preload.service';
+import {IGood} from '@shared/interfaces/good.interface';
+import {Responsive} from '@shared/decorators/responsive.decorator';
+import {ServiceLocator} from '@shared/services/locator.service';
 
 @Responsive()
 @Component({
@@ -59,11 +68,13 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   ngOnInit() {}
 
   ngAfterViewInit() {
-    _.each(this.products, (product: IProduct) => {
-      _.each(product.defaultGoodsModels, (good: IGood) => {
-        this.contentPreloadService.preload(good.images.rectangular.s840x454);
+    if (ServiceLocator.isBrowser) {
+      _.each(this.products, (product: IProduct) => {
+        _.each(product.defaultGoodsModels, (good: IGood) => {
+          this.contentPreloadService.preload(good.images.rectangular.s840x454);
+        });
       });
-    });
+    }
     this.swiper.update();
     if (this.isMobile) {
       const element = this.elRef.nativeElement.querySelector('mat-ink-bar');

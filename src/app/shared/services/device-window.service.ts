@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import { EventManager } from '@angular/platform-browser';
 import { BehaviorSubject } from 'rxjs';
 
 import { DeviceMediaMap } from '../enums/device-media.map';
 import { IResponsiveComponent } from '../interfaces/responsive-component.interface';
+import {ServiceLocator} from '@shared/services/locator.service';
 
 @Injectable()
 export class DeviceWindowService {
@@ -42,7 +43,7 @@ export class WindowDetect implements IResponsiveComponent {
   detectDevice() {
     this.deviceChanged = false;
     DeviceMediaMap.forEach((value: string, key: string) => {
-      const newValue = window.matchMedia(`(${value})`).matches;
+      const newValue = ServiceLocator.isBrowser ? window.matchMedia(`(${value})`).matches : undefined;
       this.deviceChanged = (this[key] === newValue) ? this.deviceChanged : true;
       this[key] = newValue;
     });

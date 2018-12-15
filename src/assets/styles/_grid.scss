@@ -150,34 +150,22 @@ $container-indent: (sm: 12px, md: 12px, lg: 20px, elg: 20px);
 @media (max-width: 767px) {
   .visible-md,
   .visible-lg,
-  .visible-elg,
   .hidden-sm {
     display: none !important;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (max-width: 960px) {
   .visible-sm,
   .visible-lg,
-  .visible-elg,
   .hidden-md {
     display: none !important;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1439px) {
+@media (min-width: 961px) {
   .visible-sm,
   .visible-md,
-  .visible-elg,
-  .hidden-lg {
-    display: none !important;
-  }
-}
-
-@media (min-width: 1440px) {
-  .visible-sm,
-  .visible-md,
-  .visible-elg,
   .hidden-lg {
     display: none !important;
   }

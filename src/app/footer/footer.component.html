@@ -9,7 +9,7 @@
         <p class="footer__social">
           <span>{{'footer.ask-question' | translate}}</span>
 
-          <a [href]="item.path" class="footer__link" *ngFor="let item of socialItems$ | async">
+          <a [href]="item.path" class="footer__link" *ngFor="let item of socialItems">
             <mat-icon [svgIcon]="item.iconKey" class="__h16 __mr8"></mat-icon>
             {{item.key | translate}}
           </a>

@@ -7,5 +7,12 @@ import {Component, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class VideoOfWeekComponent {
-  constructor() {}
+  isVideoVisible: boolean;
+  videoHash = 'CF38tgE6udg';
+  previewUrlWebp = `https://i.ytimg.com/vi_webp/${this.videoHash}/maxresdefault.webp`;
+  previewUrl = `https://i.ytimg.com/vi/${this.videoHash}/maxresdefault.jpg`;
+
+  showVideo() {
+    this.isVideoVisible = true;
+  }
 }

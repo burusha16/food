@@ -4,14 +4,14 @@
     </div>
 
     <div class="header-dialog__body">
-      <ng-template ngFor [ngForOf]="menuMobileItems$ | async" let-item>
+      <ng-template ngFor [ngForOf]="menuMobileItems" let-item>
         <a [href]="item.url" class="header-dialog__link __ptb10" *ngIf="item.url">{{item.key | translate}}</a>
         <a [routerLink]="item.routerLink" class="header-dialog__link __ptb10" *ngIf="item.routerLink">{{item.key | translate}}</a>
       </ng-template>
     </div>
 
     <div class="header-dialog__footer">
-      <ng-template ngFor [ngForOf]="menuFooterItems$ | async" let-item>
+      <ng-template ngFor [ngForOf]="menuFooterItems" let-item>
         <a [href]="item.url" class="header-dialog__link __mtb8 __mine-shaft __fz14" *ngIf="item.url">{{item.key | translate}}</a>
         <a [routerLink]="item.routerLink" class="header-dialog__link __mtb8 __mine-shaft __fz14" *ngIf="item.routerLink">{{item.key | translate}}</a>
       </ng-template>

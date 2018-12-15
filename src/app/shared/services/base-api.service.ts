@@ -1,15 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable, isDevMode} from '@angular/core';
 import { HttpParams, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError} from 'rxjs';
-import {IAppMenu, IFooterMenuItem, IHeaderMenuItem} from '../interfaces/app-menu.interface';
 import {map, publishReplay, refCount, catchError, retry} from 'rxjs/operators';
 import { IOffer } from '../interfaces/offers.interface';
 import { IOffersResponse } from '../interfaces/offers-response.interface';
 import { Offer } from '../models/offer.model';
 import { AppService } from './base-app.service';
-import {IAppConfig} from '../interfaces/app-config-response.interface';
-import {IFeedback} from '../interfaces/feedback.interface';
-import {Feedback} from '../models/feedback.model';
+
 @Injectable()
 export class BaseApiService {
   private BASE_URL = 'api/';
@@ -24,76 +21,17 @@ export class BaseApiService {
               private appService: AppService) {
   }
 
-  private get<R>(endPointName: string, params?: HttpParams): Observable<R> {
-    const URL = `${this.BASE_URL}${endPointName}.json`;
-    return this.http.get<R>(URL, { params: params, withCredentials: true })
+  private get<R>(url: string, params?: HttpParams): Observable<R> {
+    return this.http.get<R>(url, { params: params, withCredentials: true })
       .pipe(
         retry(this.RETRY_VALUE),
         catchError(this.handleError)
       );
   }
 
-  get allMenu$(): Observable<IAppMenu> {
-    return this.get('menu')
-      .pipe(
-        map((response: IAppMenu) => response),
-        publishReplay(this.CACHE_SIZE),
-        refCount()
-      );
-  }
-
-  get appConfig$(): Observable<IAppConfig> {
-    return this.get('app-config')
-      .pipe(
-        map((response: IAppConfig) => response),
-        publishReplay(this.CACHE_SIZE),
-        refCount()
-      );
-  }
-
-  get feedbacks$(): Observable<Feedback[]> {
-    return this.get('feedback')
-      .pipe(
-        map((response: IFeedback[]) =>
-          response.map((item: IFeedback) => new Feedback(item))
-        ),
-        publishReplay(this.CACHE_SIZE),
-        refCount()
-      );
-  }
-
-  get footerSocial$(): Observable<IFooterMenuItem[]> {
-    return this.allMenu$.pipe(
-      map((response: IAppMenu) => response.footerSocial)
-    );
-  }
-
-  get footerMenu$(): Observable<IFooterMenuItem[]> {
-    return this.allMenu$.pipe(
-      map((response: IAppMenu) => response.footer)
-    );
-  }
-
-  get headerDesktopMenu$(): Observable<IHeaderMenuItem[]> {
-    return this.allMenu$.pipe(
-      map((response: IAppMenu) => response.headerDesktop)
-    );
-  }
-
-  get headerMobileBody$(): Observable<IHeaderMenuItem[]> {
-    return this.allMenu$.pipe(
-      map((response: IAppMenu) => response.headerMobileBody)
-    );
-  }
-
-  get headerMobileFooter$(): Observable<IHeaderMenuItem[]> {
-    return this.allMenu$.pipe(
-      map((response: IAppMenu) => response.headerMobileFooter)
-    );
-  }
-
   get offers$(): Observable<IOffer[]> {
-    return this.get('actual')
+    const url = isDevMode() ? 'api/actual.json' : 'https://api.partiyaedi.ru/api/v3/goods/actual';
+    return this.get(url)
       .pipe(
         map((response: IOffersResponse) => {
           this.appService.actualWeekKey = response.defaultWeekKey;

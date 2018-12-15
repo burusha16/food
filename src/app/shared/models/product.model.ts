@@ -1,4 +1,4 @@
-import _ from 'lodash/core';
+import * as _ from 'lodash/core';
 import {IProduct} from '../interfaces/product.interface';
 import {IGood} from '../interfaces/good.interface';
 import {productClass} from '../enums/productClass.enum';

@@ -1,13 +1,21 @@
-FROM node:8.11.2-alpine as builder
-WORKDIR /app
-COPY package.json package-lock.json /app/
-RUN cd /app && npm set progress=false && npm install
-COPY . /app
-RUN cd /app && npm run build
+FROM node:10-alpine as buildContainer
+WORKDIR /tmp
 
-FROM nginx:1.13.12-alpine
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY . /tmp
+RUN npm install
+RUN npm run build:universal
+RUN npm run generate:prerender
 
-CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/nginx.conf > /etc/nginx/nginx.conf" && nginx -g 'daemon off;'
+FROM node:8-alpine
+WORKDIR /img
+
+COPY --from=buildContainer /tmp/package.json /img
+COPY --from=buildContainer /tmp/server.js /img
+COPY --from=buildContainer /tmp/dist /img/dist
+
+# Test for heroku env
+#RUN adduser -D myuser
+#USER myuser
+#CMD gunicorn --bind 0.0.0.0:$PORT wsgi
+
+CMD ["npm", "run", "server"]

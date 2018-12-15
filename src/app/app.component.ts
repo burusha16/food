@@ -1,11 +1,8 @@
 import * as moment from 'moment';
-import {ChangeDetectionStrategy, Component, Injector, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, Injector, PLATFORM_ID} from '@angular/core';
 import {ServiceLocator} from './shared/services/locator.service';
 import {TranslateService} from '@ngx-translate/core';
-import {BaseApiService} from './shared/services/base-api.service';
-import {AppService} from './shared/services/base-app.service';
-import {IAppConfig} from './shared/interfaces/app-config-response.interface';
-import {Observable} from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -13,18 +10,11 @@ import {Observable} from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  appConfig$: Observable<IAppConfig> = this.apiService.appConfig$;
-
   constructor(private injector: Injector,
               private translate: TranslateService,
-              private apiService: BaseApiService,
-              private appService: AppService) {
-    this.appService.init(this.appConfig$);
+              @Inject(PLATFORM_ID) private platformId: string) {
     ServiceLocator.injector = this.injector;
-    this.translate.addLangs(['ru', 'en']);
-    this.translate.setDefaultLang('ru');
-    const browserLang = translate.getBrowserLang();
-    this.translate.use(browserLang.match(/ru|en/) ? browserLang : 'ru');
+    ServiceLocator.platformId = this.platformId;
     moment.locale(this.translate.currentLang);
   }
 }

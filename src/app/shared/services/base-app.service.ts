@@ -1,30 +1,30 @@
-import {Observable, Subscription} from 'rxjs';
 import { Injectable } from '@angular/core';
-import {IAppConfig, ISliderMenuExamplesConfig} from '../interfaces/app-config-response.interface';
+import {ISliderMenuExamplesConfig} from '../interfaces/app-config-response.interface';
 import {ISmiItem} from '../interfaces/smi-list-item.iterface';
+import {AppMenu, FeedbacksList, SliderMenuExamplesConfig, SmiList} from '@shared/other/app.config';
+import {IFooterMenuItem, IHeaderMenuItem} from '@shared/interfaces/app-menu.interface';
+import {IFeedback} from '@shared/interfaces/feedback.interface';
 
 @Injectable()
 export class AppService {
   actualWeekKey: string;
-  private _sliderMenuExamplesConfig: ISliderMenuExamplesConfig;
-  private _smiList: ISmiItem[];
+  feedbacksList: IFeedback[];
+  footerMenu: IFooterMenuItem[];
+  footerSocialList: IFooterMenuItem[];
+  headerMenu: IHeaderMenuItem[];
+  headerMenuMobBody: IHeaderMenuItem[];
+  headerMenuMobFooter: IHeaderMenuItem[];
+  sliderMenuExamplesConfig: ISliderMenuExamplesConfig;
+  smiList: ISmiItem[];
 
   constructor() {
-  }
-
-  get sliderMenuExamplesConfig(): ISliderMenuExamplesConfig {
-    return this._sliderMenuExamplesConfig;
-  }
-
-  get smiList(): ISmiItem[] {
-    return this._smiList;
-  }
-
-  init(config$: Observable<IAppConfig>) {
-    const subscription: Subscription = config$.subscribe((data: IAppConfig) => {
-      this._sliderMenuExamplesConfig = data.sliderMenuExamplesConfig;
-      this._smiList = data.smiList;
-      subscription.unsubscribe();
-    });
+    this.feedbacksList = FeedbacksList;
+    this.footerMenu = AppMenu.footer;
+    this.footerSocialList = AppMenu.footerSocial;
+    this.headerMenu = AppMenu.headerDesktop;
+    this.headerMenuMobBody = AppMenu.headerMobileBody;
+    this.headerMenuMobFooter = AppMenu.headerMobileFooter;
+    this.sliderMenuExamplesConfig = SliderMenuExamplesConfig;
+    this.smiList = SmiList;
   }
 }

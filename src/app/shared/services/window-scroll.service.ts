@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import { EventManager } from '@angular/platform-browser';
 import { Subject } from 'rxjs';
+import {ServiceLocator} from '@shared/services/locator.service';
 
 export interface IScrollListener {
   breakpoint: number;
@@ -14,10 +15,12 @@ export class WindowScrollService {
   listeners: IScrollListener[] = [];
 
   constructor(private eventManager: EventManager) {
-    this.lastScrollPosition = window.scrollY;
-    this.eventManager.addGlobalEventListener('window', 'scroll', () => {
-      this.listeners.forEach((listener: IScrollListener) => this.detectScroll(listener));
-    });
+    this.lastScrollPosition = ServiceLocator.isBrowser ? window.scrollY : 0;
+    if (ServiceLocator.isBrowser) {
+      this.eventManager.addGlobalEventListener('window', 'scroll', () => {
+        this.listeners.forEach((listener: IScrollListener) => this.detectScroll(listener));
+      });
+    }
   }
 
   addScrollListener(breakpoint: number, name: string,  subject$: Subject<boolean>): void {
@@ -34,7 +37,7 @@ export class WindowScrollService {
   }
 
   detectScroll(listener: IScrollListener): void {
-    const scrollPosition = window.scrollY;
+    const scrollPosition = ServiceLocator.isBrowser ? window.scrollY : 0;
     const passBreakpointDown = this.lastScrollPosition < listener.breakpoint && scrollPosition >= listener.breakpoint;
     const passBreakpointUp = this.lastScrollPosition > listener.breakpoint && scrollPosition <= listener.breakpoint;
 
@@ -47,12 +50,16 @@ export class WindowScrollService {
   }
 
   enableWindowScroll(): void {
-    document.body.removeAttribute('style');
+    if (ServiceLocator.isBrowser) {
+      document.body.removeAttribute('style');
+    }
   }
 
   disableWindowScroll(): void {
-    document.body.style.height = '100vh';
-    document.body.style.overflowY = 'hidden';
-    window.scrollTo(0, 0);
+    if (ServiceLocator.isBrowser) {
+      document.body.style.height = '100vh';
+      document.body.style.overflowY = 'hidden';
+      window.scrollTo(0, 0);
+    }
   }
 }

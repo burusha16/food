@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
       <ul class="footer-menu">
-        <li *ngFor="let item of menuItems$ | async">
+        <li *ngFor="let item of menuItems">
           <a [routerLink]="item.path" class="footer-menu__link">{{item.key | translate}}</a>
         </li>
       </ul>

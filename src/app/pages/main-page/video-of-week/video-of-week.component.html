@@ -7,14 +7,24 @@
             {{'main-page.video-of-week.title' | translate}}
         </h2>
 
-        <iframe class="video-of-week__video"
-                src="https://www.youtube.com/embed/CF38tgE6udg"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        <!--<iframe width="100vw" class="video-of-week__video" [src]="videoUrl"></iframe>-->
+        <div class="video-of-week__wrapper" (click)="showVideo()">
+          <picture>
+            <source class="video-of-week__preview" [srcset]="previewUrlWebp" type="image/webp">
+            <img class="video-of-week__preview" [src]="previewUrl">
+          </picture>
+          <button class="video-of-week__video-btn">
+            <mat-icon svgIcon="youtube" class="__s68"></mat-icon>
+          </button>
+          <iframe class="video-of-week__video"
+                  *ngIf="isVideoVisible"
+                  src="https://www.youtube.com/embed/CF38tgE6udg?autoplay=1"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+          </iframe>
+        </div>
 
-        <p class="video-of-week__text" [innerHTML]="'main-page.video-of-week.text' | translate | safeHtml"></p>
+        <p class="video-of-week__text" [innerHTML]="'main-page.video-of-week.text' | translate | safeHtml">{{videohashgetter}}</p>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
-<ul class="header-menu" *ngIf="!isSmall">
-  <ng-template ngFor [ngForOf]="menuItems$ | async" let-item>
+<ul class="hidden-md header-menu" *ngIf="!isSmall">
+  <ng-template ngFor [ngForOf]="menuItems" let-item>
     <li class="header-menu__item">
       <a [href]="item.url"
           *ngIf="item.url"
