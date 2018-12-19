@@ -6,7 +6,8 @@ import {BaseApiService} from '../../shared/services/base-api.service';
 
 @Injectable()
 export class MenuResolver implements Resolve<Observable<IOffer[]>> {
-  constructor(private apiService: BaseApiService) {}
+  constructor(private apiService: BaseApiService) {
+  }
 
   resolve(): Observable<IOffer[]> {
     return this.apiService.offers$;

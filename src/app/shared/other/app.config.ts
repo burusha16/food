@@ -1,11 +1,13 @@
 import {ISmiItem} from '@shared/interfaces/smi-list-item.iterface';
 import {ISliderMenuExamplesConfig} from '@shared/interfaces/app-config-response.interface';
 import {IAppMenu} from '@shared/interfaces/app-menu.interface';
+import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
+import {productClass} from '@shared/enums/productClass.enum';
 
 export const SliderMenuExamplesConfig: ISliderMenuExamplesConfig = {
   'personsAmount': 2,
-    'defaultGoodsLength': 5,
-    'tabsSortRule': [
+  'defaultGoodsLength': 5,
+  'tabsSortRule': [
     'Classic',
     'Premium',
     'Family',
@@ -13,6 +15,12 @@ export const SliderMenuExamplesConfig: ISliderMenuExamplesConfig = {
     'Fitness',
     'Vegetarian'
   ]
+};
+
+export const OrderFormConfig: IOrderFormConfig = {
+  defaultClass: productClass.Classic,
+  defaultDaysAmount: 5,
+  defaultPersonsAmount: 2
 };
 
 export const SmiList: ISmiItem[] = [
@@ -245,6 +253,6 @@ export const AppMenu: IAppMenu = {
       'iconKey': 'old-phone-in-round'
     }
   ]
-}
+};
 
 

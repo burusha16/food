@@ -61,7 +61,7 @@ export function initLanguage(translateService: TranslatesService): Function {
     AppService,
     DeviceWindowService,
     WindowScrollService,
-    ContentPreloadService,
+    ContentPreloadService
   ],
   bootstrap: [AppComponent]
 })
