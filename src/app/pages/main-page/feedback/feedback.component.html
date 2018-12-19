@@ -13,7 +13,7 @@
              *ngFor="let feedback of feedbacks, let $index = index"
              [ngClass]="{'__active': $index === (activeSlideIndex$ | async)}"
              (click)="navigateToSlide($index)">
-          <img [src]="feedback.authorAvatarUrl" class="feedback__user-img">
+          <img [src]="feedback.authorAvatarUrl" class="feedback__user-img" [alt]="feedback.authorName">
         </div>
       </div>
     </div>
@@ -25,11 +25,11 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide" *ngFor="let feedback of feedbacks">
             <div class="feedback__slider-item">
-              <img [src]="feedback.photoUrl | safeUrl" class="feedback__slider-photo">
+              <img [src]="feedback.photoUrl | safeUrl" class="feedback__slider-photo" [alt]="feedback.authorName">
               <div class="feedback__slider-text">
                 <div class="feedback__slider-header">
                   <div class="feedback__user">
-                    <img [src]="feedback.authorAvatarUrl" class="feedback__user-img">
+                    <img [src]="feedback.authorAvatarUrl" class="feedback__user-img" [alt]="feedback.authorName">
                   </div>
                   <p class="feedback__slider-author">{{feedback.authorName}}</p>
                 </div>

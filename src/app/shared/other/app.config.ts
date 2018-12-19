@@ -19,32 +19,38 @@ export const SmiList: ISmiItem[] = [
   {
     'width': 88,
     'height': 32,
-    'url': '/assets/img/main-page/smi-list/village.jpg'
+    'url': '/assets/img/main-page/smi-list/village.jpg',
+    'name': 'main-page.smi-list.village'
   },
   {
     'width': 104,
     'height': 27,
-    'url': '/assets/img/main-page/smi-list/ved.jpg'
+    'url': '/assets/img/main-page/smi-list/ved.jpg',
+    'name': 'main-page.smi-list.ved'
   },
   {
     'width': 90,
     'height': 22,
-    'url': '/assets/img/main-page/smi-list/vc.jpg'
+    'url': '/assets/img/main-page/smi-list/vc.jpg',
+    'name': 'main-page.smi-list.vc-ru'
   },
   {
     'width': 99,
     'height': 27,
-    'url': '/assets/img/main-page/smi-list/expert.jpg'
+    'url': '/assets/img/main-page/smi-list/expert.jpg',
+    'name': 'main-page.smi-list.experrt'
   },
   {
     'width': 110,
     'height': 34,
-    'url': '/assets/img/main-page/smi-list/interfax.jpg'
+    'url': '/assets/img/main-page/smi-list/interfax.jpg',
+    'name': 'main-page.smi-list.interfax'
   },
   {
     'width': 84,
     'height': 28,
-    'url': '/assets/img/main-page/smi-list/rbc.jpg'
+    'url': '/assets/img/main-page/smi-list/rbc.jpg',
+    'name': 'main-page.smi-list.rbc'
   }
 ];
 
@@ -126,7 +132,7 @@ export const AppMenu: IAppMenu = {
     },
     {
       'key': 'common.routes.menu',
-      'routerLink': '/menu'
+      'routerLink': '/menu/classic'
     },
     {
       'key': 'common.routes.how-it-works',
@@ -194,7 +200,7 @@ export const AppMenu: IAppMenu = {
     },
     {
       'key': 'common.routes.to-menu',
-      'path': '/menu'
+      'path': '/menu#classic'
     },
     {
       'key': 'common.routes.how-it-works',
