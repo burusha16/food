@@ -17,6 +17,7 @@ import {ContentPreloadService} from '@shared/services/content-preload.service';
 import {IGood} from '@shared/interfaces/good.interface';
 import {Responsive} from '@shared/decorators/responsive.decorator';
 import {ServiceLocator} from '@shared/services/locator.service';
+import {DeliveryDatesPipe} from '@shared/pipes/delivery-dates.pipe';
 
 @Responsive()
 @Component({
@@ -92,17 +93,6 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
     return this.products[this.currentMenuIndex];
   }
 
-  get deliveryDates(): string {
-    const firstDate = this.currentProduct.availabilityDates[0];
-    const secondDate = this.currentProduct.availabilityDates[1];
-    const isSameMonth = moment(firstDate).format('MM') === moment(secondDate).format('MM');
-
-    if (isSameMonth) {
-      return `${moment(firstDate).format('D')}-${moment(secondDate).format('D MMMM')}`;
-    } else {
-      return `${moment(firstDate).format('D MMMM')} - ${moment(secondDate).format('D MMMM')}`;
-    }
-  }
 
   get swiperConfig(): SwiperConfigInterface {
     return this.isSmall ? this.swiperConfigMobile : this.swiperConfigDesktop;

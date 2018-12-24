@@ -10,6 +10,6 @@
   }
 }
 
-@include add-font("Circe", "circe-regular");
+@include add-font("Circe", "circe-regular", "normal", 400);
 @include add-font("Noto Serif", "noto-serif", "italic", "400");
 @include add-font("Noto Serif", "noto-serif-cyr", "italic", "400");

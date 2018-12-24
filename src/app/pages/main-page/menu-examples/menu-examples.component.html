@@ -3,7 +3,9 @@
     <div class="col-sm-12 col-lg-12 __column __align-center">
       <h2>{{'main-page.menu-examples.title' | translate}}:</h2>
 
-      <p class="menu-examples__delivery-info">{{'main-page.menu-examples.delivery' | translate:{date: deliveryDates} }}</p>
+      <p class="menu-examples__delivery-info">
+        {{'common.delivery.dates' | translate }} {{currentProduct.availabilityDates | deliveryDates}}
+      </p>
     </div>
   </div>
 </div>

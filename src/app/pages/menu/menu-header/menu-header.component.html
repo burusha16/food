@@ -1,0 +1,26 @@
+<div class="menu-header container">
+  <div class="row">
+    <div class="col-sm-12 __column __align-center">
+      <h1 class="menu-header__title">
+        {{('menu.header.title-' + (isProductAvailable ? 'available' : 'non-available')) | translate}}
+
+        <mat-form-field [formGroup]="orderForm" class="__select">
+          <mat-select formControlName="dateKey"
+                      disableOptionCentering
+                      disableRipple="true"
+                      panelClass="menu-header__select">
+            <mat-option *ngFor="let option of offersOptions"
+                        [value]="option.value"
+                        [ngClass]="{'__c-boulder': !option.available}">
+              {{option.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </h1>
+
+      <p class="menu-header__descr">
+        {{'common.delivery.dates' | translate }} {{deliveryDatesArr | deliveryDates}}
+      </p>
+    </div>
+  </div>
+</div>

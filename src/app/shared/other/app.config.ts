@@ -19,7 +19,7 @@ export const SliderMenuExamplesConfig: ISliderMenuExamplesConfig = {
 
 export const OrderFormConfig: IOrderFormConfig = {
   defaultClass: productClass.Classic,
-  defaultDaysAmount: 5,
+  defaultGoodsCount: 5,
   defaultPersonsAmount: 2
 };
 
@@ -163,27 +163,27 @@ export const AppMenu: IAppMenu = {
   headerMobileBody: [
     {
       'key': 'product.class.Classic',
-      'routerLink': '/menu#classic',
+      'routerLink': '/menu/classic',
     },
     {
       'key': 'product.class.Premium',
-      'routerLink': '/menu#premium',
+      'routerLink': '/menu/premium',
     },
     {
       'key': 'product.class.Family',
-      'routerLink': '/menu#family',
+      'routerLink': '/menu/family',
     },
     {
       'key': 'product.class.Express',
-      'routerLink': '/menu#10minutes',
+      'routerLink': '/menu/10minutes',
     },
     {
       'key': 'product.class.Fitness',
-      'routerLink': '/menu#fitness',
+      'routerLink': '/menu/fitness',
     },
     {
       'key': 'product.class.Vegetarian',
-      'routerLink': '/menu#vegetarian',
+      'routerLink': '/menu/vegetarian',
     }
   ],
   headerMobileFooter: [
@@ -208,7 +208,7 @@ export const AppMenu: IAppMenu = {
     },
     {
       'key': 'common.routes.to-menu',
-      'path': '/menu#classic'
+      'path': '/menu/classic'
     },
     {
       'key': 'common.routes.how-it-works',

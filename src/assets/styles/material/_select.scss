@@ -1,0 +1,30 @@
+.mat-form-field.__select {
+  .mat-select {
+    &[aria-owns] {
+      .mat-select-arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    &-value {
+      max-width: none;
+      color: $cerulean-blue;
+    }
+
+    &-arrow {
+      width: 14px;
+      height: 9px;
+      margin: 0;
+      margin-left: 12px;
+      transition-duration: $duration-fast;
+      border: 0;
+      background-image: url("../img/background/select-arr.svg");
+
+      &-wrapper {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

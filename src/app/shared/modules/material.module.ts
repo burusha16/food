@@ -1,18 +1,12 @@
 import {Inject, NgModule, PLATFORM_ID} from '@angular/core';
 import {
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatCheckboxModule,
   MatCommonModule,
   MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
-  MatRadioModule,
   MatTabsModule,
-  MatTooltipModule,
   MatIconRegistry,
-  MAT_DIALOG_DEFAULT_OPTIONS
+  MAT_DIALOG_DEFAULT_OPTIONS, MatOptionModule, MatSelectModule, SELECT_PANEL_PADDING_X
 } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MaterialIconsList } from '../other/material-icons-list';
@@ -25,20 +19,16 @@ import {isPlatformServer} from '@angular/common';
     HttpClientModule
   ],
   exports: [
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCheckboxModule,
     MatCommonModule,
     MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule,
-    MatRadioModule,
     MatTabsModule,
-    MatTooltipModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
   ]
 })
 export class MaterialModule {

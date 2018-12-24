@@ -10,9 +10,10 @@ import {MenuComponent} from './menu.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HeaderModule} from '../../header/header.module';
 import {FooterModule} from '../../footer/footer.module';
+import { MenuHeaderComponent } from './menu-header/menu-header.component';
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [MenuComponent, MenuHeaderComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(MenuModuleRoutes),

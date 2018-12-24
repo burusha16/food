@@ -1,0 +1,35 @@
+.mat-option {
+  height: 42px !important;
+  padding: 0 !important;
+  transition-duration: $duration-fast;
+  background-color: $white !important;
+  color: $shaft !important;
+  font-size: 18px !important;
+  line-height: normal !important;
+
+  &.__c-boulder {
+    color: $boulder !important;
+  }
+
+  &:hover {
+    background-color: $ebb !important;
+  }
+
+  &.mat-active:before {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    width: 8px;
+    height: 8px;
+    transform: translateY(-50%);
+    border-radius: 8px;
+    background-color: $cerulean-blue;
+    content: "";
+  }
+
+  &-text {
+    padding-right: 16px;
+    padding-left: 36px;
+    color: inherit !important;
+  }
+}

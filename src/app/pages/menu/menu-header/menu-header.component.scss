@@ -1,0 +1,53 @@
+@import "../../../../assets/styles/variables";
+
+.menu-header {
+  margin-top: 44px;
+
+  @media screen and (max-width: $bp-sm) {
+    .mat-select-arrow-wrapper {
+      display: none;
+    }
+
+    .mat-form-field-infix {
+      width: 100%;
+      border-bottom: 1px dashed rgba($cerulean-blue, .3);
+    }
+  }
+
+  &__title {
+    font-size: 34px;
+    line-height: 38px;
+
+    @media screen and (max-width: $bp-sm) {
+      max-width: 240px;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+    }
+  }
+
+  &__select {
+    margin-top: 38px;
+    margin-left: 16px;
+    border: 1px solid $alto;
+    box-shadow: none !important;
+
+    @media screen and (max-width: $bp-sm) {
+      margin-top: 26px;
+      margin-left: 0;
+    }
+  }
+
+  &__descr {
+    color: $boulder;
+    font-family: $ffns;
+    font-size: 14px;
+    line-height: 20px;
+
+    @media screen and (max-width: $bp-sm) {
+      max-width: 240px;
+      margin-top: 12px;
+      text-align: center;
+    }
+  }
+}

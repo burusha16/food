@@ -1,0 +1,15 @@
+.mat-form-field {
+  &.__select {
+    .mat-form-field {
+      &-wrapper {
+        padding-bottom: 0;
+      }
+
+      &-infix {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-top: 0;
+      }
+    }
+  }
+}
