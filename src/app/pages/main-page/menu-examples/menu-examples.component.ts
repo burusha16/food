@@ -1,5 +1,4 @@
 import * as _ from 'lodash/core';
-import * as moment from 'moment';
 import {
   Component,
   ViewChild,
@@ -17,7 +16,6 @@ import {ContentPreloadService} from '@shared/services/content-preload.service';
 import {IGood} from '@shared/interfaces/good.interface';
 import {Responsive} from '@shared/decorators/responsive.decorator';
 import {ServiceLocator} from '@shared/services/locator.service';
-import {DeliveryDatesPipe} from '@shared/pipes/delivery-dates.pipe';
 
 @Responsive()
 @Component({

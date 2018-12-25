@@ -11,22 +11,10 @@
 </div>
 
 <div class="menu-examples __slider">
-  <mat-tab-group class="__default"
-                 disableRipple="true"
-                 animationDuration="400ms"
-                 (animationDone)="removeSliderAnimation()"
-                 (selectedTabChange)="updateSliderData($event.index)">
-    <mat-tab [label]="('product.class.' + product.class) | translate" *ngFor="let product of products">
-    </mat-tab>
-    <mat-tab disabled *ngIf="!isSmall && products">
-      <ng-template mat-tab-label>
-        <a href="#" class="menu-examples__slider-link">
-          Новогоднее
-          <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml8 __mercury"></mat-icon>
-        </a>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
+  <app-tabs [products]="products"
+            (animationDone)="removeSliderAnimation()"
+            (selectedTabChange)="updateSliderData($event)">
+  </app-tabs>
 
   <div class="menu-examples__slider-wrapper" #swiperWrapper>
     <div class="menu-examples__slider swiper-container" [swiper]="swiperConfig">
