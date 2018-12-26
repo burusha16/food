@@ -11,6 +11,7 @@ import {IProduct} from '@shared/interfaces/product.interface';
 import {IOffer} from '@shared/interfaces/offers.interface';
 import {productClass} from '@shared/enums/productClass.enum';
 import {ProductType} from '@shared/enums/productType.enum';
+import {ITabWithLink} from '@shared/interfaces/app-config.interface';
 
 @Component({
   selector: 'app-menu',
@@ -23,9 +24,11 @@ export class MenuComponent implements OnDestroy {
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
   productUpdateFactors: string[] = ['goodsCount', 'dateKey', 'class', 'personAmount'];
   orderForm: FormGroup;
-  product: IProduct;
+  productIndex = 0;
+  products: IProduct;
   offers: IOffer[];
   onDestroy$: Subject<void> = new Subject();
+  tabWithLink: ITabWithLink = this.appService.menuTabsConfig.linkInTab;
 
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
@@ -33,6 +36,21 @@ export class MenuComponent implements OnDestroy {
               private appService: AppService) {
     this.offers = this.route.snapshot.data.offers;
     this.formConfig.defaultClass = new TitleCasePipe().transform(this.route.snapshot.params.class);
+    this.initOrderForm();
+    this.updateAdditionalProducts();
+    this.updateProducts();
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
+  }
+
+  get product(): IProduct {
+    return this.products[this.productIndex];
+  }
+
+  initOrderForm() {
     this.orderForm = this.fb.group({
       goodsCount: this.formConfig.defaultGoodsCount,
       dateKey: this.appService.actualWeekKey,
@@ -50,28 +68,32 @@ export class MenuComponent implements OnDestroy {
     this.orderForm.get('dateKey').valueChanges
       .pipe(takeUntil(this.onDestroy$))
       .subscribe( () => this.updateAdditionalProducts());
-    this.updateAdditionalProducts();
-    this.updateProducts();
   }
 
-  ngOnDestroy() {
-    this.onDestroy$.next();
-    this.onDestroy$.complete();
+  removeSliderAnimation() {
+  }
+
+  updateMenuClass(index: number) {
+    this.productIndex = index;
+    this.orderForm.get('class').setValue(this.products[index].class);
   }
 
   updateProducts() {
     const currentOffer: IOffer = _.head(
       _.filter(this.offers, (offer: IOffer) => offer.weekKey === this.orderForm.get('dateKey').value)
     );
-    this.product = _.head(
-      _.filter(currentOffer.products, (product: IProduct) => {
-        const personsAmountValid = product.personsAmount === this.orderForm.get('personAmount').value;
-        const classValid = product.class === this.orderForm.get('class').value;
-        const goodsCountValid = product.goodsCount === this.orderForm.get('goodsCount').value;
-        const typeValid = product.type === ProductType.Box;
-        return personsAmountValid && classValid && goodsCountValid && typeValid;
-      })
-    );
+    const products = _.filter(currentOffer.products, (product: IProduct) => {
+      const personsAmountValid = product.personsAmount === this.orderForm.get('personAmount').value;
+      const goodsCountValid = product.goodsCount === this.orderForm.get('goodsCount').value;
+      const typeValid = product.type === ProductType.Box;
+      return personsAmountValid && goodsCountValid && typeValid;
+    });
+    const sortedProducts = _.map(this.appService.menuTabsConfig.tabsSortRule, (tabClass: string) => {
+      return _.head(
+        _.filter(products, (product: IProduct) => product.class === tabClass)
+      );
+    });
+    this.products = _.filter(sortedProducts, product => product);
     this.updateDefaultSetControl();
   }
 

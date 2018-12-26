@@ -1,10 +1,10 @@
 import {ISmiItem} from '@shared/interfaces/smi-list-item.iterface';
-import {ISliderMenuExamplesConfig} from '@shared/interfaces/app-config-response.interface';
+import {IMenuTabsConfig} from '@shared/interfaces/app-config.interface';
 import {IAppMenu} from '@shared/interfaces/app-menu.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
 import {productClass} from '@shared/enums/productClass.enum';
 
-export const SliderMenuExamplesConfig: ISliderMenuExamplesConfig = {
+export const MenuTabsConfig: IMenuTabsConfig = {
   'personsAmount': 2,
   'defaultGoodsLength': 5,
   'tabsSortRule': [
@@ -14,7 +14,11 @@ export const SliderMenuExamplesConfig: ISliderMenuExamplesConfig = {
     'Express',
     'Fitness',
     'Vegetarian'
-  ]
+  ],
+  'linkInTab': {
+    url: '#',
+    key: 'common.menu-tab.new-year'
+  }
 };
 
 export const OrderFormConfig: IOrderFormConfig = {

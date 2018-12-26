@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {Responsive} from '@shared/decorators/responsive.decorator';
 import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
@@ -7,7 +7,8 @@ import {IResponsiveComponent} from '@shared/interfaces/responsive-component.inte
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss']
+  styleUrls: ['./tabs.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TabsComponent implements OnInit, IResponsiveComponent{
   @Input() products: IProduct[];

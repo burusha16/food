@@ -1,0 +1,11 @@
+@import "../../../../assets/styles/variables";
+
+.tabs {
+  &__link {
+    color: $mine-shaft;
+
+    &:hover {
+      color: $boulder;
+    }
+  }
+}

@@ -14,6 +14,10 @@
   <app-tabs [products]="products"
             (animationDone)="removeSliderAnimation()"
             (selectedTabChange)="updateSliderData($event)">
+    <a [href]="tabWithLink.url" class="tabs__link">
+      {{tabWithLink.key | translate}}
+      <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml8 __mercury"></mat-icon>
+    </a>
   </app-tabs>
 
   <div class="menu-examples__slider-wrapper" #swiperWrapper>

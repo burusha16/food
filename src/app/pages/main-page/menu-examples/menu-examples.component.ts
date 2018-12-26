@@ -16,6 +16,8 @@ import {ContentPreloadService} from '@shared/services/content-preload.service';
 import {IGood} from '@shared/interfaces/good.interface';
 import {Responsive} from '@shared/decorators/responsive.decorator';
 import {ServiceLocator} from '@shared/services/locator.service';
+import {AppService} from '@shared/services/base-app.service';
+import {ITabWithLink} from '@shared/interfaces/app-config.interface';
 
 @Responsive()
 @Component({
@@ -33,6 +35,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   isMobile: boolean;
   isSmall: boolean;
   products: IProduct[];
+  tabWithLink: ITabWithLink = this.appService.menuTabsConfig.linkInTab;
   swiperPagination: SwiperPaginationInterface = {
     el: '.menu-examples__slider-pagination',
     bulletClass: 'menu-examples__slider-bullet',
@@ -60,7 +63,8 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   constructor(private cdRef: ChangeDetectorRef,
               private elRef: ElementRef,
               private route: ActivatedRoute,
-              private contentPreloadService: ContentPreloadService)  {
+              private contentPreloadService: ContentPreloadService,
+              private appService: AppService)  {
     this.products = this.route.snapshot.data.menuExamples;
   }
 

@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HeaderModule} from '../../header/header.module';
 import {FooterModule} from '../../footer/footer.module';
 import { MenuHeaderComponent } from './menu-header/menu-header.component';
+import {SharedComponentsModule} from '@shared/components/shared-components.module';
 
 @NgModule({
   declarations: [MenuComponent, MenuHeaderComponent],
@@ -20,7 +21,8 @@ import { MenuHeaderComponent } from './menu-header/menu-header.component';
     SharedModule,
     ReactiveFormsModule,
     HeaderModule,
-    FooterModule
+    FooterModule,
+    SharedComponentsModule
   ],
   providers: [MenuResolver],
   exports: [RouterModule]

@@ -7,10 +7,7 @@
   </mat-tab>
   <mat-tab disabled *ngIf="!isSmall && products">
     <ng-template mat-tab-label>
-      <a href="#" class="menu-examples__slider-link">
-        Новогоднее
-        <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml8 __mercury"></mat-icon>
-      </a>
+      <ng-content></ng-content>
     </ng-template>
   </mat-tab>
 </mat-tab-group>
