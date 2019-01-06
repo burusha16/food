@@ -3,6 +3,8 @@ import {IMenuTabsConfig} from '@shared/interfaces/app-config.interface';
 import {IAppMenu} from '@shared/interfaces/app-menu.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
 import {productClass} from '@shared/enums/productClass.enum';
+import {PersonsAmount} from '@shared/enums/personsAmount.enum';
+import {IPaymentConfig} from '@shared/interfaces/payment-config.interface';
 
 export const MenuTabsConfig: IMenuTabsConfig = {
   'personsAmount': 2,
@@ -22,9 +24,11 @@ export const MenuTabsConfig: IMenuTabsConfig = {
 };
 
 export const OrderFormConfig: IOrderFormConfig = {
+  avaibleGoodsCounts: [3, 5],
+  aviablePersonsAmounts: [PersonsAmount.TwoPersons, PersonsAmount.FourPersons],
   defaultClass: productClass.Classic,
   defaultGoodsCount: 5,
-  defaultPersonsAmount: 2
+  defaultPersonsAmount: PersonsAmount.TwoPersons,
 };
 
 export const SmiList: ISmiItem[] = [
@@ -257,6 +261,10 @@ export const AppMenu: IAppMenu = {
       'iconKey': 'old-phone-in-round'
     }
   ]
+};
+
+export const PaymentConfig: IPaymentConfig = {
+  onlinePaySaleInPersents: 10
 };
 
 

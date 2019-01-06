@@ -2,7 +2,7 @@ import * as _ from 'lodash/core';
 import {IProduct} from '../interfaces/product.interface';
 import {IGood} from '../interfaces/good.interface';
 import {productClass} from '../enums/productClass.enum';
-import {PersonsAmount} from '../enums/presonsAmount.enum';
+import {PersonsAmount} from '../enums/personsAmount.enum';
 import {ProductType} from '../enums/productType.enum';
 
 export class Product implements IProduct {

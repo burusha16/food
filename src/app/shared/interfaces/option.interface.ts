@@ -1,5 +1,5 @@
 export interface IOption {
   available?: boolean;
-  value: string;
+  value: string | number;
   viewValue: string;
 }

@@ -67,6 +67,12 @@
       "title-available": "Выберите меню на неделю с",
       "title-non-available": "Архив меню на неделю с",
       "archive": "(архив)"
+    },
+    "details": {
+      "3dinners": "3 ужина",
+      "5dinners": "5 ужинов",
+      "TWO_PERSONS": "На 2-х",
+      "FOUR_PERSONS": "На 4-х"
     }
   },
   "product": {

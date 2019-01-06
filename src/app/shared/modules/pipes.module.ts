@@ -1,16 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { SafeHtmlPipe } from '../pipes/safe-html.pipe';
-import { SafeUrlPipe } from '../pipes/safe-url.pipe';
+import {SafeHtmlPipe} from '@shared/pipes/safe-html.pipe';
+import {SafeUrlPipe} from '@shared/pipes/safe-url.pipe';
 import {DeliveryDatesPipe} from '@shared/pipes/delivery-dates.pipe';
+import {PriceCurrencyPipe} from '@shared/pipes/price-currency.pipe';
 
 
 @NgModule({
   declarations: [
     SafeHtmlPipe,
     SafeUrlPipe,
-    DeliveryDatesPipe
+    DeliveryDatesPipe,
+    PriceCurrencyPipe
   ],
   imports: [
     CommonModule
@@ -18,7 +20,9 @@ import {DeliveryDatesPipe} from '@shared/pipes/delivery-dates.pipe';
   exports: [
     SafeHtmlPipe,
     SafeUrlPipe,
-    DeliveryDatesPipe
+    DeliveryDatesPipe,
+    PriceCurrencyPipe
   ]
 })
-export class PipesModule { }
+export class PipesModule {
+}

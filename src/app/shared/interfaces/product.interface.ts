@@ -1,4 +1,4 @@
-import { PersonsAmount } from '../enums/presonsAmount.enum';
+import { PersonsAmount } from '../enums/personsAmount.enum';
 import { ProductType } from '../enums/productType.enum';
 import { productClass } from '../enums/productClass.enum';
 import {IGood} from './good.interface';

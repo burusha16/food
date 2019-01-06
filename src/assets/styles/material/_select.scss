@@ -26,5 +26,43 @@
         transform: translateY(-50%);
       }
     }
+
+    &.__accent {
+      padding: 8px;
+      transition-duration: $duration-fast;
+      border: 1px solid $gallery;
+      border-radius: 4px;
+      color: $mine-shaft;
+      font-size: 18px;
+      line-height: 24px;
+      box-sizing: border-box;
+
+      &:hover {
+        border-color: $boulder;
+      }
+
+      .mat-select {
+        &-arrow {
+          background-image: url("../img/background/select-arr-dark.svg");
+
+        }
+
+        &-value {
+          color: $mine-shaft;
+        }
+
+        &-trigger {
+          width: calc(100% - 26px);
+       }
+      }
+    }
+
+    &.__w140 {
+      width: 140px;
+    }
+
+    &.__w108 {
+      width: 108px;
+    }
   }
 }

@@ -1,0 +1,30 @@
+<mat-form-field [formGroup]="orderForm" class="__select">
+  <mat-select formControlName="goodsCount"
+              disableOptionCentering
+              disableRipple="true"
+              class="__accent __w140"
+              panelClass="menu-details__select __w140">
+    <mat-option *ngFor="let option of goodsCountsOptions"
+                [value]="option.value">
+      {{option.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field [formGroup]="orderForm" class="__select">
+  <mat-select formControlName="personAmount"
+              disableOptionCentering
+              disableRipple="true"
+              class="__accent __w108"
+              panelClass="menu-details__select">
+    <mat-option *ngFor="let option of personsAmountOptions"
+                [value]="option.value">
+      {{option.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<span>{{totalPriceWithSale | priceCurrency:'0.2':true:'rub'}}, {{totalPrice | priceCurrency:'0.0':true:'rub'}}</span>
+
+<button>Изменить состав</button>
+<button>Оформить заказ</button>
