@@ -33,6 +33,7 @@ export class HeaderMenuDialogComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.scrollService.enableWindowScroll();
     this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 
   hide() {

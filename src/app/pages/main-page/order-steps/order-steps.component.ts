@@ -63,5 +63,6 @@ export class OrderStepsComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.onDestroy$.next();
+    this.onDestroy$.complete();
   }
 }
