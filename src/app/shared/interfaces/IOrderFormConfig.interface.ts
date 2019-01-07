@@ -7,4 +7,5 @@ export interface IOrderFormConfig {
   defaultClass: productClass | string;
   defaultGoodsCount: number;
   defaultPersonsAmount: PersonsAmount;
+  defaultPrice: number;
 }

@@ -3,6 +3,8 @@ import {BehaviorSubject} from 'rxjs';
 import {Responsive} from 'src/app/shared/decorators/responsive.decorator';
 import {IResponsiveComponent} from 'src/app/shared/interfaces/responsive-component.interface';
 import {TranslateService} from '@ngx-translate/core';
+import {OrderFormConfig} from '@shared/other/app.config';
+import {PriceCurrencyPipe} from '@shared/pipes/price-currency.pipe';
 
 @Responsive()
 @Component({
@@ -17,6 +19,12 @@ export class ServicePresentationComponent implements OnInit, AfterViewChecked, I
   isVideoVisible$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   videoEndedHandler = this.hideVideo.bind(this);
   videoRef: HTMLElement;
+  defaultPrice: number = OrderFormConfig.defaultPrice;
+  defaultGoodsCount: number = OrderFormConfig.defaultGoodsCount;
+  dinnersPriceCountTranslateParams = {
+    'price': new PriceCurrencyPipe().transform(this.defaultPrice),
+    'counts': this.defaultGoodsCount
+  };
 
   constructor(private cdRef: ChangeDetectorRef,
               private elemRef: ElementRef,

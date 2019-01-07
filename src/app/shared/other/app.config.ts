@@ -29,6 +29,7 @@ export const OrderFormConfig: IOrderFormConfig = {
   defaultClass: productClass.Classic,
   defaultGoodsCount: 5,
   defaultPersonsAmount: PersonsAmount.TwoPersons,
+  defaultPrice: 2796
 };
 
 export const SmiList: ISmiItem[] = [

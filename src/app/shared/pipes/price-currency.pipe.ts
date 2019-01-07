@@ -91,7 +91,7 @@ export class PriceCurrencyPipe implements PipeTransform {
 
       newValue = rounding ? PriceCurrencyPipe.rounding(rounding, newValue) : newValue;
       newValue = PriceCurrencyPipe.setForm(formProps, newValue);
-      currencySymbol = PriceCurrencyPipe.setCurrency(currency);
+      currencySymbol = currency ? PriceCurrencyPipe.setCurrency(currency) : '';
       return `${newValue} ${currencySymbol}`;
     }
     return '';
