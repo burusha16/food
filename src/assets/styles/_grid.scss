@@ -41,6 +41,10 @@ $container-indent: (sm: 12px, md: 12px, lg: 20px, elg: 20px);
   &.__full-h {
     height: 100%;
   }
+
+  &.__no-indent {
+    padding: 0;
+  }
 }
 
 %container {

@@ -28,6 +28,10 @@
       background-color: $cerulean-blue;
     }
 
+    &.__w188 {
+      width: 188px;
+    }
+
     &.__w240 {
       width: 240px;
     }
@@ -70,5 +74,24 @@
     align-items: center;
     color: $white;
     font-size: 14px;
+    cursor: pointer;
+
+    &.__boulder-underlined {
+      height: 22px;
+      transition-duration: $duration-fast;
+      border-bottom: 1px dashed $boulder;
+      color: $boulder;
+      font-size: 18px;
+
+      &:hover {
+        color: rgba($boulder, .8);
+        border-color: transparent;
+      }
+
+      &:active {
+        border-color: $boulder;
+        color: $boulder;
+      }
+    }
   }
 }

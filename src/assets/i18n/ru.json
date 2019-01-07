@@ -72,7 +72,9 @@
       "3dinners": "3 ужина",
       "5dinners": "5 ужинов",
       "TWO_PERSONS": "На 2-х",
-      "FOUR_PERSONS": "На 4-х"
+      "FOUR_PERSONS": "На 4-х",
+      "change-recipe": "Изменить состав",
+      "create-order": "Оформить заказ"
     }
   },
   "product": {

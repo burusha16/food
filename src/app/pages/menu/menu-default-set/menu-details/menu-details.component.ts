@@ -1,5 +1,5 @@
 import * as _ from 'lodash/core';
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {IOption} from '@shared/interfaces/option.interface';
@@ -9,22 +9,10 @@ import {PersonsAmount} from '@shared/enums/personsAmount.enum';
 import {TranslateService} from '@ngx-translate/core';
 import {MenuService} from '../../menu.service';
 
-
-import { MatSelect } from '@angular/material';
-
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from '@angular/animations';
-
 @Component({
   selector: 'app-menu-details',
   templateUrl: './menu-details.component.html',
-  styleUrls: ['./menu-details.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./menu-details.component.scss']
 })
 export class MenuDetailsComponent {
   goodsCountsOptions: IOption[] = [];
@@ -46,27 +34,6 @@ export class MenuDetailsComponent {
         viewValue: this.translate.instant(`menu.details.${value}`)
       });
     });
-    // TODO: dirty hackZ
-    MatSelect['decorators'][0].args[0].animations[0] = trigger('transformPanel', [
-      state('void', style({
-        transform: 'scaleY(0.8)',
-        minWidth: '100%',
-        opacity: 0
-      })),
-      state('showing', style({
-        opacity: 1,
-        minWidth: '100%',
-        transform: 'scaleY(1)'
-      })),
-      state('showing-multiple', style({
-        opacity: 1,
-        minWidth: 'calc(100% + 48px)',
-        transform: 'scaleY(1)'
-      })),
-      transition('void => *', animate('0ms cubic-bezier(0, 0, 0.2, 1)')),
-      transition('* => void', animate('0ms 25ms linear', style({ opacity: 0 })))
-    ]);
-    console.log(MatSelect['decorators'][0].args[0].animations[0]);
   }
 
   get orderForm(): FormGroup {
