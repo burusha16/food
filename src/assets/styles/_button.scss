@@ -17,6 +17,7 @@
     color: $white;
     font-family: $ffreg;
     font-size: 18px;
+    font-weight: 100;
     cursor: pointer;
     z-index: 1;
 
@@ -79,19 +80,23 @@
     &.__boulder-underlined {
       height: 22px;
       transition-duration: $duration-fast;
-      border-bottom: 1px dashed $boulder;
+      border-bottom: 1px dashed rgba($boulder, .6);
       color: $boulder;
       font-size: 18px;
 
       &:hover {
-        color: rgba($boulder, .8);
         border-color: transparent;
+        color: rgba($boulder, .8);
       }
 
       &:active {
-        border-color: $boulder;
+        border-color: rgba($boulder, .6);
         color: $boulder;
       }
+    }
+
+    &.__fz16 {
+      font-size: 16px;
     }
   }
 }

@@ -1,23 +1,29 @@
 import * as _ from 'lodash/core';
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
+
+import {AppService} from '@shared/services/base-app.service';
+import {MenuService} from '../../menu.service';
+import {Responsive} from '@shared/decorators/responsive.decorator';
+import {PersonsAmount} from '@shared/enums/personsAmount.enum';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {IOption} from '@shared/interfaces/option.interface';
-import {AppService} from '@shared/services/base-app.service';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
-import {PersonsAmount} from '@shared/enums/personsAmount.enum';
-import {TranslateService} from '@ngx-translate/core';
-import {MenuService} from '../../menu.service';
+import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
 
+@Responsive()
 @Component({
   selector: 'app-menu-details',
   templateUrl: './menu-details.component.html',
   styleUrls: ['./menu-details.component.scss']
 })
-export class MenuDetailsComponent {
-  goodsCountsOptions: IOption[] = [];
-  personsAmountOptions: IOption[] = [];
+export class MenuDetailsComponent implements OnInit, IResponsiveComponent{
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
+  goodsCountsOptions: IOption[] = [];
+  isMobile: boolean;
+  isSmall: boolean;
+  personsAmountOptions: IOption[] = [];
 
   constructor(private appService: AppService,
               private menuService: MenuService,
@@ -34,6 +40,9 @@ export class MenuDetailsComponent {
         viewValue: this.translate.instant(`menu.details.${value}`)
       });
     });
+  }
+
+  ngOnInit() {
   }
 
   get orderForm(): FormGroup {

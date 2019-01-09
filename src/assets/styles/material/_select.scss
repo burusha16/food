@@ -57,12 +57,25 @@
       }
     }
 
+    &.__fz16 {
+      font-size: 16px;
+    }
+
+    // TODO: create mixin for modificators
     &.__w140 {
       width: 140px;
     }
 
+    &.__w112 {
+      width: 112px;
+    }
+
     &.__w108 {
       width: 108px;
+    }
+
+    &.__w88 {
+      width: 88px;
     }
   }
 }

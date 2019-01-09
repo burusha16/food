@@ -1,12 +1,14 @@
 <div class="container __mw800">
   <div class="row">
-    <div class="col-sm-12 __align-center __no-indent">
+    <div class="col-sm-12 __align-center"
+         [ngClass]="{'__no-indent': !isSmall}">
       <mat-form-field [formGroup]="orderForm" class="__select __mr8">
         <mat-select formControlName="goodsCount"
                     disableOptionCentering
                     disableRipple="true"
-                    class="__accent __w140"
-                    panelClass="menu-details__select __w140">
+                    class="__accent"
+                    [ngClass]="{'__w140': !isMobile,
+                                '__w112 __fz16': isMobile}">
           <mat-option *ngFor="let option of goodsCountsOptions"
                       [value]="option.value">
             {{option.viewValue}}
@@ -18,8 +20,9 @@
         <mat-select formControlName="personAmount"
                     disableOptionCentering
                     disableRipple="true"
-                    class="__accent __w108"
-                    panelClass="menu-details__select">
+                    class="__accent"
+                    [ngClass]="{'__w108': !isMobile,
+                                '__w88 __fz16': isMobile}">
           <mat-option *ngFor="let option of personsAmountOptions"
                       [value]="option.value">
             {{option.viewValue}}
@@ -34,8 +37,15 @@
       <div class="menu-details__price-icon">i</div>
 
       <div class="menu-details__actions">
-        <button class="button-inline __boulder-underlined">{{'menu.details.change-recipe' | translate}}</button>
-        <button class="button-default __h40 __w188">{{'menu.details.create-order' | translate}}</button>
+        <button class="button-inline __boulder-underlined"
+                [ngClass]="{'__fz16': isMobile}">
+          {{'menu.details.change-recipe' | translate}}
+        </button>
+
+        <button class="button-default __h40"
+                [ngClass]="{'__w188': !isMobile}">
+          {{'menu.details.create-order' | translate}}
+        </button>
       </div>
     </div>
   </div>
