@@ -18,7 +18,7 @@ import {IResponsiveComponent} from '@shared/interfaces/responsive-component.inte
   templateUrl: './menu-details.component.html',
   styleUrls: ['./menu-details.component.scss']
 })
-export class MenuDetailsComponent implements OnInit, IResponsiveComponent{
+export class MenuDetailsComponent implements OnInit, IResponsiveComponent {
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
   goodsCountsOptions: IOption[] = [];
   isMobile: boolean;

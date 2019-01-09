@@ -58,7 +58,6 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
     pagination: this.swiperPagination,
     spaceBetween: 32
   };
-  tabsMutationObserver: MutationObserver;
 
   constructor(private cdRef: ChangeDetectorRef,
               private elRef: ElementRef,
@@ -79,16 +78,6 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
       });
     }
     this.swiper.update();
-    if (this.isMobile) {
-      const element = this.elRef.nativeElement.querySelector('mat-ink-bar');
-      this.tabsMutationObserver = new MutationObserver((mutations: MutationRecord[]) => {
-            mutations.forEach(() => this.translateActiveTabLabelToCenter());
-          }
-      );
-      this.tabsMutationObserver.observe(element, {
-        attributes: true
-      });
-    }
   }
 
   get currentProduct(): IProduct {
@@ -121,16 +110,6 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
 
   removeSliderAnimation() {
     (<HTMLElement>this.swiperWrapper.nativeElement).className = 'menu-examples__slider-wrapper';
-  }
-
-  translateActiveTabLabelToCenter() {
-    const inkElement: HTMLElement = this.elRef.nativeElement.querySelector('.mat-ink-bar');
-    const target: HTMLElement = this.elRef.nativeElement.querySelector('.mat-tab-list');
-    const windowHalfWindth = this.elRef.nativeElement.offsetWidth / 2;
-    const inkIndent = 16;
-    const inkPosition = parseInt(inkElement.style.left, 10) - inkIndent;
-    const labelHafWidth = parseInt(inkElement.style.width, 10) / 2 + inkIndent;
-    target.style.left = `${windowHalfWindth - inkPosition - labelHafWidth}px`;
   }
 
   updateSliderData(index: number) {

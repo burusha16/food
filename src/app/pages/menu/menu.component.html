@@ -1,21 +1,15 @@
 <form [formGroup]="orderForm">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 __column __align-center">
-        <app-menu-header></app-menu-header>
+  <app-menu-header></app-menu-header>
 
-        <app-tabs class="menu__tabs"
-                  [products]="products"
-                  (animationDone)="removeSliderAnimation()"
-                  (selectedTabChange)="updateMenuClass($event)">
-          <a [href]="tabWithLink.url" class="tabs__link">
-            {{tabWithLink.key | translate}}
-            <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml8 __mercury"></mat-icon>
-          </a>
-        </app-tabs>
-      </div>
-    </div>
-  </div>
+  <app-tabs class="menu__tabs"
+            [products]="products"
+            (animationDone)="removeSliderAnimation()"
+            (selectedTabChange)="updateMenuClass($event)">
+    <a [href]="tabWithLink.url" class="tabs__link">
+      {{tabWithLink.key | translate}}
+      <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml8 __mercury"></mat-icon>
+    </a>
+  </app-tabs>
 
   <app-menu-default-set></app-menu-default-set>
 
