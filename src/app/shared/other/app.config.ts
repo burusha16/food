@@ -55,7 +55,7 @@ export const SmiList: ISmiItem[] = [
     'width': 99,
     'height': 27,
     'url': '/assets/img/main-page/smi-list/expert.jpg',
-    'name': 'main-page.smi-list.experrt'
+    'name': 'main-page.smi-list.expert'
   },
   {
     'width': 110,

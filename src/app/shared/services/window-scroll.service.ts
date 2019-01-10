@@ -23,8 +23,9 @@ export class WindowScrollService {
     }
   }
 
-  addScrollListener(breakpoint: number, name: string,  subject$: Subject<boolean>): void {
+  addScrollListener(node: HTMLElement, name: string, subject$: Subject<boolean>): void {
     this.removeListener(name);
+    const breakpoint = node.offsetTop;
     this.listeners.push({
       breakpoint: breakpoint,
       name: name,
@@ -40,7 +41,6 @@ export class WindowScrollService {
     const scrollPosition = ServiceLocator.isBrowser ? window.scrollY : 0;
     const passBreakpointDown = this.lastScrollPosition < listener.breakpoint && scrollPosition >= listener.breakpoint;
     const passBreakpointUp = this.lastScrollPosition > listener.breakpoint && scrollPosition <= listener.breakpoint;
-
     this.lastScrollPosition = scrollPosition;
     if (passBreakpointDown) {
       listener.observerable.next(listener.breakpoint <= scrollPosition);
