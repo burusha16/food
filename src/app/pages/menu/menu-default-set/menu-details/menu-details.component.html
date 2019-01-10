@@ -34,7 +34,15 @@
         {{totalPriceWithSale | priceCurrency:'0.2':true:'rub'}}
       </div>
 
-      <div class="menu-details__price-icon">i</div>
+      <div class="menu-details__price-icon"
+            #priceTooltip="matTooltip"
+            [matTooltip]="'menu.details.price-tooltip' | translate: priceTooltipTranslateProps"
+            matTooltipClass="__price-arrow-up"
+            matTooltipHideDelay="200"
+            matTooltipPosition="left"
+            (click)="priceTooltip.show()">
+        i
+      </div>
 
       <div class="menu-details__actions">
         <button class="button-inline __boulder-underlined"

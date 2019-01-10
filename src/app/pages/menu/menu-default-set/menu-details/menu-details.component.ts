@@ -11,6 +11,7 @@ import {IProduct} from '@shared/interfaces/product.interface';
 import {IOption} from '@shared/interfaces/option.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
 import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
+import {PriceCurrencyPipe} from '@shared/pipes/price-currency.pipe';
 
 @Responsive()
 @Component({
@@ -24,6 +25,7 @@ export class MenuDetailsComponent implements OnInit, IResponsiveComponent {
   isMobile: boolean;
   isSmall: boolean;
   personsAmountOptions: IOption[] = [];
+  onlinePaySale = this.appService.paymentConfig.onlinePaySaleInPersents;
 
   constructor(private appService: AppService,
               private menuService: MenuService,
@@ -43,6 +45,10 @@ export class MenuDetailsComponent implements OnInit, IResponsiveComponent {
   }
 
   ngOnInit() {
+  }
+
+  get priceTooltipTranslateProps(): any {
+    return {sale: this.onlinePaySale, price: new PriceCurrencyPipe().transform(this.totalPrice, '0.0', true, 'rub')};
   }
 
   get orderForm(): FormGroup {
@@ -76,7 +82,7 @@ export class MenuDetailsComponent implements OnInit, IResponsiveComponent {
   }
 
   get totalPriceWithSale(): number {
-    const sale = this.appService.paymentConfig.onlinePaySaleInPersents;
+    const sale = this.onlinePaySale;
     const fraction = (100 - sale) / 100;
     return this.totalPrice * fraction;
   }

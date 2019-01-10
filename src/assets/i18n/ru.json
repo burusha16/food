@@ -74,7 +74,8 @@
       "TWO_PERSONS": "На 2-х",
       "FOUR_PERSONS": "На 4-х",
       "change-recipe": "Изменить состав",
-      "create-order": "Оформить заказ"
+      "create-order": "Оформить заказ",
+      "price-tooltip": "Цена с учетом скидки {{sale}}% при оформлении подписки. Обычная цена: {{price}}"
     }
   },
   "product": {

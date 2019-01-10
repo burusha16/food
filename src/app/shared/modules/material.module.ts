@@ -6,7 +6,9 @@ import {
   MatIconModule,
   MatTabsModule,
   MatIconRegistry,
-  MAT_DIALOG_DEFAULT_OPTIONS, MatOptionModule, MatSelectModule, SELECT_PANEL_PADDING_X
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MatOptionModule,
+  MatSelectModule, MatTooltipModule,
 } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MaterialIconsList } from '../other/material-icons-list';
@@ -25,7 +27,8 @@ import {isPlatformServer} from '@angular/common';
     MatIconModule,
     MatTabsModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
