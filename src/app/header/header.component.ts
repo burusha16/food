@@ -1,11 +1,11 @@
-import {Component, ViewChild, ElementRef, AfterViewInit, OnInit} from '@angular/core';
+import {Component, ViewChild, ElementRef, AfterViewInit, OnInit, OnDestroy} from '@angular/core';
 import { Responsive } from '../shared/decorators/responsive.decorator';
 import { IResponsiveComponent } from '../shared/interfaces/responsive-component.interface';
 import { WindowScrollService } from '../shared/services/window-scroll.service';
 import { Subject } from 'rxjs';
 import { DeviceWindowService } from '../shared/services/device-window.service';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
-import {debounceTime, delay, filter} from 'rxjs/operators';
+import {debounceTime, delay, filter, takeUntil} from 'rxjs/operators';
 
 @Responsive()
 @Component({
@@ -13,33 +13,33 @@ import {debounceTime, delay, filter} from 'rxjs/operators';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, AfterViewInit, IResponsiveComponent {
+export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, IResponsiveComponent {
   @ViewChild('header') headerNode: ElementRef;
   isHeaderFixed$: Subject<boolean> = new Subject();
   isMobile: boolean;
   isSmall: boolean;
+  OnDestroy$: Subject<void> = new Subject<void>();
 
   constructor(private scrollService: WindowScrollService,
-              private deviceService: DeviceWindowService,
-              private router: Router) {
-    this.router.events
-      .pipe(
-        filter((event: RouterEvent) => event instanceof NavigationEnd),
-        delay(10))
-      .subscribe(() => {
-        if (this.headerNode) {
-          this.scrollService.addScrollListener(this.headerNode.nativeElement, this.constructor.name, this.isHeaderFixed$);
-        }
-      });
-    }
+              private deviceService: DeviceWindowService) {
+  }
 
   ngOnInit() {}
 
   ngAfterViewInit() {
-    this.deviceService.onResize$.subscribe(() => {
-      if (this.headerNode) {
-        this.scrollService.addScrollListener(this.headerNode.nativeElement, this.constructor.name, this.isHeaderFixed$);
-      }
+    this.deviceService.onResize$
+      .pipe(
+        delay(this.scrollService.delayTime),
+        takeUntil(this.OnDestroy$)
+      )
+      .subscribe(() => {
+        const breakpoint = this.headerNode.nativeElement.offsetTop;
+        this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.isHeaderFixed$);
     });
+  }
+
+  ngOnDestroy() {
+    this.OnDestroy$.next();
+    this.OnDestroy$.complete();
   }
 }

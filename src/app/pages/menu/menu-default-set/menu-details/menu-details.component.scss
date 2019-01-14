@@ -3,10 +3,24 @@
 :host {
   display: flex;
   width: 100%;
-  padding: 12px 0;
+  height: 66px;
+  box-sizing: border-box;
+
+  @media screen and (max-width: $bp-sm) {
+    height: 124px;
+  }
 }
 
 .menu-details {
+  display: flex;
+  width: 100%;
+  padding: 12px 0;
+  background-color: $alabaster;
+
+  &.__fixed {
+    position: fixed;
+  }
+
   &__price {
     display: inline-flex;
     align-items: center;

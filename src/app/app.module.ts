@@ -38,6 +38,7 @@ export function initLanguage(translateService: TranslatesService): Function {
     AppComponent
   ],
   imports: [
+    HeaderModule,
     BrowserModule.withServerTransition({ appId: 'my-app' }),
     TransferHttpCacheModule,
     HttpClientModule,
@@ -46,7 +47,6 @@ export function initLanguage(translateService: TranslatesService): Function {
     CookieModule.forRoot(),
     SharedModule.forRoot(),
     TranslateModule,
-    HeaderModule,
     MainPageModule,
     FooterModule,
     SharedMetaModule,

@@ -1,5 +1,5 @@
 import * as _ from 'lodash/core';
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -12,6 +12,10 @@ import {IOption} from '@shared/interfaces/option.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
 import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
 import {PriceCurrencyPipe} from '@shared/pipes/price-currency.pipe';
+import {WindowScrollService} from '@shared/services/window-scroll.service';
+import {Subject} from 'rxjs';
+import {DeviceWindowService} from '@shared/services/device-window.service';
+import {delay, takeUntil} from 'rxjs/operators';
 
 @Responsive()
 @Component({
@@ -19,17 +23,24 @@ import {PriceCurrencyPipe} from '@shared/pipes/price-currency.pipe';
   templateUrl: './menu-details.component.html',
   styleUrls: ['./menu-details.component.scss']
 })
-export class MenuDetailsComponent implements OnInit, IResponsiveComponent {
+export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, IResponsiveComponent {
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
   goodsCountsOptions: IOption[] = [];
   isMobile: boolean;
   isSmall: boolean;
   personsAmountOptions: IOption[] = [];
   onlinePaySale = this.appService.paymentConfig.onlinePaySaleInPersents;
+  onDestroy$: Subject<void> = new Subject<void>();
+  detailsIsFixed$: Subject<boolean> = new Subject<boolean>();
+  styles: any;
 
   constructor(private appService: AppService,
               private menuService: MenuService,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private elRef: ElementRef,
+              private scrollService: WindowScrollService,
+              private deviceService: DeviceWindowService,
+              private cdRef: ChangeDetectorRef) {
     _.each(this.formConfig.avaibleGoodsCounts, (value: number) => {
       this.goodsCountsOptions.push({
         value: value,
@@ -42,9 +53,48 @@ export class MenuDetailsComponent implements OnInit, IResponsiveComponent {
         viewValue: this.translate.instant(`menu.details.${value}`)
       });
     });
+    this.detailsIsFixed$
+      .pipe(
+        takeUntil(this.onDestroy$)
+      )
+      .subscribe((breakpointPassed: boolean) => {
+        if (breakpointPassed) {
+          this.styles = {
+            position: 'fixed',
+            top: `${this.headerHeight}px`
+          };
+        } else {
+          this.styles = {};
+        }
+        this.cdRef.markForCheck();
+    });
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.deviceService.onResize$
+      .pipe(
+        delay(this.scrollService.delayTime),
+        takeUntil(this.onDestroy$)
+      )
+      .subscribe(() => {
+        const scrollBreakpoint = this.elRef.nativeElement.offsetTop - this.headerHeight;
+        this.scrollService.addScrollListener(scrollBreakpoint, this.constructor.name, this.detailsIsFixed$);
+      });
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
+    this.onDestroy$.complete();
+  }
+
+  get headerHeight(): number {
+    const headerListenerName = 'HeaderComponent';
+    return this.scrollService.listeners.has(headerListenerName)
+      ? this.scrollService.listeners.get(headerListenerName).breakpoint
+      : 0;
   }
 
   get priceTooltipTranslateProps(): any {

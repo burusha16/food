@@ -5,17 +5,18 @@ import {ServiceLocator} from '@shared/services/locator.service';
 
 export interface IScrollListener {
   breakpoint: number;
-  name: string;
   observerable: Subject<boolean>;
+  lastScrollPosition: number;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class WindowScrollService {
-  lastScrollPosition: number;
-  listeners: IScrollListener[] = [];
+  listeners: Map<string, IScrollListener> = new Map<string, IScrollListener>();
+  delayTime = 100;
 
   constructor(private eventManager: EventManager) {
-    this.lastScrollPosition = ServiceLocator.isBrowser ? window.scrollY : 0;
     if (ServiceLocator.isBrowser) {
       this.eventManager.addGlobalEventListener('window', 'scroll', () => {
         this.listeners.forEach((listener: IScrollListener) => this.detectScroll(listener));
@@ -23,25 +24,26 @@ export class WindowScrollService {
     }
   }
 
-  addScrollListener(node: HTMLElement, name: string, subject$: Subject<boolean>): void {
+  addScrollListener(breakpoint: number, name: string, subject$: Subject<boolean>): void {
     this.removeListener(name);
-    const breakpoint = node.offsetTop;
-    this.listeners.push({
+    this.listeners.set(name , {
       breakpoint: breakpoint,
-      name: name,
-      observerable: subject$
+      observerable: subject$,
+      lastScrollPosition: ServiceLocator.isBrowser ? window.scrollY : 0
     });
   }
 
   removeListener(name: string): void {
-    this.listeners = this.listeners.filter((listener: IScrollListener) => listener.name !== name);
+    if (this.listeners.has(name)) {
+      this.listeners.delete(name);
+    }
   }
 
   detectScroll(listener: IScrollListener): void {
     const scrollPosition = ServiceLocator.isBrowser ? window.scrollY : 0;
-    const passBreakpointDown = this.lastScrollPosition < listener.breakpoint && scrollPosition >= listener.breakpoint;
-    const passBreakpointUp = this.lastScrollPosition > listener.breakpoint && scrollPosition <= listener.breakpoint;
-    this.lastScrollPosition = scrollPosition;
+    const passBreakpointDown = listener.lastScrollPosition < listener.breakpoint && scrollPosition >= listener.breakpoint;
+    const passBreakpointUp = listener.lastScrollPosition > listener.breakpoint && scrollPosition <= listener.breakpoint;
+    listener.lastScrollPosition = scrollPosition;
     if (passBreakpointDown) {
       listener.observerable.next(listener.breakpoint <= scrollPosition);
     } else if (passBreakpointUp) {
