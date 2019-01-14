@@ -7,11 +7,13 @@ import {AppService} from '@shared/services/base-app.service';
 import {IOffer} from '@shared/interfaces/offers.interface';
 import {ProductType} from '@shared/enums/productType.enum';
 import {productClass} from '@shared/enums/productClass.enum';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class MenuService {
-  additionalProducts: IProduct[];
+  additionalMenuPassed$: Subject<boolean> = new Subject<boolean>();
   additionalMilkProducts: IProduct[];
+  additionalProducts: IProduct[];
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
   offers: IOffer[];
   orderForm: FormGroup;

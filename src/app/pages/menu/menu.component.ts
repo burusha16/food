@@ -52,13 +52,6 @@ export class MenuComponent implements OnDestroy {
   get products(): IProduct[] {
     return this.menuService.products;
   }
-  // TODO: remove additionalProducts and additionalMilkProducts
-  get additionalProducts(): IProduct[] {
-    return this.menuService.additionalProducts;
-  }
-  get additionalMilkProducts(): IProduct[] {
-    return this.menuService.additionalMilkProducts;
-  }
 
   removeSliderAnimation() {
   }

@@ -13,17 +13,5 @@
 
   <app-menu-default-set></app-menu-default-set>
 
-  <h2>доп:</h2>
-
-  <label formArrayName="additionalSet" *ngFor="let product of additionalProducts; let $index = index" style="display: block">
-    <span>{{product.name}}: </span>
-    <input type="checkbox" [formControlName]="$index">
-  </label>
-
-  <h2>молоко и сыр:</h2>
-  <label formArrayName="additionalMilkSet" *ngFor="let product of additionalMilkProducts; let $index = index" style="display: block">
-    <span>{{product.name}}: </span>
-    <input type="checkbox" [formControlName]="$index">
-  </label>
-  <div style="height: 2000px;"></div>
+  <app-menu-additional-set></app-menu-additional-set>
 </form>

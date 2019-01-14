@@ -15,9 +15,10 @@ import {MenuComponent} from './menu.component';
 import {MenuHeaderComponent} from './menu-header/menu-header.component';
 import {MenuDefaultSetComponent} from './menu-default-set/menu-default-set.component';
 import {MenuDetailsComponent} from './menu-default-set/menu-details/menu-details.component';
+import { MenuAdditionalSetComponent } from './menu-additional-set/menu-additional-set.component';
 
 @NgModule({
-  declarations: [MenuComponent, MenuHeaderComponent, MenuDefaultSetComponent, MenuDetailsComponent],
+  declarations: [MenuComponent, MenuHeaderComponent, MenuDefaultSetComponent, MenuDetailsComponent, MenuAdditionalSetComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(MenuModuleRoutes),

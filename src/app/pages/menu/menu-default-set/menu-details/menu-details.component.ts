@@ -1,5 +1,5 @@
 import * as _ from 'lodash/core';
-import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -24,6 +24,8 @@ import {delay, takeUntil} from 'rxjs/operators';
   styleUrls: ['./menu-details.component.scss']
 })
 export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, IResponsiveComponent {
+  additionalMenuPassed$: Subject<boolean> = this.menuService.additionalMenuPassed$;
+  detailsIsFixed$: Subject<boolean> = new Subject<boolean>();
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
   goodsCountsOptions: IOption[] = [];
   isMobile: boolean;
@@ -31,7 +33,6 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
   personsAmountOptions: IOption[] = [];
   onlinePaySale = this.appService.paymentConfig.onlinePaySaleInPersents;
   onDestroy$: Subject<void> = new Subject<void>();
-  detailsIsFixed$: Subject<boolean> = new Subject<boolean>();
   styles: any;
 
   constructor(private appService: AppService,
@@ -53,21 +54,6 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
         viewValue: this.translate.instant(`menu.details.${value}`)
       });
     });
-    this.detailsIsFixed$
-      .pipe(
-        takeUntil(this.onDestroy$)
-      )
-      .subscribe((breakpointPassed: boolean) => {
-        if (breakpointPassed) {
-          this.styles = {
-            position: 'fixed',
-            top: `${this.headerHeight}px`
-          };
-        } else {
-          this.styles = {};
-        }
-        this.cdRef.markForCheck();
-    });
   }
 
   ngOnInit() {
@@ -82,6 +68,28 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
       .subscribe(() => {
         const scrollBreakpoint = this.elRef.nativeElement.offsetTop - this.headerHeight;
         this.scrollService.addScrollListener(scrollBreakpoint, this.constructor.name, this.detailsIsFixed$);
+      });
+    this.detailsIsFixed$
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((breakpointPassed: boolean) => {
+        if (breakpointPassed) {
+          this.styles = {
+            position: 'fixed',
+            top: `${this.headerHeight}px`,
+            borderBottom: '1px solid #ecebeb',
+          };
+        } else {
+          this.styles = {};
+        }
+        this.cdRef.markForCheck();
+      });
+    this.additionalMenuPassed$
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((breakpointPassed: boolean) => {
+        const defaultSetColor = '#f9f9f9';
+        const additionalSetColor = '#fff9f0';
+        this.styles.backgroundColor = breakpointPassed ? additionalSetColor : defaultSetColor;
+        this.cdRef.markForCheck();
       });
   }
 
