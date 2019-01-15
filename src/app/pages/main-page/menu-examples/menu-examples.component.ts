@@ -8,7 +8,7 @@ import {
   AfterViewInit,
   OnInit
 } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {SwiperPaginationInterface, SwiperConfigInterface, SwiperNavigationInterface, SwiperDirective } from 'ngx-swiper-wrapper';
 import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
 import {IProduct} from '@shared/interfaces/product.interface';
@@ -62,6 +62,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   constructor(private cdRef: ChangeDetectorRef,
               private elRef: ElementRef,
               private route: ActivatedRoute,
+              private router: Router,
               private contentPreloadService: ContentPreloadService,
               private appService: AppService)  {
     this.products = this.route.snapshot.data.menuExamples;
@@ -106,6 +107,11 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
         return true;
       }
     });
+  }
+
+  onSelectMenuClick() {
+    const className = this.currentProduct.class.toLowerCase();
+    this.router.navigateByUrl(`menu/${className}`);
   }
 
   removeSliderAnimation() {

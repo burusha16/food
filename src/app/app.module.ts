@@ -42,7 +42,11 @@ export function initLanguage(translateService: TranslatesService): Function {
     BrowserModule.withServerTransition({ appId: 'my-app' }),
     TransferHttpCacheModule,
     HttpClientModule,
-    RouterModule.forRoot(AppRoutes, { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(AppRoutes, {
+      initialNavigation: 'enabled',
+      scrollPositionRestoration: 'top',
+      onSameUrlNavigation: 'reload'
+    }),
     BrowserAnimationsModule,
     CookieModule.forRoot(),
     SharedModule.forRoot(),

@@ -1,6 +1,7 @@
 <mat-tab-group class="__default"
                disableRipple="true"
                animationDuration="400ms"
+               [selectedIndex]="selectedIndex"
                (animationDone)="onAnimationDone()"
                (selectedTabChange)="onSelectedTabChange($event.index)">
   <mat-tab [label]="('product.class.' + product.class) | translate" *ngFor="let product of products">

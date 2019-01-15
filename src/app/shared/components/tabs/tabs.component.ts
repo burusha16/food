@@ -12,6 +12,7 @@ import {IResponsiveComponent} from '@shared/interfaces/responsive-component.inte
 })
 export class TabsComponent implements OnInit, IResponsiveComponent {
   @Input() products: IProduct[];
+  @Input() selectedIndex: number;
   @Output() animationDone: EventEmitter<void> = new EventEmitter<void>();
   @Output() selectedTabChange: EventEmitter<number> = new EventEmitter<number>();
   isMobile: boolean;

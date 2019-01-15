@@ -40,6 +40,15 @@ export class MenuService {
     });
   }
 
+  setInitialIndex() {
+    const routeClass = this.formConfig.defaultClass;
+    _.each(this.appService.menuTabsConfig.tabsSortRule, (classValue: string, index: number) => {
+      if (classValue === routeClass) {
+        this.productIndex = index;
+      }
+    });
+  }
+
   updateProducts() {
     const currentOffer: IOffer = _.head(
       _.filter(this.offers, (offer: IOffer) => offer.weekKey === this.orderForm.get('dateKey').value)
