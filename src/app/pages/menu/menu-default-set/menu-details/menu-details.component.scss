@@ -36,6 +36,10 @@
 
     @media screen and (max-width: $bp-sm) {
       margin-left: auto;
+    }
+
+    @media screen and (max-width: 350px) {
+      margin-left: auto;
       padding-left: 0;
       font-size: 18px;
     }
@@ -55,7 +59,7 @@
       font-size: 13px;
       cursor: pointer;
 
-      @media screen and (max-width: $bp-sm) {
+      @media screen and (max-width: 350px) {
         width: 13px;
         height: 13px;
         margin-left: 4px;

@@ -91,7 +91,8 @@
       "fats": "Жиры",
       "proteins": "Белки",
       "carbohydrates": "Углеводы",
-      "calories": "Калории"
+      "calories": "Калории",
+      "kcal": "Ккал"
     }
   },
   "common": {
@@ -107,7 +108,8 @@
     "dimensions": {
       "gram": "г",
       "kcal": "ккал",
-      "min": "мин."
+      "min": "мин.",
+      "in-100-g": "В 100 г:"
     },
     "routes": {
       "about-company": "О компании",

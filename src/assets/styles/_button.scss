@@ -82,6 +82,7 @@
       transition-duration: $duration-fast;
       border-bottom: 1px dashed rgba($boulder, .6);
       color: $boulder;
+      font-family: $ffreg;
       font-size: 18px;
 
       &:hover {
@@ -92,6 +93,26 @@
       &:active {
         border-color: rgba($boulder, .6);
         color: $boulder;
+      }
+    }
+
+    &.__ceruleanblue-underline {
+      height: 14px;
+      margin: 2px 12px;
+      transition-duration: $duration-fast;
+      border-bottom: 1px solid rgba($cerulean-blue, .4);
+      color: $cerulean-blue;
+      font-family: $ffreg;
+      font-size: 14px;
+      font-weight: 100;
+      line-height: 14px;
+
+      &:hover {
+        border-bottom-color: $cerulean-blue;
+      }
+
+      &:active {
+        border-bottom-color: rgba($cerulean-blue, .4);
       }
     }
 

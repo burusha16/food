@@ -2,8 +2,106 @@
 
 .menu-default {
   padding-top: 12px;
-  padding-bottom: 24px;
+  padding-bottom: 84px;
   border-top: 1px solid $gallery;
   border-bottom: 1px solid $gallery;
   background-color: $alabaster;
+
+  @media screen and (max-width: $bp-tablet) {
+    padding-bottom: 60px;
+  }
+
+    &__item {
+    margin-top: 32px;
+
+    @media screen and (max-width: $bp-tablet) {
+      margin-top: 24px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 800px;
+    cursor: pointer;
+
+    @media screen and (max-width: $bp-tablet) {
+      width: 100vw;
+      margin: 0 -12px;
+    }
+  }
+
+  &__title {
+    max-width: 560px;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+
+    @media screen and (max-width: $bp-tablet) {
+      line-height: 20px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+
+    @media screen and (max-width: $bp-tablet) {
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 12px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+    padding-left: 12px;
+
+    @media screen and (max-width: $bp-tablet) {
+      margin-top: 4px;
+      padding: 0;
+    }
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    color: $boulder;
+    font-family: $ffns;
+    font-size: 12px;
+    line-height: 18px;
+
+    @media screen and (max-width: $bp-tablet) {
+      display: none;
+    }
+  }
+
+  &__tags {
+    margin: 8px -4px 0;
+
+    @media screen and (max-width: $bp-tablet) {
+      margin-top: 4px;
+    }
+
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      height: 20px;
+      margin: 0 4px;
+      padding: 1px 6px 0;
+      border-radius: 4px;
+      background-color: $cumulus;
+      font-size: 12px;
+      line-height: 15px;
+      box-shadow: 0 0 0 1px rgb(225, 216, 176);
+
+      @media screen and (max-width: $bp-tablet) {
+        height: auto;
+        font-size: 11px;
+        line-height: 14px;
+      }
+    }
+  }
 }
