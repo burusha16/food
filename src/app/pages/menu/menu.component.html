@@ -1,18 +1,32 @@
-<form [formGroup]="orderForm" cdk-scrollable>
-  <app-menu-header></app-menu-header>
+<mat-sidenav-container class="__default"
+                       (backdropClick)="hideSidenav()">
+  <mat-sidenav #sidenav
+               class="__white"
+               mode="over"
+               position="end"
+               fixedInViewport="true"
+               fixedTopGap="0">
+    <div style="width: 1024px;height: 2000px"></div>
+  </mat-sidenav>
 
-  <app-tabs class="menu__tabs"
-            [products]="products"
-            (animationDone)="removeSliderAnimation()"
-            [selectedIndex]="productIndex"
-            (selectedTabChange)="updateMenuClass($event)">
-    <a [href]="tabWithLink.url" class="tabs__link">
-      {{tabWithLink.key | translate}}
-      <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml8 __mercury"></mat-icon>
-    </a>
-  </app-tabs>
+  <mat-sidenav-content>
+    <form [formGroup]="orderForm">
+      <app-menu-header></app-menu-header>
 
-  <app-menu-default-set></app-menu-default-set>
+      <app-tabs class="menu__tabs"
+                [products]="products"
+                (animationDone)="removeSliderAnimation()"
+                [selectedIndex]="productIndex"
+                (selectedTabChange)="updateMenuClass($event)">
+        <a [href]="tabWithLink.url" class="tabs__link">
+          {{tabWithLink.key | translate}}
+          <mat-icon svgIcon="arrow-in-rectangle" class="__s16 __ml8 __mercury"></mat-icon>
+        </a>
+      </app-tabs>
 
-  <app-menu-additional-set></app-menu-additional-set>
-</form>
+      <app-menu-default-set></app-menu-default-set>
+
+      <app-menu-additional-set></app-menu-additional-set>
+    </form>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -5,13 +5,16 @@
     <div class="row">
       <div class="col-sm-12 __column __align-center">
         <div class="menu-default__item" *ngFor="let good of product.defaultGoodsModels">
-          <img class="menu-default__img" [src]="good.images.rectangular.s840x454" [alt]="good.name">
+          <img class="menu-default__img"
+               [src]="good.images.rectangular.s840x454"
+               [alt]="good.name"
+               (click)="showDetails()">
 
           <div class="menu-default__main">
             <h3 class="menu-default__title">{{good.name}}</h3>
 
             <div class="menu-default__buttons">
-              <button class="button-inline __ceruleanblue-underline">Подробнее</button>
+              <button class="button-inline __ceruleanblue-underline" (click)="showDetails()">Подробнее</button>
               <button class="button-inline __ceruleanblue-underline">Заменить блюдо</button>
             </div>
           </div>

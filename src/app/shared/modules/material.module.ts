@@ -8,7 +8,9 @@ import {
   MatIconRegistry,
   MAT_DIALOG_DEFAULT_OPTIONS,
   MatOptionModule,
-  MatSelectModule, MatTooltipModule,
+  MatSelectModule,
+  MatTooltipModule,
+  MatSidenavModule,
 } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MaterialIconsList } from '../other/material-icons-list';
@@ -28,7 +30,8 @@ import {isPlatformServer} from '@angular/common';
     MatTabsModule,
     MatOptionModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSidenavModule
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},

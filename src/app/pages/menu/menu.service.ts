@@ -8,6 +8,8 @@ import {IOffer} from '@shared/interfaces/offers.interface';
 import {ProductType} from '@shared/enums/productType.enum';
 import {productClass} from '@shared/enums/productClass.enum';
 import {Subject} from 'rxjs';
+import {MatSidenav} from '@angular/material';
+import {WindowScrollService} from '@shared/services/window-scroll.service';
 
 @Injectable()
 export class MenuService {
@@ -19,9 +21,11 @@ export class MenuService {
   orderForm: FormGroup;
   products: IProduct[];
   productIndex = 0;
+  sidenav: MatSidenav;
 
   constructor(private appService: AppService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private scrollService: WindowScrollService) {
   }
 
   get product(): IProduct {
@@ -96,5 +100,15 @@ export class MenuService {
     const addtitonalMilkSetControls = this.additionalMilkProducts.map(() => new FormControl(false));
     this.orderForm.setControl('additionalSet', new FormArray(addtitonalSetControls));
     this.orderForm.setControl('additionalMilkSet', new FormArray(addtitonalMilkSetControls));
+  }
+
+  showSidenav() {
+    this.sidenav.open();
+    this.scrollService.disableWindowScroll();
+  }
+
+  hideSidenav() {
+    this.sidenav.close();
+    this.scrollService.enableWindowScroll();
   }
 }

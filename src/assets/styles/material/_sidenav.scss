@@ -1,0 +1,37 @@
+.mat-drawer-container {
+  z-index: auto !important;
+}
+
+mat-sidenav-container {
+  &.__default {
+    position: static !important;
+    z-index: auto !important;
+
+    mat-sidenav-content {
+      position: static !important;
+      z-index: auto !important;
+    }
+
+    .mat-drawer-backdrop {
+      position: fixed;
+      transition-property: opacity !important;
+      background-color: rgba($black, .4);
+      opacity: 0;
+      z-index: 200;
+
+      &.mat-drawer-shown {
+        opacity: 1 !important;
+      }
+    }
+
+    mat-sidenav {
+      z-index: 210;
+    }
+  }
+}
+
+mat-sidenav {
+  &.__white {
+    background-color: $white;
+  }
+}

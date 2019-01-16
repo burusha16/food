@@ -14,4 +14,8 @@ export class MenuDefaultSetComponent {
   get product(): IProduct {
     return this.menuService.product;
   }
+
+  showDetails() {
+    this.menuService.showSidenav();
+  }
 }

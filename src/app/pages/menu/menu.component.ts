@@ -1,7 +1,7 @@
 import * as _ from 'lodash/core';
 import {Subject} from 'rxjs';
 import {filter, takeUntil, map} from 'rxjs/operators';
-import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnDestroy, ViewChild} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {TitleCasePipe} from '@angular/common';
 import {FormGroup} from '@angular/forms';
@@ -9,13 +9,15 @@ import {AppService} from '@shared/services/base-app.service';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {ITabWithLink} from '@shared/interfaces/app-config.interface';
 import {MenuService} from './menu.service';
+import {MatSidenav} from '@angular/material';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnDestroy {
+export class MenuComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('sidenav') sidenav: MatSidenav;
   productUpdateFactors: string[] = ['goodsCount', 'dateKey', 'class', 'personAmount'];
   onDestroy$: Subject<void> = new Subject();
   tabWithLink: ITabWithLink = this.appService.menuTabsConfig.linkInTab;
@@ -51,6 +53,10 @@ export class MenuComponent implements OnDestroy {
       .subscribe( () => this.menuService.updateAdditionalProducts());
   }
 
+  ngAfterViewInit() {
+    this.menuService.sidenav = this.sidenav;
+  }
+
   ngOnDestroy() {
     this.onDestroy$.next();
     this.onDestroy$.complete();
@@ -66,6 +72,10 @@ export class MenuComponent implements OnDestroy {
 
   get productIndex(): number {
     return this.menuService.productIndex;
+  }
+
+  hideSidenav() {
+    this.menuService.hideSidenav();
   }
 
   removeSliderAnimation() {

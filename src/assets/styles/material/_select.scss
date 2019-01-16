@@ -29,7 +29,7 @@
 
     &.__accent {
       padding: 8px;
-      transition-duration: $duration-fast;
+      transition: border-color $duration-fast;
       border: 1px solid $gallery;
       border-radius: 4px;
       color: $mine-shaft;
