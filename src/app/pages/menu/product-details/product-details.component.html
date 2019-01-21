@@ -1,0 +1,40 @@
+<div class="product-details__item container __mw800"
+     *ngFor="let good of goods"
+     [attr.hash]="good.id">
+  <h4 class="product-details__title">{{good.name}}</h4>
+  <img class="product-details__img" [src]="good.images.rectangular.s840x454" [alt]="good.name">
+  <div class="product-details__info">
+    <ul class="product-details__info-list">
+      <li class="product-details__info-item __main">
+        <mat-icon svgIcon="clock" class="__s18 __mr12"></mat-icon>
+        <span [translate]="'menu.product-details.preporation-time'" [translateParams]="{time: good.cookingTime}"></span>
+      </li>
+      <li class="product-details__info-item __main">
+        <mat-icon svgIcon="dish" class="__s18 __mr12"></mat-icon>
+        <span [translate]="'menu.product-details.portion-weight'" [translateParams]="{weight: good.weight}"></span>
+      </li>
+      <li class="product-details__info-item __title">{{'menu.product-details.in-100g' | translate}}</li>
+      <li class="product-details__info-item" *ngFor="let nutritionalValue of good.nutritionalValue">
+        {{('product.nutritional-value.' + nutritionalValue.key) | translate}} - {{nutritionalValue.value}}
+      </li>
+    </ul>
+    <ul class="product-details__info-list">
+      <li class="product-details__info-item __title">{{'menu.product-details.requirements' | translate}}</li>
+      <li class="product-details__info-item" *ngFor="let cookware of good.requiredCookware; let $index = index;">
+        {{$index+ 1}}. {{cookware}}
+      </li>
+    </ul>
+    <ul class="product-details__info-list">
+      <li class="product-details__info-item __title">{{'menu.product-details.ingredients' | translate}}</li>
+      <li class="product-details__info-item" *ngFor="let item of good.ingredients; let $index = index;">
+        {{$index+ 1}}. {{item.name}}: {{item.amount}} {{item.units}}
+      </li>
+    </ul>
+    <ul class="product-details__info-list">
+      <li class="product-details__info-item __recipe">
+        <a [href]="good.recipeUrl | safeUrl" class="product-details__link">{{'menu.product-details.recipe' | translate}}</a>
+        <mat-icon class="__s16 __ml8 __cerulean-blue" svgIcon="arrow-in-rectangle"></mat-icon>
+      </li>
+    </ul>
+  </div>
+</div>

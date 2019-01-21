@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {MenuService} from '../menu.service';
+import {IGood} from '@shared/interfaces/good.interface';
 
 @Component({
   selector: 'app-menu-default-set',
@@ -15,7 +16,11 @@ export class MenuDefaultSetComponent {
     return this.menuService.product;
   }
 
-  showDetails() {
+  showDetails(good: IGood) {
+    this.menuService.productDetailsData$.next({
+      goods: this.product.defaultGoodsModels,
+      selectedGoodHash: good.id
+    });
     this.menuService.showSidenav();
   }
 }

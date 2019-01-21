@@ -26,6 +26,7 @@ mat-sidenav-container {
 
     mat-sidenav {
       z-index: 210;
+      height: auto;
     }
   }
 }
@@ -33,5 +34,31 @@ mat-sidenav-container {
 mat-sidenav {
   &.__white {
     background-color: $white;
+  }
+}
+
+.mat-sidenav {
+  &__header {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding: 0 8px;
+    background-color: $white;
+    box-shadow: 0 2px 3px 0 rgba($black, .08);
+    box-sizing: border-box;
+
+    @media screen and (max-width: $bp-md) {
+      height: 48px;
+    }
+  }
+
+  &__wrapper {
+    height: 60px;
+  }
+
+  @media screen and (max-width: $bp-md) {
+    height: 48px;
   }
 }

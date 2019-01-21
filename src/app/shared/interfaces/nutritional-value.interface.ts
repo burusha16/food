@@ -1,7 +1,11 @@
+export interface INutritionalValueData {
+  calories: number;
+  proteins: number;
+  fats: number;
+  carbohydrates: number;
+}
 
 export interface INutritionalValue {
-  calories: number,
-  proteins: number
-  fats: number
-  carbohydrates: number
+  key: string;
+  value: number;
 }

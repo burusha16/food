@@ -76,6 +76,14 @@
       "change-recipe": "Изменить состав",
       "create-order": "Оформить заказ",
       "price-tooltip": "Цена с учетом скидки {{sale}}% при оформлении подписки. Обычная цена: {{price}}"
+    },
+    "product-details": {
+      "preporation-time": "Время приготовления: {{time}} мин",
+      "portion-weight": "Вес одной порции: {{weight}} г",
+      "in-100g": "На 100 граммов готового блюда:",
+      "requirements": "Вам понадобится:",
+      "ingredients": "Ингредиенты:",
+      "recipe": "Смотреть рецепт"
     }
   },
   "product": {
@@ -93,6 +101,12 @@
       "carbohydrates": "Углеводы",
       "calories": "Калории",
       "kcal": "Ккал"
+    },
+    "nutritional-dimensions": {
+      "fats": "г",
+      "proteins": "г",
+      "carbohydrates": "г",
+      "calories": "ккал"
     }
   },
   "common": {

@@ -45,6 +45,8 @@ export class MenuAdditionalSetComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngOnDestroy() {
+    this.scrollService.removeListener(this.constructor.name);
+    this.menuService.additionalMenuPassed$.complete();
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }

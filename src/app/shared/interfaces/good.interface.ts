@@ -1,4 +1,4 @@
-import {INutritionalValue} from './nutritional-value.interface';
+import {INutritionalValue, INutritionalValueData} from './nutritional-value.interface';
 
 export interface IGood {
   id: string;
@@ -6,7 +6,23 @@ export interface IGood {
   names: IGoodNames;
   images: IGoodImages;
   dayNumber: number;
-  nutritionalValue: INutritionalValue;
+  nutritionalValue: INutritionalValue[];
+  cookingTime: number;
+  weight: number;
+  portionsCount: number;
+  requiredCookware: string[];
+  ingredients: IGoodIngredients[];
+  tags: string[];
+  recipeUrl: string;
+}
+
+export interface IGoodData {
+  id: string;
+  name: string;
+  names: IGoodNames;
+  images: IGoodImages;
+  dayNumber: number;
+  nutritionalValue: INutritionalValueData;
   cookingTime: number;
   weight: number;
   portionsCount: number;

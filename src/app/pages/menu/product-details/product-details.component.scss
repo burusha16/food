@@ -1,0 +1,110 @@
+@import "variables";
+
+:host {
+  display: block;
+  position: relative;
+  width: 100vw;
+  max-width: 1024px;
+  height: calc(100vh - 60px);
+  overflow: auto;
+
+  @media screen and (max-width: $bp-tablet) {
+    height: calc(100vh - 48px);
+  }
+}
+
+.product-details {
+  &__item {
+    padding: 72px 0;
+    border-bottom: 1px solid $alto;
+
+    @media screen and (max-width: 768px) {
+      padding: 40px 12px;
+    }
+  }
+
+  &__title {
+    max-width: 80%;
+    color: $shaft;
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 24px;
+  }
+
+  &__img {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 16px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin: 32px -8px 0;
+
+    @media screen and (max-width: $bp-tablet) {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    &-item {
+      color: $shaft;
+      font-size: 14px;
+      line-height: 20px;
+
+      &.__main {
+        display: flex;
+        align-items: center;
+        margin: 4px 0;
+      }
+
+      &.__recipe {
+        display: flex;
+        align-items: center;
+        margin: 4px 0;
+
+        @media screen and (max-width: $bp-tablet) {
+          margin-top: 24px;
+        }
+      }
+
+      &.__title {
+        margin: 16px 0 12px;
+        @media screen and (min-width: $bp-tablet) {
+          margin-top: 24px;
+        }
+      }
+
+      @media screen and (min-width: $bp-tablet) {
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+
+    &-list {
+      flex-shrink: 0;
+      max-width: 236px;
+      padding: 0 8px;
+      box-sizing: border-box;
+
+      @media screen and (max-width: $bp-tablet) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    transition-duration: $duration-fast;
+    border-bottom: 1px solid rgba($cerulean-blue, .4);
+    color: $cerulean-blue;
+    font-size: 14px;
+    line-height: 16px;
+
+    &:hover {
+      border-bottom-color: $cerulean-blue;
+    }
+  }
+}

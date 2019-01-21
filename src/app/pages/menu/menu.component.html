@@ -6,7 +6,14 @@
                position="end"
                fixedInViewport="true"
                fixedTopGap="0">
-    <div style="width: 1024px;height: 2000px"></div>
+    <div class="mat-sidenav__wrapper">
+      <div class="mat-sidenav__header">
+        <button class="button-icon __s48" (click)="hideSidenav()">
+          <mat-icon class="__s20 __shaft __rotate180" svgIcon="arrow-right"></mat-icon>
+        </button>
+      </div>
+    </div>
+    <app-product-details></app-product-details>
   </mat-sidenav>
 
   <mat-sidenav-content>

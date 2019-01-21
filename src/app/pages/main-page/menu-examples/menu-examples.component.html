@@ -33,24 +33,10 @@
                 {{good.cookingTime}} {{'common.dimensions.min' | translate}}
               </span>
 
-              <span>
-                {{'product.nutritional-value.proteins' | translate}} -
-                {{good.nutritionalValue.proteins}}{{'common.dimensions.gram' | translate}}
-              </span>
-
-              <span>
-                {{'product.nutritional-value.fats' | translate}} -
-                {{good.nutritionalValue.fats}}{{'common.dimensions.gram' | translate}}
-              </span>
-
-              <span>
-                {{'product.nutritional-value.carbohydrates' | translate}} -
-                {{good.nutritionalValue.carbohydrates}}{{'common.dimensions.gram' | translate}}
-              </span>
-
-              <span>
-                {{'product.nutritional-value.calories' | translate}} -
-                {{good.nutritionalValue.calories}}{{'common.dimensions.kcal' | translate}}
+              <span *ngFor="let nutritionalValue of good.nutritionalValue">
+                {{('product.nutritional-value.' + nutritionalValue.key) | translate}} -
+                {{nutritionalValue.value}}
+                {{('product.nutritional-dimensions.' + nutritionalValue.key) | translate}}
               </span>
             </p>
           </div>

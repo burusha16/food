@@ -67,7 +67,7 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
   }
 
   get products(): IProduct[] {
-    return this.menuService.products;
+    return this.menuService.defaultProducts;
   }
 
   get productIndex(): number {

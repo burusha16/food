@@ -8,13 +8,13 @@
           <img class="menu-default__img"
                [src]="good.images.rectangular.s840x454"
                [alt]="good.name"
-               (click)="showDetails()">
+               (click)="showDetails(good)">
 
           <div class="menu-default__main">
             <h3 class="menu-default__title">{{good.name}}</h3>
 
             <div class="menu-default__buttons">
-              <button class="button-inline __ceruleanblue-underline" (click)="showDetails()">Подробнее</button>
+              <button class="button-inline __ceruleanblue-underline" (click)="showDetails(good)">Подробнее</button>
               <button class="button-inline __ceruleanblue-underline">Заменить блюдо</button>
             </div>
           </div>
@@ -23,10 +23,9 @@
             <mat-icon svgIcon="clock" class="__s12 __mr8"></mat-icon>
             {{good.cookingTime}} {{'common.dimensions.min' | translate}}
             {{'common.dimensions.in-100-g' | translate}}
-            {{'product.nutritional-value.proteins' | translate}} - {{good.nutritionalValue.proteins}},
-            {{'product.nutritional-value.fats' | translate}} - {{good.nutritionalValue.fats}},
-            {{'product.nutritional-value.carbohydrates' | translate}} - {{good.nutritionalValue.carbohydrates}},
-            {{'product.nutritional-value.kcal' | translate}} - {{good.nutritionalValue.calories}}
+            <ng-template ngFor [ngForOf]="good.nutritionalValue" let-nutritionalValue let-$last="last">
+              {{('product.nutritional-value.' + nutritionalValue.key) | translate}} - {{nutritionalValue.value}}{{!$last ? ',' : ''}}
+            </ng-template>
           </p>
 
           <div class="menu-default__tags">

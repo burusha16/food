@@ -10,17 +10,19 @@ import {productClass} from '@shared/enums/productClass.enum';
 import {Subject} from 'rxjs';
 import {MatSidenav} from '@angular/material';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
+import {IProductDetailsData} from '@shared/interfaces/products-details-data.interface';
 
 @Injectable()
 export class MenuService {
   additionalMenuPassed$: Subject<boolean> = new Subject<boolean>();
   additionalMilkProducts: IProduct[];
   additionalProducts: IProduct[];
+  defaultProducts: IProduct[];
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
   offers: IOffer[];
   orderForm: FormGroup;
-  products: IProduct[];
   productIndex = 0;
+  productDetailsData$: Subject<IProductDetailsData> = new Subject();
   sidenav: MatSidenav;
 
   constructor(private appService: AppService,
@@ -29,7 +31,7 @@ export class MenuService {
   }
 
   get product(): IProduct {
-    return this.products[this.productIndex];
+    return this.defaultProducts[this.productIndex];
   }
 
   initOrderForm() {
@@ -68,7 +70,7 @@ export class MenuService {
         _.filter(products, (product: IProduct) => product.class === tabClass)
       );
     });
-    this.products = _.filter(sortedProducts, product => product);
+    this.defaultProducts = _.filter(sortedProducts, product => product);
     this.updateDefaultSetControl();
   }
 

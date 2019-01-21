@@ -10,6 +10,7 @@ export const MaterialIconsList: IMatIcon[] = [
   { name: 'clock', src: defaultPath },
   { name: 'cross', src: defaultPath },
   { name: 'default-avatar', src: defaultPath },
+  { name: 'dish', src: defaultPath },
   { name: 'google-play-badge', src: defaultPath },
   { name: 'logo', src: defaultPath },
   { name: 'logo-yandex-project', src: defaultPath },
