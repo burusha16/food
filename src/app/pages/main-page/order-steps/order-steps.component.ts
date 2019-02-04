@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
-import { SwiperConfigInterface, SwiperPaginationInterface, SwiperDirective } from 'ngx-swiper-wrapper';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { DeviceWindowService } from '../../../shared/services/device-window.service';
+import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, ViewChild, ViewEncapsulation} from '@angular/core';
+import {SwiperConfigInterface, SwiperDirective, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {DeviceWindowService} from '@shared/services/device-window.service';
 
 interface IOrderStepSlide {
   descriptionKey: string;
@@ -14,6 +14,7 @@ interface IOrderStepSlide {
   templateUrl: './order-steps.component.html',
   styleUrls: ['./order-steps.component.scss'],
   encapsulation : ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OrderStepsComponent implements AfterViewInit, OnDestroy {
   @ViewChild(SwiperDirective) swiper: SwiperDirective;

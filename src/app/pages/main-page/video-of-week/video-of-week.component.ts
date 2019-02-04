@@ -1,10 +1,11 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-video-of-week',
   templateUrl: './video-of-week.component.html',
   styleUrls: ['./video-of-week.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VideoOfWeekComponent {
   isVideoVisible: boolean;

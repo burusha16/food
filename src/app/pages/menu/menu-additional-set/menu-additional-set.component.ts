@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {MenuService} from '../menu.service';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
@@ -10,7 +10,8 @@ import {delay, takeUntil} from 'rxjs/operators';
 @Component({
   selector: 'app-menu-additional-set',
   templateUrl: './menu-additional-set.component.html',
-  styleUrls: ['./menu-additional-set.component.scss']
+  styleUrls: ['./menu-additional-set.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuAdditionalSetComponent implements OnInit, AfterViewInit, OnDestroy {
   onDestroy$: Subject<void> = new Subject<void>();

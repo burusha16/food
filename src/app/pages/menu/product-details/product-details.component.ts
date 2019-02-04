@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, ElementRef, OnDestroy} from '@angular/core';
+import {AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy} from '@angular/core';
 import {MenuService} from '../menu.service';
 import {IGood} from '@shared/interfaces/good.interface';
 import {Subject} from 'rxjs';
@@ -11,7 +11,8 @@ import {Responsive} from '@shared/decorators/responsive.decorator';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss']
+  styleUrls: ['./product-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductDetailsComponent implements AfterViewChecked, OnDestroy, IResponsiveComponent {
   goods: IGood[] = [];
@@ -22,7 +23,8 @@ export class ProductDetailsComponent implements AfterViewChecked, OnDestroy, IRe
   onDestroy$: Subject<void> = new Subject();
 
   constructor(private menuService: MenuService,
-              private elRef: ElementRef) {
+              private elRef: ElementRef,
+              private cdRef: ChangeDetectorRef) {
     this.menuService.productDetailsData$
       .pipe(
         takeUntil(this.onDestroy$)
@@ -31,6 +33,7 @@ export class ProductDetailsComponent implements AfterViewChecked, OnDestroy, IRe
         this.goods = data.goods;
         this.selectedGoodHash = data.selectedGoodHash;
         this.needToSetGoodPosition = true;
+        this.cdRef.markForCheck();
       });
   }
 

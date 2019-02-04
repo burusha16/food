@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AppService} from '@shared/services/base-app.service';
 import {IFooterMenuItem} from '@shared/interfaces/app-menu.interface';
 
 @Component({
   selector: 'app-footer-menu',
   templateUrl: './footer-menu.component.html',
-  styleUrls: ['./footer-menu.component.scss']
+  styleUrls: ['./footer-menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterMenuComponent {
   menuItems: IFooterMenuItem[] = this.appService.footerMenu;

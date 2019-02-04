@@ -1,5 +1,14 @@
 import {concat, Observable, of} from 'rxjs';
-import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import {SwiperConfigInterface, SwiperDirective, SwiperNavigationInterface, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
 import {IFeedback} from '@shared/interfaces/feedback.interface';
 import {Responsive} from '@shared/decorators/responsive.decorator';
@@ -11,7 +20,8 @@ import {AppService} from '@shared/services/base-app.service';
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeedbackComponent implements OnInit, AfterViewInit, AfterViewChecked, IResponsiveComponent {
   @ViewChild(SwiperDirective) swiper: SwiperDirective;

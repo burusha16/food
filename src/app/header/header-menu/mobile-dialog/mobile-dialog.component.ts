@@ -1,15 +1,17 @@
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import { Inject, Component, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { AppComponent } from '../../../app.component';
-import { WindowScrollService } from '../../../shared/services/window-scroll.service';
-import {IHeaderMenuItem} from '../../../shared/interfaces/app-menu.interface';
+import {AfterViewInit, ChangeDetectionStrategy, Component, Inject, OnDestroy, ViewChild} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {AppComponent} from '../../../app.component';
+import {WindowScrollService} from '@shared/services/window-scroll.service';
+import {IHeaderMenuItem} from '@shared/interfaces/app-menu.interface';
 import {AppService} from '@shared/services/base-app.service';
+
 @Component({
   selector: 'app-header-menu-mobile-dialog',
   templateUrl: './mobile-dialog.component.html',
-  styleUrls: ['./mobile-dialog.component.scss']
+  styleUrls: ['./mobile-dialog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderMenuDialogComponent implements AfterViewInit, OnDestroy {
   @ViewChild(AppComponent) App: AppComponent;

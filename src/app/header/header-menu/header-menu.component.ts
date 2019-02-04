@@ -1,9 +1,9 @@
 import { Subject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { Responsive } from '../../shared/decorators/responsive.decorator';
+import { Responsive } from '@shared/decorators/responsive.decorator';
 import { HeaderService } from '../header.service';
-import { IResponsiveComponent } from '../../shared/interfaces/responsive-component.interface';
-import {IHeaderMenuItem} from '../../shared/interfaces/app-menu.interface';
+import { IResponsiveComponent } from '@shared/interfaces/responsive-component.interface';
+import {IHeaderMenuItem} from '@shared/interfaces/app-menu.interface';
 import {AppService} from '@shared/services/base-app.service';
 
 @Responsive()

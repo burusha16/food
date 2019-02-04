@@ -1,15 +1,16 @@
 import * as _ from 'lodash/core';
 import {
-  Component,
-  ViewChild,
-  ChangeDetectorRef,
-  ElementRef,
-  ViewEncapsulation,
   AfterViewInit,
-  OnInit
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SwiperPaginationInterface, SwiperConfigInterface, SwiperNavigationInterface, SwiperDirective } from 'ngx-swiper-wrapper';
+import {SwiperConfigInterface, SwiperDirective, SwiperNavigationInterface, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
 import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {ContentPreloadService} from '@shared/services/content-preload.service';
@@ -24,7 +25,8 @@ import {ITabWithLink} from '@shared/interfaces/app-config.interface';
   selector: 'app-menu-examples',
   templateUrl: './menu-examples.component.html',
   styleUrls: ['./menu-examples.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsiveComponent {
   @ViewChild(SwiperDirective) swiper: SwiperDirective;

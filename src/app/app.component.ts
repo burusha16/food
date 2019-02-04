@@ -1,6 +1,6 @@
 import * as moment from 'moment';
 import {ChangeDetectionStrategy, Component, Inject, Injector, PLATFORM_ID} from '@angular/core';
-import {ServiceLocator} from './shared/services/locator.service';
+import {ServiceLocator} from '@shared/services/locator.service';
 import {TranslateService} from '@ngx-translate/core';
 
 

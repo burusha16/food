@@ -1,5 +1,5 @@
 import * as _ from 'lodash/core';
-import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -21,7 +21,8 @@ import {delay, takeUntil} from 'rxjs/operators';
 @Component({
   selector: 'app-menu-details',
   templateUrl: './menu-details.component.html',
-  styleUrls: ['./menu-details.component.scss']
+  styleUrls: ['./menu-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, IResponsiveComponent {
   additionalMenuPassed$: Subject<boolean> = this.menuService.additionalMenuPassed$;

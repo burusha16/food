@@ -1,6 +1,6 @@
 import * as _ from 'lodash/core';
 import * as moment from 'moment';
-import {Component, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {IOffer} from '@shared/interfaces/offers.interface';
 import {IOption} from '@shared/interfaces/option.interface';
@@ -10,7 +10,8 @@ import {MenuService} from '../menu.service';
   selector: 'app-menu-header',
   templateUrl: './menu-header.component.html',
   styleUrls: ['./menu-header.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuHeaderComponent {
   offersOptions: IOption[];

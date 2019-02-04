@@ -2,20 +2,16 @@
   "name": "food-party",
   "version": "0.0.1",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "deploy": "heroku container:push web --app burusha-angular && heroku container:release web --app burusha-angular",
-    "build:universal": "ng build --prod && ng run foodparty:server:production && webpack --config webpack.config.js --progress --colors",
-    "server": "node server.js",
+    "start": "ng serve --port=4400",
     "build:prerender": "npm run build:universal && npm run generate:prerender",
+    "build:server": "ng run foodparty:server:production && npm run bundle-server-prerender",
+    "build:server:serve": "npm run build:server && node prerender.js && node server.js",
+    "build:universal": "ng build --prod --extractCss=true && ng run foodparty:server:production && npm run bundle-server-prerender",
+    "bundle-server-prerender": "webpack --config webpack.config.js --progress --colors",
+    "deploy": "heroku container:push web --app burusha-angular && heroku container:release web --app burusha-angular",
     "generate:prerender": "node prerender.js",
-    "build:server": "ng run foodparty:server:production && webpack --config webpack.config.js --progress --colors",
-    "build:server:serve": "ng run foodparty:server:production && webpack --config webpack.config.js --progress --colors && node prerender.js && node server.js",
-    "ssr:debug": "ng build --aot=true --output-hashing=all --named-chunks=false --build-optimizer=true  && ng run foodparty:server:production && webpack && node prerender.js && node server.js"
+    "server": "node server.js",
+    "ssr:debug": "ng build --aot=true --output-hashing=all --named-chunks=false --build-optimizer=true --extractCss=true && ng run foodparty:server:production && webpack && node server.js"
   },
   "private": true,
   "dependencies": {
