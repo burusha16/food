@@ -2,8 +2,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy} from '
 import {IProduct} from '@shared/interfaces/product.interface';
 import {MenuService} from '../menu.service';
 import {IGood} from '@shared/interfaces/good.interface';
-import {NavigationEnd, Router} from '@angular/router';
-import {filter, tap} from 'rxjs/operators';
+import {takeUntil, tap} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 
 @Component({
@@ -15,11 +14,10 @@ import {Subject} from 'rxjs';
 export class MenuDefaultSetComponent implements OnDestroy {
   onDestroy$: Subject<void> = new Subject();
   constructor(private menuService: MenuService,
-              private router: Router,
               private cdRef: ChangeDetectorRef) {
-    this.router.events
+    this.menuService.orderForm.valueChanges
       .pipe(
-        filter(event => event instanceof NavigationEnd),
+        takeUntil(this.onDestroy$),
         tap(() => this.cdRef.markForCheck())
       )
       .subscribe();

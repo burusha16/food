@@ -122,7 +122,7 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
     return this.menuService.additionalProducts;
   }
 
-  get additionalMickProduct(): IProduct[] {
+  get additionalMilkProduct(): IProduct[] {
     return this.menuService.additionalMilkProducts;
   }
 
@@ -133,7 +133,7 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
     );
     const additionalMickGoodsPrice = _.map(
       this.orderForm.get('additionalMilkSet').value,
-      (value: boolean, index: number) => value ? this.additionalMickProduct[index].price : 0
+      (value: boolean, index: number) => value ? this.additionalMilkProduct[index].price : 0
     );
     const defaultGoodsPrice = this.defaultProduct.price;
     const summ = [defaultGoodsPrice, ...additionalGoodsPrice, ...additionalMickGoodsPrice].reduce((prev, next) => prev + next);

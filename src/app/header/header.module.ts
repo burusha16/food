@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
-import { HeaderService } from './header.service';
 import { RouterModule } from '@angular/router';
 import { HeaderPromoComponent } from './header-promo/header-promo.component';
 import { HeaderComponent } from './header.component';
 import { SharedModule } from '@shared/modules/shared.module';
 import { HeaderMenuComponent } from './header-menu/header-menu.component';
-import { HeaderMenuDialogComponent } from './header-menu/mobile-dialog/mobile-dialog.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     HeaderPromoComponent,
     HeaderMenuComponent,
-    HeaderMenuDialogComponent,
   ],
   imports: [
     RouterModule,
@@ -21,11 +18,7 @@ import { HeaderMenuDialogComponent } from './header-menu/mobile-dialog/mobile-di
   exports: [
     HeaderComponent,
     HeaderMenuComponent
-  ],
-  providers: [
-    HeaderService
-  ],
-  entryComponents: [ HeaderMenuDialogComponent ]
+  ]
 })
 export class HeaderModule {
 }

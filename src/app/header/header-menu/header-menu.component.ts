@@ -1,35 +1,51 @@
-import { Subject } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
-import { Responsive } from '@shared/decorators/responsive.decorator';
-import { HeaderService } from '../header.service';
-import { IResponsiveComponent } from '@shared/interfaces/responsive-component.interface';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Responsive} from '@shared/decorators/responsive.decorator';
+import {IResponsiveComponent} from '@shared/interfaces/responsive-component.interface';
 import {IHeaderMenuItem} from '@shared/interfaces/app-menu.interface';
 import {AppService} from '@shared/services/base-app.service';
+import {MatDialog, MatDialogConfig} from '@angular/material';
 
 @Responsive()
 @Component({
   selector: 'app-header-menu',
   templateUrl: './header-menu.component.html',
-  styleUrls: ['./header-menu.component.scss']
+  styleUrls: ['./header-menu.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderMenuComponent implements IResponsiveComponent, OnInit {
+  @ViewChild('dialog') dialogTemplate!: TemplateRef<any>;
   isMobile: boolean;
   isSmall: boolean;
-  isMenuExpanded = false;
-  isMenuExpanded$: Subject<boolean> = this.headerService.showHeaderDialog$;
+  isDialogExpanded = false;
   menuItems: IHeaderMenuItem[] = this.appService.headerMenu;
+  menuMobileItems: IHeaderMenuItem[] = this.appService.headerMenuMobBody;
+  menuFooterItems: IHeaderMenuItem[] = this.appService.headerMenuMobFooter;
 
   constructor(private appService: AppService,
-              private headerService: HeaderService) {
-    this.isMenuExpanded$.subscribe( (status: boolean) => {
-      this.isMenuExpanded = status;
-    });
+              private dialog: MatDialog,
+              private cdRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
   }
 
-  toggleMenu(): void {
-    this.isMenuExpanded ? this.headerService.hideHeaderMenuDialog() : this.headerService.showHeaderMenuDialog();
+  showDialog() {
+    const dialogConfig: MatDialogConfig = {
+      panelClass: 'header-dialog__wrapper'
+    };
+    this.dialog.open(this.dialogTemplate, dialogConfig);
+    this.isDialogExpanded = true;
+    this.cdRef.markForCheck();
+  }
+
+  hideDialog() {
+    this.dialog.closeAll();
+    this.isDialogExpanded = false;
+    this.cdRef.markForCheck();
+  }
+
+  toggleDialog() {
+    this.isDialogExpanded ? this.hideDialog() : this.showDialog();
   }
 }
