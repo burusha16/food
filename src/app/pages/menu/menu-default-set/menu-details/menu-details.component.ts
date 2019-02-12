@@ -2,7 +2,6 @@ import * as _ from 'lodash/core';
 import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
-
 import {AppService} from '@shared/services/base-app.service';
 import {MenuService} from '../../menu.service';
 import {Responsive} from '@shared/decorators/responsive.decorator';
@@ -15,7 +14,7 @@ import {PriceCurrencyPipe} from '@shared/pipes/price-currency.pipe';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {Subject} from 'rxjs';
 import {DeviceWindowService} from '@shared/services/device-window.service';
-import {delay, takeUntil} from 'rxjs/operators';
+import {takeUntil} from 'rxjs/operators';
 
 @Responsive()
 @Component({
@@ -61,9 +60,7 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
   }
 
   ngAfterViewInit() {
-    this.deviceService.onResize$
-      .pipe(
-        delay(this.scrollService.delayTime),
+    this.scrollService.pageUpdated$.pipe(
         takeUntil(this.onDestroy$)
       )
       .subscribe(() => {

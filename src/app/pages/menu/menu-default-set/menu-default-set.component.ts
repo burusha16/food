@@ -1,9 +1,10 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, TemplateRef, ViewChild} from '@angular/core';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {MenuService} from '../menu.service';
 import {IGood} from '@shared/interfaces/good.interface';
 import {takeUntil, tap} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {MatDialog, MatDialogConfig} from '@angular/material';
 
 @Component({
   selector: 'app-menu-default-set',
@@ -12,15 +13,29 @@ import {Subject} from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuDefaultSetComponent implements OnDestroy {
+  @ViewChild('dialogTemplate') dialogTemplate: TemplateRef<any>;
   onDestroy$: Subject<void> = new Subject();
+
   constructor(private menuService: MenuService,
-              private cdRef: ChangeDetectorRef) {
+              private cdRef: ChangeDetectorRef,
+              private dialog: MatDialog) {
     this.menuService.orderForm.valueChanges
       .pipe(
         takeUntil(this.onDestroy$),
         tap(() => this.cdRef.markForCheck())
       )
       .subscribe();
+  }
+
+  showContructor() {
+    const dialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialog-no-indent'
+    };
+    this.dialog.open(this.dialogTemplate, dialogConfig);
+  }
+
+  hideContructor() {
+    this.dialog.closeAll();
   }
 
   ngOnDestroy() {

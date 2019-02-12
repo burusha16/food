@@ -15,7 +15,7 @@
 
             <div class="menu-default__buttons">
               <button class="button-inline __ceruleanblue-underline" (click)="showDetails(good)">Подробнее</button>
-              <button class="button-inline __ceruleanblue-underline">Заменить блюдо</button>
+              <button class="button-inline __ceruleanblue-underline" (click)="showContructor()">Заменить блюдо</button>
             </div>
           </div>
 
@@ -35,4 +35,8 @@
       </div>
     </div>
   </div>
+
+  <ng-template #dialogTemplate>
+    <app-menu-constructor></app-menu-constructor>
+  </ng-template>
 </div>

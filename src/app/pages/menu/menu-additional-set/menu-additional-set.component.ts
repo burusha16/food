@@ -5,7 +5,7 @@ import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {DeviceWindowService} from '@shared/services/device-window.service';
 import {FormGroup} from '@angular/forms';
 import {Subject} from 'rxjs';
-import {delay, takeUntil} from 'rxjs/operators';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu-additional-set',
@@ -14,7 +14,7 @@ import {delay, takeUntil} from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuAdditionalSetComponent implements OnInit, AfterViewInit, OnDestroy {
-  onDestroy$: Subject<void> = new Subject<void>();
+  onDestroy$: Subject<void> = new Subject();
   orderForm: FormGroup = this.menuService.orderForm;
 
   constructor(private menuService: MenuService,
@@ -26,6 +26,7 @@ export class MenuAdditionalSetComponent implements OnInit, AfterViewInit, OnDest
   get additionalProducts(): IProduct[] {
     return this.menuService.additionalProducts;
   }
+
   get additionalMilkProducts(): IProduct[] {
     return this.menuService.additionalMilkProducts;
   }
@@ -34,11 +35,9 @@ export class MenuAdditionalSetComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngAfterViewInit() {
-    this.deviceService.onResize$
-      .pipe(
-        delay(this.scrollService.delayTime),
-        takeUntil(this.onDestroy$)
-      )
+    this.scrollService.pageUpdated$.pipe(
+      takeUntil(this.onDestroy$)
+    )
       .subscribe(() => {
         const scrollBreakpoint = this.elRef.nativeElement.offsetTop;
         this.scrollService.addScrollListener(scrollBreakpoint, this.constructor.name, this.menuService.additionalMenuPassed$);
@@ -47,7 +46,6 @@ export class MenuAdditionalSetComponent implements OnInit, AfterViewInit, OnDest
 
   ngOnDestroy() {
     this.scrollService.removeListener(this.constructor.name);
-    this.menuService.additionalMenuPassed$.complete();
     this.onDestroy$.next();
     this.onDestroy$.complete();
   }

@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
 import { EventManager } from '@angular/platform-browser';
-import { Subject } from 'rxjs';
+import {merge, Observable, Subject} from 'rxjs';
 import {ServiceLocator} from '@shared/services/locator.service';
+import {NavigationEnd, Router} from '@angular/router';
+import {delay, filter} from 'rxjs/operators';
+import {DeviceWindowService, WindowDetect} from '@shared/services/device-window.service';
 
 export interface IScrollListener {
   breakpoint: number;
@@ -14,14 +17,22 @@ export interface IScrollListener {
 })
 export class WindowScrollService {
   listeners: Map<string, IScrollListener> = new Map<string, IScrollListener>();
-  delayTime = 100;
+  pageUpdated$!: Observable<any>;
 
-  constructor(private eventManager: EventManager) {
+  constructor(private eventManager: EventManager,
+              private router: Router,
+              private deviceService: DeviceWindowService) {
     if (ServiceLocator.isBrowser) {
       this.eventManager.addGlobalEventListener('window', 'scroll', () => {
         this.listeners.forEach((listener: IScrollListener) => this.detectScroll(listener));
       });
     }
+    const navigationEnd$ = this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd )
+      );
+    this.pageUpdated$ = merge(this.deviceService.onResize$, navigationEnd$)
+      .pipe(delay(100));
   }
 
   addScrollListener(breakpoint: number, name: string, subject$: Subject<boolean>): void {
@@ -60,6 +71,7 @@ export class WindowScrollService {
   disableWindowScroll(): void {
     if (ServiceLocator.isBrowser) {
       document.body.style.height = '100vh';
+      document.body.style.width = `${document.body.offsetWidth}px`;
       document.body.style.overflowY = 'hidden';
     }
   }
