@@ -53,3 +53,7 @@ $app-accent:  mat-palette($mat-pink, A200, A100, A400);
 $theme:   mat-light-theme($app-primary, $app-accent);
 
 @include build-lite-theme($theme)
+
+.cdk-global-scrollblock {
+  position: static !important;
+}

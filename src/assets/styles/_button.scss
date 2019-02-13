@@ -29,6 +29,11 @@
       background-color: $cerulean-blue;
     }
 
+    &:disabled {
+      background-color: $mercury;
+      cursor: not-allowed;
+    }
+
     &.__w188 {
       width: 188px;
     }

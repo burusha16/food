@@ -4,7 +4,7 @@ import {merge, Observable, Subject} from 'rxjs';
 import {ServiceLocator} from '@shared/services/locator.service';
 import {NavigationEnd, Router} from '@angular/router';
 import {delay, filter} from 'rxjs/operators';
-import {DeviceWindowService, WindowDetect} from '@shared/services/device-window.service';
+import {DeviceWindowService} from '@shared/services/device-window.service';
 
 export interface IScrollListener {
   breakpoint: number;

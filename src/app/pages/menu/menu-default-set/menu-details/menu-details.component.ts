@@ -1,5 +1,15 @@
 import * as _ from 'lodash/core';
-import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {AppService} from '@shared/services/base-app.service';
@@ -24,6 +34,7 @@ import {takeUntil} from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, IResponsiveComponent {
+  @Output() showConstructor: EventEmitter<void> = new EventEmitter();
   additionalMenuPassed$: Subject<boolean> = this.menuService.additionalMenuPassed$;
   detailsIsFixed$: Subject<boolean> = new Subject<boolean>();
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
@@ -61,8 +72,8 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
 
   ngAfterViewInit() {
     this.scrollService.pageUpdated$.pipe(
-        takeUntil(this.onDestroy$)
-      )
+      takeUntil(this.onDestroy$)
+    )
       .subscribe(() => {
         const scrollBreakpoint = this.elRef.nativeElement.offsetTop - this.headerHeight;
         this.scrollService.addScrollListener(scrollBreakpoint, this.constructor.name, this.detailsIsFixed$);
@@ -141,5 +152,9 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
     const sale = this.onlinePaySale;
     const fraction = (100 - sale) / 100;
     return this.totalPrice * fraction;
+  }
+
+  onShowConstructor() {
+    this.showConstructor.emit();
   }
 }

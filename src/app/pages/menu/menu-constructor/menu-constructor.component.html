@@ -1,3 +1,25 @@
-<p>
-  menu-constructor works!
-</p>
+<button class="button-default __h40 __w188" (click)="onDestroyConstructor()" style="margin-bottom: 30px;">hide</button>
+<form [formGroup]="form" (submit)="onSubmit()">
+  <mat-form-field class="__select __mr8">
+    <mat-select formControlName="goodsCount"
+                disableOptionCentering
+                disableRipple="true"
+                class="__accent"
+                [ngClass]="{'__w140': !isMobile,
+                                '__w112 __fz16': isMobile}">
+      <mat-option *ngFor="let option of goodsCountsOptions"
+                  [value]="option.value">
+        {{option.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div formArrayName="goods" style="display: flex; flex-direction: column;">
+    <label *ngFor="let good of goods; let $index = index">
+      <span>{{good.name}}</span>
+      <input type="checkbox" [formControlName]="$index">
+    </label>
+  </div>
+  <button class="button-default __h40 __w188" type="submit" [disabled]="!this.form.valid">submit</button>
+</form>
+

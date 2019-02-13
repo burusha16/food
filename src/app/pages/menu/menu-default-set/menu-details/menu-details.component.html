@@ -48,7 +48,8 @@
 
       <div class="menu-details__actions">
         <button class="button-inline __boulder-underlined"
-                [ngClass]="{'__fz16': isMobile}">
+                [ngClass]="{'__fz16': isMobile}"
+                (click)="onShowConstructor()">
           {{'menu.details.change-recipe' | translate}}
         </button>
 

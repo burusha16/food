@@ -5,6 +5,7 @@ import {IGood} from '@shared/interfaces/good.interface';
 import {takeUntil, tap} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {MatDialog, MatDialogConfig} from '@angular/material';
+import {IMenuConstructorOutput} from '../menu-constructor/menu-constructor.component';
 
 @Component({
   selector: 'app-menu-default-set',
@@ -36,6 +37,11 @@ export class MenuDefaultSetComponent implements OnDestroy {
 
   hideContructor() {
     this.dialog.closeAll();
+  }
+
+  selectGoods(data: IMenuConstructorOutput) {
+    this.product.defaultGoodsModels = data.goods;
+    this.product.goodsCount = data.goodsCount;
   }
 
   ngOnDestroy() {
