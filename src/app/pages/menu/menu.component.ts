@@ -10,6 +10,7 @@ import {IProduct} from '@shared/interfaces/product.interface';
 import {ITabWithLink} from '@shared/interfaces/app-config.interface';
 import {MenuService} from './menu.service';
 import {MatSidenav} from '@angular/material';
+import {MenuSidenavService} from './menu-sidenav.service';
 
 @Component({
   selector: 'app-menu',
@@ -26,8 +27,8 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
               private router: Router,
               private appService: AppService,
               private menuService: MenuService,
+              private menuSidenav: MenuSidenavService,
               private cdRef: ChangeDetectorRef) {
-    this.menuService.offers = this.route.snapshot.data.offers;
     this.menuService.initOrderForm();
     this.menuService.updateAdditionalProducts();
     this.menuService.updateProducts();
@@ -54,7 +55,7 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.menuService.sidenav = this.sidenav;
+    this.menuSidenav.sidenav = this.sidenav;
   }
 
   ngOnDestroy() {
@@ -75,7 +76,7 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
   }
 
   hideSidenav() {
-    this.menuService.hideSidenav();
+    this.menuSidenav.hideSidenav();
   }
 
   removeSliderAnimation() {

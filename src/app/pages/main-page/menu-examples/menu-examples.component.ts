@@ -19,6 +19,8 @@ import {Responsive} from '@shared/decorators/responsive.decorator';
 import {ServiceLocator} from '@shared/services/locator.service';
 import {AppService} from '@shared/services/base-app.service';
 import {ITabWithLink} from '@shared/interfaces/app-config.interface';
+import {IOffer} from '@shared/interfaces/offers.interface';
+import {MenuService} from '../../menu/menu.service';
 
 @Responsive()
 @Component({
@@ -36,7 +38,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   currentMenuIndex = 0;
   isMobile: boolean;
   isSmall: boolean;
-  products: IProduct[];
+  products: IProduct[] = [];
   tabWithLink: ITabWithLink = this.appService.menuTabsConfig.linkInTab;
   swiperPagination: SwiperPaginationInterface = {
     el: '.menu-examples__slider-pagination',
@@ -66,8 +68,25 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
               private route: ActivatedRoute,
               private router: Router,
               private contentPreloadService: ContentPreloadService,
-              private appService: AppService)  {
-    this.products = this.route.snapshot.data.menuExamples;
+              private appService: AppService,
+              private menuService: MenuService)  {
+    let products: IProduct[];
+    const tabsConfig = this.appService.menuTabsConfig;
+    _.each(this.menuService.offers, (offer: IOffer) => {
+      if (offer.weekKey === this.appService.actualWeekKey) {
+        products = _.filter(offer.products, ((product: IProduct) => {
+          const personsAmountValid = product.personsAmount === tabsConfig.personsAmount;
+          const defaultGoodsLengthValid = product.defaultGoodsModels.length === tabsConfig.defaultGoodsLength;
+          const isProductFromList = tabsConfig.tabsSortRule.includes(product.class);
+
+          return personsAmountValid && defaultGoodsLengthValid && isProductFromList;
+        }));
+      }
+    });
+    _.each(tabsConfig.tabsSortRule, (className: string) => {
+      const sortedByOrderProduct = _.filter(products, (product: IProduct) => product.class === className)[0];
+      this.products.push(sortedByOrderProduct);
+    });
   }
 
   ngOnInit() {}

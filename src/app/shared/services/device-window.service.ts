@@ -6,7 +6,7 @@ import { DeviceMediaMap } from '../enums/device-media.map';
 import { IResponsiveComponent } from '../interfaces/responsive-component.interface';
 import {ServiceLocator} from '@shared/services/locator.service';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class DeviceWindowService {
   private windowDetect: WindowDetect = new WindowDetect();
   private windowSubject: BehaviorSubject<WindowDetect> = new BehaviorSubject<WindowDetect>(this.windowDetect);

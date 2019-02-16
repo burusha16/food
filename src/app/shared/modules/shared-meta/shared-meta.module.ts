@@ -32,6 +32,6 @@ export function metaFactory(translate: TranslateService): MetaLoader {
       useFactory: metaFactory,
       deps: [TranslateService],
     }),
-  ],
+  ]
 })
 export class SharedMetaModule {}

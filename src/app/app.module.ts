@@ -24,6 +24,8 @@ import {AppService} from '@shared/services/base-app.service';
 import {AppComponent} from './app.component';
 import {AppRoutes} from './app.routing';
 import {SharedMetaModule} from '@shared/modules/shared-meta';
+import {MenuService} from './pages/menu/menu.service';
+import {ReactiveFormsModule} from '@angular/forms';
 
 export const httpInterceptorProviders = [
   {provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true},
@@ -31,6 +33,10 @@ export const httpInterceptorProviders = [
 
 export function initLanguage(translateService: TranslatesService): Function {
   return (): Promise<any> => translateService.initLanguage();
+}
+
+export function getOffers(apiService: BaseApiService): Function {
+  return (): Promise<any> => apiService.offers$.toPromise();
 }
 
 @NgModule({
@@ -53,18 +59,21 @@ export function initLanguage(translateService: TranslatesService): Function {
     MainPageModule,
     FooterModule,
     SharedMetaModule,
+    ReactiveFormsModule
   ],
   providers: [
     CookieService,
     UniversalStorage,
     { provide: APP_INITIALIZER, useFactory: initLanguage, multi: true, deps: [TranslatesService] },
+    { provide: APP_INITIALIZER, useFactory: getOffers, multi: true, deps: [BaseApiService] },
     httpInterceptorProviders,
     RequestCacheService,
     BaseApiService,
     AppService,
     DeviceWindowService,
     WindowScrollService,
-    ContentPreloadService
+    ContentPreloadService,
+    MenuService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,8 +7,6 @@ import {SharedComponentsModule} from '@shared/components/shared-components.modul
 import {FooterModule} from '../../footer/footer.module';
 import {HeaderModule} from '../../header/header.module';
 
-import {MenuService} from './menu.service';
-import {MenuResolver} from './menu.resolver';
 import {MenuModuleRoutes} from './menu.routing';
 
 import {MenuComponent} from './menu.component';
@@ -18,6 +16,7 @@ import {MenuDetailsComponent} from './menu-default-set/menu-details/menu-details
 import { MenuAdditionalSetComponent } from './menu-additional-set/menu-additional-set.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { MenuConstructorComponent } from './menu-constructor/menu-constructor.component';
+import {MenuSidenavService} from './menu-sidenav.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +36,7 @@ import { MenuConstructorComponent } from './menu-constructor/menu-constructor.co
     FooterModule,
     SharedComponentsModule
   ],
-  providers: [MenuResolver, MenuService],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [MenuSidenavService]
 })
 export class MenuModule {}

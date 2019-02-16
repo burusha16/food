@@ -8,6 +8,7 @@ import {MatDialog, MatDialogConfig} from '@angular/material';
 import {IMenuConstructorOutput} from '../menu-constructor/menu-constructor.component';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {NoopScrollStrategy} from '@angular/cdk/overlay';
+import {MenuSidenavService} from '../menu-sidenav.service';
 
 @Component({
   selector: 'app-menu-default-set',
@@ -20,6 +21,7 @@ export class MenuDefaultSetComponent implements OnDestroy {
   onDestroy$: Subject<void> = new Subject();
 
   constructor(private menuService: MenuService,
+              private menuSidenav: MenuSidenavService,
               private cdRef: ChangeDetectorRef,
               private dialog: MatDialog,
               private scrollService: WindowScrollService) {
@@ -65,6 +67,6 @@ export class MenuDefaultSetComponent implements OnDestroy {
       goods: this.product.defaultGoodsModels,
       selectedGoodHash: good.id
     });
-    this.menuService.showSidenav();
+    this.menuSidenav.showSidenav();
   }
 }

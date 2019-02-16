@@ -1,5 +1,4 @@
 import {Route, Routes} from '@angular/router';
-import {MenuResolver} from './menu.resolver';
 import {MenuComponent} from './menu.component';
 import {HeaderPromoComponent} from '../../header/header-promo/header-promo.component';
 import {FooterMenuComponent} from '../../footer/footer-menu/footer-menu.component';
@@ -26,9 +25,6 @@ export const MenuModuleRoutes: Routes = [
       {
         path: ':class',
         component: MenuComponent,
-        resolve: {
-          offers: MenuResolver
-        }
       }
     ]
   }

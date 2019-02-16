@@ -13,9 +13,7 @@ export interface IScrollListener {
   container?: HTMLElement;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class WindowScrollService {
   listeners: Map<string, IScrollListener> = new Map<string, IScrollListener>();
   pageUpdated$!: Observable<any>;

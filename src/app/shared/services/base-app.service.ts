@@ -7,7 +7,7 @@ import {IFeedback} from '@shared/interfaces/feedback.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
 import {IPaymentConfig} from '@shared/interfaces/payment-config.interface';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AppService {
   actualWeekKey: string;
   feedbacksList: IFeedback[];

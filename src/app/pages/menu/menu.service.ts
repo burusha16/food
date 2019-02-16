@@ -8,11 +8,9 @@ import {IOffer} from '@shared/interfaces/offers.interface';
 import {ProductType} from '@shared/enums/productType.enum';
 import {productClass} from '@shared/enums/productClass.enum';
 import {Subject} from 'rxjs';
-import {MatSidenav} from '@angular/material';
-import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {IProductDetailsData} from '@shared/interfaces/products-details-data.interface';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class MenuService {
   additionalMenuPassed$: Subject<boolean> = new Subject<boolean>();
   additionalMilkProducts: IProduct[];
@@ -23,11 +21,9 @@ export class MenuService {
   orderForm: FormGroup;
   productIndex = 0;
   productDetailsData$: Subject<IProductDetailsData> = new Subject();
-  sidenav: MatSidenav;
 
   constructor(private appService: AppService,
-              private fb: FormBuilder,
-              private scrollService: WindowScrollService) {
+              private fb: FormBuilder) {
   }
 
   get product(): IProduct {
@@ -102,15 +98,5 @@ export class MenuService {
     const addtitonalMilkSetControls = this.additionalMilkProducts.map(() => new FormControl(false));
     this.orderForm.setControl('additionalSet', new FormArray(addtitonalSetControls));
     this.orderForm.setControl('additionalMilkSet', new FormArray(addtitonalMilkSetControls));
-  }
-
-  showSidenav() {
-    this.sidenav.open();
-    this.scrollService.disableWindowScroll();
-  }
-
-  hideSidenav() {
-    this.sidenav.close();
-    this.scrollService.enableWindowScroll();
   }
 }

@@ -1,6 +1,5 @@
 import {Route} from '@angular/router';
 import {MainPageComponent} from './main-page.component';
-import {MainPageResolver} from './main-page.resolver';
 import {HeaderPromoComponent} from '../../header/header-promo/header-promo.component';
 import {FooterMenuComponent} from '../../footer/footer-menu/footer-menu.component';
 
@@ -10,9 +9,6 @@ export const MainPageRoute: Route = {
     {
       path: '',
       component: MainPageComponent,
-      resolve: {
-        menuExamples: MainPageResolver
-      }
     },
     {
       path: '',

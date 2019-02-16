@@ -3,7 +3,7 @@ import { HttpResponse, HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } fr
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class RequestCacheService {
   private cache = new Map<string, [Date, HttpResponse<any>]>();
   private cacheDefaultLiveTime = 120;  // in seconds
@@ -31,7 +31,7 @@ export class RequestCacheService {
   }
 }
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class CachingInterceptor implements HttpInterceptor {
   constructor(private cache: RequestCacheService) {}
 
