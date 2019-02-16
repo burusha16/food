@@ -55,5 +55,7 @@ $theme:   mat-light-theme($app-primary, $app-accent);
 @include build-lite-theme($theme)
 
 .cdk-global-scrollblock {
-  position: static !important;
+  position: initial !important;
+  top: auto !important;
+  overflow: auto;
 }

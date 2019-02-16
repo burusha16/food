@@ -11,7 +11,7 @@
     "deploy": "heroku container:push web --app burusha-angular && heroku container:release web --app burusha-angular",
     "generate:prerender": "node prerender.js",
     "server": "node server.js",
-    "ssr:debug": "ng build --aot=true --output-hashing=all --named-chunks=false --build-optimizer=true --extractCss=true && ng run foodparty:server:production && webpack && node server.js"
+    "ssr:debug": "ng build --aot=true --output-hashing=all --named-chunks=false --build-optimizer=true --extractCss=true --prod=true && ng run foodparty:server:production && webpack && node server.js"
   },
   "private": true,
   "dependencies": {

@@ -6,6 +6,7 @@ export const MaterialIconsList: IMatIcon[] = [
   { name: 'appstore-badge', src: defaultPath },
   { name: 'arrow-in-rectangle', src: defaultPath },
   { name: 'arrow-right', src: defaultPath },
+  { name: 'checkmark', src: defaultPath },
   { name: 'checkmark-in-round', src: defaultPath },
   { name: 'clock', src: defaultPath },
   { name: 'cross', src: defaultPath },

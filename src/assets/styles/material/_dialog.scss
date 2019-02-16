@@ -3,3 +3,14 @@
     padding: 0 !important;
   }
 }
+
+.mat-dialog-full-page {
+  .mat-dialog-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background-color: $white;
+    box-sizing: border-box;
+  }
+}

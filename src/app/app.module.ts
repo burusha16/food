@@ -43,7 +43,8 @@ export function initLanguage(translateService: TranslatesService): Function {
     TransferHttpCacheModule,
     HttpClientModule,
     RouterModule.forRoot(AppRoutes, {
-      scrollPositionRestoration: 'top'
+      scrollPositionRestoration: 'top',
+      initialNavigation: 'enabled'
     }),
     BrowserAnimationsModule,
     CookieModule.forRoot(),

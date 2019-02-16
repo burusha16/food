@@ -6,6 +6,7 @@ import { IOffer } from '../interfaces/offers.interface';
 import { IOffersResponse } from '../interfaces/offers-response.interface';
 import { Offer } from '../models/offer.model';
 import { AppService } from './base-app.service';
+import {TransferHttpService} from '@gorniv/ngx-transfer-http';
 
 @Injectable()
 export class BaseApiService {
@@ -17,7 +18,7 @@ export class BaseApiService {
     return new HttpParams({ fromObject: object });
   }
 
-  constructor(protected http: HttpClient,
+  constructor(protected http: TransferHttpService,
               private appService: AppService) {
   }
 

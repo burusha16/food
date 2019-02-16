@@ -6,6 +6,8 @@ import {takeUntil, tap} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {IMenuConstructorOutput} from '../menu-constructor/menu-constructor.component';
+import {WindowScrollService} from '@shared/services/window-scroll.service';
+import {NoopScrollStrategy} from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-menu-default-set',
@@ -19,7 +21,8 @@ export class MenuDefaultSetComponent implements OnDestroy {
 
   constructor(private menuService: MenuService,
               private cdRef: ChangeDetectorRef,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private scrollService: WindowScrollService) {
     this.menuService.orderForm.valueChanges
       .pipe(
         takeUntil(this.onDestroy$),
@@ -30,18 +33,22 @@ export class MenuDefaultSetComponent implements OnDestroy {
 
   showContructor() {
     const dialogConfig: MatDialogConfig = {
-      panelClass: 'mat-dialog-no-indent'
+      panelClass: 'mat-dialog-full-page',
+      scrollStrategy: new NoopScrollStrategy()
     };
     this.dialog.open(this.dialogTemplate, dialogConfig);
+    this.scrollService.disableWindowScroll();
   }
 
   hideContructor() {
     this.dialog.closeAll();
+    this.scrollService.enableWindowScroll();
   }
 
   selectGoods(data: IMenuConstructorOutput) {
     this.product.defaultGoodsModels = data.goods;
     this.product.goodsCount = data.goodsCount;
+    this.cdRef.markForCheck();
   }
 
   ngOnDestroy() {

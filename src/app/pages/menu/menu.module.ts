@@ -20,7 +20,14 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { MenuConstructorComponent } from './menu-constructor/menu-constructor.component';
 
 @NgModule({
-  declarations: [MenuComponent, MenuHeaderComponent, MenuDefaultSetComponent, MenuDetailsComponent, MenuAdditionalSetComponent, ProductDetailsComponent, MenuConstructorComponent],
+  declarations: [
+    MenuComponent,
+    MenuHeaderComponent,
+    MenuDefaultSetComponent,
+    MenuDetailsComponent,
+    MenuAdditionalSetComponent,
+    ProductDetailsComponent,
+    MenuConstructorComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(MenuModuleRoutes),

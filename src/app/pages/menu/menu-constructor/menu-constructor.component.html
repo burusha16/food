@@ -1,25 +1,94 @@
-<button class="button-default __h40 __w188" (click)="onDestroyConstructor()" style="margin-bottom: 30px;">hide</button>
-<form [formGroup]="form" (submit)="onSubmit()">
-  <mat-form-field class="__select __mr8">
-    <mat-select formControlName="goodsCount"
-                disableOptionCentering
-                disableRipple="true"
-                class="__accent"
-                [ngClass]="{'__w140': !isMobile,
-                                '__w112 __fz16': isMobile}">
-      <mat-option *ngFor="let option of goodsCountsOptions"
-                  [value]="option.value">
-        {{option.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<form [formGroup]="form" (submit)="onSubmit()" class="menu-constructor">
+  <div class="container __mw800">
+    <div class="row">
+      <div class="col-sm-12 __justify-beetwen __no-wrap">
+        <div class="menu-constructor__header">
+          <h1 class="menu-constructor__header-title">{{'menu.constructor.title' | translate}}</h1>
+          <span
+            class="menu-constructor__header-subtitle">{{'menu.constructor.subtitle' | translate: {date: '18 февраля'} }}</span>
+        </div>
 
-  <div formArrayName="goods" style="display: flex; flex-direction: column;">
-    <label *ngFor="let good of goods; let $index = index">
-      <span>{{good.name}}</span>
-      <input type="checkbox" [formControlName]="$index">
-    </label>
+        <button class="button-icon __s48 __in-round __mt20"
+                (click)="onDestroyConstructor()">
+          <mat-icon svgIcon="cross" class="__s16 __tundora"></mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
-  <button class="button-default __h40 __w188" type="submit" [disabled]="!this.form.valid">submit</button>
+
+  <div class="menu-constructor__submit-wrapper" #submitLine>
+    <div class="menu-constructor__submit" [ngClass]="{'__fixed': submitLineFixed$ | async}">
+      <div class="container __mw800">
+        <div class="row">
+          <div class="col-sm-12 __justify-beetwen __align-center">
+            <div class="menu-constructor__select">
+              <span>Выберите из</span>
+
+              <mat-form-field class="__select __ml8">
+                <mat-select formControlName="goodsCount"
+                            disableOptionCentering
+                            disableRipple="true"
+                            class="__accent"
+                            ngClass="__w140">
+                  <mat-option *ngFor="let option of goodsCountsOptions"
+                              [value]="option.value">
+                    {{option.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="menu-constructor__actions">
+              <button class="button-default __h40 __w160"
+                      type="submit"
+                      [disabled]="!this.form.valid">
+                {{'menu.constructor.submit-label' | translate}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container __mw800">
+    <div class="row">
+      <div class="col-sm-12 col-md-4" *ngFor="let good of goods; let $index = index">
+        <div class="menu-constructor__item"
+             formArrayName="goods"
+             [ngClass]="{'__disabled': this.form.valid && !input.checked}">
+          <img [src]="good.images.rectangular.s840x454"
+               [alt]="good.name"
+               class="menu-constructor__item-img"
+               (click)="showDialog()">
+          <div class="menu-constructor__item-descr">
+            <div class="menu-constructor__item-labels">
+              <h3 class="menu-constructor__item-title">{{good.name}}</h3>
+              <span  class="menu-constructor__item-link" (click)="showDialog()">Подробнее</span>
+            </div>
+
+            <label class="menu-constructor__item-input">
+              <input type="checkbox" [formControlName]="$index" #input>
+              <span class="menu-constructor__item-checbox">
+                <mat-icon svgIcon="checkmark"></mat-icon>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
+
+<ng-template #dialog>
+  <div
+    style="position:absolute;top:0;left: 0;width: 100vw;height: 100vh;background-color: #fff;box-sizing: border-box">
+    <div style="display: flex;justify-content: center;align-items: center;width: 100vw;height: 100vh;">
+      <button class="button-default __h40 __w188"
+              (click)="hideDialog()">
+        hide
+      </button>
+    </div>
+  </div>
+</ng-template>
 

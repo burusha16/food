@@ -1,9 +1,156 @@
 @import "variables";
 
 :host {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
+  display: block;
   height: 100vh;
-  background-color: $white;
+  overflow-y: auto;
+}
+
+.menu-constructor {
+  width: 100%;
+  padding-bottom: 100px;
+  overflow-x: hidden;
+
+  &__header {
+    margin-top: 20px;
+    padding-right: 8px;
+
+    &-title {
+      color: $tundora;
+      font-size: 34px;
+      font-weight: 100;
+      line-height: 40px;
+
+      @media screen and (max-width: $bp-sm) {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+
+    &-subtitle {
+      color: $boulder;
+      font-family: $ffns;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 24px;
+
+      @media screen and (max-width: $bp-sm) {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 62px;
+    border-top: 1px solid $gallery;
+    border-bottom: 1px solid $gallery;
+    box-sizing: border-box;
+    background-color: $white;
+
+    &.__fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    &-wrapper {
+      height: 62px;
+      margin-top: 24px;
+    }
+  }
+
+  &__select {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__actions {
+    @media screen and (max-width: $bp-sm) {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+  }
+
+  &__item {
+    margin: 40px -4px 0;
+    transition: ease $duration-fast;
+
+    &.__disabled {
+      opacity: .3;
+    }
+
+    &-img {
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    &-descr {
+      display: flex;
+      margin-top: 16px;
+      padding: 0 12px;
+    }
+
+    &-labels {
+      padding-right: 12px;
+    }
+
+    &-title {
+      font-size: 14px;
+      line-height: 16px;
+      text-align: left;
+    }
+
+    &-link {
+      display: inline-flex;
+      margin-top: 8px;
+      transition: ease $duration-fast;
+      border-bottom: 1px solid rgba($cerulean-blue, .36);
+      color: $cerulean-blue;
+      font-size: 14px;
+      line-height: 18px;
+      cursor: pointer;
+
+      &:hover {
+        border-bottom: 1px solid $cerulean-blue;
+      }
+    }
+
+    &-input {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      margin-right: -12px;
+
+      [type=checkbox] {
+        display: none;
+
+        &:checked + .menu-constructor__item-checbox {
+          background-color: $cerulean-blue;
+          color: $white;
+        }
+      }
+    }
+
+    &-checbox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transition: ease $duration-fast;
+      border: 1px solid $cerulean-blue;
+      border-radius: 50%;
+      color: rgba($cerulean-blue, .2);
+      cursor: pointer;
+    }
+  }
 }
