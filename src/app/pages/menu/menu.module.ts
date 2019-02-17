@@ -14,9 +14,10 @@ import {MenuHeaderComponent} from './menu-header/menu-header.component';
 import {MenuDefaultSetComponent} from './menu-default-set/menu-default-set.component';
 import {MenuDetailsComponent} from './menu-default-set/menu-details/menu-details.component';
 import { MenuAdditionalSetComponent } from './menu-additional-set/menu-additional-set.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsListComponent } from './product-details-list/product-details-list.component';
 import { MenuConstructorComponent } from './menu-constructor/menu-constructor.component';
 import {MenuSidenavService} from './menu-sidenav.service';
+import { ProductDetailsSliderComponent } from './product-details-slider/product-details-slider.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,10 @@ import {MenuSidenavService} from './menu-sidenav.service';
     MenuDefaultSetComponent,
     MenuDetailsComponent,
     MenuAdditionalSetComponent,
-    ProductDetailsComponent,
-    MenuConstructorComponent],
+    ProductDetailsListComponent,
+    MenuConstructorComponent,
+    ProductDetailsSliderComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(MenuModuleRoutes),

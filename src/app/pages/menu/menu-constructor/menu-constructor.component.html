@@ -60,11 +60,11 @@
           <img [src]="good.images.rectangular.s840x454"
                [alt]="good.name"
                class="menu-constructor__item-img"
-               (click)="showDialog()">
+               (click)="showDialog(good.id)">
           <div class="menu-constructor__item-descr">
             <div class="menu-constructor__item-labels">
               <h3 class="menu-constructor__item-title">{{good.name}}</h3>
-              <span  class="menu-constructor__item-link" (click)="showDialog()">Подробнее</span>
+              <span  class="menu-constructor__item-link" (click)="showDialog(good.id)">Подробнее</span>
             </div>
 
             <label class="menu-constructor__item-input">
@@ -81,14 +81,9 @@
 </form>
 
 <ng-template #dialog>
-  <div
-    style="position:absolute;top:0;left: 0;width: 100vw;height: 100vh;background-color: #fff;box-sizing: border-box">
-    <div style="display: flex;justify-content: center;align-items: center;width: 100vw;height: 100vh;">
-      <button class="button-default __h40 __w188"
-              (click)="hideDialog()">
-        hide
-      </button>
-    </div>
-  </div>
+    <app-product-details-slider [goods]="goods"
+                                [activeId]="activeGoodId"
+                                [dialogRef]="dialogRef">
+    </app-product-details-slider>
 </ng-template>
 

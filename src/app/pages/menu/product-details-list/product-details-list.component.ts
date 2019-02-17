@@ -9,12 +9,12 @@ import {Responsive} from '@shared/decorators/responsive.decorator';
 
 @Responsive()
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss'],
+  selector: 'app-product-details-list',
+  templateUrl: './product-details-list.component.html',
+  styleUrls: ['./product-details-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductDetailsComponent implements AfterViewChecked, OnDestroy, IResponsiveComponent {
+export class ProductDetailsListComponent implements AfterViewChecked, OnDestroy, IResponsiveComponent {
   goods: IGood[] = [];
   isMobile: boolean;
   isSmall: boolean;

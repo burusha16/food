@@ -94,8 +94,8 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
   ngAfterViewInit() {
     if (ServiceLocator.isBrowser) {
       _.each(this.products, (product: IProduct) => {
-        _.each(product.defaultGoodsModels, (good: IGood) => {
-          this.contentPreloadService.preload(good.images.rectangular.s840x454);
+        _.each(product.availableGoodsModels, (good: IGood) => {
+          this.contentPreloadService.preload('image', good.images.rectangular.s840x454);
         });
       });
     }

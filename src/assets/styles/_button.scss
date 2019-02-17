@@ -142,6 +142,11 @@
       height: 48px;
     }
 
+    &.__mlr8 {
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+
     &.__in-round {
       transition: ease $duration-fast;
       border: 1px solid $alto;

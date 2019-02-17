@@ -1,0 +1,61 @@
+<div class="container __mw800">
+  <div class="row">
+    <div class="col-sm-12 __no-wrap __justify-beetwen">
+      <h1 class="details__title">{{activeGood.name}}</h1>
+
+      <div class="details__actions">
+        <button class="button-icon __s48 __in-round __mlr8 hidden-sm" (click)="prevSlide()">
+           <mat-icon svgIcon="arrow-right" class="__s16 __rotate180"></mat-icon>
+        </button>
+
+        <button class="button-icon __s48 __in-round __mlr8 hidden-sm" (click)="nextSlide()">
+           <mat-icon svgIcon="arrow-right" class="__s16"></mat-icon>
+        </button>
+
+        <button class="button-icon __s48 __in-round __mlr8" (click)="close()">
+           <mat-icon svgIcon="cross" class="__s16"></mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 __align-start">
+      <img class="details__image"
+           [src]="activeGood.images.rectangular.s840x454"
+           [alt]="activeGood.name">
+
+      <ul class="details__list __main-info">
+        <li class="details__list-item __main">
+          <mat-icon svgIcon="clock" class="__s18 __mr12"></mat-icon>
+          <span [translate]="'menu.product-details.preporation-time'" [translateParams]="{time: activeGood.cookingTime}"></span>
+        </li>
+        <li class="details__list-item __main">
+          <mat-icon svgIcon="dish" class="__s18 __mr12"></mat-icon>
+          <span [translate]="'menu.product-details.portion-weight'" [translateParams]="{weight: activeGood.weight}"></span>
+        </li>
+      </ul>
+
+      <ul class="details__list __column">
+        <li class="details__list-item __title">{{'menu.product-details.in-100g' | translate}}</li>
+        <li class="details__list-item" *ngFor="let nutritionalValue of activeGood.nutritionalValue">
+          {{('product.nutritional-value.' + nutritionalValue.key) | translate}} - {{nutritionalValue.value}}
+        </li>
+      </ul>
+
+      <div class="details__list">
+        <ul>
+          <li class="details__list-item __title">{{'menu.product-details.requirements' | translate}}</li>
+          <li class="details__list-item" *ngFor="let cookware of activeGood.requiredCookware; let $index = index;">
+            {{$index+ 1}}. {{cookware}}
+          </li>
+        </ul>
+
+        <ul>
+          <li class="details__list-item __title __sm-pt12">{{'menu.product-details.ingredients' | translate}}</li>
+          <li class="details__list-item" *ngFor="let item of activeGood.ingredients; let $index = index;">
+            {{$index+ 1}}. {{item.name}}: {{item.amount}} {{item.units}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

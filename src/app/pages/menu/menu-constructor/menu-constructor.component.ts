@@ -9,8 +9,9 @@ import {IGood} from '@shared/interfaces/good.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
 import {IOption} from '@shared/interfaces/option.interface';
 import {EValidationStatus} from '@shared/enums/validation-status.enum';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
+import {NoopScrollStrategy} from '@angular/cdk/overlay';
 
 export interface IMenuConstructorOutput {
   goodsCount: number;
@@ -31,7 +32,7 @@ export class MenuConstructorComponent implements OnInit, AfterViewInit, OnDestro
   @ViewChild('submitLine') submitLine: ElementRef;
   dialogRef!: MatDialogRef<any>;
   form: FormGroup;
-  formConfig: IOrderFormConfig = this.appService.orderFormConfig;
+  activeGoodId: string;
   goodsCountsOptions: IOption[] = [];
   submitLineFixed$: Subject<boolean> = new Subject();
   onDestroy: Subject<void> = new Subject();
@@ -42,11 +43,12 @@ export class MenuConstructorComponent implements OnInit, AfterViewInit, OnDestro
               private dialog: MatDialog,
               private scrollService: WindowScrollService,
               private elRef: ElementRef) {
+    const formConfig: IOrderFormConfig = this.appService.orderFormConfig;
     this.form = this.fb.group({
-      goodsCount: this.formConfig.defaultGoodsCount,
+      goodsCount: formConfig.defaultGoodsCount,
       goods: null
     });
-    _.each(this.formConfig.avaibleGoodsCounts, (value: number) => {
+    _.each(formConfig.avaibleGoodsCounts, (value: number) => {
       this.goodsCountsOptions.push({
         value: value,
         viewValue: this.translate.instant(`menu.constructor.${value}dishes`)
@@ -122,11 +124,12 @@ export class MenuConstructorComponent implements OnInit, AfterViewInit, OnDestro
     }
   }
 
-  hideDialog() {
-    this.dialogRef.close();
-  }
-
-  showDialog() {
-    this.dialogRef = this.dialog.open(this.dialogTemplate);
+  showDialog(goodId: string) {
+    this.activeGoodId = goodId;
+    const dialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialog-full-page',
+      scrollStrategy: new NoopScrollStrategy()
+    };
+    this.dialogRef = this.dialog.open(this.dialogTemplate, dialogConfig);
   }
 }

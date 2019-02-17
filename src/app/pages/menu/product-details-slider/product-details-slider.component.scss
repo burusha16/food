@@ -1,0 +1,101 @@
+@import "variables";
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 0;
+  background-color: $white;
+
+  @media screen and (max-width: $bp-sm) {
+    padding: 16px 0;
+  }
+}
+
+.details {
+  &__title {
+    padding-right: 80px;
+    color: $tundora;
+    font-size: 34px;
+    line-height: 40px;
+
+    @media screen and (max-width: $bp-sm) {
+      padding-right: 28px;
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-shrink: 0;
+    margin: 0 -8px;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 56px;
+
+    @media screen and (max-width: $bp-sm) {
+      margin-top: 32px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    width: 100%;
+    max-width: 530px;
+    margin-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $alto;
+    color: $mine-shaft;
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    @media screen and (max-width: $bp-sm) {
+      flex-direction: column;
+    }
+
+    &.__column {
+      display: block;
+    }
+
+    &.__main-info {
+      align-items: center;
+      margin-top: 48px;
+
+      @media screen and (max-width: $bp-sm) {
+        align-items: flex-start;
+        margin-top: 16px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.__title {
+        padding-bottom: 12px;
+      }
+
+      &.__sm-pt12 {
+        @media screen and (max-width: $bp-sm) {
+          padding-top: 12px;
+        }
+      }
+
+      &.__main {
+        padding-bottom: 4px;
+      }
+    }
+  }
+}

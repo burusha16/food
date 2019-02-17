@@ -9,6 +9,7 @@ import {IMenuConstructorOutput} from '../menu-constructor/menu-constructor.compo
 import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {NoopScrollStrategy} from '@angular/cdk/overlay';
 import {MenuSidenavService} from '../menu-sidenav.service';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-menu-default-set',
@@ -19,6 +20,7 @@ import {MenuSidenavService} from '../menu-sidenav.service';
 export class MenuDefaultSetComponent implements OnDestroy {
   @ViewChild('dialogTemplate') dialogTemplate: TemplateRef<any>;
   onDestroy$: Subject<void> = new Subject();
+  orderForm: FormGroup = this.menuService.orderForm;
 
   constructor(private menuService: MenuService,
               private menuSidenav: MenuSidenavService,
@@ -48,8 +50,8 @@ export class MenuDefaultSetComponent implements OnDestroy {
   }
 
   selectGoods(data: IMenuConstructorOutput) {
-    this.product.defaultGoodsModels = data.goods;
-    this.product.goodsCount = data.goodsCount;
+    this.orderForm.get('goodsCount').setValue(data.goodsCount);
+    this.orderForm.get('defaultGoods').setValue(data.goods);
     this.cdRef.markForCheck();
   }
 
