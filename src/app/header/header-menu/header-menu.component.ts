@@ -10,7 +10,6 @@ import {MatDialog, MatDialogConfig} from '@angular/material';
   selector: 'app-header-menu',
   templateUrl: './header-menu.component.html',
   styleUrls: ['./header-menu.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderMenuComponent implements IResponsiveComponent, OnInit {

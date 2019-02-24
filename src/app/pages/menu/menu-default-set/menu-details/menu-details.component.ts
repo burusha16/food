@@ -5,12 +5,12 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter,
+  EventEmitter, Input,
   OnDestroy,
   OnInit,
   Output
 } from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {ControlContainer, FormGroup, FormGroupDirective} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {AppService} from '@shared/services/base-app.service';
 import {MenuService} from '../../menu.service';
@@ -31,9 +31,16 @@ import {takeUntil} from 'rxjs/operators';
   selector: 'app-menu-details',
   templateUrl: './menu-details.component.html',
   styleUrls: ['./menu-details.component.scss'],
+  viewProviders: [
+    {
+      provide: ControlContainer,
+      useExisting: FormGroupDirective
+    }
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, IResponsiveComponent {
+  @Input() product: IProduct;
   @Output() showConstructor: EventEmitter<void> = new EventEmitter();
   additionalMenuPassed$: Subject<boolean> = this.menuService.additionalMenuPassed$;
   detailsIsFixed$: Subject<boolean> = new Subject<boolean>();
@@ -122,10 +129,6 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
     return this.menuService.orderForm;
   }
 
-  get defaultProduct(): IProduct {
-    return this.menuService.product;
-  }
-
   get additionalProducts(): IProduct[] {
     return this.menuService.additionalProducts;
   }
@@ -143,7 +146,7 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
       this.orderForm.get('additionalMilkSet').value,
       (value: boolean, index: number) => value ? this.additionalMilkProduct[index].price : 0
     );
-    const defaultGoodsPrice = this.defaultProduct.price;
+    const defaultGoodsPrice = this.product.price;
     const summ = [defaultGoodsPrice, ...additionalGoodsPrice, ...additionalMickGoodsPrice].reduce((prev, next) => prev + next);
     return summ;
   }

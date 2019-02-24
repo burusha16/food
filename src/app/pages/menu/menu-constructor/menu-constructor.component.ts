@@ -1,7 +1,19 @@
 import * as _ from 'lodash/core';
 import {Subject} from 'rxjs';
 import {distinctUntilChanged, takeUntil} from 'rxjs/operators';
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {AppService} from '@shared/services/base-app.service';
@@ -15,13 +27,14 @@ import {NoopScrollStrategy} from '@angular/cdk/overlay';
 
 export interface IMenuConstructorOutput {
   goodsCount: number;
-  goods: IGood[];
+  goods: boolean[];
 }
 
 @Component({
   selector: 'app-menu-constructor',
   templateUrl: './menu-constructor.component.html',
-  styleUrls: ['./menu-constructor.component.scss']
+  styleUrls: ['./menu-constructor.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuConstructorComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() goods: IGood[];
@@ -108,19 +121,19 @@ export class MenuConstructorComponent implements OnInit, AfterViewInit, OnDestro
     return this.form.get('goodsCount');
   }
 
-  onDestroyConstructor() {
+  closeConstructor() {
     this.destroyConstructor.emit();
   }
 
-  onSubmit() {
+  submitResult() {
     if (this.form.valid) {
-      const goodsModels = this.goods.filter((good: IGood, index: number) => this.goodsControl.value[index]);
+      const goodsModels = this.goods.map((good: IGood, index: number) => !!this.goodsControl.value[index]);
       const value: IMenuConstructorOutput = {
         goodsCount: this.goodsCountControl.value,
         goods: goodsModels
       };
       this.setGoods.emit(value);
-      this.onDestroyConstructor();
+      this.closeConstructor();
     }
   }
 

@@ -9,6 +9,7 @@ import {ProductType} from '@shared/enums/productType.enum';
 import {productClass} from '@shared/enums/productClass.enum';
 import {Subject} from 'rxjs';
 import {IProductDetailsData} from '@shared/interfaces/products-details-data.interface';
+import {TitleCasePipe} from '@angular/common';
 
 @Injectable({providedIn: 'root'})
 export class MenuService {
@@ -36,19 +37,21 @@ export class MenuService {
       dateKey: this.appService.actualWeekKey,
       class: this.formConfig.defaultClass,
       personAmount: this.formConfig.defaultPersonsAmount,
-      defaultSet: null,
-      additionalSet: null,
-      additionalMilkSet: null
+      defaultSet: new FormArray([]),
+      additionalSet: new FormArray([]),
+      additionalMilkSet: new FormArray([])
     });
   }
 
-  setInitialIndex() {
-    const routeClass = this.formConfig.defaultClass;
+  getInitialIndex(routeClass: string): number {
+    routeClass = new TitleCasePipe().transform(routeClass);
+    let productIndex = 0;
     _.each(this.appService.menuTabsConfig.tabsSortRule, (classValue: string, index: number) => {
       if (classValue === routeClass) {
-        this.productIndex = index;
+        productIndex = index;
       }
     });
+    return productIndex;
   }
 
   updateProducts() {

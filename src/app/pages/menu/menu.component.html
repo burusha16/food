@@ -22,8 +22,7 @@
 
       <app-tabs class="menu__tabs"
                 [products]="products"
-                (animationDone)="removeSliderAnimation()"
-                [selectedIndex]="productIndex"
+                [selectedIndex]="defaultProductIndex"
                 (selectedTabChange)="updateMenuClass($event)">
         <a [href]="tabWithLink.url" class="tabs__link">
           {{tabWithLink.key | translate}}
@@ -31,7 +30,7 @@
         </a>
       </app-tabs>
 
-      <app-menu-default-set></app-menu-default-set>
+      <app-menu-default-set [product]="defaultProduct"></app-menu-default-set>
 
       <app-menu-additional-set></app-menu-additional-set>
     </form>
