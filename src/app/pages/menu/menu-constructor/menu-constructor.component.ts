@@ -110,7 +110,7 @@ export class MenuConstructorComponent implements OnInit, AfterViewInit, OnDestro
     const hostElement: HTMLElement = this.elRef.nativeElement;
     const submitLineElement: HTMLElement = this.submitLine.nativeElement;
     const breakpoint = submitLineElement.offsetTop;
-    this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.submitLineFixed$, hostElement);
+    this.scrollService.addScrollListener(breakpoint, 'MenuConstructorComponent', this.submitLineFixed$, hostElement);
   }
 
   get goodsControl(): FormArray {

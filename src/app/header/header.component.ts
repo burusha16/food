@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, IRespo
       .pipe(takeUntil(this.OnDestroy$))
       .subscribe(() => {
         const breakpoint = this.headerNode.nativeElement.offsetTop;
-        this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.isHeaderFixed$);
+        this.scrollService.addScrollListener(breakpoint, 'HeaderComponent', this.isHeaderFixed$);
       });
   }
 

@@ -83,7 +83,7 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
     )
       .subscribe(() => {
         const scrollBreakpoint = this.elRef.nativeElement.offsetTop - this.headerHeight;
-        this.scrollService.addScrollListener(scrollBreakpoint, this.constructor.name, this.detailsIsFixed$);
+        this.scrollService.addScrollListener(scrollBreakpoint, 'MenuDetailsComponent', this.detailsIsFixed$);
       });
     this.detailsIsFixed$
       .pipe(takeUntil(this.onDestroy$))
