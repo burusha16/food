@@ -1,0 +1,51 @@
+<div class="additinal-product__img" (click)="showDetails(product)">
+  <ng-container *ngFor="let good of product.availableGoodsModels; let $index = index">
+    <div class="additinal-product__img-wrap"
+         *ngIf="$index < 4"
+        [ngClass]="{'__multiple': product.constructorAvailable,
+                    '__last': $index === 3}">
+
+      <mat-icon svgIcon="cross" *ngIf="$index === 3" class="additinal-product__img-icon"></mat-icon>
+
+      <img [src]="good.images.rectangular.s840x454"
+           [alt]="good.name"
+           class="additinal-product__img-item"
+           [ngClass]="{'__multiple': product.constructorAvailable}">
+    </div>
+  </ng-container>
+</div>
+<div class="additinal-product__row">
+  <div class="additinal-product__info">
+    <h3 class="additinal-product__title">{{product.name}} - {{product.price | priceCurrency: '0.0' : true : 'RUB'}}</h3>
+
+    <p class="additinal-product__descr">{{('menu.additional.' + product.class) | translate}}</p>
+
+    <ul class="additinal-product__list" *ngIf="product.constructorAvailable">
+      <li class="additinal-product__list-item" *ngFor="let good of product.availableGoodsModels; let $index = index">
+        <span class="additinal-product__list-item-index">{{$index + 1}}.</span> {{good.name}}
+      </li>
+    </ul>
+
+    <div class="additinal-product__constructor" *ngIf="product.constructorAvailable">
+      <mat-icon svgIcon="edit" class="__s12 __mr8 __cerulean-blue"></mat-icon>
+      <button (click)="showConstructor()" class="button-inline __ceruleanblue-underline">
+        Изменить состав
+      </button>
+    </div>
+  </div>
+
+  <label [formArrayName]="controlArrayName" class="additinal-product__check">
+    <input type="checkbox" [formControlName]="controlIndex" class="visually-hidden">
+    <span class="additinal-product__checkbox">
+      <mat-icon svgIcon="checkmark" class="__s16"></mat-icon>
+    </span>
+  </label>
+</div>
+
+<ng-template #dialogTemplate>
+  <app-menu-constructor
+    [goods]="product.availableGoodsModels"
+    (destroyConstructor)="hideContructor()"
+    (setGoods)="setGoods($event)">
+  </app-menu-constructor>
+</ng-template>

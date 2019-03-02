@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
-import {IGood} from '@shared/interfaces/good.interface';
+import {IGood} from '../../../../shared/interfaces/good.interface';
 import {MatDialogRef} from '@angular/material';
 
 @Component({

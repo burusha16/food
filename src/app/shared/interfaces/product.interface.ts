@@ -1,13 +1,13 @@
-import { PersonsAmount } from '../enums/personsAmount.enum';
-import { ProductType } from '../enums/productType.enum';
-import { productClass } from '../enums/productClass.enum';
-import {IGood, IGoodData} from './good.interface';
+import { PersonsAmount } from '../enums/persons-amount.enum';
+import { ProductType } from '../enums/product-type.enum';
+import { EProductClass } from '../enums/product-class.enum';
+import {IGood} from './good.interface';
 
 export interface IProductData {
   available: boolean;
   availableGoods: string[];
   availabilityDates: string[];
-  class: productClass;
+  class: EProductClass;
   constructorAvailable: boolean;
   defaultGoods: string[];
   goodsCount: number;

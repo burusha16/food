@@ -30,9 +30,17 @@
         </a>
       </app-tabs>
 
+      <app-menu-details [defaultProduct]="defaultProduct"
+                        [additionalProducts]="additionalProducts"
+                        [additionalMilkProducts]="additionalMilkProducts">
+      </app-menu-details>
+
       <app-menu-default-set [product]="defaultProduct"></app-menu-default-set>
 
-      <app-menu-additional-set></app-menu-additional-set>
+      <app-menu-additional-set [additionalProducts]="additionalProducts"
+                               [additionalMilkProducts]="additionalMilkProducts"
+                               (additionalProductSelect)="updateAdditionalProducts($event)">
+      </app-menu-additional-set>
     </form>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -2,8 +2,8 @@ import {ISmiItem} from '@shared/interfaces/smi-list-item.iterface';
 import {IMenuTabsConfig} from '@shared/interfaces/app-config.interface';
 import {IAppMenu} from '@shared/interfaces/app-menu.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
-import {productClass} from '@shared/enums/productClass.enum';
-import {PersonsAmount} from '@shared/enums/personsAmount.enum';
+import {EProductClass} from '@shared/enums/product-class.enum';
+import {PersonsAmount} from '@shared/enums/persons-amount.enum';
 import {IPaymentConfig} from '@shared/interfaces/payment-config.interface';
 
 export const MenuTabsConfig: IMenuTabsConfig = {
@@ -26,7 +26,7 @@ export const MenuTabsConfig: IMenuTabsConfig = {
 export const OrderFormConfig: IOrderFormConfig = {
   avaibleGoodsCounts: [3, 5],
   aviablePersonsAmounts: [PersonsAmount.TwoPersons, PersonsAmount.FourPersons],
-  defaultClass: productClass.Classic,
+  defaultClass: EProductClass.Classic,
   defaultGoodsCount: 5,
   defaultPersonsAmount: PersonsAmount.TwoPersons,
   defaultPrice: 2796

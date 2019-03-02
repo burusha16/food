@@ -1,9 +1,9 @@
-import {Route} from '@angular/router';
+import {Route, Routes} from '@angular/router';
 import {MainPageComponent} from './main-page.component';
 import {HeaderPromoComponent} from '../../header/header-promo/header-promo.component';
 import {FooterMenuComponent} from '../../footer/footer-menu/footer-menu.component';
 
-export const MainPageRoute: Route = {
+export const MainPageModuleRoutes: Routes = [{
   path: '',
   children: [
     {
@@ -21,4 +21,9 @@ export const MainPageRoute: Route = {
       outlet: 'footerMenu'
     }
   ]
+}];
+
+export const MainPageRoute: Route = {
+  path: '',
+  loadChildren: './pages/main-page/main-page.module#MainPageModule'
 };

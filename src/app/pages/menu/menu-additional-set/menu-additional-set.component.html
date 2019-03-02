@@ -1,15 +1,27 @@
-<div [formGroup]="orderForm" class="container">
-  <h2>доп:</h2>
+<div class="container __mw800">
+  <div class="row">
+    <div class="col-sm-12 __justify-center">
+      <h2 class="additional-set__title">{{'menu.additional.main-title' | translate}}</h2>
+    </div>
 
-  <label formArrayName="additionalSet" *ngFor="let product of additionalProducts; let $index = index" style="display: block">
-    <span>{{product.name}}: </span>
-    <input type="checkbox" [formControlName]="$index">
-  </label>
+    <div class="col-sm-12 col-md-6" *ngFor="let product of additionalProducts; let $index = index">
+      <app-additional-product [product]="product"
+                              controlArrayName="additionalSet"
+                              [controlIndex]="$index"
+                              (additionalProductSelect)="onAdditionalProductSelect($event)">
+      </app-additional-product>
+    </div>
 
-  <h2>молоко и сыр:</h2>
-  <label formArrayName="additionalMilkSet" *ngFor="let product of additionalMilkProducts; let $index = index" style="display: block">
-    <span>{{product.name}}: </span>
-    <input type="checkbox" [formControlName]="$index">
-  </label>
-  <div style="height: 2000px;"></div>
+    <div class="col-sm-12 __justify-center">
+      <h2 class="additional-set__title">{{'menu.additional.milk-title' | translate}}</h2>
+    </div>
+
+    <div class="col-sm-12 col-md-6" *ngFor="let product of additionalMilkProducts; let $index = index">
+      <app-additional-product [product]="product"
+                              controlArrayName="additionalMilkSet"
+                              [controlIndex]="$index"
+                              (additionalProductSelect)="onAdditionalProductSelect($event)">
+      </app-additional-product>
+    </div>
+  </div>
 </div>

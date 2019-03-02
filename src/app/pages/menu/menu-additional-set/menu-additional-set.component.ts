@@ -1,11 +1,27 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef, EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit, Output,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {MenuService} from '../menu.service';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {DeviceWindowService} from '@shared/services/device-window.service';
-import {FormGroup} from '@angular/forms';
+import {ControlContainer, FormGroup, FormGroupDirective} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {IGood} from '@shared/interfaces/good.interface';
+import {MenuSidenavService} from '../menu-sidenav.service';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {NoopScrollStrategy} from '@angular/cdk/overlay';
+import {IMenuConstructorOutput} from '../menu-constructor/menu-constructor.component';
+import {IAdditionalProductSelect} from '../shared/additional-product-select.interface';
 
 @Component({
   selector: 'app-menu-additional-set',
@@ -13,25 +29,15 @@ import {takeUntil} from 'rxjs/operators';
   styleUrls: ['./menu-additional-set.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuAdditionalSetComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MenuAdditionalSetComponent implements AfterViewInit, OnDestroy {
+  @Input() additionalProducts: IProduct;
+  @Input() additionalMilkProducts: IProduct;
+  @Output() additionalProductSelect: EventEmitter<IAdditionalProductSelect> = new EventEmitter();
   onDestroy$: Subject<void> = new Subject();
-  orderForm: FormGroup = this.menuService.orderForm;
 
   constructor(private menuService: MenuService,
               private scrollService: WindowScrollService,
-              private deviceService: DeviceWindowService,
               private elRef: ElementRef) {
-  }
-
-  get additionalProducts(): IProduct[] {
-    return this.menuService.additionalProducts;
-  }
-
-  get additionalMilkProducts(): IProduct[] {
-    return this.menuService.additionalMilkProducts;
-  }
-
-  ngOnInit() {
   }
 
   ngAfterViewInit() {
@@ -48,5 +54,9 @@ export class MenuAdditionalSetComponent implements OnInit, AfterViewInit, OnDest
     this.scrollService.removeListener(this.constructor.name);
     this.onDestroy$.next();
     this.onDestroy$.complete();
+  }
+
+  onAdditionalProductSelect(value: IAdditionalProductSelect) {
+    this.additionalProductSelect.emit(value);
   }
 }

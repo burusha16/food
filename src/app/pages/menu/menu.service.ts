@@ -1,22 +1,23 @@
 import * as _ from 'lodash/core';
 import {Injectable} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {IProduct} from '@shared/interfaces/product.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
 import {AppService} from '@shared/services/base-app.service';
 import {IOffer} from '@shared/interfaces/offers.interface';
-import {ProductType} from '@shared/enums/productType.enum';
-import {productClass} from '@shared/enums/productClass.enum';
+import {ProductType} from '@shared/enums/product-type.enum';
+import {EProductClass} from '@shared/enums/product-class.enum';
 import {Subject} from 'rxjs';
 import {IProductDetailsData} from '@shared/interfaces/products-details-data.interface';
 import {TitleCasePipe} from '@angular/common';
+import {IAdditionalProductSelect} from './shared/additional-product-select.interface';
+import {Product} from '@shared/models/product.model';
 
 @Injectable({providedIn: 'root'})
 export class MenuService {
   additionalMenuPassed$: Subject<boolean> = new Subject<boolean>();
-  additionalMilkProducts: IProduct[];
-  additionalProducts: IProduct[];
-  defaultProducts: IProduct[];
+  additionalMilkProducts: Product[];
+  additionalProducts: Product[];
+  defaultProducts: Product[];
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
   offers: IOffer[];
   orderForm: FormGroup;
@@ -27,8 +28,14 @@ export class MenuService {
               private fb: FormBuilder) {
   }
 
-  get product(): IProduct {
+  get product(): Product {
     return this.defaultProducts[this.productIndex];
+  }
+
+  get offer(): IOffer {
+    return _.head(
+      _.filter(this.offers, (offer: IOffer) => offer.weekKey === this.orderForm.get('dateKey').value)
+    );
   }
 
   initOrderForm() {
@@ -54,39 +61,48 @@ export class MenuService {
     return productIndex;
   }
 
-  updateProducts() {
-    const currentOffer: IOffer = _.head(
-      _.filter(this.offers, (offer: IOffer) => offer.weekKey === this.orderForm.get('dateKey').value)
-    );
-    const products: IProduct[] = _.filter(currentOffer.products, (product: IProduct) => {
+  setDefaultProducts() {
+    const products: Product[] = _.filter(this.offer.products, (product: Product) => {
       const personsAmountValid = product.personsAmountView === this.orderForm.get('personAmount').value;
       const goodsCountValid = product.goodsCount === this.orderForm.get('goodsCount').value;
       const typeValid = product.type === ProductType.Box;
       return personsAmountValid && goodsCountValid && typeValid;
     });
-    const sortedProducts: IProduct[] = _.map(this.appService.menuTabsConfig.tabsSortRule, (tabClass: string) => {
+    const sortedProducts: Product[] = _.map(this.appService.menuTabsConfig.tabsSortRule, (tabClass: string) => {
       return _.head(
-        _.filter(products, (product: IProduct) => product.class === tabClass)
+        _.filter(products, (product: Product) => product.class === tabClass)
       );
     });
     this.defaultProducts = _.filter(sortedProducts, product => product);
     this.updateDefaultSetControl();
   }
 
-  updateAdditionalProducts() {
-    const currentOffer: IOffer = _.head(
-      _.filter(this.offers, (offer: IOffer) => offer.weekKey === this.orderForm.get('dateKey').value)
-    );
-    const additionalProducts = _.filter(currentOffer.products, (product: IProduct) => {
-      const personsAmountValid = product.personsAmountView === this.orderForm.get('personAmount').value;
+  setAdditionalProducts(replaceProps?: IAdditionalProductSelect) {
+    let additionalProducts = _.filter(this.offer.products, (product: Product) => {
       const goodsCountValid = !product.constructorAvailable || product.goodsCount === this.orderForm.get('goodsCount').value;
       const typeValid = product.type === ProductType.Additional;
-      return personsAmountValid && typeValid && goodsCountValid;
+      return typeValid && goodsCountValid;
     });
+    if (replaceProps) {
+      additionalProducts = _.map(additionalProducts, (product: Product) => {
+        const goodForReplaceValid = product.class === replaceProps.class;
+        if (goodForReplaceValid) {
+          const productToReplace: Product = _.head(
+            _.filter(this.offer.products, (prod: Product) => {
+              return prod.class === replaceProps.class && prod.goodsCount === replaceProps.goodsCount;
+            })
+          );
+          productToReplace.defaultGoods = replaceProps.selectedGoods;
+          productToReplace.updateDefaultGoods();
+          return productToReplace;
+        }
+        return product;
+      });
+    }
     this.additionalProducts = _.filter(additionalProducts,
-      (product: IProduct) => product.class !== productClass.Cheese && product.class !== productClass.Milk);
+      (product: Product) => product.class !== EProductClass.Cheese && product.class !== EProductClass.Milk);
     this.additionalMilkProducts = _.filter(additionalProducts,
-      (product: IProduct) => product.class === productClass.Cheese || product.class === productClass.Milk);
+      (product: Product) => product.class === EProductClass.Cheese || product.class === EProductClass.Milk);
     this.updateAdditionalSetsControls();
   }
 

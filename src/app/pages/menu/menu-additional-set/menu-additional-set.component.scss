@@ -2,5 +2,23 @@
 
 :host {
   display: block;
+  padding-bottom: 68px;
   background-color: $bridal-heath;
+
+  @media screen and (max-width: $bp-sm) {
+    padding-bottom: 32px;
+  }
+}
+
+.additional-set {
+  &__title {
+    margin-top: 68px;
+    padding-bottom: 32px;
+    color: $mine-shaft;
+
+    @media screen and (max-width: $bp-sm) {
+      margin-top: 32px;
+      padding-bottom: 0;
+    }
+  }
 }

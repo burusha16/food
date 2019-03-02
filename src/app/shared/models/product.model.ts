@@ -1,9 +1,9 @@
 import * as _ from 'lodash/core';
 import {IProduct, IProductData} from '../interfaces/product.interface';
 import {IGood, IGoodData} from '../interfaces/good.interface';
-import {productClass} from '../enums/productClass.enum';
-import {PersonsAmount} from '../enums/personsAmount.enum';
-import {ProductType} from '../enums/productType.enum';
+import {EProductClass} from '../enums/product-class.enum';
+import {PersonsAmount} from '../enums/persons-amount.enum';
+import {ProductType} from '../enums/product-type.enum';
 import {GoodModel} from '@shared/models/good.model';
 
 export class Product implements IProduct {
@@ -11,7 +11,7 @@ export class Product implements IProduct {
   availabilityDates: string[];
   availableGoods: string[];
   availableGoodsModels: IGood[];
-  class: productClass;
+  class: EProductClass;
   constructorAvailable: boolean;
   defaultGoods: string[];
   defaultGoodsModels: IGood[];
@@ -46,5 +46,13 @@ export class Product implements IProduct {
       const filtrderGood: IGoodData = _.head(_.filter(allGoodsModels, (item: IGood) => item.id === hash));
       return new GoodModel(filtrderGood);
     }));
+  }
+
+  updateDefaultGoods() {
+    this.defaultGoodsModels = _.map(this.defaultGoods, (goodHash: string) => {
+     return _.head(
+       _.filter(this.availableGoodsModels, (good: IGood) => good.id === goodHash)
+     );
+    });
   }
 }

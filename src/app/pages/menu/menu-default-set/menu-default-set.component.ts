@@ -43,7 +43,10 @@ export class MenuDefaultSetComponent {
   }
 
   selectGoods(data: IMenuConstructorOutput) {
-    this.orderForm.get('goodsCount').setValue(data.goodsCount);
+    const goodCountControl = this.orderForm.get('goodsCount');
+    if (data.goodsCount !== goodCountControl.value) {
+      this.orderForm.get('goodsCount').setValue(data.goodsCount);
+    }
     this.orderForm.get('defaultSet').setValue(data.goods);
   }
 

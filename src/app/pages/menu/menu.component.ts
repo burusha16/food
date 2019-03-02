@@ -1,7 +1,7 @@
 import * as _ from 'lodash/core';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {AfterViewInit, ChangeDetectorRef, Component, OnDestroy, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormGroup} from '@angular/forms';
 import {AppService} from '@shared/services/base-app.service';
@@ -10,11 +10,14 @@ import {ITabWithLink} from '@shared/interfaces/app-config.interface';
 import {MenuService} from './menu.service';
 import {MatSidenav} from '@angular/material';
 import {MenuSidenavService} from './menu-sidenav.service';
+import {IAdditionalProductSelect} from './shared/additional-product-select.interface';
+import {isEqualByValue} from '@shared/other/helpers';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent implements AfterViewInit, OnDestroy {
   @ViewChild('sidenav') sidenav: MatSidenav;
@@ -23,8 +26,8 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
   defaultProductIndex: number;
   onDestroy$: Subject<void> = new Subject();
   defaultProduct: IProduct;
-  productUpdateFactors: string[] = ['goodsCount', 'dateKey', 'class', 'personAmount'];
   tabWithLink: ITabWithLink = this.appService.menuTabsConfig.linkInTab;
+  orderFormValue: Object;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -34,33 +37,42 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
               private cdRef: ChangeDetectorRef) {
     const routeClassParam = this.route.snapshot.params.class;
     this.defaultProductIndex = this.menuService.getInitialIndex(routeClassParam);
+    const defaultProductResetFactors: string[] = ['goodsCount', 'dateKey', 'personAmount'];
+    const defaultProductUpdateFactors: string[] = ['class', 'defaultSet'];
+    const additionalProductResetFactors: string[] = ['dateKey'];
     this.menuService.initOrderForm();
-    this.menuService.updateProducts();
-    this.menuService.updateAdditionalProducts();
+    this.menuService.setDefaultProducts();
+    this.menuService.setAdditionalProducts();
     this.setDefaultProduct();
     this.setAdditionalProducts();
-    _.each(this.productUpdateFactors, (key: string) => {
-      this.orderForm.get(key).valueChanges
-        .pipe(takeUntil(this.onDestroy$))
-        .subscribe(() => {
-          this.menuService.updateProducts();
-        });
-    });
     this.orderForm.valueChanges
       .pipe(takeUntil(this.onDestroy$))
-      .subscribe(() => {
-        this.setDefaultProduct();
-        this.cdRef.markForCheck();
-      });
-    this.orderForm.get('dateKey').valueChanges
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe(() => {
-        this.menuService.updateAdditionalProducts();
+      .subscribe((value: any) => {
+        const lastValue = this.orderFormValue;
+        this.orderFormValue = value;
+        _.each(defaultProductResetFactors, (key: string) => {
+          if (isEqualByValue(lastValue[key], value[key])) {
+            this.menuService.setDefaultProducts();
+            this.setDefaultProduct();
+          }
+        });
+        _.each(additionalProductResetFactors, (key: string) => {
+          if (isEqualByValue(lastValue[key], value[key])) {
+            this.menuService.setAdditionalProducts();
+            this.setAdditionalProducts();
+          }
+        });
+        _.each(defaultProductUpdateFactors, (key: string) => {
+          if (isEqualByValue(lastValue[key], value[key])) {
+            this.setDefaultProduct();
+          }
+        });
       });
   }
 
   ngAfterViewInit() {
     this.menuSidenav.sidenav = this.sidenav;
+    this.orderFormValue = this.orderForm.value;
   }
 
   ngOnDestroy() {
@@ -90,6 +102,11 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
     product.defaultGoodsModels = product.availableGoodsModels
       .filter((value, index) => this.orderForm.get('defaultSet').value[index]);
     this.defaultProduct = product;
+  }
+
+  updateAdditionalProducts(value: IAdditionalProductSelect) {
+    this.menuService.setAdditionalProducts(value);
+    this.setAdditionalProducts();
   }
 
   updateMenuClass(index: number) {

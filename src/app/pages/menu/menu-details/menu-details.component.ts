@@ -5,17 +5,17 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter, Input,
+  Input,
   OnDestroy,
-  OnInit,
-  Output
+  OnInit, TemplateRef,
+  ViewChild,
 } from '@angular/core';
 import {ControlContainer, FormGroup, FormGroupDirective} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {AppService} from '@shared/services/base-app.service';
-import {MenuService} from '../../menu.service';
+import {MenuService} from '../menu.service';
 import {Responsive} from '@shared/decorators/responsive.decorator';
-import {PersonsAmount} from '@shared/enums/personsAmount.enum';
+import {PersonsAmount} from '@shared/enums/persons-amount.enum';
 import {IProduct} from '@shared/interfaces/product.interface';
 import {IOption} from '@shared/interfaces/option.interface';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
@@ -24,7 +24,10 @@ import {PriceCurrencyPipe} from '@shared/pipes/price-currency.pipe';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {Subject} from 'rxjs';
 import {DeviceWindowService} from '@shared/services/device-window.service';
-import {takeUntil} from 'rxjs/operators';
+import {takeUntil, tap} from 'rxjs/operators';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {NoopScrollStrategy} from '@angular/cdk/overlay';
+import {IMenuConstructorOutput} from '../menu-constructor/menu-constructor.component';
 
 @Responsive()
 @Component({
@@ -40,8 +43,10 @@ import {takeUntil} from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, IResponsiveComponent {
-  @Input() product: IProduct;
-  @Output() showConstructor: EventEmitter<void> = new EventEmitter();
+  @Input() defaultProduct: IProduct;
+  @Input() additionalProducts: IProduct[];
+  @Input() additionalMilkProducts: IProduct[];
+  @ViewChild('dialogTemplate') dialogTemplate: TemplateRef<any>;
   additionalMenuPassed$: Subject<boolean> = this.menuService.additionalMenuPassed$;
   detailsIsFixed$: Subject<boolean> = new Subject<boolean>();
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
@@ -51,7 +56,6 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
   personsAmountOptions: IOption[] = [];
   onlinePaySale = this.appService.paymentConfig.onlinePaySaleInPersents;
   onDestroy$: Subject<void> = new Subject<void>();
-  styles: any;
 
   constructor(private appService: AppService,
               private menuService: MenuService,
@@ -59,7 +63,8 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
               private elRef: ElementRef,
               private scrollService: WindowScrollService,
               private deviceService: DeviceWindowService,
-              private cdRef: ChangeDetectorRef) {
+              private cdRef: ChangeDetectorRef,
+              private dialog: MatDialog) {
     _.each(this.formConfig.avaibleGoodsCounts, (value: number) => {
       this.goodsCountsOptions.push({
         value: value,
@@ -72,6 +77,9 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
         viewValue: this.translate.instant(`menu.details.${value}`)
       });
     });
+    this.orderForm.valueChanges
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe(() => this.cdRef.detectChanges());
   }
 
   ngOnInit() {
@@ -84,28 +92,6 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
       .subscribe(() => {
         const scrollBreakpoint = this.elRef.nativeElement.offsetTop - this.headerHeight;
         this.scrollService.addScrollListener(scrollBreakpoint, 'MenuDetailsComponent', this.detailsIsFixed$);
-      });
-    this.detailsIsFixed$
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe((breakpointPassed: boolean) => {
-        if (breakpointPassed) {
-          this.styles = {
-            position: 'fixed',
-            top: `${this.headerHeight}px`,
-            borderBottom: '1px solid #ecebeb',
-          };
-        } else {
-          this.styles = {};
-        }
-        this.cdRef.markForCheck();
-      });
-    this.additionalMenuPassed$
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe((breakpointPassed: boolean) => {
-        const defaultSetColor = '#f9f9f9';
-        const additionalSetColor = '#fff9f0';
-        this.styles.backgroundColor = breakpointPassed ? additionalSetColor : defaultSetColor;
-        this.cdRef.markForCheck();
       });
   }
 
@@ -129,35 +115,38 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
     return this.menuService.orderForm;
   }
 
-  get additionalProducts(): IProduct[] {
-    return this.menuService.additionalProducts;
-  }
-
-  get additionalMilkProduct(): IProduct[] {
-    return this.menuService.additionalMilkProducts;
-  }
-
   get totalPrice(): number {
-    const additionalGoodsPrice = _.map(
-      this.orderForm.get('additionalSet').value,
-      (value: boolean, index: number) => value ? this.additionalProducts[index].price : 0
-    );
-    const additionalMickGoodsPrice = _.map(
-      this.orderForm.get('additionalMilkSet').value,
-      (value: boolean, index: number) => value ? this.additionalMilkProduct[index].price : 0
-    );
-    const defaultGoodsPrice = this.product.price;
-    const summ = [defaultGoodsPrice, ...additionalGoodsPrice, ...additionalMickGoodsPrice].reduce((prev, next) => prev + next);
-    return summ;
+    const productsSetNames: string[] = ['additionalSet', 'additionalMilkSet'];
+    const productsPrices: number[] = [this.defaultProduct.price];
+    productsSetNames.forEach((controlsName: string) => {
+      const products: boolean[] = this.orderForm.get(controlsName).value;
+      const productsPrice: number[] = products.map((value: boolean, index: number) => value ? this.additionalProducts[index].price : 0);
+      productsPrices.push(...productsPrice);
+    });
+    return productsPrices.reduce((prev, next) => prev + next);
   }
 
   get totalPriceWithSale(): number {
-    const sale = this.onlinePaySale;
-    const fraction = (100 - sale) / 100;
+    const fraction = (100 - this.onlinePaySale) / 100;
     return this.totalPrice * fraction;
   }
 
-  onShowConstructor() {
-    this.showConstructor.emit();
+  showContructor() {
+    const dialogConfig: MatDialogConfig = {
+      panelClass: 'mat-dialog-full-page',
+      scrollStrategy: new NoopScrollStrategy()
+    };
+    this.dialog.open(this.dialogTemplate, dialogConfig);
+    this.scrollService.disableWindowScroll();
+  }
+
+  hideContructor() {
+    this.dialog.closeAll();
+    this.scrollService.enableWindowScroll();
+  }
+
+  selectGoods(data: IMenuConstructorOutput) {
+    this.orderForm.get('goodsCount').setValue(data.goodsCount);
+    this.orderForm.get('defaultSet').setValue(data.goods);
   }
 }

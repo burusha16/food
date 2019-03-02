@@ -107,7 +107,6 @@
 
     &.__ceruleanblue-underline {
       height: 14px;
-      margin: 2px 12px;
       transition-duration: $duration-fast;
       border-bottom: 1px solid rgba($cerulean-blue, .4);
       color: $cerulean-blue;
@@ -127,6 +126,15 @@
 
     &.__fz16 {
       font-size: 16px;
+    }
+
+    &.__mrl12 {
+      margin-right: 12px;
+      margin-left: 12px;
+    }
+
+    &.__mt16 {
+      margin-top: 16px;
     }
   }
 

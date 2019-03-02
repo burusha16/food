@@ -1,0 +1,37 @@
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .visible-md,
+  .visible-lg,
+  .hidden-sm {
+    display: none !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .visible-sm,
+  .visible-lg,
+  .hidden-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: 961px) {
+  .visible-sm,
+  .visible-md,
+  .hidden-lg {
+    display: none !important;
+  }
+}

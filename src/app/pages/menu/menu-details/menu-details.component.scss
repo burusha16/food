@@ -15,10 +15,23 @@
   display: flex;
   width: 100%;
   padding: 12px 0;
+  border-top: 1px solid $gallery;
   background-color: $alabaster;
 
   &.__fixed {
     position: fixed;
+    top: $header-height;
+    border-top: 0;
+    border-bottom: 1px solid $gallery;
+    z-index: 90;
+
+    @media screen and (max-width: $bp-sm) {
+      top: $header-height-mob;
+    }
+  }
+
+  &.__additional {
+    background-color: $bridal-heath;
   }
 
   &__price {

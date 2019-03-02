@@ -17,7 +17,8 @@ import { HeaderMenuComponent } from './header-menu/header-menu.component';
   ],
   exports: [
     HeaderComponent,
-    HeaderMenuComponent
+    HeaderMenuComponent,
+    HeaderPromoComponent
   ]
 })
 export class HeaderModule {

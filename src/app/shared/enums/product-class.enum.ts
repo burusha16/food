@@ -1,4 +1,4 @@
-export enum productClass {
+export enum EProductClass {
   Classic = 'Classic',
   Vegetarian = 'Vegetarian',
   Premium = 'Premium',

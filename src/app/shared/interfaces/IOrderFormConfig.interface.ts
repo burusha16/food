@@ -1,10 +1,10 @@
-import {productClass} from '@shared/enums/productClass.enum';
-import {PersonsAmount} from '@shared/enums/personsAmount.enum';
+import {EProductClass} from '@shared/enums/product-class.enum';
+import {PersonsAmount} from '@shared/enums/persons-amount.enum';
 
 export interface IOrderFormConfig {
   aviablePersonsAmounts: PersonsAmount[];
   avaibleGoodsCounts: number[];
-  defaultClass: productClass | string;
+  defaultClass: EProductClass | string;
   defaultGoodsCount: number;
   defaultPersonsAmount: PersonsAmount;
   defaultPrice: number;

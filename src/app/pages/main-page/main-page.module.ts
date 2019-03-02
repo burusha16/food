@@ -12,6 +12,9 @@ import { SmiListComponent } from './smi-list/smi-list.component';
 import { MobileAppComponent } from './mobile-app/mobile-app.component';
 import {RouterModule} from '@angular/router';
 import {SharedComponentsModule} from '@shared/components/shared-components.module';
+import {MainPageModuleRoutes} from './main-page.routing';
+import {HeaderModule} from '../../header/header.module';
+import {FooterModule} from '../../footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -27,10 +30,13 @@ import {SharedComponentsModule} from '@shared/components/shared-components.modul
   ],
   imports: [
     SharedModule,
-    RouterModule,
+    RouterModule.forChild(MainPageModuleRoutes),
+    HeaderModule,
+    FooterModule,
     SwiperSliderModule,
     SharedComponentsModule
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class MainPageModule {
 }

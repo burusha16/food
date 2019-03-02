@@ -3,7 +3,6 @@
 .menu-default {
   padding-top: 12px;
   padding-bottom: 84px;
-  border-top: 1px solid $gallery;
   border-bottom: 1px solid $gallery;
   background-color: $alabaster;
 
@@ -11,7 +10,7 @@
     padding-bottom: 60px;
   }
 
-    &__item {
+  &__item {
     margin-top: 32px;
 
     @media screen and (max-width: $bp-tablet) {
