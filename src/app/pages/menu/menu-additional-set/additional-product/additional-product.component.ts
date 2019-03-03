@@ -36,6 +36,12 @@ export class AdditionalProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!this.product.available) {
+      this.menuService.orderForm
+        .get(this.controlArrayName)
+        .get(this.controlIndex.toString())
+        .disable({onlySelf: true});
+    }
   }
 
   showDetails(product: Product) {

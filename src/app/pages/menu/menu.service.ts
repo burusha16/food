@@ -3,7 +3,6 @@ import {Injectable} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {IOrderFormConfig} from '@shared/interfaces/IOrderFormConfig.interface';
 import {AppService} from '@shared/services/base-app.service';
-import {IOffer} from '@shared/interfaces/offers.interface';
 import {ProductType} from '@shared/enums/product-type.enum';
 import {EProductClass} from '@shared/enums/product-class.enum';
 import {Subject} from 'rxjs';
@@ -11,6 +10,7 @@ import {IProductDetailsData} from '@shared/interfaces/products-details-data.inte
 import {TitleCasePipe} from '@angular/common';
 import {IAdditionalProductSelect} from './shared/additional-product-select.interface';
 import {Product} from '@shared/models/product.model';
+import {Offer} from '@shared/models/offer.model';
 
 @Injectable({providedIn: 'root'})
 export class MenuService {
@@ -19,7 +19,7 @@ export class MenuService {
   additionalProducts: Product[];
   defaultProducts: Product[];
   formConfig: IOrderFormConfig = this.appService.orderFormConfig;
-  offers: IOffer[];
+  offers: Offer[];
   orderForm: FormGroup;
   productIndex = 0;
   productDetailsData$: Subject<IProductDetailsData> = new Subject();
@@ -32,9 +32,9 @@ export class MenuService {
     return this.defaultProducts[this.productIndex];
   }
 
-  get offer(): IOffer {
+  get offer(): Offer {
     return _.head(
-      _.filter(this.offers, (offer: IOffer) => offer.weekKey === this.orderForm.get('dateKey').value)
+      _.filter(this.offers, (offer: Offer) => offer.weekKey === this.orderForm.get('dateKey').value)
     );
   }
 
@@ -77,7 +77,7 @@ export class MenuService {
     this.updateDefaultSetControl();
   }
 
-  setAdditionalProducts(replaceProps?: IAdditionalProductSelect) {
+  setAdditionalProducts(resetControls = true, replaceProps?: IAdditionalProductSelect) {
     let additionalProducts = _.filter(this.offer.products, (product: Product) => {
       const goodsCountValid = !product.constructorAvailable || product.goodsCount === this.orderForm.get('goodsCount').value;
       const typeValid = product.type === ProductType.Additional;
@@ -103,7 +103,9 @@ export class MenuService {
       (product: Product) => product.class !== EProductClass.Cheese && product.class !== EProductClass.Milk);
     this.additionalMilkProducts = _.filter(additionalProducts,
       (product: Product) => product.class === EProductClass.Cheese || product.class === EProductClass.Milk);
-    this.updateAdditionalSetsControls();
+    if (resetControls) {
+      this.updateAdditionalSetsControls();
+    }
   }
 
   updateDefaultSetControl() {

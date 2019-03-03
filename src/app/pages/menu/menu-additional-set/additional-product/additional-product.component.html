@@ -1,9 +1,12 @@
-<div class="additinal-product__img" (click)="showDetails(product)">
+<div class="additinal-product__img"
+     [ngClass]="{'__disabled': !product.available}"
+     (click)="showDetails(product)">
   <ng-container *ngFor="let good of product.availableGoodsModels; let $index = index">
     <div class="additinal-product__img-wrap"
          *ngIf="$index < 4"
         [ngClass]="{'__multiple': product.constructorAvailable,
-                    '__last': $index === 3}">
+                    '__last': $index === 3,
+                    '__disabled': !product.available}">
 
       <mat-icon svgIcon="cross" *ngIf="$index === 3" class="additinal-product__img-icon"></mat-icon>
 
@@ -44,7 +47,6 @@
 
 <ng-template #dialogTemplate>
   <app-menu-constructor
-    [timeIsUp]="product.constructorTimeIsUp"
     [goods]="product.availableGoodsModels"
     (destroyConstructor)="hideContructor()"
     (setGoods)="setGoods($event)">

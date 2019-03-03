@@ -105,7 +105,7 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
   }
 
   updateAdditionalProducts(value: IAdditionalProductSelect) {
-    this.menuService.setAdditionalProducts(value);
+    this.menuService.setAdditionalProducts(false, value);
     this.setAdditionalProducts();
   }
 

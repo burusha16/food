@@ -8,11 +8,26 @@
 
 .additinal-product {
   &__img {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     border-radius: 6px;
     cursor: pointer;
     overflow: hidden;
+
+    &.__disabled {
+      &:after {
+        position: absolute;
+        top: 25px;
+        left: -42px;
+        padding: 10px 40px 8px;
+        transform: rotate(-45deg);
+        background-color: $cerulean-blue;
+        color: $white;
+        text-transform: uppercase;
+        content: "Распродано";
+      }
+    }
 
     &-wrap {
       display: flex;
@@ -26,6 +41,10 @@
 
       &.__multiple {
         width: 50%;
+      }
+
+      &.__disabled {
+        opacity: .5;
       }
 
       &.__last {
@@ -124,10 +143,13 @@
 
       &:disabled + .additinal-product__checkbox {
         border-color: $alto;
-        background-color: $alto;
+        background-color: $white;
+        color: $white;
         cursor: not-allowed;
 
         &:hover {
+          border-color: $alto;
+          background-color: $white;
           color: $white;
         }
       }

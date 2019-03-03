@@ -40,7 +40,7 @@ export class BaseApiService {
           this.appService.actualWeekKey = response.defaultWeekKey;
           return response.goods.map((offer: IOffer) => new Offer(offer));
         }),
-        tap((offers: IOffer[]) => {
+        tap((offers: Offer[]) => {
           this.menuService.offers = offers;
         }),
         publishReplay(this.CACHE_SIZE),

@@ -6581,11 +6581,8 @@
             "4c28ff63-3d61-11e8-8135-9fd7f577fe28"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "40cba1b7-f215-11e8-b85c-ac1f6b453d7b",
             "77fd29e9-d75b-11e8-b84e-ac1f6b453d7b",
@@ -6613,11 +6610,8 @@
             "605769b4-fde1-11e5-b349-8d68d72a6cec"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "bd3bb3f0-0432-11e9-b868-ac1f6b453d7b",
             "bd3bb3e9-0432-11e9-b868-ac1f6b453d7b",
@@ -6645,11 +6639,8 @@
             "4c28ff63-3d61-11e8-8135-9fd7f577fe28"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "40cba1b7-f215-11e8-b85c-ac1f6b453d7b",
             "77fd29e9-d75b-11e8-b84e-ac1f6b453d7b",
@@ -6677,11 +6668,8 @@
             "605769b4-fde1-11e5-b349-8d68d72a6cec"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "bd3bb3f0-0432-11e9-b868-ac1f6b453d7b",
             "bd3bb3e9-0432-11e9-b868-ac1f6b453d7b",
@@ -6710,7 +6698,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -6739,11 +6726,8 @@
             "605769b4-fde1-11e5-b349-8d68d72a6cec"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "bd3bb3ee-0432-11e9-b868-ac1f6b453d7b",
             "bd3bb3eb-0432-11e9-b868-ac1f6b453d7b",
@@ -6770,7 +6754,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -6799,11 +6782,8 @@
             "605769b4-fde1-11e5-b349-8d68d72a6cec"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "bd3bb3ee-0432-11e9-b868-ac1f6b453d7b",
             "bd3bb3eb-0432-11e9-b868-ac1f6b453d7b",
@@ -6824,7 +6804,6 @@
           ],
           "constructorAvailable": false,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -6845,11 +6824,8 @@
             "17565747-bb07-11e7-8ed8-fb86de8a78c6"
           ],
           "constructorAvailable": false,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "17565747-bb07-11e7-8ed8-fb86de8a78c6"
           ]
@@ -6874,7 +6850,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -6905,11 +6880,8 @@
             "1ae5590e-d6c4-11e8-b84e-ac1f6b453d7b"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "bf4dcef9-0436-11e9-b868-ac1f6b453d7b",
             "e529b9fd-305a-11e9-b871-ac1f6b453d7b",
@@ -6938,7 +6910,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -6964,7 +6935,6 @@
           ],
           "constructorAvailable": false,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -6986,7 +6956,6 @@
           ],
           "constructorAvailable": false,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7008,7 +6977,6 @@
           ],
           "constructorAvailable": false,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7036,7 +7004,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7068,7 +7035,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7098,7 +7064,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7128,7 +7093,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7292,7 +7256,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7322,7 +7285,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7355,7 +7317,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7385,11 +7346,8 @@
             "ca63d14e-3bca-11e8-8133-cc9baf4f8d7a"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "1cae91bc-f215-11e8-b85c-ac1f6b453d7b",
             "85fef9ae-fa89-11e7-9a87-c1b2a30c4bc9",
@@ -7419,7 +7377,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7449,11 +7406,8 @@
             "ca63d14e-3bca-11e8-8133-cc9baf4f8d7a"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "1cae91bc-f215-11e8-b85c-ac1f6b453d7b",
             "85fef9ae-fa89-11e7-9a87-c1b2a30c4bc9",
@@ -7482,11 +7436,8 @@
             "383b3323-22cf-11e8-8126-99f5d73c0cfa"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "3a5a3237-d82d-11e7-8be5-8906da0401cf",
             "18b68352-ab59-11e8-b838-ac1f6b453d7b",
@@ -7516,7 +7467,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -7546,11 +7496,8 @@
             "383b3323-22cf-11e8-8126-99f5d73c0cfa"
           ],
           "constructorAvailable": true,
-          "availabilityDates": [
-            "2019-03-03",
-            "2019-03-04"
-          ],
-          "available": true,
+          "availabilityDates": [],
+          "available": false,
           "defaultGoods": [
             "3a5a3237-d82d-11e7-8be5-8906da0401cf",
             "18b68352-ab59-11e8-b838-ac1f6b453d7b",
@@ -7580,7 +7527,6 @@
           ],
           "constructorAvailable": true,
           "availabilityDates": [
-            "2019-03-03",
             "2019-03-04"
           ],
           "available": true,
@@ -13626,7 +13572,7 @@
         "2019-03-10",
         "2019-03-11"
       ],
-      "constructorStopTime": "2019-03-08T18:00:00",
+      "constructorStopTime": "2019-03-04T18:00:00",
       "products": [
         {
           "productId": 1,
@@ -14779,7 +14725,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/f0sipwu02an"
+          "recipeUrl": "https://ref.partiyaedi.ru/gkcwa8456z7"
         },
         {
           "id": "115c3b4b-367a-11e8-8130-dc40a12b0ae7",
@@ -14871,7 +14817,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/elhk7fjbvm7"
+          "recipeUrl": "https://ref.partiyaedi.ru/21zdlhae1fr"
         },
         {
           "id": "60040a5c-0435-11e9-b868-ac1f6b453d7b",
@@ -14953,7 +14899,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/bdbntxwv2br"
+          "recipeUrl": "https://ref.partiyaedi.ru/5ij843c8qsn"
         },
         {
           "id": "f56cc2c2-31a5-11e7-8859-95d5d10aa8ed",
@@ -15035,14 +14981,14 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/qy54kc38jhe"
+          "recipeUrl": "https://ref.partiyaedi.ru/b0jadauv1vs"
         },
         {
           "id": "681bc95d-0435-11e9-b868-ac1f6b453d7b",
-          "name": "Говядина sous vide с картофельным слайсами в беконе и соусом демиглас",
+          "name": "Говядина sous vide с картофельными слайсами в беконе и соусом демиглас",
           "names": {
-            "main": "Говядина sous vide",
-            "secondary": "с картофельным слайсами в беконе и соусом демиглас"
+            "main": "Говядина sous vide ",
+            "secondary": "с картофельными слайсами в беконе и соусом демиглас"
           },
           "image": "",
           "images": {
@@ -15122,7 +15068,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/bs2daamesbm"
+          "recipeUrl": "https://ref.partiyaedi.ru/jsaw7sbbevd"
         },
         {
           "id": "681bc95a-0435-11e9-b868-ac1f6b453d7b",
@@ -15199,7 +15145,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/bceusf6ihj"
+          "recipeUrl": "https://ref.partiyaedi.ru/ffsv7r6jrpm"
         },
         {
           "id": "34c6794c-7946-11e8-b81d-ac1f6b453d7b",
@@ -15263,7 +15209,7 @@
           "tags": [
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/gkpaletdidu"
+          "recipeUrl": "https://ref.partiyaedi.ru/20i5ti27r8f"
         },
         {
           "id": "0621235e-f215-11e8-b85c-ac1f6b453d7b",
@@ -15355,7 +15301,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/sgo6jqlerf"
+          "recipeUrl": "https://ref.partiyaedi.ru/qyiq7xpbpm"
         },
         {
           "id": "06212360-f215-11e8-b85c-ac1f6b453d7b",
@@ -15437,7 +15383,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/2ypcme1v5fp"
+          "recipeUrl": "https://ref.partiyaedi.ru/t87rfe2tupq"
         },
         {
           "id": "06212362-f215-11e8-b85c-ac1f6b453d7b",
@@ -15519,7 +15465,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/p5elid2k5m"
+          "recipeUrl": "https://ref.partiyaedi.ru/ny1ilfl6ir"
         },
         {
           "id": "fad73b58-988b-11e7-ac75-84fb892a5770",
@@ -15596,7 +15542,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/5rmnxh0sdqh"
+          "recipeUrl": "https://ref.partiyaedi.ru/h7pliv3j9tv"
         },
         {
           "id": "11b6959b-f215-11e8-b85c-ac1f6b453d7b",
@@ -15681,7 +15627,7 @@
             "АЗИЯ",
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/96f18u945g4"
+          "recipeUrl": "https://ref.partiyaedi.ru/5exdnrdpxmd"
         },
         {
           "id": "54a4ce3e-4549-11e7-b37d-ab469736d1ec",
@@ -15758,7 +15704,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/0hqk5878lxz"
+          "recipeUrl": "https://ref.partiyaedi.ru/gt3jh12c2x"
         },
         {
           "id": "11ca9e40-2664-11e7-9007-b90dde161e23",
@@ -15840,7 +15786,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/r3attnmy99l"
+          "recipeUrl": "https://ref.partiyaedi.ru/vtu07spnqii"
         },
         {
           "id": "06212364-f215-11e8-b85c-ac1f6b453d7b",
@@ -15917,7 +15863,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/j9fdqyei90r"
+          "recipeUrl": "https://ref.partiyaedi.ru/0w9lprszlo2e"
         },
         {
           "id": "460fd56e-22d0-11e9-b86e-ac1f6b453d7b",
@@ -15991,7 +15937,7 @@
           "tags": [
             "VEGAN"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/2qoos8jm10e"
+          "recipeUrl": "https://ref.partiyaedi.ru/m8cekm8upuq"
         },
         {
           "id": "5732ad4b-b694-11e8-b840-ac1f6b453d7b",
@@ -16063,7 +16009,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/5k1g9y23eq6"
+          "recipeUrl": "https://ref.partiyaedi.ru/098f5ywxdxej"
         },
         {
           "id": "3ff20c08-22d0-11e9-b86e-ac1f6b453d7b",
@@ -16145,7 +16091,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/12mudf3253ok"
+          "recipeUrl": "https://ref.partiyaedi.ru/ia9gko0qli"
         },
         {
           "id": "ba6353b2-8686-11e7-b5dd-e4d93486f05d",
@@ -16227,7 +16173,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/awiiwufhecv"
+          "recipeUrl": "https://ref.partiyaedi.ru/iu68ajbj6mn"
         },
         {
           "id": "0e95338d-c9eb-11e7-8155-d9f18dbae2cd",
@@ -16304,7 +16250,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/w0folm4djqa"
+          "recipeUrl": "https://ref.partiyaedi.ru/inpe5duy9hb"
         },
         {
           "id": "3ff20c0a-22d0-11e9-b86e-ac1f6b453d7b",
@@ -16370,13 +16316,13 @@
               "amount": 30
             },
             {
-              "name": "Мюсли из пророщенной пшеницы",
+              "name": "Мюсли из пшеницы",
               "units": "г",
               "amount": 20
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/xegy5nrjad8"
+          "recipeUrl": "https://ref.partiyaedi.ru/sxfmbyqheqq"
         },
         {
           "id": "460fd56b-22d0-11e9-b86e-ac1f6b453d7b",
@@ -16438,7 +16384,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/0a1rxaj0oiuy"
+          "recipeUrl": "https://ref.partiyaedi.ru/jpvhsawfokc"
         },
         {
           "id": "1a915d1b-f79d-11e8-b860-ac1f6b453d7b",
@@ -16515,7 +16461,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/1pq1fn7z88h"
+          "recipeUrl": "https://ref.partiyaedi.ru/6qeft76daxk"
         },
         {
           "id": "2107b46a-f79d-11e8-b860-ac1f6b453d7b",
@@ -16587,7 +16533,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/8m1ucx3nn3a"
+          "recipeUrl": "https://ref.partiyaedi.ru/a6lvtmb0vrv"
         },
         {
           "id": "9aee2666-76af-11e7-8008-e7cc393a3275",
@@ -16669,7 +16615,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/6f41qflidg2"
+          "recipeUrl": "https://ref.partiyaedi.ru/huv568u2ouu"
         },
         {
           "id": "2107b468-f79d-11e8-b860-ac1f6b453d7b",
@@ -16694,20 +16640,20 @@
           },
           "dayNumber": 4,
           "nutritionalValue": {
-            "calories": 86,
-            "proteins": 6,
-            "fats": 5,
+            "calories": 74,
+            "proteins": 5,
+            "fats": 4,
             "carbohydrates": 5
           },
           "cookingTime": 20,
-          "weight": 590,
+          "weight": 530,
           "portionsCount": 2,
-          "requiredCookware": "",
+          "requiredCookware": "нож, доска, сковорода, 2 сотейника, соль, перец.",
           "ingredients": [
             {
-              "name": "Фунчоза",
+              "name": "Бульон куриный",
               "units": "г",
-              "amount": 50
+              "amount": 600
             },
             {
               "name": "Говяжья вырезка",
@@ -16715,14 +16661,9 @@
               "amount": 300
             },
             {
-              "name": "Капуста брюссельская зам",
+              "name": "Фунчоза",
               "units": "г",
-              "amount": 70
-            },
-            {
-              "name": "Морковь бейби зам",
-              "units": "г",
-              "amount": 70
+              "amount": 50
             },
             {
               "name": "Яйцо ",
@@ -16732,7 +16673,7 @@
             {
               "name": "Водоросли вакаме",
               "units": "г",
-              "amount": 5
+              "amount": 10
             },
             {
               "name": "Кунжут жареный",
@@ -16751,7 +16692,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/41kcbd2nj7b"
+          "recipeUrl": "https://ref.partiyaedi.ru/i8dl6xiii6b"
         },
         {
           "id": "8f9b540c-5fdb-11e7-a967-826c08c70ddc",
@@ -16818,7 +16759,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/e2fb5qa1t8"
+          "recipeUrl": "https://ref.partiyaedi.ru/uhd7vwys9v"
         },
         {
           "id": "15bc320c-5bd5-11e7-a967-826c08c70ddc",
@@ -16885,7 +16826,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/7ptg4lm0ree"
+          "recipeUrl": "https://ref.partiyaedi.ru/lawzvdlhmzl"
         },
         {
           "id": "2107b46c-f79d-11e8-b860-ac1f6b453d7b",
@@ -16962,7 +16903,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/uggyiui2n2b"
+          "recipeUrl": "https://ref.partiyaedi.ru/51cxeg6nvc"
         },
         {
           "id": "1e04d237-793f-11e8-b81d-ac1f6b453d7b",
@@ -17044,7 +16985,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/28itm9h46ti"
+          "recipeUrl": "https://ref.partiyaedi.ru/2vh4k1oyrn5"
         },
         {
           "id": "1f955ac2-9ded-11e7-a7db-8e382ddd508c",
@@ -17113,7 +17054,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/r5wxrk4n8ai"
+          "recipeUrl": "https://ref.partiyaedi.ru/2tk2h20uvrs"
         },
         {
           "id": "ff574da6-9dec-11e7-a7db-8e382ddd508c",
@@ -17177,7 +17118,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/yc5hd7vp4vq"
+          "recipeUrl": "https://ref.partiyaedi.ru/6bxlphxu9s"
         },
         {
           "id": "1cee3c86-b179-11e7-93e7-a55bb4cb29ac",
@@ -17251,7 +17192,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/yedm0wp2yfo"
+          "recipeUrl": "https://ref.partiyaedi.ru/cr3uwgo1wz5"
         },
         {
           "id": "2f268bc2-a6cf-11e8-b837-ac1f6b453d7b",
@@ -17325,7 +17266,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/39khva76218"
+          "recipeUrl": "https://ref.partiyaedi.ru/slk4uq58cj"
         },
         {
           "id": "e6c42f31-0431-11e9-b868-ac1f6b453d7b",
@@ -17389,7 +17330,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/fygpo77s1iu"
+          "recipeUrl": "https://ref.partiyaedi.ru/h9yzzgli1yn"
         },
         {
           "id": "09289c28-b179-11e7-93e7-a55bb4cb29ac",
@@ -17463,7 +17404,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/zl1iv2r0ruf"
+          "recipeUrl": "https://ref.partiyaedi.ru/r5e167tl67"
         },
         {
           "id": "ffce6dcc-ab82-11e7-85e2-b2e3fafb7afc",
@@ -17532,7 +17473,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/71ychib6ud5"
+          "recipeUrl": "https://ref.partiyaedi.ru/jxqioaqc8qo"
         },
         {
           "id": "93f98ba1-0434-11e9-b868-ac1f6b453d7b",
@@ -17611,7 +17552,7 @@
           "tags": [
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/6dqct96e77k"
+          "recipeUrl": "https://ref.partiyaedi.ru/2f3xxutagn6"
         },
         {
           "id": "a92bc3d3-bfde-11e8-b843-ac1f6b453d7b",
@@ -17636,13 +17577,13 @@
           },
           "dayNumber": 2,
           "nutritionalValue": {
-            "calories": 205,
-            "proteins": 12,
-            "fats": 12,
-            "carbohydrates": 12
+            "calories": 190,
+            "proteins": 11,
+            "fats": 11,
+            "carbohydrates": 11
           },
           "cookingTime": 10,
-          "weight": 370,
+          "weight": 400,
           "portionsCount": 2,
           "requiredCookware": "нож, доска, сковорода, 2 миски, подсолнечное масло, соль, перец.",
           "ingredients": [
@@ -17690,7 +17631,7 @@
           "tags": [
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/7jd9mth35u4"
+          "recipeUrl": "https://ref.partiyaedi.ru/0myxwq2sg0m"
         },
         {
           "id": "87ccac90-0f3f-11e8-811a-813101ec3769",
@@ -17774,7 +17715,7 @@
           "tags": [
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/y9pwdo931mr"
+          "recipeUrl": "https://ref.partiyaedi.ru/57en3bx4ds"
         },
         {
           "id": "74c23450-fa8d-11e7-9a87-c1b2a30c4bc9",
@@ -17838,7 +17779,7 @@
           "tags": [
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/sf5osfdrkk"
+          "recipeUrl": "https://ref.partiyaedi.ru/3unod4mfoum"
         },
         {
           "id": "9c6eeef5-0434-11e9-b868-ac1f6b453d7b",
@@ -17917,7 +17858,7 @@
           "tags": [
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/sda6m19mp1p"
+          "recipeUrl": "https://ref.partiyaedi.ru/uem6kxqpwc"
         },
         {
           "id": "9c6eeef9-0434-11e9-b868-ac1f6b453d7b",
@@ -18001,7 +17942,7 @@
           "tags": [
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/9fol9lvxo7v"
+          "recipeUrl": "https://ref.partiyaedi.ru/z1zprs1klbo"
         },
         {
           "id": "67bbd26d-04c2-11e8-8112-cfb838ba0eb0",
@@ -18075,7 +18016,7 @@
           "tags": [
             "10 МИНУТ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/rq5zdxe646i"
+          "recipeUrl": "https://ref.partiyaedi.ru/x2mncuhkw2"
         },
         {
           "id": "86ef780d-4790-11e7-acaf-93c8e9b5b6f3",
@@ -18132,7 +18073,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/mclo6bheuk"
+          "recipeUrl": "https://ref.partiyaedi.ru/f8pebopg467"
         },
         {
           "id": "3cfb1aac-e630-11e5-b11b-da5e8dcc4de6",
@@ -18214,7 +18155,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/sqr2mi7aek"
+          "recipeUrl": "https://ref.partiyaedi.ru/genab2s4pim"
         },
         {
           "id": "e6c24434-4794-11e7-acaf-93c8e9b5b6f3",
@@ -18245,7 +18186,7 @@
             "carbohydrates": 13
           },
           "cookingTime": 15,
-          "weight": 420,
+          "weight": 410,
           "portionsCount": 2,
           "requiredCookware": "",
           "ingredients": [
@@ -18291,7 +18232,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/m1kcbb8kiil"
+          "recipeUrl": "https://ref.partiyaedi.ru/20f3zjgxxiw"
         },
         {
           "id": "ce15f863-93cd-11e6-b8c3-b7d40fd32cfe",
@@ -18343,7 +18284,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/m1kcbb8kiil"
+          "recipeUrl": "https://ref.partiyaedi.ru/20f3zjgxxiw"
         },
         {
           "id": "85630794-f13c-11e6-a570-bb9bf97275fd",
@@ -18410,7 +18351,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/m1kcbb8kiil"
+          "recipeUrl": "https://ref.partiyaedi.ru/20f3zjgxxiw"
         },
         {
           "id": "082555c8-0b20-11e6-ba88-a30c60838de7",
@@ -18435,13 +18376,13 @@
           },
           "dayNumber": 4,
           "nutritionalValue": {
-            "calories": 67,
+            "calories": 65,
             "proteins": 2,
             "fats": 1,
             "carbohydrates": 13
           },
           "cookingTime": 15,
-          "weight": 370,
+          "weight": 390,
           "portionsCount": 2,
           "requiredCookware": "",
           "ingredients": [
@@ -18477,7 +18418,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/m1kcbb8kiil"
+          "recipeUrl": "https://ref.partiyaedi.ru/20f3zjgxxiw"
         },
         {
           "id": "458f1ae9-a665-11e6-991b-b6e3e69f22fd",
@@ -18539,7 +18480,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/m1kcbb8kiil"
+          "recipeUrl": "https://ref.partiyaedi.ru/20f3zjgxxiw"
         },
         {
           "id": "bf38f268-7e45-11e6-b3a8-99c2db5c3afd",
@@ -18601,7 +18542,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/m1kcbb8kiil"
+          "recipeUrl": "https://ref.partiyaedi.ru/20f3zjgxxiw"
         },
         {
           "id": "608873c5-a665-11e6-991b-b6e3e69f22fd",
@@ -18668,7 +18609,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/m1kcbb8kiil"
+          "recipeUrl": "https://ref.partiyaedi.ru/20f3zjgxxiw"
         },
         {
           "id": "5eb6ecd4-f797-11e8-b860-ac1f6b453d7b",
@@ -18760,7 +18701,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/rg2gsw5in9n"
+          "recipeUrl": "https://ref.partiyaedi.ru/w25zt38c7f"
         },
         {
           "id": "97ad8708-54ef-11e8-8144-ac28b4bf7b5c",
@@ -18832,7 +18773,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/rg2gsw5in9n"
+          "recipeUrl": "https://ref.partiyaedi.ru/w25zt38c7f"
         },
         {
           "id": "66c5b942-a3e8-11e8-b834-ac1f6b453d7b",
@@ -18899,7 +18840,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/rg2gsw5in9n"
+          "recipeUrl": "https://ref.partiyaedi.ru/w25zt38c7f"
         },
         {
           "id": "471f71e1-f797-11e8-b860-ac1f6b453d7b",
@@ -18976,7 +18917,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/rg2gsw5in9n"
+          "recipeUrl": "https://ref.partiyaedi.ru/w25zt38c7f"
         },
         {
           "id": "4afb42f7-08af-11e7-9c51-9d329370d8fd",
@@ -19043,7 +18984,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/rg2gsw5in9n"
+          "recipeUrl": "https://ref.partiyaedi.ru/w25zt38c7f"
         },
         {
           "id": "50a5ce7c-a3e8-11e8-b834-ac1f6b453d7b",
@@ -19110,7 +19051,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/rg2gsw5in9n"
+          "recipeUrl": "https://ref.partiyaedi.ru/w25zt38c7f"
         },
         {
           "id": "f80e14be-b1af-11e7-93e7-a55bb4cb29ac",
@@ -19182,7 +19123,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/rg2gsw5in9n"
+          "recipeUrl": "https://ref.partiyaedi.ru/w25zt38c7f"
         },
         {
           "id": "d003ce67-3c90-11e7-b37d-ab469736d1ec",
@@ -19686,7 +19627,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/bmqxmkw1kd4"
+          "recipeUrl": "https://ref.partiyaedi.ru/pgbh9h0acqd"
         },
         {
           "id": "4340c2e2-f79a-11e8-b860-ac1f6b453d7b",
@@ -19748,7 +19689,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/vab8ttob51r"
+          "recipeUrl": "https://ref.partiyaedi.ru/i1ubrhfpxum"
         },
         {
           "id": "d6594f25-0436-11e9-b868-ac1f6b453d7b",
@@ -19807,7 +19748,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/k11tknlfrhe"
+          "recipeUrl": "https://ref.partiyaedi.ru/n9xgwj8kdc"
         },
         {
           "id": "cfecd3e2-0436-11e9-b868-ac1f6b453d7b",
@@ -19871,7 +19812,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/7lk65zzbiy2"
+          "recipeUrl": "https://ref.partiyaedi.ru/bubq1bsoojs"
         },
         {
           "id": "d6594f27-0436-11e9-b868-ac1f6b453d7b",
@@ -19917,7 +19858,7 @@
               "amount": 250
             },
             {
-              "name": "Пюре из манго п/ф (Свое производство) п/ф",
+              "name": "Пюре манго",
               "units": "г",
               "amount": 40
             },
@@ -19932,7 +19873,7 @@
               "amount": 10
             },
             {
-              "name": "Пшеница воздушная в шоколаде",
+              "name": "Пшеница в шоколаде",
               "units": "г",
               "amount": 5
             }
@@ -19940,7 +19881,7 @@
           "tags": [
             "ПОНРАВИТСЯ ДЕТЯМ"
           ],
-          "recipeUrl": "https://ref.partiyaedi.ru/s5up7fjujo"
+          "recipeUrl": "https://ref.partiyaedi.ru/sd65h998io8"
         },
         {
           "id": "64959267-ab68-11e8-b838-ac1f6b453d7b",
@@ -19997,7 +19938,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/nbf1zs12khc"
+          "recipeUrl": "https://ref.partiyaedi.ru/fim7uuop2xh"
         },
         {
           "id": "6c76c337-ab68-11e8-b838-ac1f6b453d7b",
@@ -20054,7 +19995,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/tlp7ryo3rjp"
+          "recipeUrl": "https://ref.partiyaedi.ru/3p4xoom4ryk"
         },
         {
           "id": "db0826d3-6a1c-11e8-b817-ac1f6b453d7b",
@@ -20121,7 +20062,7 @@
             }
           ],
           "tags": [],
-          "recipeUrl": "https://ref.partiyaedi.ru/duhvwdbjlio"
+          "recipeUrl": "https://ref.partiyaedi.ru/yaxgmz6bd3e"
         }
       ]
     },
@@ -20780,6 +20721,667 @@
           "availabilityDates": [
             "2019-03-17",
             "2019-03-18"
+          ],
+          "defaultGoods": []
+        }
+      ],
+      "goods": []
+    },
+    {
+      "weekKey": "aca35a22-1d4b-11e9-b86d-ac1f6b453d7b",
+      "weekStart": "2019-03-25",
+      "isActualWeek": true,
+      "deliveryDays": [
+        "2019-03-24",
+        "2019-03-25"
+      ],
+      "constructorStopTime": "2019-03-18T18:00:00",
+      "products": [
+        {
+          "productId": 1,
+          "name": "Классическая партия на 2-х, 5 ужинов",
+          "price": 3439,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Classic",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 2,
+          "name": "Вегетарианская партия на 2-х, 5 ужинов",
+          "price": 3439,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Vegetarian",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 21,
+          "name": "Классическая партия на 4-х, 5 ужинов",
+          "price": 6217,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Classic",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 22,
+          "name": "Вегетарианская партия на 4-х, 5 ужинов",
+          "price": 5883,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Vegetarian",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 31,
+          "name": "Классическая партия на 2-х, 3 ужина",
+          "price": 2661,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Classic",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 32,
+          "name": "Вегетарианская партия на 2-х, 3 ужина",
+          "price": 2439,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Vegetarian",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 41,
+          "name": "Классическая партия на 4-х, 3 ужина",
+          "price": 4883,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Classic",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 42,
+          "name": "Вегетарианская партия на 4-х, 3 ужина",
+          "price": 4328,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Vegetarian",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 100,
+          "name": "Десерт",
+          "price": 883,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 1,
+          "type": "ADDITIONAL",
+          "class": "Dessert",
+          "availableGoods": [],
+          "constructorAvailable": false,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 110,
+          "name": "Суп",
+          "price": 772,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 1,
+          "type": "ADDITIONAL",
+          "class": "Soup",
+          "availableGoods": [],
+          "constructorAvailable": false,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 145,
+          "name": "Смузи, 5 смузи",
+          "price": 1772,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "ADDITIONAL",
+          "class": "Smoothies",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 144,
+          "name": "Смузи, 3 смузи",
+          "price": 1106,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "ADDITIONAL",
+          "class": "Smoothies",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 143,
+          "name": "Детская партия, 5 ужинов",
+          "price": 1328,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "ADDITIONAL",
+          "class": "Child",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 142,
+          "name": "Детская партия, 3 ужина",
+          "price": 883,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "ADDITIONAL",
+          "class": "Child",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 140,
+          "name": "Партия завтраков, 5 завтраков",
+          "price": 1994,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "ADDITIONAL",
+          "class": "Breakfast",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 139,
+          "name": "Партия завтраков, 3 завтрака",
+          "price": 1328,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "ADDITIONAL",
+          "class": "Breakfast",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 147,
+          "name": "Морс",
+          "price": 550,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 1,
+          "type": "ADDITIONAL",
+          "class": "Mors",
+          "availableGoods": [],
+          "constructorAvailable": false,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 177,
+          "name": "Сырная коробка",
+          "price": 2217,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 1,
+          "type": "ADDITIONAL",
+          "class": "Cheese",
+          "availableGoods": [],
+          "constructorAvailable": false,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 182,
+          "name": "Молочная коробка",
+          "price": 1661,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 1,
+          "type": "ADDITIONAL",
+          "class": "Milk",
+          "availableGoods": [],
+          "constructorAvailable": false,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 266,
+          "name": "10 минут на 2-х, 5 ужинов",
+          "price": 3772,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Express",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 267,
+          "name": "10 минут на 2-х, 3 ужинов",
+          "price": 2772,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Express",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 268,
+          "name": "10 минут партия на 4-х, 3 ужина",
+          "price": 4772,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Express",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 269,
+          "name": "10 минут партия на 4-х, 5 ужина",
+          "price": 6550,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Express",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 360,
+          "name": "Пробная партия 1",
+          "price": 1999,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Test1",
+          "availableGoods": [],
+          "constructorAvailable": false,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 363,
+          "name": "Пробная партия 1499",
+          "price": 1499,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Test1",
+          "availableGoods": [],
+          "constructorAvailable": false,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 521,
+          "name": "Пробная партия 1 (повторный заказ)",
+          "price": 2661,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Test1",
+          "availableGoods": [],
+          "constructorAvailable": false,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 560,
+          "name": "Семейная партия на 2-х, 3 ужинов",
+          "price": 2328,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Family",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 570,
+          "name": "Семейная партия на 2-х, 5 ужинов",
+          "price": 3217,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Family",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 800,
+          "name": "Премиум партия на 2-х, 3 ужина",
+          "price": 2883,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Premium",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 801,
+          "name": "Премиум партия на 2-х, 5 ужинов",
+          "price": 3994,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Premium",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 810,
+          "name": "Премиум партия на 4-х, 3 ужина",
+          "price": 5105,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Premium",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 811,
+          "name": "Премиум партия на 4-х, 5 ужинов",
+          "price": 7217,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Premium",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 900,
+          "name": "Фитнес партия на 2-х, 5 ужинов",
+          "price": 4550,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Fitness",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 901,
+          "name": "Фитнес партия на 2-х, 3 ужина",
+          "price": 3439,
+          "personsAmount": 2,
+          "personsAmountView": "TWO_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Fitness",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 902,
+          "name": "Фитнес партия на 4-х, 5 ужинов",
+          "price": 8217,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 5,
+          "type": "BOX",
+          "class": "Fitness",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
+          ],
+          "defaultGoods": []
+        },
+        {
+          "productId": 903,
+          "name": "Фитнес партия на 4-х, 3 ужинов",
+          "price": 5550,
+          "personsAmount": 4,
+          "personsAmountView": "FOUR_PERSONS",
+          "goodsCount": 3,
+          "type": "BOX",
+          "class": "Fitness",
+          "availableGoods": [],
+          "constructorAvailable": true,
+          "available": true,
+          "availabilityDates": [
+            "2019-03-24",
+            "2019-03-25"
           ],
           "defaultGoods": []
         }

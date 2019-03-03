@@ -24,6 +24,8 @@ import {EValidationStatus} from '@shared/enums/validation-status.enum';
 import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {NoopScrollStrategy} from '@angular/cdk/overlay';
+import {MenuService} from '../menu.service';
+import * as moment from 'moment';
 
 export interface IMenuConstructorOutput {
   goodsCount: number;
@@ -37,26 +39,30 @@ export interface IMenuConstructorOutput {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuConstructorComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input() timeIsUp: boolean;
   @Input() goods: IGood[];
   @Input() selectedGoods: IGood[] = [];
   @Output() setGoods: EventEmitter<IMenuConstructorOutput> = new EventEmitter();
   @Output() destroyConstructor: EventEmitter<void> = new EventEmitter();
   @ViewChild('dialog') dialogTemplate: TemplateRef<any>;
   @ViewChild('submitLine') submitLine: ElementRef;
+  activeGoodId: string;
+  constructorExpireDate: string;
   dialogRef!: MatDialogRef<any>;
   form: FormGroup;
-  activeGoodId: string;
   goodsCountsOptions: IOption[] = [];
-  submitLineFixed$: Subject<boolean> = new Subject();
   onDestroy: Subject<void> = new Subject();
+  submitLineFixed$: Subject<boolean> = new Subject();
+  contructorTimeExpired: boolean;
 
   constructor(private fb: FormBuilder,
               private appService: AppService,
               private translate: TranslateService,
               private dialog: MatDialog,
               private scrollService: WindowScrollService,
+              private menuService: MenuService,
               private elRef: ElementRef) {
+    this.constructorExpireDate = this.menuService.offer.constructorStopTime;
+    this.contructorTimeExpired = this.menuService.offer.constructorTimeExpired;
     const formConfig: IOrderFormConfig = this.appService.orderFormConfig;
     this.form = this.fb.group({
       goodsCount: formConfig.defaultGoodsCount,

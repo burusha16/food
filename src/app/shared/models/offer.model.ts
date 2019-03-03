@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import * as _ from 'lodash/core';
 import {IOffer} from '../interfaces/offers.interface';
 import {IProduct} from '../interfaces/product.interface';
@@ -12,6 +13,7 @@ export class Offer implements IOffer {
   constructorStopTime: string;
   products: IProduct[];
   goods: IGood[];
+  constructorTimeExpired: boolean;
 
   constructor(data) {
     this.weekKey = data.weekKey;
@@ -19,12 +21,17 @@ export class Offer implements IOffer {
     this.isActualWeek = data.isActualWeek;
     this.deliveryDays = data.deliveryDays;
     this.constructorStopTime = data.constructorStopTime;
-    this.products = this.getProductsWithGoodsModels(data.products, data.goods, data.constructorStopTime);
+    this.products = this.getProductsWithGoodsModels(data.products, data.goods);
+    this.setConstructTimeIsUp();
   }
 
-  getProductsWithGoodsModels(products: IProduct[], goods: IGood[], stopTime: string): IProduct[] {
+  setConstructTimeIsUp() {
+    this.constructorTimeExpired = moment().unix() > moment(this.constructorStopTime).unix();
+  }
+
+  getProductsWithGoodsModels(products: IProduct[], goods: IGood[]): IProduct[] {
     const fixedGoods = this.getGoodsWithFixedImagePath(goods);
-    return _.map(products, (product: IProduct) => new Product(product, fixedGoods, stopTime));
+    return _.map(products, (product: IProduct) => new Product(product, fixedGoods));
   }
 
   getGoodsWithFixedImagePath(goods): IGood[] {

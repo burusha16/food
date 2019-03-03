@@ -5,7 +5,14 @@
         <div class="menu-constructor__header">
           <h1 class="menu-constructor__header-title">{{'menu.constructor.title' | translate}}</h1>
           <span
-            class="menu-constructor__header-subtitle">{{'menu.constructor.subtitle' | translate: {date: '18 февраля'} }}</span>
+            class="menu-constructor__header-subtitle">
+            {{'menu.constructor.subtitle' | translate:
+              {
+                day: constructorExpireDate | dateFormat: 'dddd',
+                date: constructorExpireDate | dateFormat: 'D MMMM'
+              }
+            }}
+          </span>
         </div>
 
         <button class="button-icon __s48 __in-round __mt20"
@@ -80,9 +87,13 @@
   </div>
 </form>
 
-<div class="menu-constructor__disabled" *ngIf="timeIsUp">
+<div class="menu-constructor__disabled" *ngIf="contructorTimeExpired">
   <p class="menu-constructor__disabled-text"
-    [innerHTML]="'menu.constructor.disabled-text' | translate | safeHtml">
+    [innerHTML]="'menu.constructor.disabled-text' | translate:
+              {
+                day: constructorExpireDate | dateFormat: 'dddd',
+                date: constructorExpireDate | dateFormat: 'D MMMM'
+              } | safeHtml">
   </p>
   <button class="button-default __h40 __w160 __mt16"
           (click)="closeConstructor()">
