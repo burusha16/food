@@ -1,7 +1,7 @@
 import {IGood, IGoodData, IGoodImages, IGoodIngredients, IGoodNames} from '@shared/interfaces/good.interface';
 import {INutritionalValue, INutritionalValueData} from '@shared/interfaces/nutritional-value.interface';
 
-export class GoodModel implements IGood {
+export class Good implements IGood {
   cookingTime: number;
   dayNumber: number;
   id: string;

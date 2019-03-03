@@ -19,12 +19,12 @@ export class Offer implements IOffer {
     this.isActualWeek = data.isActualWeek;
     this.deliveryDays = data.deliveryDays;
     this.constructorStopTime = data.constructorStopTime;
-    this.products = this.getProductsWithGoodsModels(data.products, data.goods);
+    this.products = this.getProductsWithGoodsModels(data.products, data.goods, data.constructorStopTime);
   }
 
-  getProductsWithGoodsModels(products: IProduct[], goods: IGood[]): IProduct[] {
+  getProductsWithGoodsModels(products: IProduct[], goods: IGood[], stopTime: string): IProduct[] {
     const fixedGoods = this.getGoodsWithFixedImagePath(goods);
-    return _.map(products, (product: IProduct) => new Product(product, fixedGoods));
+    return _.map(products, (product: IProduct) => new Product(product, fixedGoods, stopTime));
   }
 
   getGoodsWithFixedImagePath(goods): IGood[] {

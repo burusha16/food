@@ -8,6 +8,7 @@ import {MenuService} from '../../menu.service';
 import {MenuSidenavService} from '../../menu-sidenav.service';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {IAdditionalProductSelect} from '../../shared/additional-product-select.interface';
+import {Product} from '@shared/models/product.model';
 
 @Component({
   selector: 'app-additional-product',
@@ -22,7 +23,7 @@ import {IAdditionalProductSelect} from '../../shared/additional-product-select.i
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdditionalProductComponent implements OnInit {
-  @Input() product: IProduct;
+  @Input() product: Product;
   @Input() controlArrayName: string;
   @Input() controlIndex: number;
   @Output() additionalProductSelect: EventEmitter<IAdditionalProductSelect> = new EventEmitter();
@@ -37,7 +38,7 @@ export class AdditionalProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  showDetails(product: IProduct) {
+  showDetails(product: Product) {
     this.menuService.productDetailsData$.next({
       goods: product.defaultGoodsModels,
       selectedGoodHash: product.defaultGoodsModels[0].id

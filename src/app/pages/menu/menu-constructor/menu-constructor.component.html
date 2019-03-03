@@ -80,6 +80,16 @@
   </div>
 </form>
 
+<div class="menu-constructor__disabled" *ngIf="timeIsUp">
+  <p class="menu-constructor__disabled-text"
+    [innerHTML]="'menu.constructor.disabled-text' | translate | safeHtml">
+  </p>
+  <button class="button-default __h40 __w160 __mt16"
+          (click)="closeConstructor()">
+    {{'menu.constructor.disabled-close' | translate}}
+  </button>
+</div>
+
 <ng-template #dialog>
     <app-product-details-slider [goods]="goods"
                                 [activeId]="activeGoodId"

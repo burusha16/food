@@ -24,7 +24,7 @@ import {PriceCurrencyPipe} from '@shared/pipes/price-currency.pipe';
 import {WindowScrollService} from '@shared/services/window-scroll.service';
 import {Subject} from 'rxjs';
 import {DeviceWindowService} from '@shared/services/device-window.service';
-import {takeUntil, tap} from 'rxjs/operators';
+import {takeUntil} from 'rxjs/operators';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {NoopScrollStrategy} from '@angular/cdk/overlay';
 import {IMenuConstructorOutput} from '../menu-constructor/menu-constructor.component';

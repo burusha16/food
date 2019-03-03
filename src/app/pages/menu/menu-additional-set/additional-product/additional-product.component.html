@@ -44,6 +44,7 @@
 
 <ng-template #dialogTemplate>
   <app-menu-constructor
+    [timeIsUp]="product.constructorTimeIsUp"
     [goods]="product.availableGoodsModels"
     (destroyConstructor)="hideContructor()"
     (setGoods)="setGoods($event)">

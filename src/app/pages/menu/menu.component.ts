@@ -51,19 +51,19 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
         const lastValue = this.orderFormValue;
         this.orderFormValue = value;
         _.each(defaultProductResetFactors, (key: string) => {
-          if (isEqualByValue(lastValue[key], value[key])) {
+          if (!isEqualByValue(lastValue[key], value[key])) {
             this.menuService.setDefaultProducts();
             this.setDefaultProduct();
           }
         });
         _.each(additionalProductResetFactors, (key: string) => {
-          if (isEqualByValue(lastValue[key], value[key])) {
+          if (!isEqualByValue(lastValue[key], value[key])) {
             this.menuService.setAdditionalProducts();
             this.setAdditionalProducts();
           }
         });
         _.each(defaultProductUpdateFactors, (key: string) => {
-          if (isEqualByValue(lastValue[key], value[key])) {
+          if (!isEqualByValue(lastValue[key], value[key])) {
             this.setDefaultProduct();
           }
         });

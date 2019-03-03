@@ -37,6 +37,7 @@ export interface IMenuConstructorOutput {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuConstructorComponent implements OnInit, AfterViewInit, OnDestroy {
+  @Input() timeIsUp: boolean;
   @Input() goods: IGood[];
   @Input() selectedGoods: IGood[] = [];
   @Output() setGoods: EventEmitter<IMenuConstructorOutput> = new EventEmitter();
