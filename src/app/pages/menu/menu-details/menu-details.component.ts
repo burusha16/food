@@ -10,7 +10,7 @@ import {
   OnInit, TemplateRef,
   ViewChild,
 } from '@angular/core';
-import {ControlContainer, FormGroup, FormGroupDirective} from '@angular/forms';
+import {ControlContainer, FormArray, FormGroup, FormGroupDirective} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {AppService} from '@shared/services/base-app.service';
 import {MenuService} from '../menu.service';
@@ -28,6 +28,8 @@ import {takeUntil} from 'rxjs/operators';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {NoopScrollStrategy} from '@angular/cdk/overlay';
 import {IMenuConstructorOutput} from '../menu-constructor/menu-constructor.component';
+import {Good} from '@shared/models/good.model';
+import {Product} from '@shared/models/product.model';
 
 @Responsive()
 @Component({
@@ -119,7 +121,7 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
     const productsSetNames: string[] = ['additionalSet', 'additionalMilkSet'];
     const productsPrices: number[] = [this.defaultProduct.price];
     productsSetNames.forEach((controlsName: string) => {
-      const products: boolean[] = this.orderForm.get(controlsName).value;
+      const products: boolean[] = (<FormArray>this.orderForm.get(controlsName)).getRawValue();
       const productsPrice: number[] = products.map((value: boolean, index: number) => value ? this.additionalProducts[index].price : 0);
       productsPrices.push(...productsPrice);
     });
@@ -148,5 +150,23 @@ export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, I
   selectGoods(data: IMenuConstructorOutput) {
     this.orderForm.get('goodsCount').setValue(data.goodsCount);
     this.orderForm.get('defaultSet').setValue(data.goods);
+  }
+
+  submitForm() {
+    const className = this.orderForm.get('class').value;
+    const defaultGoods = this.defaultProduct.defaultGoodsModels.map((good: Good) => good.name).join('\n - ');
+    const additionalGoods = this.additionalProducts.filter(
+      (product: Product, index: number) => {
+        return (<FormArray>this.orderForm.get('additionalSet')).getRawValue()[index];
+      }).map((product: Product) => product.name);
+    const additionalMilkGoods = this.additionalMilkProducts.filter(
+      (product: Product, index: number) => {
+        return (<FormArray>this.orderForm.get('additionalMilkSet')).value[index];
+      }).map((product: Product) => product.name);
+    const allAdditinalGoods = [...additionalGoods, ...additionalMilkGoods].join('\n - ');
+    const msg = `Оформляем заказ! \n Основное меню - класс: ${className}, \n Блюда: \n - ${defaultGoods}.
+Дополнительное меню: \n - ${allAdditinalGoods}. \n Цена: ${this.totalPriceWithSale} (без скидки - ${this.totalPrice})
+    `;
+    alert(msg);
   }
 }

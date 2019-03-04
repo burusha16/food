@@ -21,6 +21,9 @@ import {AppService} from '@shared/services/base-app.service';
 import {ITabWithLink} from '@shared/interfaces/app-config.interface';
 import {IOffer} from '@shared/interfaces/offers.interface';
 import {MenuService} from '../../menu/menu.service';
+import {Subject} from 'rxjs';
+import {WindowScrollService} from '@shared/services/window-scroll.service';
+import {take} from 'rxjs/operators';
 
 @Responsive()
 @Component({
@@ -36,6 +39,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
 
   animationDuration = 400;
   currentMenuIndex = 0;
+  componentInViewport$: Subject<boolean> = new Subject();
   isMobile: boolean;
   isSmall: boolean;
   products: IProduct[] = [];
@@ -50,7 +54,7 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
     prevEl: '.menu-examples__slider-nav-prev',
     nextEl: '.menu-examples__slider-nav-next',
     disabledClass: '__disabled'
-  }
+  };
   swiperConfigDesktop: SwiperConfigInterface = {
     spaceBetween: 0,
     width: 1000,
@@ -69,7 +73,8 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
               private router: Router,
               private contentPreloadService: ContentPreloadService,
               private appService: AppService,
-              private menuService: MenuService)  {
+              private menuService: MenuService,
+              private scrollService: WindowScrollService)  {
     let products: IProduct[];
     const tabsConfig = this.appService.menuTabsConfig;
     _.each(this.menuService.offers, (offer: IOffer) => {
@@ -87,18 +92,23 @@ export class MenuExamplesComponent implements OnInit, AfterViewInit, IResponsive
       const sortedByOrderProduct = _.filter(products, (product: IProduct) => product.class === className)[0];
       this.products.push(sortedByOrderProduct);
     });
+    this.componentInViewport$
+      .pipe(take(1))
+      .subscribe(() => {
+        this.scrollService.removeListener(this.constructor.name);
+        _.each(this.products, (product: IProduct) => {
+          _.each(product.availableGoodsModels, (good: IGood) => {
+            this.contentPreloadService.preload('image', good.images.rectangular.s840x454);
+          });
+        });
+      });
   }
 
   ngOnInit() {}
 
   ngAfterViewInit() {
-    if (ServiceLocator.isBrowser) {
-      _.each(this.products, (product: IProduct) => {
-        _.each(product.availableGoodsModels, (good: IGood) => {
-          this.contentPreloadService.preload('image', good.images.rectangular.s840x454);
-        });
-      });
-    }
+    const breakpoint = (<HTMLElement>this.elRef.nativeElement).offsetTop - window.innerHeight / 2;
+    this.scrollService.addScrollListener(breakpoint, this.constructor.name, this.componentInViewport$);
     this.swiper.update();
   }
 

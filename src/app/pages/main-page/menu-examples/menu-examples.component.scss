@@ -57,6 +57,17 @@ app-menu-examples {
       }
     }
 
+    &-img {
+      width: 100%;
+      height: 432px;
+      background-image: url("../../../../assets/img/background/good404.png");
+
+      @media screen and (max-width: $bp-md) {
+        width: 100vw;
+        height: 54vw;
+      }
+    }
+
     &-title {
       margin-top: 16px;
       padding: 0 16px;

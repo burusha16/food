@@ -25,7 +25,7 @@
       <div class="swiper-wrapper">
         <div class="menu-examples__slider-slide swiper-slide __menu-expample" *ngFor="let good of currentProduct.defaultGoodsModels" (click)="changeSlide($event)">
           <div class="menu-examples__slider-item">
-            <img [src]="good.images.rectangular.s840x454 | safeUrl" width="100%" height="auto" [alt]="good.name">
+            <img [src]="good.images.rectangular.s840x454 | safeUrl" [alt]="good.name" class="menu-examples__slider-img">
             <h5 class="menu-examples__slider-title">{{('common.days.number' + good.dayNumber) | translate}}: {{good.name}}</h5>
             <p class="menu-examples__slider-descr">
               <span>

@@ -55,7 +55,8 @@
           </button>
 
           <button class="button-default __h40"
-                  [ngClass]="{'__w188': !isMobile}">
+                  [ngClass]="{'__w188': !isMobile}"
+                  (click)="submitForm()">
             {{'menu.details.create-order' | translate}}
           </button>
         </div>
