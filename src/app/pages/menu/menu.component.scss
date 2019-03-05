@@ -1,6 +1,35 @@
+@import "variables";
+
 .menu {
   &__tabs {
     max-height: 42px;
     margin-top: 40px;
+  }
+
+  &__not-exist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 200px 0;
+
+    @media screen and (max-width: $bp-tablet) {
+      padding: 100px 0;
+    }
+
+    &-img {
+      width: 196px;
+      height: 196px;
+    }
+
+    &-label {
+      width: 100%;
+      max-width: 320px;
+      margin-top: 16px;
+      color: $cerulean-blue;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+    }
   }
 }

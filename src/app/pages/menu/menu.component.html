@@ -30,17 +30,38 @@
         </a>
       </app-tabs>
 
-      <app-menu-details [defaultProduct]="defaultProduct"
-                        [additionalProducts]="additionalProducts"
-                        [additionalMilkProducts]="additionalMilkProducts">
-      </app-menu-details>
+      <ng-container [ngSwitch]="!!defaultProduct.availableGoods.length">
+        <ng-template [ngSwitchCase]="true">
+          <app-menu-details [defaultProduct]="defaultProduct"
+                            [additionalProducts]="additionalProducts"
+                            [additionalMilkProducts]="additionalMilkProducts">
+          </app-menu-details>
 
-      <app-menu-default-set [product]="defaultProduct"></app-menu-default-set>
+          <app-menu-default-set [product]="defaultProduct"></app-menu-default-set>
 
-      <app-menu-additional-set [additionalProducts]="additionalProducts"
-                               [additionalMilkProducts]="additionalMilkProducts"
-                               (additionalProductSelect)="updateAdditionalProducts($event)">
-      </app-menu-additional-set>
+          <app-menu-additional-set [additionalProducts]="additionalProducts"
+                                   [additionalMilkProducts]="additionalMilkProducts"
+                                   (additionalProductSelect)="updateAdditionalProducts($event)">
+          </app-menu-additional-set>
+        </ng-template>
+
+        <ng-template [ngSwitchCase]="false">
+          <app-menu-details [defaultProduct]="defaultProduct"
+                            [disabled]="true"
+                            [additionalProducts]="additionalProducts"
+                            [additionalMilkProducts]="additionalMilkProducts">
+          </app-menu-details>
+
+          <div class="menu__not-exist">
+            <img src="../../../assets/img/background/offer404.gif"
+                 [alt]="'menu.not-exist' | translate"
+                 class="menu__not-exist-img">
+            <p class="menu__not-exist-label">
+              {{'menu.not-exist' | translate}}
+            </p>
+          </div>
+        </ng-template>
+      </ng-container>
     </form>
   </mat-sidenav-content>
 </mat-sidenav-container>

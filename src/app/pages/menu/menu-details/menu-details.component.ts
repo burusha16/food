@@ -45,6 +45,7 @@ import {Product} from '@shared/models/product.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuDetailsComponent implements OnInit, AfterViewInit, OnDestroy, IResponsiveComponent {
+  @Input() disabled = false;
   @Input() defaultProduct: IProduct;
   @Input() additionalProducts: IProduct[];
   @Input() additionalMilkProducts: IProduct[];

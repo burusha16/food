@@ -1,6 +1,7 @@
 <div class="menu-details"
-     [ngClass]="{'__fixed': detailsIsFixed$ | async,
-                 '__additional': additionalMenuPassed$ | async}">
+     [ngClass]="{'__fixed': (detailsIsFixed$ | async) && !disabled,
+                 '__additional': additionalMenuPassed$ | async,
+                 '__disabled': disabled}">
   <div class="container __mw800">
     <div class="row">
       <div class="col-sm-12 __align-center"
