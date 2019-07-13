@@ -20,6 +20,7 @@ import {AppComponent} from './app.component';
 import {AppRoutes} from './app.routing';
 import {SharedMetaModule} from '@shared/modules/shared-meta';
 import {ReactiveFormsModule} from '@angular/forms';
+import {SharedComponentsModule} from '@shared/components/shared-components.module';
 
 export function initLanguage(translateService: TranslatesService): Function {
   return (): Promise<any> => translateService.initLanguage();
@@ -48,7 +49,8 @@ export function getOffers(apiService: BaseApiService): Function {
     HeaderModule,
     FooterModule,
     SharedMetaModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedComponentsModule
   ],
   providers: [
     CookieService,

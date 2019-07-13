@@ -1,0 +1,24 @@
+@import "variables";
+
+$footer-height: 60px;
+$footer-height-mobile: 60px;
+
+:host {
+  display: block;
+  height: calc(100vh - #{$header-height + $footer-height});
+}
+
+.not-found {
+  &__title {
+    margin-top: 35vh;
+  }
+
+  &__text {
+    margin-top: 30px;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}

@@ -42,10 +42,8 @@
     "ngx-cookie": "^4.1.2",
     "ngx-swiper-wrapper": "^7.0.0",
     "rxjs": "^6.3.3",
-    "rxjs-tslint": "^0.1.6",
     "swiper": "^4.4.2",
     "tslib": "^1.9.0",
-    "webpack-cli": "^3.1.2",
     "zone.js": "~0.8.27"
   },
   "devDependencies": {
@@ -60,6 +58,8 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "3.2.4"
+    "typescript": "3.2.4",
+    "rxjs-tslint": "^0.1.6",
+    "webpack-cli": "^3.1.2"
   }
 }
