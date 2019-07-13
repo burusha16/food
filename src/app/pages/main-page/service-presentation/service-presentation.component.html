@@ -10,9 +10,9 @@
             {{'main-page.presentation.for-two' | translate }}
           </p>
     
-          <div class="presentation__play" (click)="showVideo()">
+          <button class="presentation__play" (click)="showVideo()">
             <mat-icon svgIcon="triangle" class="__s36 __ml10 __white"></mat-icon>
-          </div>
+          </button>
       </ng-template>
 
       <div class="presentation__video-wrapper" *ngIf="isVideoVisible$ | async">

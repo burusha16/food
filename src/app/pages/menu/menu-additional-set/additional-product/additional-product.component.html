@@ -32,13 +32,16 @@
     <div class="additinal-product__constructor" *ngIf="product.constructorAvailable">
       <mat-icon svgIcon="edit" class="__s12 __mr8 __cerulean-blue"></mat-icon>
       <button (click)="showConstructor()" class="button-inline __ceruleanblue-underline">
-        Изменить состав
+        {{'menu.additional.change-composition' | translate}}
       </button>
     </div>
   </div>
 
   <label [formArrayName]="controlArrayName" class="additinal-product__check">
-    <input type="checkbox" [formControlName]="controlIndex" class="visually-hidden">
+    <input type="checkbox"
+           [formControlName]="controlIndex"
+           class="visually-hidden"
+           cdkMonitorElementFocus>
     <span class="additinal-product__checkbox">
       <mat-icon svgIcon="checkmark" class="__s16"></mat-icon>
     </span>

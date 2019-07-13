@@ -78,6 +78,10 @@
       box-shadow: 0 0 0 12px rgba($white, .4);
     }
 
+    &:focus {
+      box-shadow: 0 0 0 8px $white, 0 0 2px 12px $de-york;
+    }
+
     @media screen and (max-width: $bp-md) {
       margin-top: 20px;
     }

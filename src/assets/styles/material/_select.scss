@@ -1,5 +1,9 @@
 .mat-form-field.__select {
   .mat-select {
+    &.cdk-keyboard-focused {
+      @extend %focus-de-york;
+    }
+
     &[aria-owns] {
       .mat-select-arrow {
         transform: rotate(180deg);

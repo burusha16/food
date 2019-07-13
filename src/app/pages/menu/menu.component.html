@@ -46,12 +46,6 @@
         </ng-template>
 
         <ng-template [ngSwitchCase]="false">
-          <app-menu-details [defaultProduct]="defaultProduct"
-                            [disabled]="true"
-                            [additionalProducts]="additionalProducts"
-                            [additionalMilkProducts]="additionalMilkProducts">
-          </app-menu-details>
-
           <div class="menu__not-exist">
             <img src="../../../assets/img/background/offer404.gif"
                  [alt]="'menu.not-exist' | translate"

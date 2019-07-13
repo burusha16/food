@@ -12,6 +12,7 @@ import {
   MatTooltipModule,
   MatSidenavModule,
 } from '@angular/material';
+import {A11yModule} from '@angular/cdk/a11y';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MaterialIconsList } from '../other/material-icons-list';
 import { IMatIcon } from '../interfaces/mat-icon.interface';
@@ -31,7 +32,8 @@ import {isPlatformServer} from '@angular/common';
     MatOptionModule,
     MatSelectModule,
     MatTooltipModule,
-    MatSidenavModule
+    MatSidenavModule,
+    A11yModule
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},

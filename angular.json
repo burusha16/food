@@ -34,7 +34,9 @@
                 "src/assets/styles"
               ]
             },
-            "scripts": []
+            "scripts": [
+              "node_modules/focus-visible/dist/focus-visible.min.js"
+            ]
           },
           "configurations": {
             "production": {

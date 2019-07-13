@@ -21,6 +21,7 @@ $bridal-heath: #fff9f0;
 $cinderella: #fce4d7;
 $cerulean-blue: #2557a7;
 $cumulus: #fdffd5;
+$de-york: #82d389;
 $ebb: #f1eeee;
 $gallery: #eee;
 $mine-shaft: #303030;
@@ -36,6 +37,19 @@ $white: #fff;
 $duration-fast: .2s;
 $duration-default: .4s;
 $duration-slow: .6s;
+
+// focusd states
+%focus-cerulean-blue {
+  box-shadow: 0 0 2px 2px $cerulean-blue;
+}
+
+%focus-tundora {
+  box-shadow: 0 0 2px 2px $tundora;
+}
+
+%focus-de-york {
+  box-shadow: 0 0 2px 2px $de-york;
+}
 
 // shadow
 $shadow-default: 0 2px 4px 0 rgba($black, .25);

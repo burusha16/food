@@ -83,6 +83,7 @@
 
   &__row {
     display: flex;
+    align-items: flex-start;
     margin-top: 20px;
   }
 
@@ -152,6 +153,10 @@
           background-color: $white;
           color: $white;
         }
+      }
+
+      &.cdk-keyboard-focused + .additinal-product__checkbox {
+        box-shadow: 0 0 4px 4px $de-york;
       }
     }
   }

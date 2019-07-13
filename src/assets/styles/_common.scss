@@ -35,3 +35,8 @@
     display: none !important;
   }
 }
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+  box-shadow: none;
+}

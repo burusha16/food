@@ -7,9 +7,11 @@
         <mat-form-field [formGroup]="orderForm" class="__select">
           <mat-select formControlName="dateKey"
                       disableOptionCentering
+                      cdkMonitorElementFocus
                       disableRipple="true"
                       panelClass="menu-header__select">
             <mat-option *ngFor="let option of offersOptions"
+                        cdkMonitorSubtreeFocus
                         [value]="option.value"
                         [ngClass]="{'__c-boulder': !option.available}">
               {{option.viewValue}}

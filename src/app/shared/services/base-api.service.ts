@@ -33,7 +33,7 @@ export class BaseApiService {
   }
 
   get offers$(): Observable<IOffer[]> {
-    const url = isDevMode() ? 'api/actual.json' : 'https://api.partiyaedi.ru/api/v3/goods/actual';
+    const url = isDevMode() ? 'api/actual.json' : 'https://api.chef.yandex/api/v3/goods/actual';
     return this.get(url)
       .pipe(
         map((response: IOffersResponse) => {
