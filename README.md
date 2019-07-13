@@ -1,27 +1,33 @@
-# foodparty
+# FoodParty
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+<div align="center">
+  <a href="http://burusha-angular.herokuapp.com/">
+    <img width="1312" alt="Food party" src="https://user-images.githubusercontent.com/28712079/61175959-c6418f80-a5c0-11e9-9db4-b91a79f97500.png">
+  </a>
+  <br />
+  <a href="https://nodejs.org">
+    <img src="https://user-images.githubusercontent.com/28712079/33223427-503c6844-d170-11e7-9b5f-c8fa114698d0.png" alt="NodeJS" />
+  </a>
+  <a href="http://sass-lang.com/">
+    <img src="https://user-images.githubusercontent.com/28712079/61175997-4ff15d00-a5c1-11e9-8fc4-3def76f8bb5f.png" alt="Angular" />
+  </a>
+  </a>
+  <p>This project released on Angular 7, NodeJS</p>
+</div>
 
-## Development server
+### Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install [Node.js](https://nodejs.org/) to run project and open folder with project in terminal. Install the dependencies and the devDependencies, then build the project :rocket:
+```sh
+$ cd food
+$ npm install
+$ npm start
+```
 
-## Code scaffolding
+#### Build SSR
+```sh
+npm run build:server:serve
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Live Demo
+FoodParty application is deployed on heroku (Cloud Application Platform) and aviable [by link](http://burusha-angular.herokuapp.com/). The application is frozen (needs 20-40 seconds to srart server, server will shut down after 30 minutes of inaction).
