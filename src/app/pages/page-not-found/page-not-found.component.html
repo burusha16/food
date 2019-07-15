@@ -4,8 +4,7 @@
         <h2 class="not-found__title">Страница еще не создана...</h2>
         <h3 class="not-found__text">
           Актуальные страницы:
-          <a href="/">главная</a>,
-          <a href="/menu">меню</a>
+          <a [href]="item.href" *ngFor="let item of releasedPages; let $last = last">{{item.name}}{{$last ? '' : ', '}}</a>
         </h3>
     </div>
   </div>
