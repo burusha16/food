@@ -125,12 +125,20 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
+            "assets": [
+              "src/assets",
+              "src/api"
+            ],
             "styles": [
               "src/assets/styles/app.scss"
             ],
-            "scripts": [],
-            "assets": [
-              "src/assets"
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles"
+              ]
+            },
+            "scripts": [
+              "node_modules/focus-visible/dist/focus-visible.min.js"
             ]
           }
         },

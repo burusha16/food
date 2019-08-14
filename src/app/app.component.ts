@@ -1,8 +1,6 @@
-import * as moment from 'moment';
 import {ChangeDetectionStrategy, Component, Inject, Injector, PLATFORM_ID} from '@angular/core';
 import {ServiceLocator} from '@shared/services/locator.service';
 import {TranslateService} from '@ngx-translate/core';
-
 
 @Component({
   selector: 'app-root',
@@ -15,6 +13,5 @@ export class AppComponent {
               @Inject(PLATFORM_ID) private platformId: string) {
     ServiceLocator.injector = this.injector;
     ServiceLocator.platformId = this.platformId;
-    moment.locale(this.translate.currentLang);
   }
 }
